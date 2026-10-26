@@ -38,7 +38,8 @@ export function initHeader(): void {
   triggers.forEach((trigger) => {
     const name = trigger.dataset.trigger as Menu;
     trigger.addEventListener('mouseenter', () => desktop.matches && set(name));
-    trigger.addEventListener('click', () => set(menu === name ? '' : name));
+    // On desktop, hovering already opened the menu, so a click must not toggle it shut again.
+    trigger.addEventListener('click', () => set(desktop.matches || menu !== name ? name : ''));
   });
 
   burger?.addEventListener('click', () => set(menu === 'mobile' ? '' : 'mobile'));
