@@ -15,5 +15,9 @@ fotos:
     alt: "Light, foto 3"
   - src: ../../assets/productos/light-4.webp
     alt: "Light, foto 4"
+en:
+  nombre: "Light"
+  resumen: "Handmade surf poncho from Lobitos, Piura."
+  descripcion: "[Description pending] Handmade poncho from Lobitos, Piura."
 ---
 [Descripción pendiente] Poncho hecho a mano en Lobitos, Piura.

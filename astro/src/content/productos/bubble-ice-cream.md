@@ -15,5 +15,9 @@ fotos:
     alt: "Bubble Ice Cream, foto 3"
   - src: ../../assets/productos/bubble-ice-cream-4.webp
     alt: "Bubble Ice Cream, foto 4"
+en:
+  nombre: "Bubble Ice Cream"
+  resumen: "Handmade surf poncho from Lobitos, Piura."
+  descripcion: "[Description pending] Handmade poncho from Lobitos, Piura."
 ---
 [Descripción pendiente] Poncho hecho a mano en Lobitos, Piura.

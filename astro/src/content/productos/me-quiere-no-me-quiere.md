@@ -15,5 +15,9 @@ fotos:
     alt: "Me quiere, no me quiere, foto 3"
   - src: ../../assets/productos/me-quiere-no-me-quiere-4.webp
     alt: "Me quiere, no me quiere, foto 4"
+en:
+  nombre: "Me quiere, no me quiere"
+  resumen: "Handmade surf poncho from Lobitos, Piura."
+  descripcion: "[Description pending] Handmade poncho from Lobitos, Piura."
 ---
 [Descripción pendiente] Poncho hecho a mano en Lobitos, Piura.

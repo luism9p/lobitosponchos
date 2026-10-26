@@ -15,5 +15,9 @@ fotos:
     alt: "Lobitos Breeze, foto 3"
   - src: ../../assets/productos/lobitos-breeze-4.webp
     alt: "Lobitos Breeze, foto 4"
+en:
+  nombre: "Lobitos Breeze"
+  resumen: "Handmade surf poncho from Lobitos, Piura."
+  descripcion: "[Description pending] Handmade poncho from Lobitos, Piura."
 ---
 [Descripción pendiente] Poncho hecho a mano en Lobitos, Piura.

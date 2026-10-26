@@ -15,5 +15,9 @@ fotos:
     alt: "Monkey Banana, foto 3"
   - src: ../../assets/productos/monkey-banana-4.webp
     alt: "Monkey Banana, foto 4"
+en:
+  nombre: "Monkey Banana"
+  resumen: "Handmade surf poncho from Lobitos, Piura."
+  descripcion: "[Description pending] Handmade poncho from Lobitos, Piura."
 ---
 [Descripción pendiente] Poncho hecho a mano en Lobitos, Piura.

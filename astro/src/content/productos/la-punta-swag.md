@@ -15,5 +15,9 @@ fotos:
     alt: "La Punta Swag, foto 3"
   - src: ../../assets/productos/la-punta-swag-4.webp
     alt: "La Punta Swag, foto 4"
+en:
+  nombre: "La Punta Swag"
+  resumen: "Handmade surf poncho from Lobitos, Piura."
+  descripcion: "[Description pending] Handmade poncho from Lobitos, Piura."
 ---
 [Descripción pendiente] Poncho hecho a mano en Lobitos, Piura.

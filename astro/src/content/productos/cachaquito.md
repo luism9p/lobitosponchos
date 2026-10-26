@@ -15,5 +15,9 @@ fotos:
     alt: "Cachaquito, foto 3"
   - src: ../../assets/productos/cachaquito-4.webp
     alt: "Cachaquito, foto 4"
+en:
+  nombre: "Cachaquito"
+  resumen: "Handmade surf poncho from Lobitos, Piura."
+  descripcion: "[Description pending] Handmade poncho from Lobitos, Piura."
 ---
 [Descripción pendiente] Poncho hecho a mano en Lobitos, Piura.

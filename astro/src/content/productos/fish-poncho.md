@@ -15,5 +15,9 @@ fotos:
     alt: "Fish Poncho, foto 3"
   - src: ../../assets/productos/fish-poncho-4.webp
     alt: "Fish Poncho, foto 4"
+en:
+  nombre: "Fish Poncho"
+  resumen: "Handmade surf poncho from Lobitos, Piura."
+  descripcion: "[Description pending] Handmade poncho from Lobitos, Piura."
 ---
 [Descripción pendiente] Poncho hecho a mano en Lobitos, Piura.

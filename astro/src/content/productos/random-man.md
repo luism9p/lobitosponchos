@@ -15,5 +15,9 @@ fotos:
     alt: "Random Man, foto 3"
   - src: ../../assets/productos/random-man-4.webp
     alt: "Random Man, foto 4"
+en:
+  nombre: "Random Man"
+  resumen: "Handmade surf poncho from Lobitos, Piura."
+  descripcion: "[Description pending] Handmade poncho from Lobitos, Piura."
 ---
 [Descripción pendiente] Poncho hecho a mano en Lobitos, Piura.

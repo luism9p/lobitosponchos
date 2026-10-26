@@ -15,5 +15,9 @@ fotos:
     alt: "Skittles, foto 3"
   - src: ../../assets/productos/skittles-4.webp
     alt: "Skittles, foto 4"
+en:
+  nombre: "Skittles"
+  resumen: "Handmade surf poncho from Lobitos, Piura."
+  descripcion: "[Description pending] Handmade poncho from Lobitos, Piura."
 ---
 [Descripción pendiente] Poncho hecho a mano en Lobitos, Piura.

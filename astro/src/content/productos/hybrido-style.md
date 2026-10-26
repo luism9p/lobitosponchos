@@ -15,5 +15,9 @@ fotos:
     alt: "Hybrido Style, foto 3"
   - src: ../../assets/productos/hybrido-style-4.webp
     alt: "Hybrido Style, foto 4"
+en:
+  nombre: "Hybrido Style"
+  resumen: "Handmade surf poncho from Lobitos, Piura."
+  descripcion: "[Description pending] Handmade poncho from Lobitos, Piura."
 ---
 [Descripción pendiente] Poncho hecho a mano en Lobitos, Piura.

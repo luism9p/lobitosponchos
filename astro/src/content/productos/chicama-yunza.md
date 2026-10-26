@@ -15,5 +15,9 @@ fotos:
     alt: "Chicama Yunza, foto 3"
   - src: ../../assets/productos/chicama-yunza-4.webp
     alt: "Chicama Yunza, foto 4"
+en:
+  nombre: "Chicama Yunza"
+  resumen: "Handmade surf poncho from Lobitos, Piura."
+  descripcion: "[Description pending] Handmade poncho from Lobitos, Piura."
 ---
 [Descripción pendiente] Poncho hecho a mano en Lobitos, Piura.

@@ -15,5 +15,9 @@ fotos:
     alt: "Ying & Yang, foto 3"
   - src: ../../assets/productos/ying-yang-4.webp
     alt: "Ying & Yang, foto 4"
+en:
+  nombre: "Ying & Yang"
+  resumen: "Handmade surf poncho from Lobitos, Piura."
+  descripcion: "[Description pending] Handmade poncho from Lobitos, Piura."
 ---
 [Descripción pendiente] Poncho hecho a mano en Lobitos, Piura.

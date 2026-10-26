@@ -15,5 +15,9 @@ fotos:
     alt: "Blueberry Chilcano, foto 3"
   - src: ../../assets/productos/blueberry-chilcano-4.webp
     alt: "Blueberry Chilcano, foto 4"
+en:
+  nombre: "Blueberry Chilcano"
+  resumen: "Handmade surf poncho from Lobitos, Piura."
+  descripcion: "[Description pending] Handmade poncho from Lobitos, Piura."
 ---
 [Descripción pendiente] Poncho hecho a mano en Lobitos, Piura.
