@@ -28,7 +28,7 @@ const heading = 'text-[11px] uppercase tracking-[0.3em] opacity-60';
         href={whatsappUrl()}
         target="_blank"
         rel="noopener"
-        class="inline-flex min-h-12 origin-left rotate-[2.5deg] items-center gap-3 border-[3px] border-white bg-white px-[26px] pb-4 pt-[18px] font-display text-[clamp(22px,4vw,34px)] uppercase leading-none text-black outline-2 -outline-offset-[7px] outline-black transition-transform duration-[250ms] hover:-rotate-[1.5deg] hover:scale-[1.03] hover:no-underline"
+        class="inline-flex w-full xs:w-auto min-h-[44px] origin-left rotate-[2.5deg] items-center gap-3 border-[3px] border-white bg-white px-[26px] pb-4 pt-[18px] font-display text-[clamp(22px,4vw,34px)] uppercase leading-none text-black outline-2 -outline-offset-[7px] outline-black transition-transform duration-[250ms] hover:-rotate-[1.5deg] hover:scale-[1.03] hover:no-underline xs:w-auto"
       >
         <WhatsAppIcon size={18} />
         <span>{t('footer.orderBtn')}</span>
@@ -43,11 +43,11 @@ const heading = 'text-[11px] uppercase tracking-[0.3em] opacity-60';
           <a href={catalogoUrl(lang)} class={link}>{t('footer.ponchos')}</a>
           <a href={whatsappUrl(t('wa.custom'))} target="_blank" rel="noopener" class={link}>{t('footer.custom')}</a>
         </div>
-        <div class="flex rotate-[1.2deg] flex-col gap-3">
+        <div class="flex rotate-[1.2deg] flex-col gap-0.5">
           <div class={heading}>{t('footer.contact')}</div>
-          <a href={whatsappUrl()} target="_blank" rel="noopener" class="text-base text-white">WhatsApp {site.whatsappLabel}</a>
-          <a href={instagramUrl} target="_blank" rel="noopener" class="text-base text-white">Instagram {site.instagramHandle}</a>
-          <a href={`mailto:${site.email}`} class="text-base text-white">{site.email}</a>
+          <a href={whatsappUrl()} target="_blank" rel="noopener" class="block py-2 text-base text-white">WhatsApp {site.whatsappLabel}</a>
+          <a href={instagramUrl} target="_blank" rel="noopener" class="block py-2 text-base text-white">Instagram {site.instagramHandle}</a>
+          <a href={`mailto:${site.email}`} class="block py-2 text-base text-white">{site.email}</a>
         </div>
         <div class="flex flex-col gap-2.5">
           <div class={heading}>{t('footer.where')}</div>

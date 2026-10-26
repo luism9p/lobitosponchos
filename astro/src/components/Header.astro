@@ -108,7 +108,7 @@ const langLink = 'px-1 hover:underline aria-[current=true]:font-bold aria-[curre
         ]}
       >
         <WhatsAppIcon />
-        <span>{t('nav.whatsapp')}</span>
+        <span class="hidden xs:inline">{t('nav.whatsapp')}</span>
       </a>
       <button
         type="button"
@@ -184,7 +184,7 @@ const langLink = 'px-1 hover:underline aria-[current=true]:font-bold aria-[curre
   <!-- Mobile menu -->
   <div
     data-panel="mobile"
-    class="absolute inset-x-0 top-0 z-[1] hidden h-svh flex-col overflow-y-auto bg-white px-5 pb-10 pt-[90px] text-black data-[open]:flex nav:hidden!"
+    class="absolute inset-x-0 top-0 z-[1] hidden h-svh flex-col overflow-y-auto bg-white px-5 pb-10 pt-[90px] text-black data-[open]:flex nav:hidden! [height:100dvh]"
   >
     <a href={home} class={mobileTop}>{t('nav.home')}</a>
     <details class="group/acc">
@@ -212,18 +212,18 @@ const langLink = 'px-1 hover:underline aria-[current=true]:font-bold aria-[curre
     </details>
     <a href={url(lang, 'causa')} class={mobileTop}>{t('nav.cause')}</a>
     <a href={b2bUrl} target="_blank" rel="noopener" class={mobileTop}>{t('nav.b2b')}</a>
-    <div class="mt-9 flex flex-col gap-3.5 text-[13px] uppercase tracking-[0.14em]">
-      <a href={url(lang, 'home', undefined, 'contacto')} class="text-black">{t('nav.contact')}</a>
-      <a href={instagramUrl} target="_blank" rel="noopener" class="text-black">{t('nav.instagram')}</a>
+    <div class="mt-9 flex flex-col gap-1 text-[13px] uppercase tracking-[0.14em]">
+      <a href={url(lang, 'home', undefined, 'contacto')} class="block py-3 text-black">{t('nav.contact')}</a>
+      <a href={instagramUrl} target="_blank" rel="noopener" class="block py-3 text-black">{t('nav.instagram')}</a>
       {showSwitcher && (
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 py-2">
           <a href={alternates?.es} hreflang="es" lang="es" aria-current={lang === 'es' ? 'true' : undefined} class={langLink + ' text-black'}>ES</a>
           <span aria-hidden="true">|</span>
           <a href={alternates?.en} hreflang="en" lang="en" aria-current={lang === 'en' ? 'true' : undefined} class={langLink + ' text-black'}>EN</a>
         </div>
       )}
     </div>
-    <div class="mt-auto origin-bottom-left -rotate-2 pt-8 font-display text-[44px] uppercase leading-[.9]">Lobitos<br />Ponchos</div>
+    <div class="mt-auto shrink-0 origin-bottom-left -rotate-2 pt-8 font-display text-[44px] uppercase leading-[.9]">Lobitos<br />Ponchos</div>
   </div>
 </header>
 
