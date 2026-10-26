@@ -2,9 +2,9 @@
 export const site = {
   name: 'Lobitos Ponchos',
   tagline: 'Hecho a mano en Lobitos, Piura, Perú',
-  // Placeholder number carried over from the Claude Design mockup.
-  whatsapp: '51900000000',
-  whatsappLabel: '+51 900 000 000',
+  // Tita's WhatsApp (Switzerland).
+  whatsapp: '41789140609',
+  whatsappLabel: '+41 78 914 06 09',
   instagram: 'lobitosponchos',
   instagramHandle: '@lobitosponchos',
   email: 'hola@lobitosponchos.pe',
