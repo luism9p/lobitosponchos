@@ -234,7 +234,7 @@ export function initAnimations(): void {
   });
 
   // E) Índice de navegación de causas (nav de 4 columnas)
-  const causaNavItems = document.querySelectorAll<HTMLElement>('nav[aria-label="Lo que más nos importa"] > a');
+  const causaNavItems = document.querySelectorAll<HTMLElement>('nav[data-causa-index] > a');
   if (causaNavItems.length > 0) {
     causaNavItems.forEach((el) => el.classList.add('reveal-ready'));
     gsap.fromTo(
@@ -247,7 +247,7 @@ export function initAnimations(): void {
         stagger: 0.1,
         ease: 'power2.out',
         scrollTrigger: {
-          trigger: 'nav[aria-label="Lo que más nos importa"]',
+          trigger: 'nav[data-causa-index]',
           start: 'top 88%',
           once: true,
         },

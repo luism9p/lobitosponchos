@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CausaBlock from '../components/CausaBlock.astro';
+import Chip from '../components/Chip.astro';
+import Img from '../components/Img.astro';
+import Lines from '../components/Lines.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { url, useTranslations, type Lang } from '../i18n';
+import feria from '../assets/causa/feria.jpeg';
+import abuela from '../assets/causa/abuela.jpeg';
+import playa from '../assets/causa/playa.jpeg';
+import jovenes from '../assets/causa/jovenes.jpeg';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const { t, list } = useTranslations(lang);
+
+const indexTitles = list('cause.indexItems');
+const indice = [
+  { id: 'causa-1', n: '01', border: 'border-r-[1.5px] border-b-[1.5px] md:border-b-0' },
+  { id: 'causa-2', n: '02', border: 'border-b-[1.5px] md:border-b-0 md:border-r-[1.5px]' },
+  { id: 'causa-3', n: '03', border: 'border-r-[1.5px]' },
+  { id: 'causa-4', n: '04', border: '' },
+].map((item, i) => ({ ...item, title: indexTitles[i] }));
+const counter = (n: string) => t('cause.counter', { n });
+
+const lead = 'm-0 text-lg font-medium leading-[1.6] text-pretty';
+const body = 'm-0 text-base leading-[1.65] text-pretty';
+---
+
+<BaseLayout
+  lang={lang}
+  route="causa"
+  title={t('cause.seoTitle')}
+  description={t('cause.seoDescription')}
+  variant="solid"
+  current="causa"
+>
+  <main>
+    <section class="mx-auto max-w-[1180px] px-5 pt-[150px]">
+      <Chip class="mb-[22px]">{t('cause.chip')}</Chip>
+      <div class="grid grid-cols-1 items-start gap-6 split:grid-cols-[1.4fr_1fr]">
+        <div>
+          <h1 class="m-0 mb-[22px] inline-block border-b-[3px] border-black pb-4 font-display text-[clamp(42px,6.4vw,88px)] font-normal uppercase leading-[.98]"><Lines text={t('cause.title')} /></h1>
+          <p class="m-0 max-w-[580px] text-[19px] leading-[1.55] text-pretty">{t('cause.lead')}</p>
+        </div>
+        <div class="flex flex-col items-start gap-3.5 split:items-end">
+          <div class="flex size-[150px] -rotate-6 flex-col items-center justify-center gap-1.5 rounded-full border-[1.5px] border-black bg-cream p-2.5 text-center">
+            <span class="font-display text-sm uppercase leading-[1.1]"><Lines text={t('cause.stampTop')} /></span>
+            <span class="h-[1.5px] w-[34px] bg-black"></span>
+            <span class="text-[9px] uppercase tracking-[0.14em]">{t('cause.stampBottom')}</span>
+          </div>
+          <span class="whitespace-nowrap bg-black px-3.5 py-[9px] text-[10px] font-semibold uppercase tracking-[0.16em] text-white">{t('cause.values')}</span>
+        </div>
+      </div>
+      <p class="mb-0 mt-12 max-w-[620px] text-base leading-[1.65] text-pretty">{t('cause.intro')}</p>
+      <nav data-causa-index aria-label={t('cause.indexLabel')} class="mt-[22px] grid grid-cols-2 border-t-[1.5px] border-dashed border-black md:grid-cols-4">
+        {indice.map((item) => (
+          <a href={`#${item.id}`} class:list={['flex flex-col gap-3 border-black px-4 pb-[22px] pt-[18px] text-black transition-colors duration-150 hover:bg-black hover:text-white hover:no-underline', item.border]}>
+            <span class="flex justify-between text-[10px] font-semibold uppercase tracking-[0.16em]"><span>{item.n}</span><span aria-hidden="true">↓</span></span>
+            <span class="font-display text-xl uppercase leading-[1.05]">{item.title}</span>
+          </a>
+        ))}
+      </nav>
+    </section>
+
+    <section aria-hidden="true" class="mt-14 border-y-2 border-black">
+      <div class="grid h-16 grid-cols-2">
+        <div class="bg-[repeating-linear-gradient(-45deg,#000_0_10px,#2b2b2b_10px_20px)]"></div>
+        <div class="bg-white"></div>
+      </div>
+    </section>
+
+    <CausaBlock id="causa-1" number="01" counter={counter('01')} photo={feria} alt={t('cause.c1.photoAlt')} ratio="aspect-[4/5]" position="50% 55%" photoSide="left">
+      <Fragment slot="title"><Lines text={t('cause.c1.title')} /></Fragment>
+      <p class={lead}>{t('cause.c1.lead')}</p>
+      <p class={body}>{t('cause.c1.p1')}</p>
+      <p class={body}>{t('cause.c1.p2')}</p>
+      <p class={body}>{t('cause.c1.p3')}</p>
+      <div class="mt-1.5 w-full border-[1.5px] border-black bg-white">
+        <div class="bg-black px-3.5 py-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-white">{t('cause.c1.collabTitle')}</div>
+        <div class="flex flex-col items-start gap-3 px-[18px] pb-[22px] pt-[18px]">
+          <p class="m-0 text-lg font-semibold leading-[1.45] text-pretty">{t('cause.c1.collabLead')}</p>
+          <p class={body}>{t('cause.c1.collabText')}</p>
+          <WhatsAppButton class="mt-1" message={t('wa.collab')}>{t('cause.c1.collabBtn')}</WhatsAppButton>
+        </div>
+      </div>
+    </CausaBlock>
+
+    <CausaBlock id="causa-2" number="02" counter={counter('02')} photo={abuela} alt={t('cause.c2.photoAlt')} ratio="aspect-[3/4]" position="50% 15%" photoSide="right">
+      <Fragment slot="title"><Lines text={t('cause.c2.title')} /></Fragment>
+      <p class={lead}>{t('cause.c2.lead')}</p>
+      <p class={body}>{t('cause.c2.p1')}</p>
+      <p class={body}>{t('cause.c2.p2')}</p>
+      <a href={url(lang, 'equipo')} class="mt-1.5 self-start border-b-2 border-black pb-[3px] text-xs font-semibold uppercase tracking-[0.14em] hover:no-underline">{t('cause.c2.link')}</a>
+    </CausaBlock>
+
+    <CausaBlock id="causa-3" number="03" counter={counter('03')} photo={playa} alt={t('cause.c3.photoAlt')} ratio="aspect-[3/4]" position="50% 85%" photoSide="left">
+      <Fragment slot="title"><Lines text={t('cause.c3.title')} /></Fragment>
+      <p class={lead}>{t('cause.c3.lead')}</p>
+      <p class={body}>{t('cause.c3.p1')}</p>
+      <p class="m-0 text-lg font-semibold leading-[1.9] text-pretty"><span class="box-decoration-clone bg-black px-2 py-[3px] text-white">{t('cause.c3.highlight')}</span></p>
+    </CausaBlock>
+
+    <section id="causa-4" class="scroll-mt-[76px] border-b-2 border-black px-5 pb-24 pt-[88px]">
+      <div class="mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-9 split:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] split:gap-14">
+        <div class="flex flex-col gap-[18px]">
+          <Chip class="self-start">{counter('04')}</Chip>
+          <div class="relative mt-2.5">
+            <span aria-hidden="true" class="pointer-events-none absolute -top-[18px] right-0 font-display text-[clamp(64px,9vw,120px)] leading-none text-transparent opacity-[.16] [-webkit-text-stroke:1.5px_#000]">04</span>
+            <h2 class="relative m-0 max-w-[85%] font-display text-[clamp(30px,3.8vw,50px)] font-normal uppercase leading-[1.02] text-balance">{t('cause.c4.title')}</h2>
+          </div>
+          <div class="border-t-[1.5px] border-dashed border-black"></div>
+          <p class="m-0 font-display text-[clamp(24px,2.8vw,36px)] uppercase leading-[1.1] text-balance">{t('cause.c4.quote')}</p>
+          <p class={body}>{t('cause.c4.p1')}</p>
+          <p class={body}>{t('cause.c4.p2')}</p>
+        </div>
+        <figure class="order-first m-0 rotate-[1.5deg] border-2 border-black bg-white p-3 split:order-none">
+          <Img src={jovenes} alt={t('cause.c4.photoAlt')} sizes="(min-width: 1180px) 600px, (min-width: 860px) 50vw, 100vw" widths={[480, 768, 960, 1200]} class="block aspect-[4/3] w-full border-[1.5px] border-black object-cover" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="bg-black px-5 pb-24 pt-[100px] text-center text-white">
+      <Chip tone="dark" class="mb-7 -rotate-[1.5deg] px-4 py-[7px]">{t('cause.closing.chip')}</Chip>
+      <h2 class="mx-auto mb-6 max-w-[1000px] font-display text-[clamp(30px,5.2vw,64px)] font-normal uppercase leading-[1.06] text-balance">{t('cause.closing.title')}</h2>
+      <p class="mx-auto mb-10 max-w-[600px] text-[19px] leading-[1.55] text-pretty">{t('cause.closing.text')}</p>
+      <div class="flex flex-wrap justify-center gap-3.5">
+        <a href={url(lang, 'catalogo')} class="inline-block border-2 border-white bg-white px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-black hover:no-underline">{t('cause.closing.collection')}</a>
+        <a href={url(lang, 'equipo')} class="inline-block border-2 border-white bg-black px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-white hover:bg-white hover:text-black hover:no-underline">{t('cause.closing.team')}</a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

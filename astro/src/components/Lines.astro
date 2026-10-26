@@ -1,0 +1,9 @@
+---
+// Renders text where "\n" means a line break (used for headings that wrap on purpose).
+interface Props {
+  text: string;
+}
+const lines = Astro.props.text.split('\n');
+---
+
+{lines.map((line, i) => <Fragment>{i > 0 && <br />}{line}</Fragment>)}

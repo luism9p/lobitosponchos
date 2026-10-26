@@ -12,8 +12,10 @@ interface Props {
   ratio: 'aspect-[4/5]' | 'aspect-[3/4]';
   position: string;
   photoSide: 'left' | 'right';
+  /** Text of the little tag over the photo, e.g. "Causa 01 / 04". */
+  counter: string;
 }
-const { id, number, photo, alt, ratio, position, photoSide } = Astro.props;
+const { id, number, photo, alt, ratio, position, photoSide, counter } = Astro.props;
 const photoLeft = photoSide === 'left';
 ---
 
@@ -27,7 +29,7 @@ const photoLeft = photoSide === 'left';
     >
       <div class:list={['relative overflow-hidden split:sticky split:top-[76px] split:aspect-auto split:h-[min(calc(100svh-76px),68vw)]', ratio]}>
         <Img src={photo} alt={alt} sizes="(min-width: 860px) 50vw, 100vw" widths={[480, 768, 960, 1280]} position={position} class="absolute inset-0 size-full object-cover" />
-        <span class="absolute left-3.5 top-3.5 z-[2] border-[1.5px] border-black bg-white px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-black">Causa {number} / 04</span>
+        <span class="absolute left-3.5 top-3.5 z-[2] border-[1.5px] border-black bg-white px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-black">{counter}</span>
       </div>
     </div>
     <div

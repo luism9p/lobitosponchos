@@ -5,36 +5,46 @@ import logo from '../assets/brand/logo.png';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../data/site';
+import { englishLive, languages, url, type Lang, type RouteKey } from '../i18n';
 
 interface Props {
+  lang: Lang;
+  /** Which page this is, so the language switcher and hreflang tags can find its twin. */
+  route: RouteKey;
+  /** Product slug for catalogue detail pages. */
+  slug?: string;
   title: string;
   description: string;
   variant?: 'overlay' | 'solid';
   current?: 'inicio' | 'catalogo' | 'causa' | 'equipo';
 }
-const { title, description, variant = 'solid', current } = Astro.props;
+const { lang, route, slug, title, description, variant = 'solid', current } = Astro.props;
 const fullTitle = title === site.name ? title : `${title} · ${site.name}`;
 const icon = await getImage({ src: logo, width: 96, height: 96, format: 'png' });
+const alternates = Object.fromEntries(languages.map((l) => [l, url(l, route, slug)])) as Record<Lang, string>;
+const noindex = lang === 'en' && !englishLive;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="es_PE" />
+    <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'es_PE'} />
     <link rel="icon" type="image/png" href={icon.src} />
+    {englishLive && languages.map((l) => <link rel="alternate" hreflang={l} href={alternates[l]} />)}
     <slot name="head" />
   </head>
   <body class="overflow-x-clip">
-    <Header variant={variant} current={current} />
+    <Header lang={lang} variant={variant} current={current} alternates={alternates} />
     <slot />
-    <Footer />
+    <Footer lang={lang} />
 
     <script>
       import { initAnimations } from '../scripts/animations';

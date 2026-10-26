@@ -1,24 +1,29 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import Img from './Img.astro';
+import { localizeProduct } from '../data/products';
+import { url, useTranslations, type Lang } from '../i18n';
 
 interface Props {
+  lang: Lang;
   producto: CollectionEntry<'productos'>;
   /** The first cards of a list load right away; the rest wait until they are near the viewport. */
   eager?: boolean;
 }
-const { producto, eager = false } = Astro.props;
-const { nombre, precio, etiqueta, resumen, fotos, categoria } = producto.data;
+const { lang, producto, eager = false } = Astro.props;
+const { t } = useTranslations(lang);
+const { precio, fotos, categoria } = producto.data;
+const { nombre, etiqueta, resumen } = localizeProduct(producto, lang);
 const cover = fotos[0];
-const precioTexto = precio ? `S/ ${precio.toLocaleString('es-PE')}` : 'Consultar precio';
+const precioTexto = precio ? `S/ ${precio.toLocaleString('es-PE')}` : t('product.priceOnRequest');
 ---
 
 <li data-product data-cat={categoria} class="list-none">
-  <a href={`/catalogo/${producto.id}/`} class="group block text-black hover:no-underline">
+  <a href={url(lang, 'catalogo', producto.id)} class="group block text-black hover:no-underline">
     <div class="relative aspect-[4/5] overflow-hidden border-2 border-black bg-black">
       <Img
         src={cover.src}
-        alt={cover.alt}
+        alt={`${nombre}, ${t('product.photo', { n: 1 })}`}
         sizes="(min-width: 1180px) 380px, (min-width: 860px) 33vw, 50vw"
         widths={[320, 480, 640, 760]}
         eager={eager}

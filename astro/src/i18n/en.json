@@ -1,0 +1,317 @@
+{
+  "nav": {
+    "homeAria": "",
+    "main": "",
+    "home": "",
+    "shop": "",
+    "about": "",
+    "cause": "",
+    "b2b": "",
+    "whatsapp": "",
+    "menu": "",
+    "contact": "",
+    "instagram": "",
+    "team": "",
+    "history": "",
+    "shopCategories": "",
+    "ordersByWhatsApp": "",
+    "viewCollection": "",
+    "language": ""
+  },
+  "wa": {
+    "b2b": "",
+    "custom": "",
+    "collab": "",
+    "product": ""
+  },
+  "categories": {
+    "ponchos": {
+      "name": "",
+      "lines": [
+        "",
+        ""
+      ]
+    },
+    "kids": {
+      "name": "",
+      "lines": [
+        "",
+        ""
+      ]
+    },
+    "fundas": {
+      "name": "",
+      "lines": [
+        "",
+        ""
+      ]
+    },
+    "accessories": {
+      "name": "",
+      "lines": [
+        "",
+        ""
+      ]
+    }
+  },
+  "hero": {
+    "carousel": "",
+    "tagline": "",
+    "goTo": "",
+    "prev": "",
+    "next": "",
+    "slides": [
+      "",
+      "",
+      ""
+    ]
+  },
+  "home": {
+    "seoTitle": "",
+    "seoDescription": "",
+    "barLines": "",
+    "barHandmade": "",
+    "categoriesLabel": "",
+    "barPeople": "",
+    "barWorkshop": "",
+    "causeTitle1": "",
+    "causeTitle2": "",
+    "causePhotoAlt": "",
+    "causeHeadline": "",
+    "meetTeam": "",
+    "materialBarLeft": "",
+    "materialBarRight": "",
+    "stickerTop": "",
+    "stickerBottom": "",
+    "originBadge": "",
+    "mountainOcean": "",
+    "originLabel": "",
+    "originQuote": "",
+    "ourStory": "",
+    "loomAlt": "",
+    "loomTitle": "",
+    "loomSubtitle": "",
+    "lifeEyebrow": "",
+    "lifeTitle": "",
+    "lifeChip": "",
+    "gallery": [
+      {
+        "caption": "",
+        "alt": ""
+      },
+      {
+        "caption": "",
+        "alt": ""
+      },
+      {
+        "caption": "",
+        "alt": ""
+      }
+    ],
+    "marquee": ""
+  },
+  "instagram": {
+    "label": "",
+    "title": "",
+    "ariaLabel": "",
+    "location": "",
+    "viewFeed": "",
+    "videoLabel": "",
+    "postLabel": "",
+    "audience": "",
+    "text": "",
+    "connect": "",
+    "follow": ""
+  },
+  "footer": {
+    "talk": "",
+    "orderBtn": "",
+    "shop": "",
+    "ponchos": "",
+    "beachwear": "",
+    "custom": "",
+    "contact": "",
+    "where": "",
+    "place": "",
+    "country": "",
+    "madeIn": ""
+  },
+  "cause": {
+    "seoTitle": "",
+    "seoDescription": "",
+    "chip": "",
+    "title": "",
+    "lead": "",
+    "stampTop": "",
+    "stampBottom": "",
+    "values": "",
+    "intro": "",
+    "indexLabel": "",
+    "indexItems": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "counter": "",
+    "c1": {
+      "title": "",
+      "photoAlt": "",
+      "lead": "",
+      "p1": "",
+      "p2": "",
+      "p3": "",
+      "collabTitle": "",
+      "collabLead": "",
+      "collabText": "",
+      "collabBtn": ""
+    },
+    "c2": {
+      "title": "",
+      "photoAlt": "",
+      "lead": "",
+      "p1": "",
+      "p2": "",
+      "link": ""
+    },
+    "c3": {
+      "title": "",
+      "photoAlt": "",
+      "lead": "",
+      "p1": "",
+      "highlight": ""
+    },
+    "c4": {
+      "title": "",
+      "quote": "",
+      "p1": "",
+      "p2": "",
+      "photoAlt": ""
+    },
+    "closing": {
+      "chip": "",
+      "title": "",
+      "text": "",
+      "collection": "",
+      "team": ""
+    }
+  },
+  "team": {
+    "seoTitle": "",
+    "seoDescription": "",
+    "chip": "",
+    "title": "",
+    "lead": "",
+    "stampTop": "",
+    "stampBottom": "",
+    "register": "",
+    "stats": [
+      {
+        "label": "",
+        "value": ""
+      },
+      {
+        "label": "",
+        "value": ""
+      },
+      {
+        "label": "",
+        "value": ""
+      },
+      {
+        "label": "",
+        "value": ""
+      }
+    ],
+    "photoPlaceholder": "",
+    "photoCaption": "",
+    "results": "",
+    "closingChip": "",
+    "closingTitle": "",
+    "collection": "",
+    "values": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "people": [
+      {
+        "label": "",
+        "technique": "",
+        "name": "",
+        "bio": "",
+        "stat1": "",
+        "stat2": "",
+        "footLeft": "",
+        "footRight": ""
+      },
+      {
+        "label": "",
+        "technique": "",
+        "name": "",
+        "bio": "",
+        "stat1": "",
+        "stat2": "",
+        "footLeft": "",
+        "footRight": ""
+      },
+      {
+        "label": "",
+        "technique": "",
+        "name": "",
+        "bio": "",
+        "stat1": "",
+        "stat2": "",
+        "footLeft": "",
+        "footRight": ""
+      },
+      {
+        "label": "",
+        "technique": "",
+        "name": "",
+        "bio": "",
+        "stat1": "",
+        "stat2": "",
+        "footLeft": "",
+        "footRight": ""
+      },
+      {
+        "label": "",
+        "technique": "",
+        "name": "",
+        "bio": "",
+        "stat1": "",
+        "stat2": "",
+        "footLeft": "",
+        "footRight": ""
+      }
+    ]
+  },
+  "catalog": {
+    "seoTitle": "",
+    "seoDescription": "",
+    "chip": "",
+    "title": "",
+    "lead": "",
+    "filterLabel": "",
+    "all": "",
+    "products": "",
+    "empty": "",
+    "ctaTitle": "",
+    "ctaBtn": ""
+  },
+  "product": {
+    "breadcrumb": "",
+    "back": "",
+    "priceOnRequest": "",
+    "photo": "",
+    "viewPhoto": "",
+    "sizes": "",
+    "colors": "",
+    "orderNote": "",
+    "orderBtn": "",
+    "related": "",
+    "defaultSeo": ""
+  }
+}

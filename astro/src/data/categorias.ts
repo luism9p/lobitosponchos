@@ -3,22 +3,22 @@ import ponchos from '../assets/categorias/ponchos.webp';
 import ponchokids from '../assets/categorias/ponchokids.webp';
 import fundas from '../assets/categorias/fundas.webp';
 import accessories from '../assets/categorias/accessories.jpeg';
+import { url, type Lang } from '../i18n';
 
 export type CategoriaId = 'ponchos' | 'kids' | 'fundas' | 'accessories';
 
 export interface Categoria {
   id: CategoriaId;
-  nombre: string;
-  /** Two-line label used on the home grid cards. */
-  lineas: [string, string?];
   imagen: ImageMetadata;
 }
 
+// Category names live in src/i18n/*.json under `categories.<id>`.
 export const categorias: Categoria[] = [
-  { id: 'ponchos', nombre: 'Lobitos Ponchos', lineas: ['Lobitos', 'Ponchos'], imagen: ponchos },
-  { id: 'kids', nombre: 'Lobitos Ponchos Kids', lineas: ['Lobitos', 'Ponchos Kids'], imagen: ponchokids },
-  { id: 'fundas', nombre: 'Fundas', lineas: ['Fundas'], imagen: fundas },
-  { id: 'accessories', nombre: 'Accessories', lineas: ['Accessories'], imagen: accessories },
+  { id: 'ponchos', imagen: ponchos },
+  { id: 'kids', imagen: ponchokids },
+  { id: 'fundas', imagen: fundas },
+  { id: 'accessories', imagen: accessories },
 ];
 
-export const catalogoUrl = (cat?: CategoriaId) => (cat ? `/catalogo/?cat=${cat}` : '/catalogo/');
+export const catalogoUrl = (lang: Lang, cat?: CategoriaId) =>
+  cat ? `${url(lang, 'catalogo')}?cat=${cat}` : url(lang, 'catalogo');

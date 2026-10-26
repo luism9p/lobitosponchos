@@ -4,24 +4,25 @@ import carr1 from '../assets/hero/carr1.webp';
 import carr2 from '../assets/hero/carr2.webp';
 import carr3 from '../assets/hero/carr3.webp';
 
+import { useTranslations, type Lang } from '../i18n';
+
 interface Props {
+  lang: Lang;
   /** Seconds each slide stays on screen. */
   autoplay?: number;
 }
-const { autoplay = 4 } = Astro.props;
+const { lang, autoplay = 4 } = Astro.props;
+const { t, list } = useTranslations(lang);
+const alts = list('hero.slides');
 
-const slides = [
-  { src: carr1, alt: '¡Wao! Un poncho de Lobitos Ponchos: un niño con un cachorro en brazos y jóvenes con ponchos de colores en la playa' },
-  { src: carr2, alt: 'Hecho por manos lobiteñas: dos de nuestras abuelas cosiendo en sus máquinas, con la iglesia de Lobitos al fondo' },
-  { src: carr3, alt: 'Tus colores, tu diseño, tu estilo: un surfista en una ola y jóvenes con ponchos bicolor' },
-];
+const slides = [carr1, carr2, carr3].map((src, i) => ({ src, alt: alts[i] }));
 ---
 
 <section
   id="top"
   data-carousel
   data-autoplay={autoplay}
-  aria-roledescription="carrusel"
+  aria-roledescription={t('hero.carousel')}
   aria-label="Lobitos Ponchos"
   class="relative h-[400px] w-full touch-pan-y overflow-hidden bg-black split:h-[650px]"
 >
@@ -48,7 +49,7 @@ const slides = [
   <div class="absolute inset-x-0 bottom-[18px] flex flex-col items-center gap-3.5 px-[18px]">
     <div class="text-center text-white">
       <h1 class="font-display text-[clamp(28px,6vw,56px)] font-normal leading-[.95] tracking-[0.02em]">LOBITOS PONCHOS</h1>
-      <p class="mt-1.5 text-[10px] uppercase tracking-[0.34em] opacity-90">Lobitos · Piura · Perú</p>
+      <p class="mt-1.5 text-[10px] uppercase tracking-[0.34em] opacity-90">{t('hero.tagline')}</p>
     </div>
     <div class="flex items-center gap-2.5">
       {slides.map((_, i) => (
@@ -56,7 +57,7 @@ const slides = [
           type="button"
           data-dot
           data-active={i === 0 ? '' : undefined}
-          aria-label={`Ir a la imagen ${i + 1}`}
+          aria-label={t('hero.goTo', { n: i + 1 })}
           class="box-content h-[3px] w-[34px] cursor-pointer border-0 bg-white bg-clip-content px-1 py-3 opacity-35 data-[active]:opacity-100"
         ></button>
       ))}
@@ -64,13 +65,13 @@ const slides = [
   </div>
 
   <div class="absolute bottom-4 right-4 flex items-stretch border border-black bg-black">
-    <button type="button" data-prev aria-label="Anterior" class="flex size-[38px] cursor-pointer items-center justify-center border-r border-white/25 bg-black text-[15px] leading-none text-white hover:bg-[#222]">←</button>
+    <button type="button" data-prev aria-label={t('hero.prev')} class="flex size-[38px] cursor-pointer items-center justify-center border-r border-white/25 bg-black text-[15px] leading-none text-white hover:bg-[#222]">←</button>
     <div class="flex items-center gap-[5px] bg-white px-3" aria-hidden="true">
       {slides.map((_, i) => (
         <span data-square data-active={i === 0 ? '' : undefined} class="size-[7px] bg-[#d4d4d4] data-[active]:bg-black"></span>
       ))}
     </div>
-    <button type="button" data-next aria-label="Siguiente" class="flex size-[38px] cursor-pointer items-center justify-center border-l border-white/25 bg-black text-[15px] leading-none text-white hover:bg-[#222]">→</button>
+    <button type="button" data-next aria-label={t('hero.next')} class="flex size-[38px] cursor-pointer items-center justify-center border-l border-white/25 bg-black text-[15px] leading-none text-white hover:bg-[#222]">→</button>
   </div>
 </section>
 

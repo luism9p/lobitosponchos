@@ -1,0 +1,267 @@
+{
+  "nav": {
+    "homeAria": "Lobitos Ponchos, inicio",
+    "main": "Principal",
+    "home": "Inicio",
+    "shop": "Tienda",
+    "about": "Nosotros",
+    "cause": "La Causa",
+    "b2b": "B2B",
+    "whatsapp": "WhatsApp",
+    "menu": "Menú",
+    "contact": "Contacto",
+    "instagram": "Instagram",
+    "team": "Equipo",
+    "history": "Historia",
+    "shopCategories": "Tienda — categorías",
+    "ordersByWhatsApp": "Pedidos y consultas por WhatsApp",
+    "viewCollection": "Ver colección →",
+    "language": "Idioma"
+  },
+  "wa": {
+    "b2b": "Hola, quiero información para compras al por mayor (B2B).",
+    "custom": "Hola, quiero pedir un poncho hecho a pedido.",
+    "collab": "Hola, quiero colaborar con Lobitos Ponchos: tengo una idea o un material que podría servirles.",
+    "product": "Hola, me interesa el {name} de {site}. ¿Me das más información sobre tallas, colores y tiempos de entrega?"
+  },
+  "categories": {
+    "ponchos": { "name": "Lobitos Ponchos", "lines": ["Lobitos", "Ponchos"] },
+    "kids": { "name": "Lobitos Ponchos Kids", "lines": ["Lobitos", "Ponchos Kids"] },
+    "fundas": { "name": "Fundas", "lines": ["Fundas", ""] },
+    "accessories": { "name": "Accessories", "lines": ["Accessories", ""] }
+  },
+  "hero": {
+    "carousel": "carrusel",
+    "tagline": "Lobitos · Piura · Perú",
+    "goTo": "Ir a la imagen {n}",
+    "prev": "Anterior",
+    "next": "Siguiente",
+    "slides": [
+      "¡Wao! Un poncho de Lobitos Ponchos: un niño con un cachorro en brazos y jóvenes con ponchos de colores en la playa",
+      "Hecho por manos lobiteñas: dos de nuestras abuelas cosiendo en sus máquinas, con la iglesia de Lobitos al fondo",
+      "Tus colores, tu diseño, tu estilo: un surfista en una ola y jóvenes con ponchos bicolor"
+    ]
+  },
+  "home": {
+    "seoTitle": "Lobitos Ponchos",
+    "seoDescription": "Ponchos de surf hechos a mano en Lobitos, Piura, Perú, por nuestras abuelas y jóvenes del pueblo. Pide el tuyo por WhatsApp.",
+    "barLines": "Líneas de producción artesanal",
+    "barHandmade": "HECHO A MANO · 100%",
+    "categoriesLabel": "Categorías",
+    "barPeople": "Nuestra gente, nuestro oficio",
+    "barWorkshop": "Taller Lobitos · Piura, Perú",
+    "causeTitle1": "Nuestra",
+    "causeTitle2": "Causa",
+    "causePhotoAlt": "El equipo de Lobitos Ponchos frente a un mural rosa, mostrando ponchos y toallas",
+    "causeHeadline": "Tejido que sostiene hogares frente al mar",
+    "meetTeam": "Conoce al equipo →",
+    "materialBarLeft": "Filosofía material",
+    "materialBarRight": "Lana andina · Brisa pacífica",
+    "stickerTop": "Tejido con",
+    "stickerBottom": "Propósito",
+    "originBadge": "Origen\nAndes",
+    "mountainOcean": "La montaña se une\ncon el océano",
+    "originLabel": "Declaración de origen",
+    "originQuote": "\"En Lobitos creamos ponchos que respiran la esencia de los Andes. Cada pieza es tejida por manos que heredan tradiciones ancestrales, usando lanas naturales de la montaña. No es solo abrigo—es conexión con la tierra, con la cultura, con el calor genuino que solo el tejido artesanal puede dar.\"",
+    "ourStory": "Conoce nuestra historia →",
+    "loomAlt": "Telar de pedal en el taller de Lobitos",
+    "loomTitle": "Telar de pedal",
+    "loomSubtitle": "Fibras 100% biodegradables",
+    "lifeEyebrow": "04 — En la vida real",
+    "lifeTitle": "Del agua al viento",
+    "lifeChip": "Lobitos Archive · Piura",
+    "gallery": [
+      { "caption": "01 · Sesión del atardecer · La Punta", "alt": "Sesión de surf al atardecer en La Punta" },
+      { "caption": "02 · El viento del desierto", "alt": "Ponchos de Lobitos con el desierto de Piura al fondo" },
+      { "caption": "03 · Muelle histórico · Marea alta", "alt": "Muelle histórico de Lobitos con la marea alta" }
+    ],
+    "marquee": "Lobitos Ponchos · Surf & Craft · Hecho en Lobitos · "
+  },
+  "instagram": {
+    "label": "Comunidad en tiempo real",
+    "title": "Síguenos",
+    "ariaLabel": "Instagram de Lobitos Ponchos",
+    "location": "Lobitos, Piura, Perú",
+    "viewFeed": "Ver feed ↗",
+    "videoLabel": "Video destacado del Instagram de Lobitos Ponchos",
+    "postLabel": "Post destacado · Reel",
+    "audience": "Amigos del mar & surfistas",
+    "text": "Relatos del día a día, fotos de mareas altas, pruebas de nuevos telares y avisos de preventa de lotes limitados.",
+    "connect": "Conecta con la playa →",
+    "follow": "★ Síguenos en @lobitos.ponchos"
+  },
+  "footer": {
+    "talk": "¿Hablamos?",
+    "orderBtn": "Pedir por WhatsApp",
+    "shop": "Tienda",
+    "ponchos": "Ponchos",
+    "beachwear": "Prendas de playa",
+    "custom": "Hecho a pedido",
+    "contact": "Contacto",
+    "where": "Dónde",
+    "place": "Lobitos,\nTalara — Piura",
+    "country": "Perú",
+    "madeIn": "Hecho en Lobitos"
+  },
+  "cause": {
+    "seoTitle": "La causa",
+    "seoDescription": "¿Cómo podemos mejorar el mundo? Producción local, nuestras abuelas, turismo sostenible e inspirar: las cuatro cosas que más nos importan en Lobitos Ponchos.",
+    "chip": "■ La causa",
+    "title": "¿Cómo podemos\nmejorar\nel mundo?",
+    "lead": "Sabemos que no podemos cambiar el mundo entero de un solo golpe. Pero creemos que, si cada uno logra transformar un poquito su alrededor, con el tiempo podemos generar grandes cambios.",
+    "stampTop": "Hecho en\nLobitos",
+    "stampBottom": "Piura · Perú",
+    "values": "Nuestros valores",
+    "intro": "Nos hemos hecho muchas preguntas sobre nuestros valores y sobre lo que queremos construir con Lobitos Ponchos. Estas son las cuatro cosas que más nos importan:",
+    "indexLabel": "Lo que más nos importa",
+    "indexItems": [
+      "Producción local & medio ambiente",
+      "Nuestras abuelas",
+      "Turismo sostenible",
+      "Inspirar"
+    ],
+    "counter": "Causa {n} / 04",
+    "c1": {
+      "title": "Producción local\n& medio ambiente",
+      "photoAlt": "Stand de Lobitos Ponchos en la playa con el cartel «Diseña tu propio Surf Poncho!»",
+      "lead": "Vivimos en un país donde muchas personas sienten que tienen que irse a Lima para encontrar mejores oportunidades. Nosotros queremos crear nuevas oportunidades aquí y demostrar que no todo tiene que producirse en la capital.",
+      "p1": "Queremos alejarnos del fast fashion: preferimos crear una pieza que te guste de verdad, que puedas personalizar y que quieras usar durante mucho tiempo, en lugar de tener muchas que significan poco.",
+      "p2": "Además, aprovechamos los restos de tela para crear accesorios y otros productos, reduciendo al máximo el desperdicio.",
+      "p3": "Sabemos que todavía podemos mejorar. En el futuro nos gustaría trabajar con materiales cada vez más sostenibles y seguir buscando nuevas formas de reducir nuestro impacto.",
+      "collabTitle": "Colabora",
+      "collabLead": "¿Tienes alguna idea? ¿Conoces algún material que podríamos utilizar? ¿Quieres ayudarnos a encontrar nuevas soluciones?",
+      "collabText": "Estamos abiertos a aprender y colaborar.",
+      "collabBtn": "Escríbenos"
+    },
+    "c2": {
+      "title": "Nuestras abuelas",
+      "photoAlt": "Una de nuestras abuelas junto a un visitante, mostrando estuches de Lobitos Ponchos frente a su máquina de coser",
+      "lead": "Muchas veces nos olvidamos del enorme valor de las personas mayores: de sus conocimientos, su experiencia y todo lo que todavía tienen para compartir.",
+      "p1": "Con Lobitos Ponchos, nuestras abuelas pueden trabajar cómodamente desde casa, aportar sus conocimientos para mejorar cada producto y, al mismo tiempo, compartir más momentos con sus nietos, Kevyn e Iván.",
+      "p2": "También tienen la oportunidad de conocer a las personas que llegan hasta sus casas para descubrir cómo se produce su poncho. Así se crean encuentros que probablemente nunca habrían sucedido de otra manera.",
+      "link": "Conoce a las abuelas →"
+    },
+    "c3": {
+      "title": "Turismo sostenible",
+      "photoAlt": "Niños del pueblo y visitantes con ponchos sobre un bote de pesca varado en la playa de Lobitos",
+      "lead": "Muchos turistas que llegan a Lobitos se mueven principalmente entre su hotel, la playa y los lugares turísticos, sin llegar a conocer realmente a las personas que dieron origen a este pueblo.",
+      "p1": "Con Lobitos Ponchos queremos crear experiencias que acerquen a los visitantes a la vida del pueblo, a sus familias, a su historia y a una comunidad que durante generaciones ha estado conectada con la pesca y el mar.",
+      "highlight": "A través del proyecto ya hemos visto nacer amistades entre personas de culturas y realidades completamente diferentes."
+    },
+    "c4": {
+      "title": "Inspirar",
+      "quote": "Quizás este sea nuestro sueño más grande: demostrar que sí se puede empezar con poco.",
+      "p1": "Queremos demostrar que jóvenes, abuelas, personas locales y personas que llegaron desde otros países pueden trabajar juntas. Que se siente increíble formar parte de la creación de un proyecto que busca crecer de una manera más consciente y sostenible.",
+      "p2": "Nos gustaría contagiar esas ganas de crear, colaborar y apostar por iniciativas locales.",
+      "photoAlt": "Collage de jóvenes de Lobitos"
+    },
+    "closing": {
+      "chip": "La causa",
+      "title": "Porque quizás cambiar el mundo no empieza intentando cambiarlo todo.",
+      "text": "Quizás empieza cuidando y transformando un poquito el lugar que tienes alrededor.",
+      "collection": "Ver colección →",
+      "team": "Conoce al equipo →"
+    }
+  },
+  "team": {
+    "seoTitle": "Equipo",
+    "seoDescription": "Las manos detrás de cada pieza: conoce a las abuelas y a los jóvenes de Lobitos que hacen cada poncho a mano.",
+    "chip": "■ El equipo",
+    "title": "Las manos\ndetrás\nde cada pieza",
+    "lead": "Somos un grupo de personas que creen en la artesanía, en el trabajo manual y en las historias que viven dentro de cada pieza.",
+    "stampTop": "Hecho a mano",
+    "stampBottom": "Lobitos · Piura",
+    "register": "Registro de taller · 2025",
+    "stats": [
+      { "label": "Origen", "value": "Lobitos Sur" },
+      { "label": "Metodología", "value": "Manual 100%" },
+      { "label": "Telas", "value": "Algodón puro" },
+      { "label": "Trazabilidad", "value": "Familiar" }
+    ],
+    "photoPlaceholder": "FOTO PLACEHOLDER",
+    "photoCaption": "Archivo taller",
+    "results": "Resultados (datos estimados · placeholder)",
+    "closingChip": "Ediciones limitadas hechas en casa",
+    "closingTitle": "Ponchos que abrazan tradición. Tejidos que perduran.",
+    "collection": "Ver colección →",
+    "values": ["◆ Piura · Perú", "◆ Algodón responsable", "◆ Comunidad costera", "◆ Surf artesanal"],
+    "people": [
+      {
+        "label": "01 — Fundadora",
+        "technique": "Matriarca & costurera",
+        "name": "Esmérita \"Mery\" Eche Periche",
+        "bio": "Con 70 años y una vida entera en Lobitos, Esmérita aprendió costura a máquina de su madre y se dedicó a ella desde muy joven. Hoy retoma esa pasión aportando al taller la experiencia de toda una vida cosiendo, dando forma a cada pieza con manos que no han dejado de tejer tradición.",
+        "stat1": "Años tejiendo tradición",
+        "stat2": "Piezas únicas creadas",
+        "footLeft": "Costura tradicional",
+        "footRight": "Piura · Perú"
+      },
+      {
+        "label": "02 — Maestra artesana",
+        "technique": "Técnica de remalle manual",
+        "name": "Irma Bancayan Eche",
+        "bio": "Abuela de Kevyn, nacida, criada y residente en Lobitos. Con experiencia en manualidades y costura desde los 10 años, Irma se encarga del remallado y unión de piezas — el paso que le da forma final al poncho antes de la supervisión de calidad.",
+        "stat1": "Fibras y tintes naturales",
+        "stat2": "Patrones ancestrales rescatados",
+        "footLeft": "Residencia: Lobitos",
+        "footRight": "Unión · Precisión"
+      },
+      {
+        "label": "03 — Producción",
+        "technique": "Enlace generacional",
+        "name": "Kevyn Abad (19 años)",
+        "bio": "Nacido y criado en Lobitos, estudiante de Administración de Hostelería y Restaurante. Kevyn recibe los pedidos, toma medidas, define combinaciones y se encarga de recoger, cortar y distribuir la tela a las abuelas. Supervisa la calidad y realiza la entrega final — el motor que conecta el taller con cada cliente. Su meta: apoyar a sus abuelas y financiar sus estudios.",
+        "stat1": "Comunidades aliadas",
+        "stat2": "Tasa de satisfacción",
+        "footLeft": "Coordinación de taller",
+        "footRight": "Logística · Corte"
+      },
+      {
+        "label": "04 — Marketing & estrategia",
+        "technique": "Fotografía documental · Suiza-Perú",
+        "name": "Kerstin Ulrich \"Tiíta\" (32 años)",
+        "bio": "Nacida y criada en Suiza, de madre peruana. Llegó a Lobitos en 2018 como voluntaria de Waves Lobitos y nunca se fue del todo. Aporta su pasión por la fotografía al proyecto, contando la historia de Lobitos al mundo sin perder la autenticidad del origen — orgullosa de trabajar en un equipo que es, ante todo, familia.",
+        "stat1": "Audiencia alcanzada",
+        "stat2": "Crecimiento en 2 años",
+        "footLeft": "Comunicación global",
+        "footRight": "Pacífico sur"
+      },
+      {
+        "label": "05 — Administración y comunidad",
+        "technique": "Gestión y sostenibilidad",
+        "name": "Ivan Vite (20 años)",
+        "bio": "Nacido y criado en Lobitos, actualmente estudia Ingeniería Ambiental fuera de su hogar. Ivan sostiene el área administrativa del proyecto, asegurando que detrás de cada pieza artesanal haya también orden, cuidado y comunidad.",
+        "stat1": "Historias publicadas",
+        "stat2": "Valoración de clientes",
+        "footLeft": "Ingeniería ambiental · Comunidad",
+        "footRight": "Gestión rural"
+      }
+    ]
+  },
+  "catalog": {
+    "seoTitle": "Catálogo",
+    "seoDescription": "Ponchos de surf, ponchos kids, fundas y accesorios hechos a mano en Lobitos, Piura. Elige tu modelo y pídelo por WhatsApp.",
+    "chip": "■ Catálogo",
+    "title": "Elige tu\nponcho",
+    "lead": "Cada pieza se hace a mano y a pedido. Escríbenos por WhatsApp con el modelo que te gustó y coordinamos tallas y colores.",
+    "filterLabel": "Filtrar por categoría",
+    "all": "Todos",
+    "products": "productos",
+    "empty": "Por ahora no hay productos en esta categoría. Escríbenos y lo hacemos a pedido.",
+    "ctaTitle": "¿No ves lo que buscas? Lo hacemos a tu medida.",
+    "ctaBtn": "Pedir por WhatsApp"
+  },
+  "product": {
+    "breadcrumb": "Ruta",
+    "back": "← Catálogo",
+    "priceOnRequest": "Consultar precio",
+    "photo": "foto {n}",
+    "viewPhoto": "Ver foto {n}",
+    "sizes": "Tallas",
+    "colors": "Colores",
+    "orderNote": "Hacemos cada pieza a pedido. Escríbenos y te respondemos con disponibilidad y tiempo de entrega.",
+    "orderBtn": "Pedir por WhatsApp",
+    "related": "También te puede gustar",
+    "defaultSeo": "{category}, hecho a mano en Lobitos, Piura."
+  }
+}

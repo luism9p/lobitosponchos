@@ -3,7 +3,8 @@ import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
 // One Markdown file per product in src/content/productos/.
-// The frontmatter describes the product; the body is the long description.
+// The frontmatter describes the product (Spanish); the body is the long Spanish description.
+// English goes in the optional `en:` block of the same file.
 const productos = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/productos' }),
   schema: ({ image }) =>
@@ -22,6 +23,17 @@ const productos = defineCollection({
       orden: z.number().default(100),
       /** Marks the card as a placeholder until real photos and prices are loaded. */
       borrador: z.boolean().default(false),
+      /** English version. Anything left out falls back to the Spanish text. */
+      en: z
+        .object({
+          nombre: z.string().optional(),
+          etiqueta: z.string().optional(),
+          resumen: z.string().optional(),
+          descripcion: z.string().optional(),
+          tallas: z.array(z.string()).optional(),
+          colores: z.array(z.string()).optional(),
+        })
+        .optional(),
     }),
 });
 

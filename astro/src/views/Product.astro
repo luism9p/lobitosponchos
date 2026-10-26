@@ -1,0 +1,131 @@
+---
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Chip from '../components/Chip.astro';
+import Img from '../components/Img.astro';
+import ProductCard from '../components/ProductCard.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { localizeProduct } from '../data/products';
+import { site } from '../data/site';
+import { url, useTranslations, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  producto: CollectionEntry<'productos'>;
+}
+const { lang, producto } = Astro.props;
+const { t } = useTranslations(lang);
+
+const todos = await getCollection('productos');
+const { categoria, precio, fotos } = producto.data;
+const { nombre, etiqueta, resumen, descripcion, tallas, colores } = localizeProduct(producto, lang);
+const { Content } = await render(producto);
+
+const categoriaNombre = t(`categories.${categoria}.name`);
+const precioTexto = precio ? `S/ ${precio.toLocaleString('es-PE')}` : t('product.priceOnRequest');
+const relacionados = todos
+  .filter((p) => p.data.categoria === categoria && p.id !== producto.id)
+  .sort((a, b) => a.data.orden - b.data.orden)
+  .slice(0, 3);
+const mensaje = t('wa.product', { name: nombre, site: site.name });
+const chipOption = 'border-[1.5px] border-black px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.1em]';
+---
+
+<BaseLayout
+  lang={lang}
+  route="catalogo"
+  slug={producto.id}
+  title={nombre}
+  description={`${resumen} ${t('product.defaultSeo', { category: categoriaNombre })}`}
+  variant="solid"
+  current="catalogo"
+>
+  <main class="mx-auto max-w-[1180px] px-5 pb-24 pt-[130px]">
+    <nav aria-label={t('product.breadcrumb')} class="mb-6 text-[11px] uppercase tracking-[0.16em] opacity-70">
+      <a href={url(lang, 'catalogo')} class="text-black">{t('product.back')}</a>
+      <span aria-hidden="true"> / </span>
+      <a href={`${url(lang, 'catalogo')}?cat=${categoria}`} class="text-black">{categoriaNombre}</a>
+    </nav>
+
+    <div class="grid grid-cols-1 items-start gap-8 split:grid-cols-[1.1fr_1fr] split:gap-14">
+      <div data-gallery class="flex flex-col gap-3">
+        <div class="relative aspect-[4/5] overflow-hidden border-2 border-black bg-black">
+          {fotos.map((foto, i) => (
+            <div data-photo data-active={i === 0 ? '' : undefined} class="absolute inset-0 opacity-0 transition-opacity duration-300 data-[active]:opacity-100">
+              <Img src={foto.src} alt={`${nombre}, ${t('product.photo', { n: i + 1 })}`} sizes="(min-width: 860px) 560px, 100vw" widths={[480, 640, 768, 960, 1280]} eager={i === 0} class="size-full object-cover" />
+            </div>
+          ))}
+          {etiqueta && <span class="absolute left-0 top-0 z-[1] bg-black px-2.5 py-1.5 text-[10px] uppercase tracking-[0.2em] text-white">{etiqueta}</span>}
+        </div>
+        {fotos.length > 1 && (
+          <div class="grid grid-cols-4 gap-2.5">
+            {fotos.map((foto, i) => (
+              <button
+                type="button"
+                data-thumb={i}
+                data-active={i === 0 ? '' : undefined}
+                aria-label={t('product.viewPhoto', { n: i + 1 })}
+                class="aspect-square cursor-pointer overflow-hidden border-2 border-black opacity-60 data-[active]:opacity-100"
+              >
+                <Img src={foto.src} alt="" sizes="140px" widths={[140, 280]} class="size-full object-cover" />
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div class="flex flex-col gap-5">
+        <Chip class="self-start">{categoriaNombre}</Chip>
+        <h1 class="m-0 font-display text-[clamp(38px,5vw,64px)] font-normal uppercase leading-[.98]">{nombre}</h1>
+        <p class="m-0 text-[22px] font-semibold">{precioTexto}</p>
+        <div class="border-t-[1.5px] border-dashed border-black"></div>
+        <p class="m-0 text-lg font-medium leading-[1.55] text-pretty">{resumen}</p>
+        <div class="text-base leading-[1.65] text-pretty">
+          {descripcion ? <p class="m-0">{descripcion}</p> : <Content />}
+        </div>
+
+        {tallas.length > 0 && (
+          <div class="flex flex-col gap-2">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.3em]">{t('product.sizes')}</span>
+            <ul class="m-0 flex list-none flex-wrap gap-2 p-0">{tallas.map((s) => <li class={chipOption}>{s}</li>)}</ul>
+          </div>
+        )}
+        {colores.length > 0 && (
+          <div class="flex flex-col gap-2">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.3em]">{t('product.colors')}</span>
+            <ul class="m-0 flex list-none flex-wrap gap-2 p-0">{colores.map((c) => <li class={chipOption}>{c}</li>)}</ul>
+          </div>
+        )}
+
+        <div class="flex flex-col items-start gap-3 border-[1.5px] border-black bg-cream p-5">
+          <p class="m-0 text-[15px] leading-normal">{t('product.orderNote')}</p>
+          <WhatsAppButton message={mensaje}>{t('product.orderBtn')}</WhatsAppButton>
+        </div>
+      </div>
+    </div>
+
+    {relacionados.length > 0 && (
+      <section class="mt-20">
+        <h2 class="mb-6 border-b-2 border-black pb-3 font-display text-[clamp(28px,4vw,44px)] font-normal uppercase leading-none">{t('product.related')}</h2>
+        <ul class="m-0 grid grid-cols-2 gap-x-3.5 gap-y-9 p-0 split:grid-cols-3 split:gap-x-6">
+          {relacionados.map((p) => <ProductCard lang={lang} producto={p} />)}
+        </ul>
+      </section>
+    )}
+  </main>
+</BaseLayout>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-gallery]').forEach((gallery) => {
+    const photos = gallery.querySelectorAll<HTMLElement>('[data-photo]');
+    const thumbs = gallery.querySelectorAll<HTMLElement>('[data-thumb]');
+    thumbs.forEach((thumb) =>
+      thumb.addEventListener('click', () => {
+        const index = Number(thumb.dataset.thumb);
+        photos.forEach((p, i) => p.toggleAttribute('data-active', i === index));
+        thumbs.forEach((t, i) => t.toggleAttribute('data-active', i === index));
+      }),
+    );
+  });
+</script>

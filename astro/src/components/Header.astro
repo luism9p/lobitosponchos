@@ -4,16 +4,24 @@ import Img from './Img.astro';
 import WhatsAppIcon from './WhatsAppIcon.astro';
 import { categorias, catalogoUrl } from '../data/categorias';
 import { instagramUrl, whatsappUrl } from '../data/site';
+import { url, useTranslations, englishLive, type Lang } from '../i18n';
 
 interface Props {
+  lang: Lang;
   /** `overlay` floats transparent over the home hero; `solid` is the white bar of inner pages. */
   variant?: 'overlay' | 'solid';
   current?: 'inicio' | 'catalogo' | 'causa' | 'equipo';
+  /** URL of this same page in each language (for the ES | EN switcher). */
+  alternates?: Record<Lang, string>;
 }
-const { variant = 'overlay', current } = Astro.props;
+const { lang, variant = 'overlay', current, alternates } = Astro.props;
+const { t } = useTranslations(lang);
 const solid = variant === 'solid';
+const showSwitcher = englishLive && !!alternates;
 
-const b2bUrl = whatsappUrl('Hola, quiero información para compras al por mayor (B2B).');
+const home = url(lang, 'home');
+const b2bUrl = whatsappUrl(t('wa.b2b'));
+const catName = (id: string) => t(`categories.${id}.name`);
 
 const navLink =
   'underline-offset-[6px] decoration-[1.5px] hover:underline data-[current]:underline';
@@ -25,6 +33,7 @@ const mobileRow =
   'flex items-baseline justify-between border-b-[1.5px] border-black py-3.5 font-display text-2xl uppercase leading-none text-black hover:no-underline';
 const mobileTop =
   'block border-b-[1.5px] border-black py-3.5 font-display text-[28px] uppercase leading-none text-black hover:no-underline';
+const langLink = 'px-1 hover:underline aria-[current=true]:font-bold aria-[current=true]:underline underline-offset-[6px]';
 ---
 
 <header
@@ -41,7 +50,7 @@ const mobileTop =
       solid && 'border-b-2 border-black bg-white',
     ]}
   >
-    <a href="/" aria-label="Lobitos Ponchos, inicio" class="flex shrink-0 items-center">
+    <a href={home} aria-label={t('nav.homeAria')} class="flex shrink-0 items-center">
       <Img
         src={logo}
         alt="Lobitos Ponchos"
@@ -55,15 +64,15 @@ const mobileTop =
       />
     </a>
 
-    <nav class="hidden items-center gap-7 text-[13px] uppercase tracking-[0.14em] nav:flex" aria-label="Principal">
-      <a href="/" class={navLink} data-current={current === 'inicio' ? '' : undefined} data-close-menus>Inicio</a>
+    <nav class="hidden items-center gap-7 text-[13px] uppercase tracking-[0.14em] nav:flex" aria-label={t('nav.main')}>
+      <a href={home} class={navLink} data-current={current === 'inicio' ? '' : undefined} data-close-menus>{t('nav.home')}</a>
       <button
         type="button"
         data-trigger="mega"
         aria-expanded="false"
         class="flex cursor-pointer items-center gap-1.5 uppercase underline-offset-[6px] decoration-[1.5px] group-data-[menu=mega]/header:underline"
       >
-        <span>Tienda</span>
+        <span>{t('nav.shop')}</span>
         <span class="inline-block text-[10px] transition-transform duration-[250ms] group-data-[menu=mega]/header:rotate-180">▼</span>
       </button>
       <button
@@ -72,14 +81,21 @@ const mobileTop =
         aria-expanded="false"
         class="flex cursor-pointer items-center gap-1.5 uppercase underline-offset-[6px] decoration-[1.5px] group-data-[menu=about]/header:underline"
       >
-        <span>Nosotros</span>
+        <span>{t('nav.about')}</span>
         <span class="inline-block text-[10px] transition-transform duration-[250ms] group-data-[menu=about]/header:rotate-180">▼</span>
       </button>
-      <a href="/la-causa/" class={navLink} data-current={current === 'causa' ? '' : undefined} data-close-menus>La Causa</a>
-      <a href={b2bUrl} target="_blank" rel="noopener" class={navLink} data-close-menus>B2B</a>
+      <a href={url(lang, 'causa')} class={navLink} data-current={current === 'causa' ? '' : undefined} data-close-menus>{t('nav.cause')}</a>
+      <a href={b2bUrl} target="_blank" rel="noopener" class={navLink} data-close-menus>{t('nav.b2b')}</a>
     </nav>
 
     <div class="flex shrink-0 items-center gap-2.5">
+      {showSwitcher && (
+        <div class="flex items-center text-xs uppercase tracking-[0.14em]" role="group" aria-label={t('nav.language')}>
+          <a href={alternates?.es} hreflang="es" lang="es" aria-current={lang === 'es' ? 'true' : undefined} class={langLink}>ES</a>
+          <span aria-hidden="true">|</span>
+          <a href={alternates?.en} hreflang="en" lang="en" aria-current={lang === 'en' ? 'true' : undefined} class={langLink}>EN</a>
+        </div>
+      )}
       <a
         href={whatsappUrl()}
         target="_blank"
@@ -92,12 +108,12 @@ const mobileTop =
         ]}
       >
         <WhatsAppIcon />
-        <span>WhatsApp</span>
+        <span>{t('nav.whatsapp')}</span>
       </a>
       <button
         type="button"
         data-burger
-        aria-label="Menú"
+        aria-label={t('nav.menu')}
         aria-expanded="false"
         class="flex size-[46px] cursor-pointer flex-col justify-center gap-[5px] border-[1.5px] border-current px-[11px] nav:hidden"
       >
@@ -108,30 +124,30 @@ const mobileTop =
     </div>
   </div>
 
-  <!-- Desktop: Tienda mega menu -->
+  <!-- Desktop: shop mega menu -->
   <div
     data-panel="mega"
     class="absolute inset-x-0 top-0 z-[1] hidden border-b-2 border-black bg-white pt-[74px] text-black nav:data-[open]:block"
   >
     <div class="mx-auto grid max-w-[1180px] grid-cols-[1.1fr_.9fr] items-start gap-14 px-8 pb-10 pt-7">
       <div class="flex flex-col">
-        <div class="mb-2.5 text-[11px] uppercase tracking-[0.34em] opacity-60">Tienda — categorías</div>
+        <div class="mb-2.5 text-[11px] uppercase tracking-[0.34em] opacity-60">{t('nav.shopCategories')}</div>
         {categorias.map((cat, i) => (
           <a
-            href={catalogoUrl(cat.id)}
+            href={catalogoUrl(lang, cat.id)}
             class={megaRow}
             data-megaitem={i}
-            data-name={cat.nombre}
+            data-name={catName(cat.id)}
             data-active={i === 0 ? '' : undefined}
           >
             <span class="flex items-baseline gap-3.5">
               <span class="font-sans text-[11px] tracking-[0.3em] opacity-60">{String(i + 1).padStart(2, '0')}</span>
-              <span>{cat.nombre}</span>
+              <span>{catName(cat.id)}</span>
             </span>
             <span class="font-sans text-xl opacity-0 transition-opacity duration-200 group-data-[active]/item:opacity-100">→</span>
           </a>
         ))}
-        <div class="mt-[26px] text-xs uppercase tracking-[0.14em] opacity-60">Pedidos y consultas por WhatsApp</div>
+        <div class="mt-[26px] text-xs uppercase tracking-[0.14em] opacity-60">{t('nav.ordersByWhatsApp')}</div>
       </div>
       <div class="flex flex-col items-start gap-4">
         <div class="relative aspect-[5/4] w-full overflow-hidden border-2 border-black bg-black">
@@ -140,26 +156,26 @@ const mobileTop =
               <Img src={cat.imagen} alt="" sizes="(min-width: 1180px) 520px, 45vw" widths={[320, 520, 780]} class="size-full object-cover" />
             </div>
           ))}
-          <span data-megatag class="absolute left-0 top-0 bg-black px-2.5 py-1.5 text-[10px] uppercase tracking-[0.24em] text-white">{categorias[0].nombre}</span>
+          <span data-megatag class="absolute left-0 top-0 bg-black px-2.5 py-1.5 text-[10px] uppercase tracking-[0.24em] text-white">{catName(categorias[0].id)}</span>
         </div>
-        <a href={catalogoUrl()} class="border-b-2 border-black pb-[3px] text-xs uppercase tracking-[0.14em]">Ver colección →</a>
+        <a href={catalogoUrl(lang)} class="border-b-2 border-black pb-[3px] text-xs uppercase tracking-[0.14em]">{t('nav.viewCollection')}</a>
       </div>
     </div>
   </div>
 
-  <!-- Desktop: Nosotros menu -->
+  <!-- Desktop: about menu -->
   <div
     data-panel="about"
     class="absolute inset-x-0 top-0 z-[1] hidden border-b-2 border-black bg-white pt-[74px] text-black nav:data-[open]:block"
   >
     <div class="mx-auto flex max-w-[520px] flex-col items-start px-8 pb-[34px] pt-6">
-      <div class="mb-2.5 text-[11px] uppercase tracking-[0.34em] opacity-60">Nosotros</div>
-      <a href="/equipo/" class={aboutRow}>
-        <span class="flex items-baseline gap-3.5"><span class="font-sans text-[11px] tracking-[0.3em] opacity-60">01</span><span>Equipo</span></span>
+      <div class="mb-2.5 text-[11px] uppercase tracking-[0.34em] opacity-60">{t('nav.about')}</div>
+      <a href={url(lang, 'equipo')} class={aboutRow}>
+        <span class="flex items-baseline gap-3.5"><span class="font-sans text-[11px] tracking-[0.3em] opacity-60">01</span><span>{t('nav.team')}</span></span>
         <span class="font-sans text-lg">→</span>
       </a>
-      <a href="/#tejido" class={aboutRow}>
-        <span class="flex items-baseline gap-3.5"><span class="font-sans text-[11px] tracking-[0.3em] opacity-60">02</span><span>Historia</span></span>
+      <a href={url(lang, 'home', undefined, 'tejido')} class={aboutRow}>
+        <span class="flex items-baseline gap-3.5"><span class="font-sans text-[11px] tracking-[0.3em] opacity-60">02</span><span>{t('nav.history')}</span></span>
         <span class="font-sans text-lg">→</span>
       </a>
     </div>
@@ -170,35 +186,42 @@ const mobileTop =
     data-panel="mobile"
     class="absolute inset-x-0 top-0 z-[1] hidden h-svh flex-col overflow-y-auto bg-white px-5 pb-10 pt-[90px] text-black data-[open]:flex nav:hidden!"
   >
-    <a href="/" class={mobileTop}>Inicio</a>
+    <a href={home} class={mobileTop}>{t('nav.home')}</a>
     <details class="group/acc">
       <summary class="flex cursor-pointer list-none items-center justify-between border-b-[1.5px] border-black py-3.5 font-display text-[28px] uppercase leading-none [&::-webkit-details-marker]:hidden">
-        <span>Tienda</span>
+        <span>{t('nav.shop')}</span>
         <span class="font-sans text-xl group-open/acc:hidden">+</span>
         <span class="hidden font-sans text-xl group-open/acc:inline">–</span>
       </summary>
       <div class="flex flex-col pl-3.5">
         {categorias.map((cat) => (
-          <a href={catalogoUrl(cat.id)} class={mobileRow}><span>{cat.nombre}</span><span class="font-sans text-lg">→</span></a>
+          <a href={catalogoUrl(lang, cat.id)} class={mobileRow}><span>{catName(cat.id)}</span><span class="font-sans text-lg">→</span></a>
         ))}
       </div>
     </details>
     <details class="group/acc">
       <summary class="flex cursor-pointer list-none items-center justify-between border-b-[1.5px] border-black py-3.5 font-display text-[28px] uppercase leading-none [&::-webkit-details-marker]:hidden">
-        <span>Nosotros</span>
+        <span>{t('nav.about')}</span>
         <span class="font-sans text-xl group-open/acc:hidden">+</span>
         <span class="hidden font-sans text-xl group-open/acc:inline">–</span>
       </summary>
       <div class="flex flex-col pl-3.5">
-        <a href="/equipo/" class={mobileRow}><span>Equipo</span><span class="font-sans text-lg">→</span></a>
-        <a href="/#tejido" class={mobileRow}><span>Historia</span><span class="font-sans text-lg">→</span></a>
+        <a href={url(lang, 'equipo')} class={mobileRow}><span>{t('nav.team')}</span><span class="font-sans text-lg">→</span></a>
+        <a href={url(lang, 'home', undefined, 'tejido')} class={mobileRow}><span>{t('nav.history')}</span><span class="font-sans text-lg">→</span></a>
       </div>
     </details>
-    <a href="/la-causa/" class={mobileTop}>La Causa</a>
-    <a href={b2bUrl} target="_blank" rel="noopener" class={mobileTop}>B2B</a>
+    <a href={url(lang, 'causa')} class={mobileTop}>{t('nav.cause')}</a>
+    <a href={b2bUrl} target="_blank" rel="noopener" class={mobileTop}>{t('nav.b2b')}</a>
     <div class="mt-9 flex flex-col gap-3.5 text-[13px] uppercase tracking-[0.14em]">
-      <a href="/#contacto" class="text-black">Contacto</a>
-      <a href={instagramUrl} target="_blank" rel="noopener" class="text-black">Instagram</a>
+      <a href={url(lang, 'home', undefined, 'contacto')} class="text-black">{t('nav.contact')}</a>
+      <a href={instagramUrl} target="_blank" rel="noopener" class="text-black">{t('nav.instagram')}</a>
+      {showSwitcher && (
+        <div class="flex items-center gap-2">
+          <a href={alternates?.es} hreflang="es" lang="es" aria-current={lang === 'es' ? 'true' : undefined} class={langLink + ' text-black'}>ES</a>
+          <span aria-hidden="true">|</span>
+          <a href={alternates?.en} hreflang="en" lang="en" aria-current={lang === 'en' ? 'true' : undefined} class={langLink + ' text-black'}>EN</a>
+        </div>
+      )}
     </div>
     <div class="mt-auto origin-bottom-left -rotate-2 pt-8 font-display text-[44px] uppercase leading-[.9]">Lobitos<br />Ponchos</div>
   </div>
