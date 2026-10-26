@@ -73,7 +73,7 @@ const team = url(lang, 'equipo');
             <span class="ml-[.9em] block w-max border-b-[6px] border-black pb-[.06em] text-[.62em]">{t('home.causeTitle2')}</span>
           </h2>
         </div>
-        <svg viewBox="0 0 220 120" width="120" height="66" aria-hidden="true" class="pointer-events-none absolute -bottom-5 right-[5%] overflow-visible split:-bottom-[46px] split:right-[3%] split:h-[98px] split:w-[180px]">
+        <svg viewBox="0 0 220 120" width="120" height="66" aria-hidden="true" class="pointer-events-none absolute -bottom-5 right-[5%] hidden overflow-visible xs:block split:-bottom-[46px] split:right-[3%] split:h-[98px] split:w-[180px]">
           <path d="M8 100 C 40 20, 120 10, 150 60 S 200 110, 212 30" fill="none" stroke="#000" stroke-width="2.5" stroke-dasharray="8 8" stroke-linecap="round"></path>
         </svg>
       </div>
@@ -81,7 +81,7 @@ const team = url(lang, 'equipo');
         <div aria-hidden="true" class="pointer-events-none hidden shrink-0 -rotate-6 select-none font-display text-[clamp(160px,22vw,320px)] leading-[.8] tracking-[-0.02em] text-transparent [-webkit-text-stroke:2px_#000] split:-ml-[1%] split:mr-[4%] split:block">02</div>
         <div class="flex max-w-[620px] flex-col items-start gap-5">
           <h3 class="font-display text-[clamp(32px,5vw,80px)] font-normal uppercase leading-[.95] tracking-[-0.02em] text-balance">{t('home.causeHeadline')}</h3>
-          <a href={team} class="border-2 border-black bg-white px-[18px] py-2.5 text-[11px] font-semibold uppercase tracking-[0.2em] hover:bg-black hover:text-white hover:no-underline">{t('home.meetTeam')}</a>
+          <a href={team} class="inline-flex min-h-[44px] items-center border-2 border-black bg-white px-[18px] py-2.5 text-[11px] font-semibold uppercase tracking-[0.2em] hover:bg-black hover:text-white hover:no-underline">{t('home.meetTeam')}</a>
         </div>
       </div>
     </section>
@@ -93,7 +93,7 @@ const team = url(lang, 'equipo');
         <span class="text-[10px] uppercase tracking-[0.28em] opacity-75">{t('home.materialBarRight')}</span>
       </div>
       <div class="grid grid-cols-1 items-stretch split:grid-cols-[55fr_45fr]">
-        <div class="relative z-[2] flex flex-col justify-center gap-[26px] px-10 py-14">
+        <div class="relative z-[2] flex flex-col justify-center gap-[26px] px-5 py-10 md:px-10 md:py-14">
           <div class="flex flex-wrap items-center gap-4">
             <h2 class="relative m-0 flex origin-bottom-left rotate-[2.5deg] flex-col items-start border-2 border-black bg-white pb-1.5 pl-3 pr-4 pt-2.5 font-display font-normal uppercase leading-[.86]">
               <span class="block text-[clamp(18px,3vw,40px)] tracking-[0.04em]">{t('home.stickerTop')}</span>
@@ -110,7 +110,7 @@ const team = url(lang, 'equipo');
           </div>
           <a href={team} class="self-start bg-black px-[26px] py-3.5 text-xs uppercase tracking-[0.18em] text-white hover:bg-[#222] hover:text-white hover:no-underline">{t('home.ourStory')}</a>
         </div>
-        <div class="relative min-h-[360px] border-black split:min-h-[520px] split:border-l-2">
+        <div class="relative min-h-[360px] overflow-hidden border-black split:min-h-[520px] split:border-l-2">
           <Img src={telar} alt={t('home.loomAlt')} sizes="(min-width: 860px) 45vw, 100vw" widths={[480, 768, 960, 1280]} class="absolute inset-0 size-full object-cover object-center" />
           <svg viewBox="0 0 200 110" width="150" height="82" aria-hidden="true" class="pointer-events-none absolute right-4 top-4 overflow-visible">
             <path d="M6 90 C 40 12, 110 4, 140 50 S 190 100, 196 20" fill="none" stroke="#fff" stroke-width="2.5" stroke-dasharray="7 7" stroke-linecap="round"></path>

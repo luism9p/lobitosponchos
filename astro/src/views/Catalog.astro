@@ -17,7 +17,7 @@ const { t } = useTranslations(lang);
 const productos = (await getCollection('productos')).sort((a, b) => a.data.orden - b.data.orden);
 const filtros = [{ id: 'todos', nombre: t('catalog.all') }, ...categorias.map((c) => ({ id: c.id, nombre: t(`categories.${c.id}.name`) }))];
 const tab =
-  'cursor-pointer border-[1.5px] border-black bg-white px-3.5 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-black transition-colors hover:bg-black hover:text-white aria-pressed:bg-black aria-pressed:text-white';
+  'cursor-pointer border-[1.5px] border-black bg-white px-3.5 py-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-black transition-colors hover:bg-black hover:text-white aria-pressed:bg-black aria-pressed:text-white min-h-[44px]';
 ---
 
 <BaseLayout

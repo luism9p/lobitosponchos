@@ -59,7 +59,7 @@ const chipOption = 'border-[1.5px] border-black px-3 py-1.5 text-xs font-semibol
           {etiqueta && <span class="absolute left-0 top-0 z-[1] bg-black px-2.5 py-1.5 text-[10px] uppercase tracking-[0.2em] text-white">{etiqueta}</span>}
         </div>
         {fotos.length > 1 && (
-          <div class="grid grid-cols-4 gap-2.5">
+          <div class="grid grid-cols-3 gap-2.5 xs:grid-cols-4">
             {fotos.map((foto, i) => (
               <button
                 type="button"
