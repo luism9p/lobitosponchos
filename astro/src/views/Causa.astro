@@ -75,9 +75,12 @@ const body = 'm-0 text-base leading-[1.65] text-pretty';
 
     <CausaBlock id="causa-1" number="01" counter={counter('01')} photo={feria} alt={t('cause.c1.photoAlt')} ratio="aspect-[4/5]" position="50% 55%" photoSide="left">
       <Fragment slot="title"><Lines text={t('cause.c1.title')} /></Fragment>
-      <p class={lead}>{t('cause.c1.lead')}</p>
+      {/* Optional summaries (c1–c4): when set, the summary becomes the opening and `lead` drops to a normal paragraph. */}
+      {t('cause.c1.summary') && <p class={lead}>{t('cause.c1.summary')}</p>}
+      <p class={t('cause.c1.summary') ? body : lead}>{t('cause.c1.lead')}</p>
       <p class={body}>{t('cause.c1.p1')}</p>
-      <p class={body}>{t('cause.c1.p2')}</p>
+      {/* The English summary already covers waste, so this paragraph is Spanish-only for now. */}
+      {lang === 'es' && <p class={body}>{t('cause.c1.p2')}</p>}
       <p class={body}>{t('cause.c1.p3')}</p>
       <div class="mt-1.5 w-full border-[1.5px] border-black bg-white">
         <div class="bg-black px-3.5 py-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-white">{t('cause.c1.collabTitle')}</div>
@@ -91,7 +94,8 @@ const body = 'm-0 text-base leading-[1.65] text-pretty';
 
     <CausaBlock id="causa-2" number="02" counter={counter('02')} photo={abuela} alt={t('cause.c2.photoAlt')} ratio="aspect-[3/4]" position="50% 15%" photoSide="right">
       <Fragment slot="title"><Lines text={t('cause.c2.title')} /></Fragment>
-      <p class={lead}>{t('cause.c2.lead')}</p>
+      {t('cause.c2.summary') && <p class={lead}>{t('cause.c2.summary')}</p>}
+      <p class={t('cause.c2.summary') ? body : lead}>{t('cause.c2.lead')}</p>
       <p class={body}>{t('cause.c2.p1')}</p>
       <p class={body}>{t('cause.c2.p2')}</p>
       <a href={url(lang, 'equipo')} class="mt-1.5 self-start border-b-2 border-black pb-[3px] text-xs font-semibold uppercase tracking-[0.14em] hover:no-underline">{t('cause.c2.link')}</a>
@@ -99,7 +103,8 @@ const body = 'm-0 text-base leading-[1.65] text-pretty';
 
     <CausaBlock id="causa-3" number="03" counter={counter('03')} photo={playa} alt={t('cause.c3.photoAlt')} ratio="aspect-[3/4]" position="50% 85%" photoSide="left">
       <Fragment slot="title"><Lines text={t('cause.c3.title')} /></Fragment>
-      <p class={lead}>{t('cause.c3.lead')}</p>
+      {t('cause.c3.summary') && <p class={lead}>{t('cause.c3.summary')}</p>}
+      <p class={t('cause.c3.summary') ? body : lead}>{t('cause.c3.lead')}</p>
       <p class={body}>{t('cause.c3.p1')}</p>
       <p class="m-0 text-lg font-semibold leading-[1.9] text-pretty"><span class="box-decoration-clone bg-black px-2 py-[3px] text-white">{t('cause.c3.highlight')}</span></p>
     </CausaBlock>
@@ -114,6 +119,7 @@ const body = 'm-0 text-base leading-[1.65] text-pretty';
           </div>
           <div class="border-t-[1.5px] border-dashed border-black"></div>
           <p class="m-0 font-display text-[clamp(24px,2.8vw,36px)] uppercase leading-[1.1] text-balance">{t('cause.c4.quote')}</p>
+          {t('cause.c4.summary') && <p class={lead}>{t('cause.c4.summary')}</p>}
           <p class={body}>{t('cause.c4.p1')}</p>
           <p class={body}>{t('cause.c4.p2')}</p>
         </div>

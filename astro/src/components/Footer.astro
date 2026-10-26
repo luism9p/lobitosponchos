@@ -40,8 +40,7 @@ const heading = 'text-[11px] uppercase tracking-[0.3em] opacity-60';
       <div class="flex w-full flex-col gap-9 split:ml-[4%] split:max-w-full split:flex-row split:items-start split:gap-[8%]">
         <div class="flex -rotate-[1.5deg] flex-col gap-3">
           <div class={heading}>{t('footer.shop')}</div>
-          <a href={catalogoUrl(lang, 'ponchos')} class={link}>{t('footer.ponchos')}</a>
-          <a href={catalogoUrl(lang, 'accessories')} class={link}>{t('footer.beachwear')}</a>
+          <a href={catalogoUrl(lang)} class={link}>{t('footer.ponchos')}</a>
           <a href={whatsappUrl(t('wa.custom'))} target="_blank" rel="noopener" class={link}>{t('footer.custom')}</a>
         </div>
         <div class="flex rotate-[1.2deg] flex-col gap-3">
