@@ -1,0 +1,49 @@
+---
+import type { ImageMetadata } from 'astro';
+import Img from './Img.astro';
+
+// One "causa" section: a sticky photo next to a text column. On mobile the photo goes first.
+interface Props {
+  id: string;
+  number: string;
+  photo: ImageMetadata;
+  alt: string;
+  /** Mobile aspect ratio of the photo box. */
+  ratio: 'aspect-[4/5]' | 'aspect-[3/4]';
+  position: string;
+  photoSide: 'left' | 'right';
+}
+const { id, number, photo, alt, ratio, position, photoSide } = Astro.props;
+const photoLeft = photoSide === 'left';
+---
+
+<section id={id} class="scroll-mt-[76px] border-b-2 border-black">
+  <div class="grid grid-cols-1 items-stretch split:grid-cols-2">
+    <div
+      class:list={[
+        'relative order-first border-b-2 border-black bg-black split:border-b-0',
+        photoLeft ? 'split:order-none split:border-r-2' : 'split:order-last',
+      ]}
+    >
+      <div class:list={['relative overflow-hidden split:sticky split:top-[76px] split:aspect-auto split:h-[min(calc(100svh-76px),68vw)]', ratio]}>
+        <Img src={photo} alt={alt} sizes="(min-width: 860px) 50vw, 100vw" widths={[480, 768, 960, 1280]} position={position} class="absolute inset-0 size-full object-cover" />
+        <span class="absolute left-3.5 top-3.5 z-[2] border-[1.5px] border-black bg-white px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-black">Causa {number} / 04</span>
+      </div>
+    </div>
+    <div
+      class:list={[
+        'flex flex-col items-start justify-center bg-cream px-5 pb-[52px] pt-11 split:px-12 split:pb-16 split:pt-[72px]',
+        !photoLeft && 'split:border-r-2 split:border-black',
+      ]}
+    >
+      <div class="flex w-full max-w-[560px] flex-col gap-[18px]">
+        <div class="relative">
+          <span aria-hidden="true" class="pointer-events-none absolute -top-[18px] right-0 font-display text-[clamp(64px,9vw,120px)] leading-none text-transparent opacity-[.16] [-webkit-text-stroke:1.5px_#000]">{number}</span>
+          <h2 class="relative m-0 max-w-[85%] font-display text-[clamp(30px,3.8vw,50px)] font-normal uppercase leading-[1.02] text-balance"><slot name="title" /></h2>
+        </div>
+        <div class="border-t-[1.5px] border-dashed border-black"></div>
+        <slot />
+      </div>
+    </div>
+  </div>
+</section>

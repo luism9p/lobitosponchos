@@ -1,0 +1,22 @@
+---
+// Small bordered label used across the site ("■ La causa", "Causa 01 / 04", ...).
+interface Props {
+  tone?: 'light' | 'dark';
+  class?: string;
+}
+const { tone = 'light', class: className } = Astro.props;
+const tones = {
+  light: 'bg-white text-black border-black',
+  dark: 'bg-black text-white border-white',
+};
+---
+
+<span
+  class:list={[
+    'inline-block border-[1.5px] px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em]',
+    tones[tone],
+    className,
+  ]}
+>
+  <slot />
+</span>

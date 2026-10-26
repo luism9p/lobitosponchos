@@ -1,0 +1,39 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Img from './Img.astro';
+
+interface Props {
+  producto: CollectionEntry<'productos'>;
+  /** The first cards of a list load right away; the rest wait until they are near the viewport. */
+  eager?: boolean;
+}
+const { producto, eager = false } = Astro.props;
+const { nombre, precio, etiqueta, resumen, fotos, categoria } = producto.data;
+const cover = fotos[0];
+const precioTexto = precio ? `S/ ${precio.toLocaleString('es-PE')}` : 'Consultar precio';
+---
+
+<li data-product data-cat={categoria} class="list-none">
+  <a href={`/catalogo/${producto.id}/`} class="group block text-black hover:no-underline">
+    <div class="relative aspect-[4/5] overflow-hidden border-2 border-black bg-black">
+      <Img
+        src={cover.src}
+        alt={cover.alt}
+        sizes="(min-width: 1180px) 380px, (min-width: 860px) 33vw, 50vw"
+        widths={[320, 480, 640, 760]}
+        eager={eager}
+        class="size-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+      />
+      {etiqueta && (
+        <span class="absolute left-0 top-0 bg-black px-2.5 py-1.5 text-[10px] uppercase tracking-[0.2em] text-white">{etiqueta}</span>
+      )}
+    </div>
+    <div class="flex flex-col gap-1 pt-3">
+      <div class="flex items-baseline justify-between gap-3">
+        <h3 class="m-0 font-display text-[clamp(20px,2.4vw,28px)] font-normal uppercase leading-none group-hover:underline">{nombre}</h3>
+        <span class="shrink-0 text-[13px] font-semibold uppercase tracking-[0.06em]">{precioTexto}</span>
+      </div>
+      <p class="m-0 text-sm leading-snug opacity-70">{resumen}</p>
+    </div>
+  </a>
+</li>

@@ -1,0 +1,80 @@
+---
+import Img from './Img.astro';
+import carr1 from '../assets/hero/carr1.webp';
+import carr2 from '../assets/hero/carr2.webp';
+import carr3 from '../assets/hero/carr3.webp';
+
+interface Props {
+  /** Seconds each slide stays on screen. */
+  autoplay?: number;
+}
+const { autoplay = 4 } = Astro.props;
+
+const slides = [
+  { src: carr1, alt: '¡Wao! Un poncho de Lobitos Ponchos: un niño con un cachorro en brazos y jóvenes con ponchos de colores en la playa' },
+  { src: carr2, alt: 'Hecho por manos lobiteñas: dos de nuestras abuelas cosiendo en sus máquinas, con la iglesia de Lobitos al fondo' },
+  { src: carr3, alt: 'Tus colores, tu diseño, tu estilo: un surfista en una ola y jóvenes con ponchos bicolor' },
+];
+---
+
+<section
+  id="top"
+  data-carousel
+  data-autoplay={autoplay}
+  aria-roledescription="carrusel"
+  aria-label="Lobitos Ponchos"
+  class="relative h-[400px] w-full touch-pan-y overflow-hidden bg-black split:h-[650px]"
+>
+  {slides.map((slide, i) => (
+    <div
+      data-slide
+      data-active={i === 0 ? '' : undefined}
+      aria-hidden={i === 0 ? 'false' : 'true'}
+      class="absolute inset-0 opacity-0 transition-opacity duration-[900ms] data-[active]:opacity-100"
+    >
+      <Img
+        src={slide.src}
+        alt={slide.alt}
+        sizes="100vw"
+        widths={[480, 768, 1280, 1920]}
+        eager={i === 0}
+        quality={62}
+        class="size-full object-cover object-center"
+      />
+    </div>
+  ))}
+  <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,.6)_0%,rgba(0,0,0,0)_32%,rgba(0,0,0,0)_55%,rgba(0,0,0,.55)_100%)]"></div>
+
+  <div class="absolute inset-x-0 bottom-[18px] flex flex-col items-center gap-3.5 px-[18px]">
+    <div class="text-center text-white">
+      <h1 class="font-display text-[clamp(28px,6vw,56px)] font-normal leading-[.95] tracking-[0.02em]">LOBITOS PONCHOS</h1>
+      <p class="mt-1.5 text-[10px] uppercase tracking-[0.34em] opacity-90">Lobitos · Piura · Perú</p>
+    </div>
+    <div class="flex items-center gap-2.5">
+      {slides.map((_, i) => (
+        <button
+          type="button"
+          data-dot
+          data-active={i === 0 ? '' : undefined}
+          aria-label={`Ir a la imagen ${i + 1}`}
+          class="box-content h-[3px] w-[34px] cursor-pointer border-0 bg-white bg-clip-content px-1 py-3 opacity-35 data-[active]:opacity-100"
+        ></button>
+      ))}
+    </div>
+  </div>
+
+  <div class="absolute bottom-4 right-4 flex items-stretch border border-black bg-black">
+    <button type="button" data-prev aria-label="Anterior" class="flex size-[38px] cursor-pointer items-center justify-center border-r border-white/25 bg-black text-[15px] leading-none text-white hover:bg-[#222]">←</button>
+    <div class="flex items-center gap-[5px] bg-white px-3" aria-hidden="true">
+      {slides.map((_, i) => (
+        <span data-square data-active={i === 0 ? '' : undefined} class="size-[7px] bg-[#d4d4d4] data-[active]:bg-black"></span>
+      ))}
+    </div>
+    <button type="button" data-next aria-label="Siguiente" class="flex size-[38px] cursor-pointer items-center justify-center border-l border-white/25 bg-black text-[15px] leading-none text-white hover:bg-[#222]">→</button>
+  </div>
+</section>
+
+<script>
+  import { initCarousel } from '../scripts/carousel';
+  document.querySelectorAll<HTMLElement>('[data-carousel]').forEach(initCarousel);
+</script>

@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Barrio&amp;family=Archivo:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  html, body { margin:0; padding:0; background:#fff; }
+  * { box-sizing:border-box; }
+  a { color:#000; text-decoration:none; }
+  a:hover { color:#000; text-decoration:underline; }
+  ::selection { background:#000; color:#fff; }
+  @keyframes marquee-scroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+  #contacto { position:relative; background:#000; color:#fff; padding:80px 20px 40px; overflow:hidden; border-top:2px solid #fff; }
+  @media (min-width: 860px) {
+    #contacto { display:grid !important; grid-template-columns:minmax(0, 1fr) minmax(200px, 30%) !important; align-items:start !important; column-gap:32px !important; }
+    [data-ftwrap] { grid-column:1 !important; order:1 !important; max-width:none !important; margin:0 !important; }
+    [data-ftlogo] { grid-column:2 !important; order:0 !important; position:static !important; right:auto !important; top:auto !important; bottom:auto !important; width:100% !important; max-width:440px !important; margin:0 -14% 0 auto !important; }
+  }
+  @media (max-width: 859px) {
+    #contacto { display:flex !important; flex-direction:column !important; }
+    [data-ftwrap] { order:1 !important; grid-column:auto !important; max-width:1180px !important; }
+    [data-ftlogo] { order:2 !important; grid-column:auto !important; position:static !important; right:auto !important; top:auto !important; bottom:auto !important; width:44vw !important; max-width:none !important; margin:30px 0 0 auto !important; }
+  }
+</style>
+</helmet>
+
+<div style="font-family:Archivo, Helvetica, Arial, sans-serif; background:#fff; color:#000; overflow-x:hidden">
+
+  <header data-header="" onMouseLeave="{{ closeDrops }}" style="position:fixed; top:0; left:0; right:0; z-index:50; color:#fff">
+    <div style="position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 18px" data-headerbar="">
+      <a href="#top" onClick="{{ closeMenus }}" style="display:flex; align-items:center; gap:10px; flex-shrink:0">
+        <img src="uploads/pasted-1788368179697-0.png" alt="Lobitos Ponchos" style="width:46px; height:46px; border-radius:50%; display:block; border:1.5px solid #fff">
+      </a>
+      <nav style="display:none; align-items:center; gap:28px; font-size:13px; letter-spacing:0.14em; text-transform:uppercase" data-nav-desktop="">
+        <a href="#top" onClick="{{ closeMenus }}" onMouseEnter="{{ closeDrops }}" style="color:inherit; text-decoration:underline; text-underline-offset:6px; text-decoration-thickness:1.5px">Inicio</a>
+        <button type="button" onMouseEnter="{{ openMega }}" onClick="{{ toggleMega }}" onFocus="{{ openMega }}" data-megatrigger="" style="display:flex; align-items:center; gap:6px; background:none; border:0; padding:0; margin:0; cursor:pointer; color:inherit; font:inherit; letter-spacing:inherit; text-transform:inherit; text-decoration:none; text-underline-offset:6px; text-decoration-thickness:1.5px">
+          <span>Tienda</span>
+          <span data-megachevron="" style="display:inline-block; font-size:10px; transition:transform 250ms ease">▼</span>
+        </button>
+        <button type="button" onMouseEnter="{{ openAbout }}" onClick="{{ toggleAbout }}" onFocus="{{ openAbout }}" data-abouttrigger="" style="display:flex; align-items:center; gap:6px; background:none; border:0; padding:0; margin:0; cursor:pointer; color:inherit; font:inherit; letter-spacing:inherit; text-transform:inherit; text-decoration:none; text-underline-offset:6px; text-decoration-thickness:1.5px">
+          <span>Nosotros</span>
+          <span data-aboutchevron="" style="display:inline-block; font-size:10px; transition:transform 250ms ease">▼</span>
+        </button>
+        <a href="lacausa.dc.html" onClick="{{ closeMenus }}" onMouseEnter="{{ closeDrops }}" style="color:inherit" style-hover="text-decoration:underline; text-underline-offset:6px">La Causa</a>
+        <a href="#b2b" onClick="{{ closeMenus }}" onMouseEnter="{{ closeDrops }}" style="color:inherit" style-hover="text-decoration:underline; text-underline-offset:6px">B2B</a>
+      </nav>
+      <div style="display:flex; align-items:center; gap:10px; flex-shrink:0">
+        <a href="https://wa.me/51900000000" data-navwa="" style="display:flex; align-items:center; gap:8px; background:#fff; color:#000; border:2px solid #000; outline:1.5px solid #fff; outline-offset:-5px; padding:9px 14px 8px 12px; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; font-weight:600; transform:rotate(-2deg); transition:transform 200ms ease" style-hover="transform:rotate(1.5deg) scale(1.04); text-decoration:none">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5 0-2.6-.3-5-2.6-2.4-2.4-2.7-4.4-2.7-4.9 0-.5.6-1.6 1.2-1.8.3-.1.7 0 .9.4l.8 1.6c.1.3.1.5-.1.7l-.5.6c-.1.2-.2.4 0 .7.3.5.9 1.3 1.6 1.9.7.6 1.3.9 1.7 1 .2.1.4 0 .6-.2l.6-.6c.2-.2.4-.2.7-.1l1.6.8c.4.2.5.6.4.9Z"></path></svg>
+          <span>WhatsApp</span>
+        </a>
+        <button type="button" aria-label="Menú" onClick="{{ toggleMobile }}" data-burger="" style="display:flex; flex-direction:column; justify-content:center; gap:5px; width:46px; height:46px; padding:0 11px; background:none; border:1.5px solid currentColor; color:inherit; cursor:pointer">
+          <span style="display:block; height:2px; background:currentColor"></span>
+          <span style="display:block; height:2px; background:currentColor"></span>
+          <span style="display:block; height:2px; background:currentColor"></span>
+        </button>
+      </div>
+    </div>
+
+    <div data-mega="" onMouseEnter="{{ openMega }}" style="display:none; position:absolute; top:0; left:0; right:0; padding-top:74px; background:#fff; color:#000; border-bottom:2px solid #000; z-index:1">
+      <div style="max-width:1180px; margin:0 auto; padding:28px 32px 40px; display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:start">
+        <div style="display:flex; flex-direction:column">
+          <div style="font-size:11px; letter-spacing:.34em; text-transform:uppercase; opacity:.6; margin-bottom:10px">Tienda — categorías</div>
+          <a href="#categorias" onMouseEnter="{{ hoverCat0 }}" onClick="{{ closeMenus }}" data-megaitem="0" style="display:flex; align-items:baseline; justify-content:space-between; gap:16px; padding:14px 0; border-bottom:1.5px solid #000; color:#000; font-family:Barrio, cursive; font-size:clamp(26px, 2.6vw, 40px); line-height:1; text-transform:uppercase; transition:padding-left 200ms ease" style-hover="text-decoration:none; padding-left:14px">
+            <span style="display:flex; align-items:baseline; gap:14px"><span style="font-family:Archivo, sans-serif; font-size:11px; letter-spacing:.3em; opacity:.6">01</span><span>Lobitos Ponchos</span></span>
+            <span data-megaarrow="0" style="font-family:Archivo, sans-serif; font-size:20px; opacity:0; transition:opacity 200ms ease">→</span>
+          </a>
+          <a href="#categorias" onMouseEnter="{{ hoverCat1 }}" onClick="{{ closeMenus }}" data-megaitem="1" style="display:flex; align-items:baseline; justify-content:space-between; gap:16px; padding:14px 0; border-bottom:1.5px solid #000; color:#000; font-family:Barrio, cursive; font-size:clamp(26px, 2.6vw, 40px); line-height:1; text-transform:uppercase; transition:padding-left 200ms ease" style-hover="text-decoration:none; padding-left:14px">
+            <span style="display:flex; align-items:baseline; gap:14px"><span style="font-family:Archivo, sans-serif; font-size:11px; letter-spacing:.3em; opacity:.6">02</span><span>Lobitos Ponchos Kids</span></span>
+            <span data-megaarrow="1" style="font-family:Archivo, sans-serif; font-size:20px; opacity:0; transition:opacity 200ms ease">→</span>
+          </a>
+          <a href="#categorias" onMouseEnter="{{ hoverCat2 }}" onClick="{{ closeMenus }}" data-megaitem="2" style="display:flex; align-items:baseline; justify-content:space-between; gap:16px; padding:14px 0; border-bottom:1.5px solid #000; color:#000; font-family:Barrio, cursive; font-size:clamp(26px, 2.6vw, 40px); line-height:1; text-transform:uppercase; transition:padding-left 200ms ease" style-hover="text-decoration:none; padding-left:14px">
+            <span style="display:flex; align-items:baseline; gap:14px"><span style="font-family:Archivo, sans-serif; font-size:11px; letter-spacing:.3em; opacity:.6">03</span><span>Fundas</span></span>
+            <span data-megaarrow="2" style="font-family:Archivo, sans-serif; font-size:20px; opacity:0; transition:opacity 200ms ease">→</span>
+          </a>
+          <a href="#categorias" onMouseEnter="{{ hoverCat3 }}" onClick="{{ closeMenus }}" data-megaitem="3" style="display:flex; align-items:baseline; justify-content:space-between; gap:16px; padding:14px 0; border-bottom:1.5px solid #000; color:#000; font-family:Barrio, cursive; font-size:clamp(26px, 2.6vw, 40px); line-height:1; text-transform:uppercase; transition:padding-left 200ms ease" style-hover="text-decoration:none; padding-left:14px">
+            <span style="display:flex; align-items:baseline; gap:14px"><span style="font-family:Archivo, sans-serif; font-size:11px; letter-spacing:.3em; opacity:.6">04</span><span>Accessories</span></span>
+            <span data-megaarrow="3" style="font-family:Archivo, sans-serif; font-size:20px; opacity:0; transition:opacity 200ms ease">→</span>
+          </a>
+          <div style="margin-top:26px; font-size:12px; letter-spacing:.14em; text-transform:uppercase; opacity:.6">Pedidos y consultas por WhatsApp</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:16px; align-items:flex-start">
+          <div style="position:relative; width:100%; aspect-ratio:5/4; border:2px solid #000; overflow:hidden; background:#000">
+          <div data-megaimg="0" style="position:absolute; inset:0; background-image:url('uploads/ponchos.webp'); background-size:cover; background-position:center; opacity:0; transition:opacity 250ms ease"></div>
+          <div data-megaimg="1" style="position:absolute; inset:0; background-image:url('uploads/ponchokids.webp'); background-size:cover; background-position:center; opacity:0; transition:opacity 250ms ease"></div>
+          <div data-megaimg="2" style="position:absolute; inset:0; background-image:url('uploads/fundas.webp'); background-size:cover; background-position:center; opacity:0; transition:opacity 250ms ease"></div>
+          <div data-megaimg="3" style="position:absolute; inset:0; background-image:url('uploads/IMG_4298.jpeg'); background-size:cover; background-position:center; opacity:0; transition:opacity 250ms ease"></div>
+            <span data-megatag="" style="position:absolute; top:0; left:0; background:#000; color:#fff; font-size:10px; letter-spacing:.24em; text-transform:uppercase; padding:6px 10px">{{ megaName }}</span>
+          </div>
+          <a href="#categorias" onClick="{{ closeMenus }}" style="border-bottom:2px solid #000; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; padding-bottom:3px">Ver colección →</a>
+        </div>
+      </div>
+    </div>
+
+    <div data-about="" onMouseEnter="{{ openAbout }}" style="display:none; position:absolute; top:0; left:0; right:0; padding-top:74px; background:#fff; color:#000; border-bottom:2px solid #000; z-index:1">
+      <div style="max-width:1180px; margin:0 auto; padding:24px 32px 34px; display:flex; flex-direction:column; align-items:flex-start; gap:0; max-width:520px">
+        <div style="font-size:11px; letter-spacing:.34em; text-transform:uppercase; opacity:.6; margin-bottom:10px">Nosotros</div>
+        <a href="teampage.dc.html" onClick="{{ closeMenus }}" data-aboutitem="" style="display:flex; align-items:baseline; justify-content:space-between; gap:16px; width:100%; padding:12px 0; border-bottom:1.5px solid #000; color:#000; font-family:Barrio, cursive; font-size:clamp(24px, 2.2vw, 34px); line-height:1; text-transform:uppercase; transition:padding-left 200ms ease, background 150ms ease" style-hover="text-decoration:none; padding-left:14px; padding-right:14px; background:#000; color:#fff">
+          <span style="display:flex; align-items:baseline; gap:14px"><span style="font-family:Archivo, sans-serif; font-size:11px; letter-spacing:.3em; opacity:.6">01</span><span>Equipo</span></span>
+          <span style="font-family:Archivo, sans-serif; font-size:18px">→</span>
+        </a>
+        <a href="#tejido" onClick="{{ closeMenus }}" data-aboutitem="" style="display:flex; align-items:baseline; justify-content:space-between; gap:16px; width:100%; padding:12px 0; border-bottom:1.5px solid #000; color:#000; font-family:Barrio, cursive; font-size:clamp(24px, 2.2vw, 34px); line-height:1; text-transform:uppercase; transition:padding-left 200ms ease, background 150ms ease" style-hover="text-decoration:none; padding-left:14px; padding-right:14px; background:#000; color:#fff">
+          <span style="display:flex; align-items:baseline; gap:14px"><span style="font-family:Archivo, sans-serif; font-size:11px; letter-spacing:.3em; opacity:.6">02</span><span>Historia</span></span>
+          <span style="font-family:Archivo, sans-serif; font-size:18px">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div data-mobilemenu="" style="display:none; position:absolute; top:0; left:0; right:0; height:100svh; padding:90px 20px 40px; background:#fff; color:#000; z-index:1; flex-direction:column; overflow-y:auto">
+      <a href="#top" onClick="{{ closeMenus }}" style="display:block; padding:14px 0; border-bottom:1.5px solid #000; color:#000; font-family:Barrio, cursive; font-size:28px; line-height:1; text-transform:uppercase">Inicio</a>
+      <button type="button" onClick="{{ toggleAccShop }}" data-accshop-btn="" style="display:flex; align-items:center; justify-content:space-between; width:100%; padding:14px 0; border:0; border-bottom:1.5px solid #000; background:none; cursor:pointer; color:#000; font-family:Barrio, cursive; font-size:28px; line-height:1; text-transform:uppercase; text-align:left">
+        <span>Tienda</span><span data-accshop-ic="" style="font-family:Archivo, sans-serif; font-size:20px">+</span>
+      </button>
+      <div data-accshop="" style="display:none; flex-direction:column; padding-left:14px">
+        <a href="#categorias" onClick="{{ closeMenus }}" style="display:flex; align-items:baseline; justify-content:space-between; padding:14px 0; border-bottom:1.5px solid #000; color:#000; font-family:Barrio, cursive; font-size:24px; line-height:1; text-transform:uppercase" style-hover="text-decoration:none"><span>Lobitos Ponchos</span><span style="font-family:Archivo, sans-serif; font-size:18px">→</span></a>
+        <a href="#categorias" onClick="{{ closeMenus }}" style="display:flex; align-items:baseline; justify-content:space-between; padding:14px 0; border-bottom:1.5px solid #000; color:#000; font-family:Barrio, cursive; font-size:24px; line-height:1; text-transform:uppercase" style-hover="text-decoration:none"><span>Lobitos Ponchos Kids</span><span style="font-family:Archivo, sans-serif; font-size:18px">→</span></a>
+        <a href="#categorias" onClick="{{ closeMenus }}" style="display:flex; align-items:baseline; justify-content:space-between; padding:14px 0; border-bottom:1.5px solid #000; color:#000; font-family:Barrio, cursive; font-size:24px; line-height:1; text-transform:uppercase" style-hover="text-decoration:none"><span>Fundas</span><span style="font-family:Archivo, sans-serif; font-size:18px">→</span></a>
+        <a href="#categorias" onClick="{{ closeMenus }}" style="display:flex; align-items:baseline; justify-content:space-between; padding:14px 0; border-bottom:1.5px solid #000; color:#000; font-family:Barrio, cursive; font-size:24px; line-height:1; text-transform:uppercase" style-hover="text-decoration:none"><span>Accessories</span><span style="font-family:Archivo, sans-serif; font-size:18px">→</span></a>
+      </div>
+      <button type="button" onClick="{{ toggleAccAbout }}" data-accabout-btn="" style="display:flex; align-items:center; justify-content:space-between; width:100%; padding:14px 0; border:0; border-bottom:1.5px solid #000; background:none; cursor:pointer; color:#000; font-family:Barrio, cursive; font-size:28px; line-height:1; text-transform:uppercase; text-align:left">
+        <span>Nosotros</span><span data-accabout-ic="" style="font-family:Archivo, sans-serif; font-size:20px">+</span>
+      </button>
+      <div data-accabout="" style="display:none; flex-direction:column; padding-left:14px">
+        <a href="teampage.dc.html" onClick="{{ closeMenus }}" style="display:flex; align-items:baseline; justify-content:space-between; padding:14px 0; border-bottom:1.5px solid #000; color:#000; font-family:Barrio, cursive; font-size:24px; line-height:1; text-transform:uppercase" style-hover="text-decoration:none"><span>Equipo</span><span style="font-family:Archivo, sans-serif; font-size:18px">→</span></a>
+        <a href="#tejido" onClick="{{ closeMenus }}" style="display:flex; align-items:baseline; justify-content:space-between; padding:14px 0; border-bottom:1.5px solid #000; color:#000; font-family:Barrio, cursive; font-size:24px; line-height:1; text-transform:uppercase" style-hover="text-decoration:none"><span>Historia</span><span style="font-family:Archivo, sans-serif; font-size:18px">→</span></a>
+      </div>
+      <a href="lacausa.dc.html" onClick="{{ closeMenus }}" style="display:block; padding:14px 0; border-bottom:1.5px solid #000; color:#000; font-family:Barrio, cursive; font-size:28px; line-height:1; text-transform:uppercase">La Causa</a>
+      <a href="#b2b" onClick="{{ closeMenus }}" style="display:block; padding:14px 0; border-bottom:1.5px solid #000; color:#000; font-family:Barrio, cursive; font-size:28px; line-height:1; text-transform:uppercase">B2B</a>
+      <div data-mobilesecondary="" style="display:flex; flex-direction:column; gap:14px; margin-top:36px; font-size:13px; letter-spacing:.14em; text-transform:uppercase">
+        <a href="#contacto" onClick="{{ closeMenus }}" style="color:#000">Contacto</a>
+        <a href="https://instagram.com/lobitosponchos" target="_blank" rel="noopener" style="color:#000">Instagram</a>
+      </div>
+      <div style="margin-top:auto; padding-top:32px; font-family:Barrio, cursive; font-size:44px; line-height:.9; text-transform:uppercase; transform:rotate(-2deg); transform-origin:left bottom">Lobitos<br>Ponchos</div>
+    </div>
+  </header>
+
+  <section id="top" data-hero="" style="position:relative; height:650px; min-height:0; width:100%; background:#000; overflow:hidden" onMouseEnter="{{ pause }}" onMouseLeave="{{ resume }}" onTouchStart="{{ onTouchStart }}" onTouchEnd="{{ onTouchEnd }}">
+    <div style="position:absolute; inset:0; background-image:url('uploads/carr1.webp'); background-size:cover; background-repeat:no-repeat; background-position:center center; transition:opacity 900ms ease" data-slide="1" data-op="{{ op0 }}"></div>
+    <div style="position:absolute; inset:0; background-image:url('uploads/carr2.webp'); background-size:cover; background-repeat:no-repeat; background-position:center center; transition:opacity 900ms ease" data-slide="2" data-op="{{ op1 }}"></div>
+    <div style="position:absolute; inset:0; background-image:url('uploads/carr3.webp'); background-size:cover; background-repeat:no-repeat; background-position:center center; transition:opacity 900ms ease" data-slide="3" data-op="{{ op2 }}"></div>
+    <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.6) 0%, rgba(0,0,0,0) 32%, rgba(0,0,0,0) 55%, rgba(0,0,0,.55) 100%); pointer-events:none"></div>
+
+    
+    
+
+    <div style="position:absolute; left:0; right:0; bottom:18px; display:flex; flex-direction:column; align-items:center; gap:14px; padding:0 18px">
+      <div style="text-align:center; color:#fff">
+        <div style="font-family:Barrio, cursive; font-size:clamp(28px, 6vw, 56px); line-height:.95; letter-spacing:.02em">LOBITOS PONCHOS</div>
+        <div style="font-size:10px; letter-spacing:0.34em; text-transform:uppercase; margin-top:6px; opacity:.9">Lobitos · Piura · Perú</div>
+      </div>
+      <div style="display:flex; gap:10px; align-items:center">
+        <button aria-label="Slide 1" onClick="{{ goTo0 }}" style="width:34px; height:3px; box-sizing:content-box; padding:12px 4px; border:0; cursor:pointer; background:#fff; background-clip:content-box" data-dotop="{{ dot0 }}"></button>
+        <button aria-label="Slide 2" onClick="{{ goTo1 }}" style="width:34px; height:3px; box-sizing:content-box; padding:12px 4px; border:0; cursor:pointer; background:#fff; background-clip:content-box" data-dotop="{{ dot1 }}"></button>
+        <button aria-label="Slide 3" onClick="{{ goTo2 }}" style="width:34px; height:3px; box-sizing:content-box; padding:12px 4px; border:0; cursor:pointer; background:#fff; background-clip:content-box" data-dotop="{{ dot2 }}"></button>
+      </div>
+    </div>
+
+    <div style="position:absolute; right:16px; bottom:16px; display:flex; align-items:stretch; background:#000; border:1px solid #000">
+      <button aria-label="Anterior" onClick="{{ prev }}" style="width:38px; height:38px; display:flex; align-items:center; justify-content:center; background:#000; color:#fff; border:0; border-right:1px solid rgba(255,255,255,.25); cursor:pointer; font-size:15px; line-height:1" style-hover="background:#222">←</button>
+      <div style="display:flex; align-items:center; gap:5px; padding:0 12px; background:#fff">
+        <span style="width:7px; height:7px; background:{{ sqBg0 }}"></span>
+        <span style="width:7px; height:7px; background:{{ sqBg1 }}"></span>
+        <span style="width:7px; height:7px; background:{{ sqBg2 }}"></span>
+      </div>
+      <button aria-label="Siguiente" onClick="{{ next }}" style="width:38px; height:38px; display:flex; align-items:center; justify-content:center; background:#000; color:#fff; border:0; border-left:1px solid rgba(255,255,255,.25); cursor:pointer; font-size:15px; line-height:1" style-hover="background:#222">→</button>
+    </div>
+  </section>
+
+  <section data-hero-divider="" style="width:100%; background:#fff; border-top:2px solid #000; border-bottom:2px solid #000; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 22px; flex-wrap:wrap">
+    <div style="display:flex; align-items:baseline; gap:10px">
+      <span style="font-family:Barrio, cursive; font-size:22px; line-height:1">01</span>
+      <span style="font-size:11px; letter-spacing:.28em; text-transform:uppercase; font-weight:600">Líneas de producción artesanal</span>
+    </div>
+    <span style="font-size:10px; letter-spacing:.28em; text-transform:uppercase; opacity:.75">HECHO A MANO · 100%</span>
+  </section>
+
+  <section id="categorias" data-grid="cats" style="display:grid; grid-template-columns:1fr 1fr; gap:2px; background:#000; border-bottom:2px solid #000">
+    <a href="#tienda" style="position:relative; display:block; aspect-ratio:1/1; overflow:hidden; background:#000; color:#fff; container-type:inline-size" style-hover="text-decoration:none">
+      <div style="position:absolute; inset:0; background-image:url('uploads/ponchos.webp'); background-size:cover; background-position:center; transition:transform 700ms ease" data-catimg=""></div>
+      <div style="position:absolute; inset:0; background:rgba(0,0,0,.32)"></div>
+      <div style="position:absolute; left:0; right:0; bottom:0; padding:16px 16px 18px; display:flex; align-items:flex-end; justify-content:space-between; gap:10px">
+        <span style="font-family:Barrio, cursive; font-size:clamp(20px, 12.5cqw, 64px); line-height:.9; text-transform:uppercase; overflow-wrap:anywhere">Lobitos<br>Ponchos</span>
+        <span style="font-size:18px; line-height:1; flex-shrink:0">→</span>
+      </div>
+    </a>
+    <a href="#tienda" style="position:relative; display:block; aspect-ratio:1/1; overflow:hidden; background:#000; color:#fff; container-type:inline-size" style-hover="text-decoration:none">
+      <div style="position:absolute; inset:0; background-image:url('uploads/ponchokids.webp'); background-size:cover; background-position:center; transition:transform 700ms ease" data-catimg=""></div>
+      <div style="position:absolute; inset:0; background:rgba(0,0,0,.32)"></div>
+      <div style="position:absolute; left:0; right:0; bottom:0; padding:16px 16px 18px; display:flex; align-items:flex-end; justify-content:space-between; gap:10px">
+        <span style="font-family:Barrio, cursive; font-size:clamp(20px, 12.5cqw, 64px); line-height:.9; text-transform:uppercase; overflow-wrap:anywhere">Lobitos<br>Ponchos Kids</span>
+        <span style="font-size:18px; line-height:1; flex-shrink:0">→</span>
+      </div>
+    </a>
+    <a href="#tienda" style="position:relative; display:block; aspect-ratio:1/1; overflow:hidden; background:#000; color:#fff; container-type:inline-size" style-hover="text-decoration:none">
+      <div style="position:absolute; inset:0; background-image:url('uploads/fundas.webp'); background-size:cover; background-position:center; transition:transform 700ms ease" data-catimg=""></div>
+      <div style="position:absolute; inset:0; background:rgba(0,0,0,.32)"></div>
+      <div style="position:absolute; left:0; right:0; bottom:0; padding:16px 16px 18px; display:flex; align-items:flex-end; justify-content:space-between; gap:10px">
+        <span style="font-family:Barrio, cursive; font-size:clamp(20px, 12.5cqw, 64px); line-height:.9; text-transform:uppercase; overflow-wrap:anywhere">Fundas</span>
+        <span style="font-size:18px; line-height:1; flex-shrink:0">→</span>
+      </div>
+    </a>
+    <a href="#tienda" style="position:relative; display:block; aspect-ratio:1/1; overflow:hidden; background:#000; color:#fff; container-type:inline-size" style-hover="text-decoration:none">
+      <div style="position:absolute; inset:0; background-image:url('uploads/IMG_4298.jpeg'); background-size:cover; background-position:center; transition:transform 700ms ease" data-catimg=""></div>
+      <div style="position:absolute; inset:0; background:rgba(0,0,0,.32)"></div>
+      <div style="position:absolute; left:0; right:0; bottom:0; padding:16px 16px 18px; display:flex; align-items:flex-end; justify-content:space-between; gap:10px">
+        <span style="font-family:Barrio, cursive; font-size:clamp(20px, 12.5cqw, 64px); line-height:.9; text-transform:uppercase; overflow-wrap:anywhere">Accessories</span>
+        <span style="font-size:18px; line-height:1; flex-shrink:0">→</span>
+      </div>
+    </a>
+  </section>
+
+  <section data-hero-divider="" style="width:100%; background:#fff; border-top:2px solid #000; border-bottom:2px solid #000; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 22px; flex-wrap:wrap">
+    <div style="display:flex; align-items:baseline; gap:10px">
+      
+      <span style="font-size:11px; letter-spacing:.28em; text-transform:uppercase; font-weight:600">Nuestra gente, nuestro oficio</span>
+    </div>
+    <span style="font-size:10px; letter-spacing:.28em; text-transform:uppercase; opacity:.75">Taller Lobitos · Piura, Perú</span>
+  </section>
+
+  <section id="causa" style="position:relative; padding:0; border-bottom:2px solid #000; overflow:hidden">
+    <div data-grid="causa" style="display:flex; flex-direction:column; gap:0">
+      <div style="position:relative; width:100%; z-index:1; border-top:2px solid #000; border-bottom:2px solid #000">
+        <div data-causaimg="" style="width: 100%; height: 62vh; min-height: 300px; background-image: url('uploads/imgi_20_Enlight403-JPG.webp'); background-size: cover; background-position: center; position: relative"><h2 data-causatitle="" style="position: absolute; top: 64px; left: 34px; font-family: Barrio, cursive; font-weight: 400; margin: 0; transform: rotate(-3deg); transform-origin: left top; font-size: clamp(40px, 8vw, 120px); line-height: .86; text-transform: uppercase; display: inline-block; background: #fff; padding: 8px 14px 2px 10px; border: 2px solid #000; height: 96px">
+          <span style="display:block">Nuestra</span>
+          <span style="display:block; font-size:.62em; margin-left:.9em; border-bottom:6px solid #000; padding-bottom:.06em; width:max-content">Causa</span>
+        </h2></div>
+        
+        <svg viewBox="0 0 220 120" width="180" height="98" aria-hidden="true" data-causaline="" style="position:absolute; right:3%; bottom:-46px; overflow:visible; pointer-events:none"><path d="M8 100 C 40 20, 120 10, 150 60 S 200 110, 212 30" fill="none" stroke="#000" stroke-width="2.5" stroke-dasharray="8 8" stroke-linecap="round"></path></svg>
+      </div>
+      <div data-causarow="" style="position:relative; z-index:2; padding:56px 20px; max-width:1180px; width:100%; margin:0 auto; display:flex; flex-direction:column; gap:24px; align-items:flex-start">
+        
+        
+      <div style="font-size: 16px; line-height: 1; font-family: Archivo, Helvetica, Arial, sans-serif; position: absolute; left: 460px; top: 92px"></div><div aria-hidden="true" data-causanum="" style="display: none; flex: 0 0 auto; font-family: Barrio, cursive; font-size: clamp(160px, 22vw, 320px); line-height: .8; color: transparent; -webkit-text-stroke: 2px #000; transform: rotate(-6deg); transform-origin: center; user-select: none; pointer-events: none; letter-spacing: -.02em; width: 256px; height: 189px">02</div><div style="background: #fff; border: 2px solid #000; padding: 10px 18px; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; position: absolute; left: 380px; top: 237px">CONOCE AL EQUIPO</div><h2 class="font-['Barrio'] text-headline-lg md:text-display-lg text-primary uppercase leading-none mb-6 cursor-text" spellcheck="false" data-stitch-editable-idx="47" data-stitch-added-classes="cursor-text" style="scrollbar-width: none; --tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-scroll-snap-strictness: proximity; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; border-width: 0px; border-style: solid; border-color: rgb(229, 231, 235); font-size: 80px; margin: 0px 0px 1.5rem; font-family: Barrio; line-height: 60px; letter-spacing: -0.02em; text-transform: uppercase; --tw-text-opacity: 1; background-color: rgb(252, 249, 248); cursor: text !important; outline: none !important; box-shadow: none !important; width: 901px; height: 130px; position: absolute; left: 375px; top: 90px">TEJIDO QUE SOSTIENE HOGARES FRENTE AL MAR</h2></div>
+    </div>
+  </section>
+
+  <section id="tejido" style="position:relative; padding:0; border-bottom:2px solid #000; overflow:hidden; background:#fff">
+    <div style="width:100%; background:#000; border-bottom:2px solid #000; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 22px; flex-wrap:wrap">
+      <span style="font-size:11px; letter-spacing:.28em; text-transform:uppercase; font-weight:600; color:#fff">Filosofía material</span>
+      <span style="font-size:10px; letter-spacing:.28em; text-transform:uppercase; opacity:.75; color:#fff">Lana andina · Brisa pacífica</span>
+    </div>
+    <div data-grid="tejido" style="display:grid; grid-template-columns:55fr 45fr; align-items:stretch" data-teigrid="">
+      <div style="position:relative; z-index:2; padding:56px 40px 56px; display:flex; flex-direction:column; justify-content:center; gap:26px">
+        
+        <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap; width: 777px">
+          <h2 data-tejtitle="" style="position:relative; margin:0; font-weight:400; transform:rotate(2.5deg); transform-origin:left bottom; text-transform:uppercase; display:flex; flex-direction:column; align-items:flex-start; background:#fff; border:2px solid #000; padding:10px 16px 6px 12px; font-family:Barrio, cursive; line-height:.86">
+            <span style="display:block; font-size:clamp(18px, 3vw, 40px); letter-spacing:.04em">Tejido con</span>
+            <span style="display:block; font-size:clamp(40px, 7vw, 96px); margin-top:2px">Propósito</span>
+          </h2>
+          <div aria-hidden="true" style="flex-shrink:0; width:84px; height:84px; border-radius:50%; border:1.5px solid #000; display:flex; align-items:center; justify-content:center; text-align:center; font-size:10px; letter-spacing:.14em; text-transform:uppercase; line-height:1.4; padding:8px">Origen<br>Andes</div>
+        </div><h3 style="margin: 0; font-family: Barrio, cursive; font-weight: 400; font-size: clamp(32px, 4.4vw, 56px); line-height: .98; text-transform: uppercase; width: 777px">La montaña se une<br>con el océano</h3>
+        <div style="display:flex; flex-direction:column; gap:10px; max-width:480px">
+          <span style="font-size: 11px; letter-spacing: .3em; text-transform: uppercase; font-weight: 600; width: 777px">Declaración de origen</span>
+          <div style="background: #f4f4f4; border: 1.5px solid #000; padding: 22px 24px; width: 777px">
+            <p style="margin: 0; font-size: 16px; line-height: 1.6; font-style: italic; text-wrap: pretty">"En Lobitos creamos ponchos que respiran la esencia de los Andes. Cada pieza es tejida por manos que heredan tradiciones ancestrales, usando lanas naturales de la montaña. No es solo abrigo—es conexión con la tierra, con la cultura, con el calor genuino que solo el tejido artesanal puede dar."</p>
+          </div>
+        </div>
+        <a href="teampage.dc.html" style="align-self: flex-start; background: #000; color: #fff; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; padding: 14px 26px" style-hover="background:#222">Conoce nuestra historia →</a>
+      </div>
+      <div style="position:relative; border-left:2px solid #000; min-height:520px">
+        <div style="position:absolute; inset:0; background-image:url('uploads/pasted-1788370391603-0.png'); background-size:cover; background-position:center"></div>
+        <svg viewBox="0 0 200 110" width="150" height="82" aria-hidden="true" style="position:absolute; top:16px; right:16px; overflow:visible; pointer-events:none"><path d="M6 90 C 40 12, 110 4, 140 50 S 190 100, 196 20" fill="none" stroke="#fff" stroke-width="2.5" stroke-dasharray="7 7" stroke-linecap="round"></path></svg>
+        <div style="position:absolute; left:16px; bottom:16px; background:#fff; border:1.5px solid #000; padding:12px 16px; display:flex; flex-direction:column; gap:2px">
+          <span style="font-size:12px; letter-spacing:.06em; text-transform:uppercase; font-weight:700">Telar de pedal</span>
+          <span style="font-size:10px; letter-spacing:.08em; text-transform:uppercase; opacity:.7">Fibras 100% biodegradables</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#f8f4ee; padding:36px 20px 0">
+    <div style="max-width:1180px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:20px; padding-bottom:28px">
+      <div>
+        <div style="font-size:11px; letter-spacing:0.3em; text-transform:uppercase; opacity:.7; margin-bottom:8px">04 — En la vida real</div>
+        <h2 style="font-family:Barrio, cursive; font-weight:400; margin:0; font-size:clamp(38px, 6.5vw, 76px); line-height:.9; text-transform:uppercase">Del agua al viento</h2>
+      </div>
+      <div style="background:#fff; border:2px solid #000; padding:10px 18px; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; font-weight:600">Lobitos Archive · Piura</div>
+    </div>
+  </section>
+  <section style="background:#000">
+    <div data-grid="wild" style="display:grid; grid-template-columns:1fr; gap:0">
+      <figure style="margin:0; position:relative; aspect-ratio:3/4; overflow:hidden">
+        <div style="position:absolute; inset:0; background-image:url('uploads/art5.jpg'); background-size:cover; background-position:center"></div>
+        <figcaption style="position:absolute; left:14px; bottom:14px; background:#fff; border:1.5px solid #000; padding:7px 12px; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; font-weight:600">01 · Sesión del atardecer · La Punta</figcaption>
+      </figure>
+      <figure style="margin:0; position:relative; aspect-ratio:3/4; overflow:hidden">
+        <div style="position:absolute; inset:0; background-image:url('uploads/art3.jpg'); background-size:cover; background-position:center"></div>
+        <figcaption style="position:absolute; left:14px; bottom:14px; background:#fff; border:1.5px solid #000; padding:7px 12px; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; font-weight:600">02 · El viento del desierto</figcaption>
+      </figure>
+      <figure style="margin:0; position:relative; aspect-ratio:3/4; overflow:hidden">
+        <div style="position:absolute; inset:0; background-image:url('uploads/Accessories-ca7c75ee.webp'); background-size:cover; background-position:center"></div>
+        <figcaption style="position:absolute; left:14px; bottom:14px; background:#fff; border:1.5px solid #000; padding:7px 12px; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; font-weight:600">03 · Muelle histórico · Marea alta</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section style="background:#000; color:#fff; padding:26px 0; overflow:hidden; border-top:2px solid #fff; border-bottom:2px solid #fff">
+    <div style="display:flex; width:max-content; animation:marquee-scroll 26s linear infinite">
+      <span style="display:flex; align-items:center; white-space:nowrap; font-family:Barrio, cursive; font-size:clamp(36px, 6vw, 68px); line-height:1; text-transform:uppercase; padding-right:40px">Lobitos Ponchos · Surf &amp; Craft · Hecho en Lobitos · Lobitos Ponchos · Surf &amp; Craft · Hecho en Lobitos · Lobitos Ponchos · Surf &amp; Craft · Hecho en Lobitos ·</span>
+      <span style="display:flex; align-items:center; white-space:nowrap; font-family:Barrio, cursive; font-size:clamp(36px, 6vw, 68px); line-height:1; text-transform:uppercase; padding-right:40px" aria-hidden="true">Lobitos Ponchos · Surf &amp; Craft · Hecho en Lobitos · Lobitos Ponchos · Surf &amp; Craft · Hecho en Lobitos · Lobitos Ponchos · Surf &amp; Craft · Hecho en Lobitos ·</span>
+    </div>
+  </section>
+
+  <section id="instagram" style="background:#fff; color:#000; padding:80px 20px 90px; display:flex; flex-direction:column; align-items:center; gap:40px">
+    <div style="display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center">
+      <span style="background:#fff; border:1.5px solid #000; padding:6px 14px; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; font-weight:600">Comunidad en tiempo real</span>
+      <span style="font-family:Barrio, cursive; font-size:clamp(48px, 10vw, 110px); line-height:.9; text-transform:uppercase">Síguenos</span>
+      <span style="font-size:12px; letter-spacing:0.3em; text-transform:uppercase; opacity:.7">@lobitos.ponchos</span>
+    </div>
+
+    <a href="https://instagram.com/lobitosponchos" target="_blank" rel="noopener" aria-label="Instagram de Lobitos Ponchos" style="display:block; width:100%; max-width:920px; background:#f8f4ee; border:2px solid #000; box-shadow:10px 10px 0 #000; text-decoration:none; color:#000" style-hover="text-decoration:none">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:14px; padding:20px 24px; flex-wrap:wrap">
+        <div style="display:flex; align-items:center; gap:14px">
+          <div style="width:46px; height:46px; border-radius:50%; background:#000; color:#fff; display:flex; align-items:center; justify-content:center; font-family:Barrio, cursive; font-size:15px; flex-shrink:0">LP</div>
+          <div style="display:flex; flex-direction:column; gap:2px">
+            <span style="font-size:13px; letter-spacing:0.1em; text-transform:uppercase; font-weight:700">Lobitos Ponchos</span>
+            <span style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#666">Lobitos, Piura, Perú</span>
+          </div>
+        </div>
+        <span style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; font-weight:600; border-bottom:1.5px solid #000; padding-bottom:2px; white-space:nowrap">Ver feed ↗</span>
+      </div>
+      <div style="border-top:1.5px dashed #000"></div>
+      <div data-iggrid="" style="display:grid; grid-template-columns:1fr; gap:0">
+        <div style="position:relative; aspect-ratio:4/5; overflow:hidden; border-bottom:1.5px dashed #000; border-right:0; background:#f8f4ee">
+          <img src="uploads/videoig.gif" alt="Instagram Lobitos Ponchos" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; filter:grayscale(1) contrast(1.1)">
+          <span style="position:absolute; left:12px; bottom:12px; background:#fff; border:1.5px solid #000; padding:6px 10px; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; font-weight:600">Post destacado · Reel</span>
+        </div>
+        <div style="padding:26px 24px; display:flex; flex-direction:column; gap:14px">
+          <span style="font-family:Barrio, cursive; font-size:clamp(36px, 5vw, 52px); line-height:1">12.4K</span>
+          <span style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; opacity:.7; margin-top:-8px">Amigos del mar &amp; surfistas</span>
+          <p style="margin:0; font-size:15px; line-height:1.55; text-wrap:pretty">Relatos del día a día, fotos de mareas altas, pruebas de nuevos telares y avisos de preventa de lotes limitados.</p>
+          <div style="border-top:1.5px dashed #000; margin-top:4px; padding-top:14px">
+            <span style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; font-weight:600; border-bottom:1.5px solid #000; padding-bottom:2px">Conecta con la playa →</span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <div style="position:relative; width:100%; max-width:920px; height:4px; background:#000; margin-top:14px">
+      <a href="https://instagram.com/lobitosponchos" target="_blank" rel="noopener" style="position:absolute; right:0; top:-16px; background:#fff; border:1.5px solid #000; padding:7px 14px; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; font-weight:600; transform:rotate(-2deg); text-decoration:none; color:#000">★ Síguenos en @lobitos.ponchos</a>
+    </div>
+  </section>
+
+  <footer id="contacto" style="position:relative; background:#000; color:#fff; padding:80px 20px 40px; overflow:hidden; border-top:2px solid #fff">
+    <img src="uploads/pasted-1788368179697-0.png" alt="" aria-hidden="true" data-ftlogo="" style="position:absolute; right:-18vw; top:-6vw; width:min(560px, 62vw); height:auto; border-radius:50%; border:2px solid #fff; transform:rotate(-8deg); opacity:.95; pointer-events:none">
+    <div data-ftwrap="" style="position:relative; max-width:1180px; margin:0 auto; display:flex; flex-direction:column; gap:48px">
+      <h2 data-fttitle="" style="font-family:Barrio, cursive; font-weight:400; margin:0; font-size:clamp(64px, 17vw, 240px); line-height:.82; text-transform:uppercase; max-width:70%; transform:rotate(-2deg); transform-origin:left bottom">¿Hablamos?</h2>
+      <div data-ftrow="" style="position:relative; display:flex; flex-direction:column; gap:40px; align-items:flex-start">
+        <a href="https://wa.me/51900000000" data-ftwa="" style="display:inline-flex; align-items:center; gap:12px; background:#fff; color:#000; border:3px solid #fff; outline:2px solid #000; outline-offset:-7px; padding:18px 26px 16px 20px; font-family:Barrio, cursive; font-size:clamp(22px, 4vw, 34px); line-height:1; text-transform:uppercase; transform:rotate(2.5deg); transform-origin:left center; min-height:48px; transition:transform 250ms ease" style-hover="transform:rotate(-1.5deg) scale(1.03); text-decoration:none">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5 0-2.6-.3-5-2.6-2.4-2.4-2.7-4.4-2.7-4.9 0-.5.6-1.6 1.2-1.8.3-.1.7 0 .9.4l.8 1.6c.1.3.1.5-.1.7l-.5.6c-.1.2-.2.4 0 .7.3.5.9 1.3 1.6 1.9.7.6 1.3.9 1.7 1 .2.1.4 0 .6-.2l.6-.6c.2-.2.4-.2.7-.1l1.6.8c.4.2.5.6.4.9Z"></path></svg>
+          <span>Pedir por WhatsApp</span>
+        </a>
+        <svg viewBox="0 0 220 120" width="170" height="92" aria-hidden="true" data-ftline="" style="position:absolute; left:40%; top:-70px; overflow:visible; pointer-events:none"><path d="M6 96 C 50 30, 100 120, 140 40 S 190 20, 214 70" fill="none" stroke="#fff" stroke-width="2.5" stroke-dasharray="8 8" stroke-linecap="round"></path></svg>
+        <div data-ftcols="" style="display:flex; flex-direction:column; gap:36px; width:100%">
+          <div data-ftblock="" style="display:flex; flex-direction:column; gap:12px; transform:rotate(-1.5deg)">
+            <div style="font-size:11px; letter-spacing:0.3em; text-transform:uppercase; opacity:.6">Tienda</div>
+            <a href="#categorias" style="color:#fff; font-size:16px; border-bottom:1.5px solid #fff; align-self:flex-start; padding-bottom:2px">Ponchos</a>
+            <a href="#categorias" style="color:#fff; font-size:16px; border-bottom:1.5px solid #fff; align-self:flex-start; padding-bottom:2px">Prendas de playa</a>
+            <a href="#categorias" style="color:#fff; font-size:16px; border-bottom:1.5px solid #fff; align-self:flex-start; padding-bottom:2px">Hecho a pedido</a>
+          </div>
+          <div data-ftblock="" style="display:flex; flex-direction:column; gap:12px; transform:rotate(1.2deg)">
+            <div style="font-size:11px; letter-spacing:0.3em; text-transform:uppercase; opacity:.6">Contacto</div>
+            <a href="https://wa.me/51900000000" style="color:#fff; font-size:16px">WhatsApp +51 900 000 000</a>
+            <a href="https://instagram.com/lobitosponchos" target="_blank" rel="noopener" style="color:#fff; font-size:16px">Instagram @lobitosponchos</a>
+            <a href="mailto:hola@lobitosponchos.pe" style="color:#fff; font-size:16px">hola@lobitosponchos.pe</a>
+          </div>
+          <div data-ftblock="" style="display:flex; flex-direction:column; gap:10px">
+            <div style="font-size:11px; letter-spacing:0.3em; text-transform:uppercase; opacity:.6">Dónde</div>
+            <div style="font-family:Barrio, cursive; font-size:28px; line-height:.95; text-transform:uppercase">Lobitos,<br>Talara — Piura</div>
+            <div style="font-size:14px; line-height:1.5; opacity:.75">[Dirección placeholder]<br>Perú</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:12px; margin-top:20px; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; opacity:.45">
+        <span style="transform:rotate(-1deg); display:inline-block">© 2026 Lobitos Ponchos</span>
+        <span style="font-family:Barrio, cursive; font-size:13px; letter-spacing:.06em">Hecho en Lobitos</span>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;autoplaySeconds&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:4,&quot;min&quot;:2,&quot;max&quot;:12,&quot;step&quot;:1,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Carrusel&quot;},&quot;productColumns&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:3,&quot;min&quot;:2,&quot;max&quot;:3,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Tienda&quot;}}">
+class Component extends DCLogic {
+  state = { i: 0, paused: false, elapsed: 0, mega: false, about: false, mobile: false, cat: 0, accShop: false, accAbout: false };
+
+  componentDidMount() {
+    this.tick = setInterval(() => {
+      if (this.state.paused) return;
+      const secs = this.props.autoplaySeconds ?? 5;
+      this.setState(s => (s.elapsed + 0.5 >= secs ? { elapsed: 0, i: (s.i + 1) % 3 } : { elapsed: s.elapsed + 0.5 }));
+    }, 500);
+    this.applyResponsive();
+    this._onResize = () => this.applyResponsive();
+    window.addEventListener('resize', this._onResize);
+  }
+  componentDidUpdate() { this.applyOpacity(); this.applyResponsive(); this.applyMenus(); }
+  componentWillUnmount() { clearInterval(this.tick); window.removeEventListener('resize', this._onResize); }
+
+  applyOpacity() {
+    const root = this.el || document;
+    root.querySelectorAll('[data-op]').forEach(n => { n.style.opacity = n.getAttribute('data-op'); });
+    root.querySelectorAll('[data-dotop]').forEach(n => { n.style.opacity = n.getAttribute('data-dotop'); });
+  }
+  applyResponsive() {
+    const w = window.innerWidth;
+    const cols = Math.max(1, Math.min(3, this.props.productColumns ?? 3));
+    document.querySelectorAll('[data-arrow]').forEach(n => { n.style.display = w >= 820 ? 'flex' : 'none'; });
+    document.querySelectorAll('[data-nav-desktop]').forEach(n => { n.style.display = w >= 820 ? 'flex' : 'none'; });
+    document.querySelectorAll('[data-burger]').forEach(n => { n.style.display = w >= 820 ? 'none' : 'flex'; });
+    this.applyMenus();
+    const pg = document.querySelector('[data-grid="products"]');
+    if (pg) pg.style.gridTemplateColumns = w >= 900 ? `repeat(${cols}, 1fr)` : (w >= 600 ? 'repeat(2, 1fr)' : '1fr');
+    const cg = document.querySelector('[data-grid="cats"]');
+    if (cg) {
+      cg.style.gridTemplateColumns = w >= 900 ? 'repeat(4, 1fr)' : 'repeat(2, 1fr)';
+      if (!cg._hoverBound) {
+        cg._hoverBound = true;
+        cg.querySelectorAll('a').forEach(a => {
+          const img = a.querySelector('[data-catimg]');
+          a.addEventListener('mouseenter', () => { img.style.transform = 'scale(1.06)'; });
+          a.addEventListener('mouseleave', () => { img.style.transform = 'scale(1)'; });
+        });
+      }
+    }
+    const mob = w < 900;
+    const hero = document.querySelector('[data-hero]');
+    if (hero) hero.style.height = mob ? '400px' : '650px';
+
+    // CAUSA — sticker, dotted line, row padding
+    const ct = document.querySelector('[data-causatitle]');
+    if (ct) {
+      ct.style.top = mob ? '14px' : '64px';
+      ct.style.left = mob ? '12px' : '34px';
+      ct.style.height = mob ? 'auto' : '96px';
+      ct.style.maxWidth = mob ? '78%' : 'none';
+      ct.style.padding = mob ? '6px 10px 2px 8px' : '8px 14px 2px 10px';
+    }
+    const cl = document.querySelector('[data-causaline]');
+    if (cl) {
+      cl.setAttribute('width', mob ? '120' : '180');
+      cl.setAttribute('height', mob ? '66' : '98');
+      cl.style.bottom = mob ? '-20px' : '-46px';
+      cl.style.right = mob ? '5%' : '3%';
+    }
+    const crow = document.querySelector('[data-causarow]');
+    if (crow) crow.style.padding = mob ? '64px 20px 48px' : '72px 20px';
+
+    // FOOTER — logo + title scale on small screens
+    const flogo = document.querySelector('[data-ftlogo]');
+    if (flogo) {
+      flogo.style.position = 'static';
+      flogo.style.right = 'auto'; flogo.style.top = 'auto'; flogo.style.bottom = 'auto';
+      flogo.style.opacity = '.95';
+      if (mob) {
+        flogo.style.order = '2';
+        flogo.style.gridColumn = 'auto';
+        flogo.style.width = '44vw';
+        flogo.style.maxWidth = 'none';
+        flogo.style.margin = '30px 0 0 auto';
+      } else {
+        flogo.style.order = '0';
+        flogo.style.gridColumn = '2';
+        flogo.style.width = '100%';
+        flogo.style.maxWidth = '440px';
+        flogo.style.margin = '0 -14% 0 auto';
+      }
+    }
+    const ftt = document.querySelector('[data-fttitle]');
+    if (ftt) {
+      ftt.style.fontSize = mob ? 'clamp(36px, 11vw, 64px)' : 'clamp(56px, 11vw, 170px)';
+      ftt.style.maxWidth = '100%';
+    }
+    const fwrap = document.querySelector('[data-ftwrap]');
+    if (fwrap) { fwrap.style.gap = mob ? '34px' : '48px'; fwrap.style.order = '1'; fwrap.style.gridColumn = mob ? 'auto' : '1'; fwrap.style.maxWidth = mob ? '1180px' : 'none'; fwrap.style.margin = '0'; }
+    const foot = document.getElementById('contacto');
+    if (foot) {
+      foot.style.padding = '80px 20px 40px';
+      if (mob) {
+        foot.style.display = 'flex'; foot.style.flexDirection = 'column';
+        foot.style.gridTemplateColumns = ''; foot.style.alignItems = 'stretch';
+      } else {
+        foot.style.display = 'grid';
+        foot.style.gridTemplateColumns = 'minmax(0, 1fr) minmax(200px, 30%)';
+        foot.style.alignItems = 'start';
+        foot.style.columnGap = '32px';
+      }
+    }
+
+    const fc = document.querySelector('[data-ftcols]');
+    if (fc) {
+      const d = !mob && (fwrap ? fwrap.clientWidth : w) >= 620;
+      fc.style.flexDirection = d ? 'row' : 'column';
+      fc.style.gap = d ? '8%' : '36px';
+      fc.style.alignItems = d ? 'flex-start' : 'stretch';
+      fc.style.maxWidth = '100%';
+      fc.style.marginLeft = d ? '4%' : '0';
+    }
+    const fl = document.querySelector('[data-ftline]');
+    if (fl) { fl.style.display = w >= 700 ? 'block' : 'none'; }
+    const ig = document.querySelector('[data-iggif]');
+    if (ig && !ig._hoverBound) {
+      ig._hoverBound = true;
+      const im = ig.querySelector('img');
+      ig.addEventListener('mouseenter', () => { im.style.filter = 'none'; });
+      ig.addEventListener('mouseleave', () => { im.style.filter = 'grayscale(1) contrast(1.1)'; });
+    }
+    const tj = document.querySelector('[data-teigrid]');
+    if (tj) {
+      const d = w >= 900;
+      tj.style.gridTemplateColumns = d ? '55fr 45fr' : '1fr';
+      const cols = tj.children;
+      if (cols[1]) cols[1].style.minHeight = d ? '520px' : '360px';
+    }
+    const ca = document.querySelector('[data-grid="causa"]');
+    if (ca) {
+      const d = w >= 900;
+      const img = ca.querySelector('[data-causaimg]');
+      if (img) { img.style.height = d ? '66vh' : '46vh'; }
+      const row = ca.querySelector('[data-causarow]');
+      if (row) { row.style.flexDirection = d ? 'row' : 'column'; row.style.justifyContent = d ? 'flex-start' : 'flex-start'; row.style.alignItems = d ? 'center' : 'flex-start'; row.style.padding = d ? '72px 20px' : '48px 20px'; row.style.gap = d ? '48px' : '24px'; }
+      const num = ca.querySelector('[data-causanum]');
+      if (num) { num.style.display = d ? 'block' : 'none'; num.style.marginRight = d ? '4%' : '0'; num.style.marginLeft = d ? '-1%' : '0'; }
+      const tx = ca.querySelector('[data-causatext]');
+      if (tx) { tx.style.margin = '0'; tx.style.maxWidth = d ? '620px' : '560px'; }
+    }
+    const wg = document.querySelector('[data-grid="wild"]');
+    if (wg) wg.style.gridTemplateColumns = w >= 760 ? 'repeat(3, 1fr)' : '1fr';
+    const igg = document.querySelector('[data-iggrid]');
+    if (igg) {
+      const d = w >= 700;
+      igg.style.gridTemplateColumns = d ? '1.1fr 1fr' : '1fr';
+      const cols = igg.children;
+      if (cols[0]) { cols[0].style.borderBottom = d ? '0' : '1.5px dashed #000'; cols[0].style.borderRight = d ? '1.5px dashed #000' : '0'; cols[0].style.aspectRatio = d ? 'auto' : '4/5'; cols[0].style.height = d ? '100%' : 'auto'; }
+    }
+  }
+
+  go(n) { this.setState({ i: (n + 3) % 3, elapsed: 0 }); }
+
+  applyMenus() {
+    const w = window.innerWidth;
+    const { mega, about, mobile, cat, accShop, accAbout } = this.state;
+    const showMega = mega && w >= 820;
+    const showAbout = about && w >= 820;
+    const showMobile = mobile && w < 820;
+    const dark = showMega || showAbout || showMobile;
+    const hd = document.querySelector('[data-header]');
+    if (hd) hd.style.color = dark ? '#000' : '#fff';
+    const logo = document.querySelector('[data-headerbar] img');
+    if (logo) logo.style.borderColor = dark ? '#000' : '#fff';
+    const wab = document.querySelector('[data-navwa]');
+    if (wab) wab.style.outlineColor = dark ? '#000' : '#fff';
+    const m = document.querySelector('[data-mega]');
+    if (m) m.style.display = showMega ? 'block' : 'none';
+    const mm = document.querySelector('[data-mobilemenu]');
+    if (mm) mm.style.display = showMobile ? 'flex' : 'none';
+    const ab = document.querySelector('[data-about]');
+    if (ab) ab.style.display = showAbout ? 'block' : 'none';
+    const abt = document.querySelector('[data-abouttrigger]');
+    if (abt) abt.style.textDecoration = showAbout ? 'underline' : 'none';
+    const abc = document.querySelector('[data-aboutchevron]');
+    if (abc) abc.style.transform = showAbout ? 'rotate(180deg)' : 'rotate(0deg)';
+    const as = document.querySelector('[data-accshop]');
+    if (as) as.style.display = accShop ? 'flex' : 'none';
+    const asi = document.querySelector('[data-accshop-ic]');
+    if (asi) asi.textContent = accShop ? '–' : '+';
+    const aa = document.querySelector('[data-accabout]');
+    if (aa) aa.style.display = accAbout ? 'flex' : 'none';
+    const aai = document.querySelector('[data-accabout-ic]');
+    if (aai) aai.textContent = accAbout ? '–' : '+';
+    const tr = document.querySelector('[data-megatrigger]');
+    if (tr) tr.style.textDecoration = showMega ? 'underline' : 'none';
+    const ch = document.querySelector('[data-megachevron]');
+    if (ch) ch.style.transform = showMega ? 'rotate(180deg)' : 'rotate(0deg)';
+    document.querySelectorAll('[data-megaimg]').forEach(n => { n.style.opacity = +n.getAttribute('data-megaimg') === cat ? 1 : 0; });
+    document.querySelectorAll('[data-megaitem]').forEach(n => {
+      const on = +n.getAttribute('data-megaitem') === cat;
+      n.style.background = on ? '#000' : 'transparent';
+      n.style.color = on ? '#fff' : '#000';
+      n.style.paddingLeft = on ? '14px' : '0';
+      n.style.paddingRight = on ? '14px' : '0';
+    });
+    document.querySelectorAll('[data-megaarrow]').forEach(n => { n.style.opacity = +n.getAttribute('data-megaarrow') === cat ? 1 : 0; });
+    const burger = document.querySelector('[data-burger]');
+    if (burger) burger.querySelectorAll('span').forEach((s, k) => {
+      s.style.transform = showMobile ? (k === 0 ? 'translateY(7px) rotate(45deg)' : k === 2 ? 'translateY(-7px) rotate(-45deg)' : 'scaleX(0)') : 'none';
+      s.style.transition = 'transform 250ms ease';
+    });
+  }
+
+  renderVals() {
+    const i = this.state.i;
+    setTimeout(() => this.applyOpacity(), 0);
+    return {
+      op0: i === 0 ? 1 : 0, op1: i === 1 ? 1 : 0, op2: i === 2 ? 1 : 0,
+      dot0: i === 0 ? 1 : 0.35, dot1: i === 1 ? 1 : 0.35, dot2: i === 2 ? 1 : 0.35,
+      sqBg0: i === 0 ? '#000' : '#d4d4d4', sqBg1: i === 1 ? '#000' : '#d4d4d4', sqBg2: i === 2 ? '#000' : '#d4d4d4',
+      megaName: ['Lobitos Ponchos','Lobitos Ponchos Kids','Fundas','Accessories'][this.state.cat],
+      openMega: () => { if (!this.state.mega || this.state.about) this.setState({ mega: true, about: false }); },
+      closeMega: () => { if (this.state.mega) this.setState({ mega: false }); },
+      toggleMega: () => this.setState(s => ({ mega: !s.mega, about: false })),
+      openAbout: () => { if (!this.state.about || this.state.mega) this.setState({ about: true, mega: false }); },
+      toggleAbout: () => this.setState(s => ({ about: !s.about, mega: false })),
+      closeDrops: () => { if (this.state.mega || this.state.about) this.setState({ mega: false, about: false }); },
+      toggleMobile: () => this.setState(s => ({ mobile: !s.mobile, mega: false, about: false })),
+      toggleAccShop: () => this.setState(s => ({ accShop: !s.accShop })),
+      toggleAccAbout: () => this.setState(s => ({ accAbout: !s.accAbout })),
+      closeMenus: () => this.setState({ mega: false, about: false, mobile: false }),
+      hoverCat0: () => this.setState({ cat: 0 }), hoverCat1: () => this.setState({ cat: 1 }),
+      hoverCat2: () => this.setState({ cat: 2 }), hoverCat3: () => this.setState({ cat: 3 }),
+      prev: () => this.go(i - 1),
+      next: () => this.go(i + 1),
+      goTo0: () => this.go(0), goTo1: () => this.go(1), goTo2: () => this.go(2),
+      pause: () => this.setState({ paused: true }),
+      resume: () => this.setState({ paused: false }),
+      onTouchStart: (e) => { this._x = e.touches[0].clientX; this.setState({ paused: true }); },
+      onTouchEnd: (e) => {
+        const dx = (e.changedTouches[0].clientX - (this._x ?? 0));
+        if (Math.abs(dx) > 45) this.go(i + (dx < 0 ? 1 : -1));
+        setTimeout(() => this.setState({ paused: false }), 1200);
+      },
+      products: [
+        { name: 'Poncho Clásico', price: 'S/ 000', detail: '[Detalle placeholder · toalla gruesa]', tag: 'Nuevo', slot: 'FOTO PRODUCTO 01 — 4:5' },
+        { name: 'Poncho Kids', price: 'S/ 000', detail: '[Detalle placeholder · tallas 4–12]', tag: 'Kids', slot: 'FOTO PRODUCTO 02 — 4:5' },
+        { name: 'Poncho Bicolor', price: 'S/ 000', detail: '[Detalle placeholder · colores a elección]', tag: 'A pedido', slot: 'FOTO PRODUCTO 03 — 4:5' },
+        { name: 'Toalla Surf', price: 'S/ 000', detail: '[Detalle placeholder]', tag: '', slot: 'FOTO PRODUCTO 04 — 4:5' },
+        { name: 'Short Playa', price: 'S/ 000', detail: '[Detalle placeholder]', tag: '', slot: 'FOTO PRODUCTO 05 — 4:5' },
+        { name: 'Gorro Lobitos', price: 'S/ 000', detail: '[Detalle placeholder]', tag: 'Últimos', slot: 'FOTO PRODUCTO 06 — 4:5' }
+      ]
+    };
+  }
+}
+</script>
+<script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="./support.js"></script>
+</body>
+</html>

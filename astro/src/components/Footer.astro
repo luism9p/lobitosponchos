@@ -1,0 +1,65 @@
+---
+import logo from '../assets/brand/logo.png';
+import Img from './Img.astro';
+import WhatsAppIcon from './WhatsAppIcon.astro';
+import { catalogoUrl } from '../data/categorias';
+import { instagramUrl, site, whatsappUrl } from '../data/site';
+
+const link = 'self-start border-b-[1.5px] border-white pb-0.5 text-base text-white';
+const heading = 'text-[11px] uppercase tracking-[0.3em] opacity-60';
+---
+
+<footer
+  id="contacto"
+  class="relative flex flex-col overflow-hidden border-t-2 border-white bg-black px-5 pb-10 pt-20 text-white split:grid split:grid-cols-[minmax(0,1fr)_minmax(200px,30%)] split:items-start split:gap-x-8"
+>
+  <div class="relative order-1 flex flex-col gap-[34px] split:col-start-1 split:row-start-1 split:gap-12">
+    <h2 class="origin-bottom-left -rotate-2 font-display text-[clamp(36px,11vw,64px)] font-normal uppercase leading-[.82] split:text-[clamp(56px,11vw,170px)]">¿Hablamos?</h2>
+    <div class="relative flex flex-col items-start gap-10">
+      <a
+        href={whatsappUrl()}
+        target="_blank"
+        rel="noopener"
+        class="inline-flex min-h-12 origin-left rotate-[2.5deg] items-center gap-3 border-[3px] border-white bg-white px-[26px] pb-4 pt-[18px] font-display text-[clamp(22px,4vw,34px)] uppercase leading-none text-black outline-2 -outline-offset-[7px] outline-black transition-transform duration-[250ms] hover:-rotate-[1.5deg] hover:scale-[1.03] hover:no-underline"
+      >
+        <WhatsAppIcon size={18} />
+        <span>Pedir por WhatsApp</span>
+      </a>
+      <svg viewBox="0 0 220 120" width="170" height="92" aria-hidden="true" class="pointer-events-none absolute left-[40%] top-[-70px] hidden overflow-visible md:block">
+        <path d="M6 96 C 50 30, 100 120, 140 40 S 190 20, 214 70" fill="none" stroke="#fff" stroke-width="2.5" stroke-dasharray="8 8" stroke-linecap="round"></path>
+      </svg>
+
+      <div class="flex w-full flex-col gap-9 split:ml-[4%] split:max-w-full split:flex-row split:items-start split:gap-[8%]">
+        <div class="flex -rotate-[1.5deg] flex-col gap-3">
+          <div class={heading}>Tienda</div>
+          <a href={catalogoUrl('ponchos')} class={link}>Ponchos</a>
+          <a href={catalogoUrl('accessories')} class={link}>Prendas de playa</a>
+          <a href={whatsappUrl('Hola, quiero pedir un poncho hecho a pedido.')} target="_blank" rel="noopener" class={link}>Hecho a pedido</a>
+        </div>
+        <div class="flex rotate-[1.2deg] flex-col gap-3">
+          <div class={heading}>Contacto</div>
+          <a href={whatsappUrl()} target="_blank" rel="noopener" class="text-base text-white">WhatsApp {site.whatsappLabel}</a>
+          <a href={instagramUrl} target="_blank" rel="noopener" class="text-base text-white">Instagram {site.instagramHandle}</a>
+          <a href={`mailto:${site.email}`} class="text-base text-white">{site.email}</a>
+        </div>
+        <div class="flex flex-col gap-2.5">
+          <div class={heading}>Dónde</div>
+          <div class="font-display text-[28px] uppercase leading-[.95]">Lobitos,<br />Talara — Piura</div>
+          <div class="text-sm leading-normal opacity-75">{site.address}<br />Perú</div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-5 flex items-end justify-between gap-3 text-[10px] uppercase tracking-[0.22em] opacity-45">
+      <span class="inline-block -rotate-1">© {new Date().getFullYear()} Lobitos Ponchos</span>
+      <span class="font-display text-[13px] tracking-[0.06em]">Hecho en Lobitos</span>
+    </div>
+  </div>
+
+  <Img
+    src={logo}
+    alt=""
+    sizes="(min-width: 860px) 30vw, 44vw"
+    widths={[240, 440, 660]}
+    class="pointer-events-none order-2 ml-auto mt-[30px] aspect-square w-[44vw] -rotate-[8deg] rounded-full border-2 border-white opacity-95 split:col-start-2 split:row-start-1 split:mt-0 split:-mr-[14%] split:w-full split:max-w-[440px]"
+  />
+</footer>

@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Img from '../components/Img.astro';
+import SectionBar from '../components/SectionBar.astro';
+import Chip from '../components/Chip.astro';
+import InstagramFeature from '../components/InstagramFeature.astro';
+import { categorias, catalogoUrl } from '../data/categorias';
+import causaFoto from '../assets/historias/nuestra-causa.webp';
+import telar from '../assets/historias/telar.png';
+import sesion from '../assets/historias/sesion-atardecer.jpg';
+import viento from '../assets/historias/viento-desierto.jpg';
+import muelle from '../assets/historias/muelle.webp';
+
+const galeria = [
+  { src: sesion, caption: '01 · Sesión del atardecer · La Punta', alt: 'Sesión de surf al atardecer en La Punta' },
+  { src: viento, caption: '02 · El viento del desierto', alt: 'Ponchos de Lobitos con el desierto de Piura al fondo' },
+  { src: muelle, caption: '03 · Muelle histórico · Marea alta', alt: 'Muelle histórico de Lobitos con la marea alta' },
+];
+
+const marquee = 'Lobitos Ponchos · Surf & Craft · Hecho en Lobitos · '.repeat(3);
+---
+
+<BaseLayout
+  title="Lobitos Ponchos"
+  description="Ponchos de surf hechos a mano en Lobitos, Piura, Perú, por nuestras abuelas y jóvenes del pueblo. Pide el tuyo por WhatsApp."
+  variant="overlay"
+  current="inicio"
+>
+  <main>
+    <Hero autoplay={4} />
+
+    <SectionBar number="01" left="Líneas de producción artesanal" right="HECHO A MANO · 100%" />
+
+    <!-- Categorías -->
+    <section id="categorias" aria-label="Categorías" class="grid grid-cols-2 gap-0.5 border-b-2 border-black bg-black split:grid-cols-4">
+      {categorias.map((cat) => (
+        <a href={catalogoUrl(cat.id)} class="group @container relative block aspect-square overflow-hidden bg-black text-white hover:no-underline">
+          <div class="absolute inset-0 transition-transform duration-700 group-hover:scale-[1.06]">
+            <Img src={cat.imagen} alt="" sizes="(min-width: 860px) 25vw, 50vw" widths={[320, 480, 640, 960]} class="size-full object-cover" />
+          </div>
+          <div class="absolute inset-0 bg-black/[.32]"></div>
+          <div class="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2.5 px-4 pb-[18px] pt-4">
+            <span class="font-display text-[clamp(20px,12.5cqw,64px)] uppercase leading-[.9] [overflow-wrap:anywhere]">
+              {cat.lineas[0]}{cat.lineas[1] && <><br />{cat.lineas[1]}</>}
+            </span>
+            <span class="shrink-0 text-lg leading-none" aria-hidden="true">→</span>
+          </div>
+          <span class="sr-only">{cat.nombre}</span>
+        </a>
+      ))}
+    </section>
+
+    <SectionBar left="Nuestra gente, nuestro oficio" right="Taller Lobitos · Piura, Perú" />
+
+    <!-- Nuestra causa -->
+    <section id="causa" class="relative overflow-hidden border-b-2 border-black">
+      <div class="relative z-[1] border-y-2 border-black">
+        <div class="relative h-[46vh] min-h-[300px] w-full split:h-[66vh]">
+          <Img src={causaFoto} alt="El equipo de Lobitos Ponchos frente a un mural rosa, mostrando ponchos y toallas" sizes="100vw" widths={[480, 768, 1280, 1920]} class="size-full object-cover object-center" />
+          <h2 class="absolute left-3 top-3.5 inline-block max-w-[78%] origin-top-left -rotate-3 border-2 border-black bg-white px-2 pb-0.5 pt-1.5 font-display text-[clamp(40px,8vw,120px)] font-normal uppercase leading-[.86] split:left-[34px] split:top-16 split:max-w-none split:px-2.5 split:pr-3.5">
+            <span class="block">Nuestra</span>
+            <span class="ml-[.9em] block w-max border-b-[6px] border-black pb-[.06em] text-[.62em]">Causa</span>
+          </h2>
+        </div>
+        <svg viewBox="0 0 220 120" width="120" height="66" aria-hidden="true" class="pointer-events-none absolute -bottom-5 right-[5%] overflow-visible split:-bottom-[46px] split:right-[3%] split:h-[98px] split:w-[180px]">
+          <path d="M8 100 C 40 20, 120 10, 150 60 S 200 110, 212 30" fill="none" stroke="#000" stroke-width="2.5" stroke-dasharray="8 8" stroke-linecap="round"></path>
+        </svg>
+      </div>
+      <div class="relative z-[2] mx-auto flex w-full max-w-[1180px] flex-col items-start gap-6 px-5 pb-12 pt-16 split:flex-row split:items-center split:gap-12 split:py-[72px]">
+        <div aria-hidden="true" class="pointer-events-none hidden shrink-0 -rotate-6 select-none font-display text-[clamp(160px,22vw,320px)] leading-[.8] tracking-[-0.02em] text-transparent [-webkit-text-stroke:2px_#000] split:-ml-[1%] split:mr-[4%] split:block">02</div>
+        <div class="flex max-w-[620px] flex-col items-start gap-5">
+          <h3 class="font-display text-[clamp(32px,5vw,80px)] font-normal uppercase leading-[.95] tracking-[-0.02em] text-balance">Tejido que sostiene hogares frente al mar</h3>
+          <a href="/equipo/" class="border-2 border-black bg-white px-[18px] py-2.5 text-[11px] font-semibold uppercase tracking-[0.2em] hover:bg-black hover:text-white hover:no-underline">Conoce al equipo →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filosofía material -->
+    <section id="tejido" class="relative overflow-hidden border-b-2 border-black bg-white">
+      <div class="flex w-full flex-wrap items-center justify-between gap-4 border-b-2 border-black bg-black px-[22px] py-3.5 text-white">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.28em]">Filosofía material</span>
+        <span class="text-[10px] uppercase tracking-[0.28em] opacity-75">Lana andina · Brisa pacífica</span>
+      </div>
+      <div class="grid grid-cols-1 items-stretch split:grid-cols-[55fr_45fr]">
+        <div class="relative z-[2] flex flex-col justify-center gap-[26px] px-10 py-14">
+          <div class="flex flex-wrap items-center gap-4">
+            <h2 class="relative m-0 flex origin-bottom-left rotate-[2.5deg] flex-col items-start border-2 border-black bg-white pb-1.5 pl-3 pr-4 pt-2.5 font-display font-normal uppercase leading-[.86]">
+              <span class="block text-[clamp(18px,3vw,40px)] tracking-[0.04em]">Tejido con</span>
+              <span class="mt-0.5 block text-[clamp(40px,7vw,96px)]">Propósito</span>
+            </h2>
+            <div aria-hidden="true" class="flex size-[84px] shrink-0 items-center justify-center rounded-full border-[1.5px] border-black p-2 text-center text-[10px] uppercase leading-[1.4] tracking-[0.14em]">Origen<br />Andes</div>
+          </div>
+          <h3 class="m-0 max-w-[777px] font-display text-[clamp(32px,4.4vw,56px)] font-normal uppercase leading-[.98]">La montaña se une<br />con el océano</h3>
+          <div class="flex max-w-[480px] flex-col gap-2.5">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.3em]">Declaración de origen</span>
+            <div class="border-[1.5px] border-black bg-paper px-6 py-[22px]">
+              <p class="m-0 text-base italic leading-[1.6] text-pretty">"En Lobitos creamos ponchos que respiran la esencia de los Andes. Cada pieza es tejida por manos que heredan tradiciones ancestrales, usando lanas naturales de la montaña. No es solo abrigo—es conexión con la tierra, con la cultura, con el calor genuino que solo el tejido artesanal puede dar."</p>
+            </div>
+          </div>
+          <a href="/equipo/" class="self-start bg-black px-[26px] py-3.5 text-xs uppercase tracking-[0.18em] text-white hover:bg-[#222] hover:text-white hover:no-underline">Conoce nuestra historia →</a>
+        </div>
+        <div class="relative min-h-[360px] border-black split:min-h-[520px] split:border-l-2">
+          <Img src={telar} alt="Telar de pedal en el taller de Lobitos" sizes="(min-width: 860px) 45vw, 100vw" widths={[480, 768, 960, 1280]} class="absolute inset-0 size-full object-cover object-center" />
+          <svg viewBox="0 0 200 110" width="150" height="82" aria-hidden="true" class="pointer-events-none absolute right-4 top-4 overflow-visible">
+            <path d="M6 90 C 40 12, 110 4, 140 50 S 190 100, 196 20" fill="none" stroke="#fff" stroke-width="2.5" stroke-dasharray="7 7" stroke-linecap="round"></path>
+          </svg>
+          <div class="absolute bottom-4 left-4 flex flex-col gap-0.5 border-[1.5px] border-black bg-white px-4 py-3">
+            <span class="text-xs font-bold uppercase tracking-[0.06em]">Telar de pedal</span>
+            <span class="text-[10px] uppercase tracking-[0.08em] opacity-70">Fibras 100% biodegradables</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- En la vida real -->
+    <section class="bg-cream px-5 pt-9">
+      <div class="mx-auto flex max-w-[1180px] flex-wrap items-end justify-between gap-5 pb-7">
+        <div>
+          <div class="mb-2 text-[11px] uppercase tracking-[0.3em] opacity-70">04 — En la vida real</div>
+          <h2 class="m-0 font-display text-[clamp(38px,6.5vw,76px)] font-normal uppercase leading-[.9]">Del agua al viento</h2>
+        </div>
+        <Chip class="border-2 px-[18px] py-2.5 text-[11px] tracking-[0.2em]">Lobitos Archive · Piura</Chip>
+      </div>
+    </section>
+    <section class="bg-black">
+      <div class="grid grid-cols-1 md:grid-cols-3">
+        {galeria.map((foto) => (
+          <figure class="relative m-0 aspect-[3/4] overflow-hidden">
+            <Img src={foto.src} alt={foto.alt} sizes="(min-width: 768px) 33vw, 100vw" widths={[480, 640, 960, 1280]} class="absolute inset-0 size-full object-cover object-center" />
+            <figcaption class="absolute bottom-3.5 left-3.5 border-[1.5px] border-black bg-white px-3 py-[7px] text-[11px] font-semibold uppercase tracking-[0.1em]">{foto.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+
+    <!-- Marquesina -->
+    <section class="overflow-hidden border-y-2 border-white bg-black py-[26px] text-white" aria-hidden="true">
+      <div class="flex w-max animate-marquee">
+        <span class="flex items-center whitespace-nowrap pr-10 font-display text-[clamp(36px,6vw,68px)] uppercase leading-none">{marquee}</span>
+        <span class="flex items-center whitespace-nowrap pr-10 font-display text-[clamp(36px,6vw,68px)] uppercase leading-none">{marquee}</span>
+      </div>
+    </section>
+
+    <InstagramFeature />
+  </main>
+</BaseLayout>

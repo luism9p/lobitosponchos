@@ -1,0 +1,30 @@
+---
+import WhatsAppIcon from './WhatsAppIcon.astro';
+import { whatsappUrl } from '../data/site';
+
+// "Sticker" style button that opens a WhatsApp chat, optionally with the message pre-written.
+interface Props {
+  message?: string;
+  variant?: 'solid' | 'outline-white';
+  class?: string;
+}
+const { message, variant = 'solid', class: className } = Astro.props;
+const variants = {
+  solid: 'bg-black text-white border-black',
+  'outline-white': 'bg-white text-black border-black outline-[1.5px] outline-white -outline-offset-[5px]',
+};
+---
+
+<a
+  href={whatsappUrl(message)}
+  target="_blank"
+  rel="noopener"
+  class:list={[
+    'inline-flex -rotate-2 items-center gap-2 border-2 px-4 pb-[9px] pt-2.5 text-xs font-semibold uppercase tracking-[0.12em] transition-transform duration-200 hover:rotate-[1.5deg] hover:scale-[1.04] hover:no-underline',
+    variants[variant],
+    className,
+  ]}
+>
+  <WhatsAppIcon />
+  <span><slot>Escríbenos</slot></span>
+</a>

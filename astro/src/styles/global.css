@@ -1,0 +1,70 @@
+@import 'tailwindcss';
+@import '@fontsource/barrio';
+@import '@fontsource-variable/archivo';
+
+@theme {
+  --font-display: 'Barrio', cursive;
+  --font-sans: 'Archivo Variable', Helvetica, Arial, sans-serif;
+
+  --color-cream: #f8f4ee;
+  --color-ink-soft: #2b2b2b;
+  --color-paper: #f4f4f4;
+
+  /* Breakpoints used by the original design (nav 820 / split 860) */
+  --breakpoint-xs: 620px;
+  --breakpoint-nav: 820px;
+  --breakpoint-split: 860px;
+
+  --animate-marquee: marquee-scroll 26s linear infinite;
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: auto;
+    scroll-padding-top: 76px;
+  }
+  body {
+    @apply bg-white font-sans text-black;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  ::selection {
+    @apply bg-black text-white;
+  }
+}
+
+/* ==========================================================================
+   Lenis Smooth Scroll Baseline
+   ========================================================================== */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Hardware Acceleration & Scroll Reveal Anti-Jitter
+   ========================================================================== */
+.reveal-ready {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+

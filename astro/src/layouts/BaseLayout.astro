@@ -1,0 +1,45 @@
+---
+import '../styles/global.css';
+import { getImage } from 'astro:assets';
+import logo from '../assets/brand/logo.png';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  variant?: 'overlay' | 'solid';
+  current?: 'inicio' | 'catalogo' | 'causa' | 'equipo';
+}
+const { title, description, variant = 'solid', current } = Astro.props;
+const fullTitle = title === site.name ? title : `${title} · ${site.name}`;
+const icon = await getImage({ src: logo, width: 96, height: 96, format: 'png' });
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_PE" />
+    <link rel="icon" type="image/png" href={icon.src} />
+    <slot name="head" />
+  </head>
+  <body class="overflow-x-clip">
+    <Header variant={variant} current={current} />
+    <slot />
+    <Footer />
+
+    <script>
+      import { initAnimations } from '../scripts/animations';
+      initAnimations();
+      document.addEventListener('astro:page-load', initAnimations);
+    </script>
+  </body>
+</html>
