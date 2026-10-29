@@ -147,15 +147,13 @@ If you are not comfortable with Git, send the edited `en.json` and `.md` files t
 
 ---
 
-## Going live (Luis does this)
+## Going live
 
-The English pages are hidden from Google and the ES | EN switcher is hidden on the real site until this variable is set in Vercel (Settings → Environment Variables):
+The English version is live: the ES | EN switcher is shown and Google can index `/en/`. To hide it again, set this variable in Vercel (Settings → Environment Variables) and redeploy:
 
 ```
-PUBLIC_EN_LIVE=true
+PUBLIC_EN_LIVE=false
 ```
-
-Set it only after `npm run i18n:check` says everything is translated and the pages have been reviewed.
 
 ## Quick map of the code
 
