@@ -22,7 +22,7 @@ const {
   src,
   alt,
   sizes,
-  widths = [320, 480, 640, 768, 960, 1280, 1600],
+  widths = [320, 480, 640, 768, 960, 1280, 1600, 1920, 2560],
   eager = false,
   quality = 82,
   class: className,
@@ -30,9 +30,10 @@ const {
   position,
 } = Astro.props;
 
-// Never ask for a width larger than the source file.
+// Never ask for a width larger than the source file. If a requested width is bigger
+// than the source, use the full source width instead, so sharp screens get every pixel.
 const usable = widths.filter((w) => w <= src.width);
-const finalWidths = usable.length ? usable : [src.width];
+const finalWidths = usable.length < widths.length ? [...new Set([...usable, src.width])] : usable;
 ---
 
 <Picture
