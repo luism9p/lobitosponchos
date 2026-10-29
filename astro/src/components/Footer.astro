@@ -1,8 +1,6 @@
 ---
 import logo from '../assets/brand/logo.png';
 import Img from './Img.astro';
-import WhatsAppIcon from './WhatsAppIcon.astro';
-import Lines from './Lines.astro';
 import { catalogoUrl } from '../data/categorias';
 import { instagramUrl, site, whatsappUrl } from '../data/site';
 import { url, useTranslations, type Lang } from '../i18n';
@@ -13,69 +11,62 @@ interface Props {
 const { lang } = Astro.props;
 const { t } = useTranslations(lang);
 
-const link = 'self-start border-b-[1.5px] border-white pb-0.5 text-base text-white';
-const heading = 'text-[11px] uppercase tracking-[0.3em] opacity-60';
+// A slim footer: the brand, then the links in the same three groups as the top menu.
+const groups = [
+  {
+    title: t('nav.shop'),
+    links: [
+      { href: catalogoUrl(lang), label: t('footer.collection') },
+      { href: url(lang, 'disena'), label: t('nav.design') },
+      { href: url(lang, 'b2b'), label: t('nav.b2b') },
+    ],
+  },
+  {
+    title: t('nav.about'),
+    links: [
+      { href: url(lang, 'historia'), label: t('nav.history') },
+      { href: url(lang, 'causa'), label: t('nav.cause') },
+      { href: url(lang, 'equipo'), label: t('nav.team') },
+      { href: url(lang, 'equipo', undefined, 'voluntariado'), label: t('footer.volunteer') },
+    ],
+  },
+  {
+    title: t('footer.contactTitle'),
+    links: [
+      { href: whatsappUrl(), label: `WhatsApp ${site.whatsappLabel}`, external: true },
+      { href: instagramUrl, label: `Instagram ${site.instagramHandle}`, external: true },
+      { href: `mailto:${site.email}`, label: site.email },
+      { href: url(lang, 'contacto'), label: t('footer.contactPage') },
+    ],
+  },
+];
+const link = 'text-white hover:underline underline-offset-4';
 ---
 
-<footer
-  id="contacto"
-  class="relative flex flex-col overflow-hidden border-t-2 border-white bg-black px-5 pb-10 pt-20 text-white split:grid split:grid-cols-[minmax(0,1fr)_minmax(200px,30%)] split:items-start split:gap-x-8"
->
-  <div class="relative order-1 flex flex-col gap-[34px] split:col-start-1 split:row-start-1 split:gap-12">
-    <h2 class="origin-bottom-left -rotate-2 font-display text-[clamp(36px,11vw,64px)] font-normal uppercase leading-[.82] split:text-[clamp(56px,11vw,170px)]">{t('footer.talk')}</h2>
-    <div class="relative flex flex-col items-start gap-10">
-      <a
-        href={whatsappUrl()}
-        target="_blank"
-        rel="noopener"
-        class="inline-flex w-full xs:w-auto min-h-[44px] origin-left rotate-[2.5deg] items-center gap-3 border-[3px] border-white bg-white px-[26px] pb-4 pt-[18px] font-display text-[clamp(22px,4vw,34px)] uppercase leading-none text-black outline-2 -outline-offset-[7px] outline-black hover:no-underline xs:w-auto"
-      >
-        <WhatsAppIcon size={18} />
-        <span>{t('footer.orderBtn')}</span>
-      </a>
-      <svg viewBox="0 0 220 120" width="170" height="92" aria-hidden="true" class="pointer-events-none absolute left-[40%] top-[-70px] hidden overflow-visible md:block">
-        <path d="M6 96 C 50 30, 100 120, 140 40 S 190 20, 214 70" fill="none" stroke="#fff" stroke-width="2.5" stroke-dasharray="8 8" stroke-linecap="round"></path>
-      </svg>
+<footer class="border-t-2 border-black bg-black px-5 pb-8 pt-10 text-white">
+  <div class="mx-auto flex max-w-[1180px] flex-col gap-9 split:flex-row split:items-start split:justify-between split:gap-12">
+    <a href={url(lang, 'home')} class="flex shrink-0 items-center gap-3.5 text-white hover:no-underline">
+      <Img src={logo} alt="" sizes="52px" widths={[52, 104, 156]} class="block size-[52px] rounded-full border-[1.5px] border-white" />
+      <span class="flex flex-col gap-1">
+        <span class="font-display text-2xl uppercase leading-none">{site.name}</span>
+        <span class="text-[11px] uppercase tracking-[0.18em] opacity-70">{t('footer.madeIn')}</span>
+      </span>
+    </a>
 
-      <div class="flex w-full flex-col gap-9 split:ml-[4%] split:max-w-full split:flex-row split:items-start split:gap-[8%]">
-        <div class="flex -rotate-[1.5deg] flex-col gap-3">
-          <div class={heading}>{t('footer.shop')}</div>
-          <a href={catalogoUrl(lang)} class={link}>{t('footer.ponchos')}</a>
-          <a href={url(lang, 'disena')} class={link}>{t('footer.design')}</a>
-          <a href={whatsappUrl(t('wa.custom'))} target="_blank" rel="noopener" class={link}>{t('footer.custom')}</a>
-          <a href={url(lang, 'b2b')} class={link}>{t('footer.b2b')}</a>
+    <nav aria-label={t('nav.main')} class="grid grid-cols-2 gap-x-8 gap-y-8 text-sm xs:grid-cols-3 split:gap-x-14">
+      {groups.map((g) => (
+        <div class="flex flex-col gap-2.5 last:col-span-2 xs:last:col-span-1">
+          <span class="mb-0.5 text-[11px] uppercase tracking-[0.2em] opacity-60">{g.title}</span>
+          {g.links.map((l) => (
+            <a href={l.href} target={l.external ? '_blank' : undefined} rel={l.external ? 'noopener' : undefined} class={link}>{l.label}</a>
+          ))}
         </div>
-        <div class="flex rotate-[1.2deg] flex-col gap-3">
-          <div class={heading}>{t('footer.about')}</div>
-          <a href={url(lang, 'historia')} class={link}>{t('footer.story')}</a>
-          <a href={url(lang, 'causa')} class={link}>{t('nav.cause')}</a>
-          <a href={url(lang, 'equipo')} class={link}>{t('footer.team')}</a>
-          <a href={url(lang, 'equipo', undefined, 'voluntariado')} class={link}>{t('footer.volunteer')}</a>
-        </div>
-        <div class="flex -rotate-[1deg] flex-col gap-0.5">
-          <div class={heading}>{t('footer.contact')}</div>
-          <a href={whatsappUrl()} target="_blank" rel="noopener" class="block py-2 text-base text-white">WhatsApp {site.whatsappLabel}</a>
-          <a href={instagramUrl} target="_blank" rel="noopener" class="block py-2 text-base text-white">Instagram {site.instagramHandle}</a>
-          <a href={`mailto:${site.email}`} class="block py-2 text-base text-white">{site.email}</a>
-        </div>
-        <div class="flex flex-col gap-2.5">
-          <div class={heading}>{t('footer.where')}</div>
-          <div class="font-display text-[28px] uppercase leading-[.95]"><Lines text={t('footer.place')} /></div>
-          <div class="text-sm leading-normal opacity-75">{t('footer.country')}</div>
-        </div>
-      </div>
-    </div>
-    <div class="mt-5 flex items-end justify-between gap-3 text-[10px] uppercase tracking-[0.22em] opacity-45">
-      <span class="inline-block -rotate-1">© {new Date().getFullYear()} Lobitos Ponchos</span>
-      <span class="font-display text-[13px] tracking-[0.06em]">{t('footer.madeIn')}</span>
-    </div>
+      ))}
+    </nav>
   </div>
 
-  <Img
-    src={logo}
-    alt=""
-    sizes="(min-width: 860px) 30vw, 44vw"
-    widths={[240, 440, 660]}
-    class="pointer-events-none order-2 ml-auto mt-[30px] aspect-square w-[44vw] -rotate-[8deg] rounded-full border-2 border-white opacity-95 split:col-start-2 split:row-start-1 split:mt-0 split:-mr-[14%] split:w-full split:max-w-[440px]"
-  />
+  <div class="mx-auto mt-8 flex max-w-[1180px] flex-wrap justify-between gap-2 border-t border-white/25 pt-5 text-[11px] uppercase tracking-[0.16em] opacity-60">
+    <span>© {new Date().getFullYear()} {site.name}</span>
+    <span>{t('footer.place').replace('\n', ' ')} · {t('footer.country')}</span>
+  </div>
 </footer>

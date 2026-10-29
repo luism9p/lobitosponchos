@@ -15,7 +15,7 @@ const { lang } = Astro.props;
 const { t, list } = useTranslations(lang);
 
 interface PersonText {
-  label: string;
+  technique: string;
   name: string;
   bio: string;
 }
@@ -37,24 +37,12 @@ const closingValues = list('team.values');
 >
   <main>
     <section class="mx-auto max-w-[1180px] px-5 pt-[150px]">
-      <Chip class="mb-[22px]">{t('team.chip')}</Chip>
-      <div class="grid grid-cols-1 items-start gap-6 split:grid-cols-[1.4fr_1fr]">
-        <div>
-          <h1 class="m-0 mb-5 inline-block border-b-[3px] border-black pb-4 font-display text-[clamp(42px,6.4vw,88px)] font-normal uppercase leading-[.98]"><Lines text={t('team.title')} /></h1>
-          <p class="m-0 max-w-[560px] text-[17px] leading-[1.6] text-pretty">{t('team.lead')}</p>
-          <div class="mt-6 flex max-w-[560px] flex-col items-start gap-3 border-t-[1.5px] border-black pt-5 xs:flex-row xs:items-center xs:justify-between">
-            <p class="m-0 text-[15px] leading-[1.55] text-pretty">{t('team.volunteerTeaser')}</p>
-            <a href="#voluntariado" class="shrink-0 border-2 border-black px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-black hover:bg-black hover:text-white hover:no-underline">{t('team.volunteerLink')}</a>
-          </div>
-        </div>
-        <div class="flex flex-col items-start gap-3.5 split:items-end">
-          <div class="flex size-[150px] -rotate-6 flex-col items-center justify-center gap-1.5 rounded-full border-[1.5px] border-black bg-cream p-2.5 text-center">
-            <span class="font-display text-sm uppercase leading-[1.1]">{t('team.stampTop')}</span>
-            <span class="h-[1.5px] w-[34px] bg-black"></span>
-            <span class="text-[9px] uppercase tracking-[0.14em]">{t('team.stampBottom')}</span>
-          </div>
-          <span class="whitespace-nowrap bg-black px-3.5 py-[9px] text-[10px] font-semibold uppercase tracking-[0.16em] text-white">{t('team.register')}</span>
-        </div>
+      <div class="mb-[22px]"><Chip>{t('team.chip')}</Chip></div>
+      <h1 class="m-0 mb-5 inline-block border-b-[3px] border-black pb-4 font-display text-[clamp(42px,6.4vw,88px)] font-normal uppercase leading-[.98]"><Lines text={t('team.title')} /></h1>
+      <p class="m-0 max-w-[560px] text-[17px] leading-[1.6] text-pretty">{t('team.lead')}</p>
+      <div class="mt-6 flex max-w-[560px] flex-col items-start gap-3 border-t-[1.5px] border-black pt-5 xs:flex-row xs:items-center xs:justify-between">
+        <p class="m-0 text-[15px] leading-[1.55] text-pretty">{t('team.volunteerTeaser')}</p>
+        <a href="#voluntariado" class="shrink-0 border-2 border-black px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-black hover:bg-black hover:text-white hover:no-underline">{t('team.volunteerLink')}</a>
       </div>
     </section>
 
@@ -75,7 +63,7 @@ const closingValues = list('team.values');
                 </>
               )}
             </div>
-            <span class="text-[11px] font-semibold uppercase tracking-[0.2em] opacity-70">{p.label}</span>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.2em] opacity-70">{p.technique}</span>
             <h2 class="m-0 font-display text-[clamp(24px,2.4vw,30px)] font-normal uppercase leading-[1.02]">{p.name}</h2>
             <p class="m-0 text-[15px] leading-[1.6] text-pretty">{p.bio}</p>
           </li>

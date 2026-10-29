@@ -98,76 +98,47 @@
     "follow": "★ Síguenos en {handle}"
   },
   "footer": {
-    "talk": "¿Hablamos?",
-    "orderBtn": "Pedir por WhatsApp",
-    "shop": "Tienda",
-    "ponchos": "Ponchos",
-    "design": "Diseña tu poncho",
-    "custom": "Hecho a pedido",
-    "contact": "Contacto",
-    "where": "Dónde",
+    "collection": "Ponchos y accesorios",
+    "contactTitle": "Contacto",
+    "contactPage": "Todas las formas de contacto →",
+    "volunteer": "Voluntariado",
     "place": "Lobitos,\nTalara — Piura",
     "country": "Perú",
-    "madeIn": "Hecho en Lobitos",
-    "b2b": "Para negocios (B2B)",
-    "about": "Nosotros",
-    "story": "Nuestra historia",
-    "team": "El equipo",
-    "volunteer": "Voluntariado"
+    "madeIn": "Hecho en Lobitos"
   },
   "cause": {
     "seoTitle": "La causa",
     "seoDescription": "¿Cómo podemos mejorar el mundo? Producción local, nuestras abuelas, turismo sostenible e inspirar: las cuatro cosas que más nos importan en Lobitos Ponchos.",
     "chip": "■ La causa",
     "title": "¿Cómo podemos\nmejorar\nel mundo?",
-    "lead": "Sabemos que no podemos cambiar el mundo entero de un solo golpe. Pero creemos que, si cada uno logra transformar un poquito su alrededor, con el tiempo podemos generar grandes cambios.",
-    "stampTop": "Hecho en\nLobitos",
-    "stampBottom": "Piura · Perú",
-    "values": "Nuestros valores",
-    "intro": "Nos hemos hecho muchas preguntas sobre nuestros valores y sobre lo que queremos construir con Lobitos Ponchos. Estas son las cuatro cosas que más nos importan:",
-    "indexLabel": "Lo que más nos importa",
-    "indexItems": ["Producción local & medio ambiente", "Nuestras abuelas", "Turismo sostenible", "Inspirar"],
-    "counter": "Causa {n} / 04",
-    "c1": {
-      "title": "Producción local\n& medio ambiente",
-      "photoAlt": "Stand de Lobitos Ponchos en la playa con el cartel «Diseña tu propio Surf Poncho!»",
-      "summary": "",
-      "lead": "Vivimos en un país donde muchas personas sienten que tienen que irse a Lima para encontrar mejores oportunidades. Nosotros queremos crear nuevas oportunidades aquí y demostrar que no todo tiene que producirse en la capital.",
-      "p1": "Queremos alejarnos del fast fashion: preferimos crear una pieza que te guste de verdad, que puedas personalizar y que quieras usar durante mucho tiempo, en lugar de tener muchas que significan poco.",
-      "p2": "Además, aprovechamos los restos de tela para crear accesorios y otros productos, reduciendo al máximo el desperdicio.",
-      "p3": "Sabemos que todavía podemos mejorar. En el futuro nos gustaría trabajar con materiales cada vez más sostenibles y seguir buscando nuevas formas de reducir nuestro impacto.",
-      "collabTitle": "Colabora",
-      "collabLead": "¿Tienes alguna idea? ¿Conoces algún material que podríamos utilizar? ¿Quieres ayudarnos a encontrar nuevas soluciones?",
-      "collabText": "Estamos abiertos a aprender y colaborar.",
-      "collabBtn": "Escríbenos"
-    },
-    "c2": {
-      "title": "Nuestras abuelas",
-      "photoAlt": "Una de nuestras abuelas junto a un visitante, mostrando estuches de Lobitos Ponchos frente a su máquina de coser",
-      "summary": "",
-      "lead": "Muchas veces nos olvidamos del enorme valor de las personas mayores: de sus conocimientos, su experiencia y todo lo que todavía tienen para compartir.",
-      "p1": "Con Lobitos Ponchos, nuestras abuelas pueden trabajar cómodamente desde casa, aportar sus conocimientos para mejorar cada producto y, al mismo tiempo, compartir más momentos con sus nietos, Kevyn e Iván.",
-      "p2": "También tienen la oportunidad de conocer a las personas que llegan hasta sus casas para descubrir cómo se produce su poncho. Así se crean encuentros que probablemente nunca habrían sucedido de otra manera.",
-      "link": "Conoce a las abuelas →"
-    },
-    "c3": {
-      "title": "Turismo sostenible",
-      "photoAlt": "Niños del pueblo y visitantes con ponchos sobre un bote de pesca varado en la playa de Lobitos",
-      "summary": "",
-      "lead": "Muchos turistas que llegan a Lobitos se mueven principalmente entre su hotel, la playa y los lugares turísticos, sin llegar a conocer realmente a las personas que dieron origen a este pueblo.",
-      "p1": "Con Lobitos Ponchos queremos crear experiencias que acerquen a los visitantes a la vida del pueblo, a sus familias, a su historia y a una comunidad que durante generaciones ha estado conectada con la pesca y el océano.",
-      "highlight": "A través del proyecto ya hemos visto nacer amistades entre personas de culturas y realidades completamente diferentes."
-    },
-    "c4": {
-      "title": "Inspirar",
-      "quote": "Quizás este sea nuestro sueño más grande: demostrar que sí se puede empezar con poco.",
-      "summary": "",
-      "p1": "Queremos demostrar que jóvenes, abuelas, personas locales y personas que llegaron desde otros países pueden trabajar juntas. Que se siente increíble formar parte de la creación de un proyecto que busca crecer de una manera más consciente y sostenible.",
-      "p2": "Nos gustaría contagiar esas ganas de crear, colaborar y apostar por iniciativas locales.",
-      "photoAlt": "Collage de jóvenes de Lobitos"
-    },
+    "lead": "No podemos cambiar el mundo entero de un solo golpe. Pero si cada uno mejora un poquito su alrededor, juntos podemos generar grandes cambios.",
+    "valuesTitle": "Nuestros valores",
+    "valuesIntro": "En muchas conversaciones, junto a la máquina de coser y alrededor de la mesa, nos preguntamos qué defendemos de verdad. Esto es lo que encontramos.",
+    "values": [
+      {
+        "title": "Producción local\n& medio ambiente",
+        "text": "Hacemos cada poncho aquí en Lobitos, uno a uno, para que dure años. Los retazos de tela se convierten en estuches, y seguimos buscando materiales más sostenibles.",
+        "photoAlt": "Stand de Lobitos Ponchos en la playa con el cartel «Diseña tu propio Surf Poncho!»"
+      },
+      {
+        "title": "Nuestras abuelas",
+        "text": "Nuestras abuelas cosen desde casa, con ingresos propios y compartiendo toda una vida de oficio, mientras pasan más tiempo con sus nietos.",
+        "photoAlt": "Una de nuestras abuelas junto a un visitante, mostrando estuches de Lobitos Ponchos frente a su máquina de coser"
+      },
+      {
+        "title": "Turismo sostenible",
+        "text": "Queremos que los visitantes conozcan Lobitos más allá de la playa y a las familias que viven aquí. Así ya han nacido amistades de verdad.",
+        "photoAlt": "Niños del pueblo y visitantes con ponchos sobre un bote de pesca varado en la playa de Lobitos"
+      },
+      {
+        "title": "Inspirar",
+        "text": "Empezamos con unas máquinas de coser, dos abuelas y mucho corazón. Si nosotros pudimos, tú también puedes.",
+        "photoAlt": "Collage de jóvenes de Lobitos"
+      }
+    ],
+    "collabLink": "¿Tienes una idea o un material que podríamos probar? Cuéntanos →",
+    "grandmothersLink": "Conoce a las abuelas →",
     "closing": {
-      "chip": "La causa",
       "title": "Porque quizás cambiar el mundo no empieza intentando cambiarlo todo.",
       "text": "Quizás empieza cuidando y transformando un poquito el lugar que tienes alrededor.",
       "collection": "Ver colección →",
@@ -180,9 +151,6 @@
     "chip": "■ El equipo",
     "title": "Las manos\ndetrás\nde cada pieza",
     "lead": "Dos abuelas, sus nietos y algunos amigos que creen en el trabajo hecho a mano.",
-    "stampTop": "Hecho a mano",
-    "stampBottom": "Lobitos · Piura",
-    "register": "Registro de taller · 2025",
     "volunteerTeaser": "Voluntarios de todo el mundo nos ayudan durante algunas semanas.",
     "volunteerLink": "Voluntariado ↓",
     "photoPlaceholder": "FOTO PLACEHOLDER",
@@ -196,27 +164,27 @@
     ],
     "people": [
       {
-        "label": "Fundadora",
+        "technique": "Matriarca & costurera",
         "name": "Esmérita \"Mery\" Eche Periche",
         "bio": "Con 70 años y toda una vida en Lobitos, Esmérita aprendió a coser con su madre y aporta a cada pieza la experiencia de toda una vida."
       },
       {
-        "label": "Maestra artesana",
+        "technique": "Técnica de remalle manual",
         "name": "Irma Bancayan Eche",
         "bio": "Abuela de Kevyn, cose desde los 10 años. Se encarga del remallado y la unión de piezas, el paso que da forma final a cada poncho."
       },
       {
-        "label": "Producción",
+        "technique": "Enlace generacional",
         "name": "Kevyn Abad",
         "bio": "Kevyn recibe los pedidos, toma medidas, elige los colores y corta la tela para sus abuelas, y revisa cada poncho antes de entregarlo. Estudia Administración de Hostelería."
       },
       {
-        "label": "Cofundadora · Marketing & estrategia",
+        "technique": "Fotografía documental · Suiza-Perú",
         "name": "Kerstin Ulrich \"Tiíta\"",
         "bio": "Suizo-peruana, Kerstin llegó a Lobitos en 2018 como voluntaria y cofundó Lobitos Ponchos con Kevyn e Ivan. Lleva la marca, las fotos, las redes y las alianzas."
       },
       {
-        "label": "Administración y comunidad",
+        "technique": "Gestión y sostenibilidad",
         "name": "Ivan Vite",
         "bio": "Ivan estudia Ingeniería Ambiental y lleva la parte administrativa, para que detrás de cada pieza haya orden y cuidado."
       }
@@ -353,8 +321,6 @@
     "chip": "■ Nuestra historia",
     "title": "Nuestra\nhistoria",
     "lead": "Un emprendimiento familiar que nació de una amistad, unas máquinas de coser y las ganas de crear oportunidades sin irse del pueblo.",
-    "stampTop": "Desde\n2022",
-    "stampBottom": "Lobitos · Piura",
     "chapters": [
       {
         "when": "2018",

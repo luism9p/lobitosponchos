@@ -42,20 +42,9 @@ const chapters = list<Chapter>('story.chapters').map((c, i) => ({ ...c, ...chapt
 >
   <main>
     <section class="mx-auto max-w-[1180px] px-5 pt-[150px]">
-      <Chip class="mb-[22px]">{t('story.chip')}</Chip>
-      <div class="grid grid-cols-1 items-start gap-6 split:grid-cols-[1.4fr_1fr]">
-        <div>
-          <h1 class="m-0 mb-[22px] inline-block border-b-[3px] border-black pb-4 font-display text-[clamp(42px,6.4vw,88px)] font-normal uppercase leading-[.98]"><Lines text={t('story.title')} /></h1>
-          <p class="m-0 max-w-[580px] text-[19px] leading-[1.55] text-pretty">{t('story.lead')}</p>
-        </div>
-        <div class="flex flex-col items-start gap-3.5 split:items-end">
-          <div class="flex size-[150px] -rotate-6 flex-col items-center justify-center gap-1.5 rounded-full border-[1.5px] border-black bg-cream p-2.5 text-center">
-            <span class="font-display text-sm uppercase leading-[1.1]"><Lines text={t('story.stampTop')} /></span>
-            <span class="h-[1.5px] w-[34px] bg-black"></span>
-            <span class="text-[9px] uppercase tracking-[0.14em]">{t('story.stampBottom')}</span>
-          </div>
-        </div>
-      </div>
+      <div class="mb-[22px]"><Chip>{t('story.chip')}</Chip></div>
+      <h1 class="m-0 mb-[22px] inline-block border-b-[3px] border-black pb-4 font-display text-[clamp(42px,6.4vw,88px)] font-normal uppercase leading-[.98]"><Lines text={t('story.title')} /></h1>
+      <p class="m-0 max-w-[580px] text-[19px] leading-[1.55] text-pretty">{t('story.lead')}</p>
     </section>
 
     <div aria-hidden="true" class="mt-14 border-b-2 border-black"></div>
@@ -63,11 +52,11 @@ const chapters = list<Chapter>('story.chapters').map((c, i) => ({ ...c, ...chapt
     <!-- The story as a timeline: date on the left, a line with a dot, then text and photo -->
     <section class="px-5 py-16 split:py-24">
       <ol class="relative mx-auto m-0 max-w-[1180px] list-none p-0">
-        <span aria-hidden="true" class="absolute bottom-2 left-[7px] top-2 w-[2px] bg-black split:left-[139px]"></span>
+        <span aria-hidden="true" class="absolute bottom-2 left-[7px] top-2 w-[2px] bg-black split:left-[179px]"></span>
         {chapters.map((c) => (
-          <li id={`capitulo-${c.n}`} class="relative grid scroll-mt-[96px] grid-cols-1 gap-5 pb-16 pl-10 last:pb-0 split:grid-cols-[120px_minmax(0,1fr)_minmax(0,380px)] split:gap-x-10 split:pl-0">
-            <span aria-hidden="true" class="absolute left-0 top-2 size-4 rounded-full border-2 border-black bg-white split:left-[132px]"></span>
-            <span class="font-display text-[clamp(26px,2.6vw,36px)] uppercase leading-none split:text-right">{c.when}</span>
+          <li id={`capitulo-${c.n}`} class="relative grid scroll-mt-[96px] grid-cols-1 gap-5 pb-16 pl-10 last:pb-0 split:grid-cols-[160px_minmax(0,1fr)_minmax(0,380px)] split:gap-x-10 split:pl-0">
+            <span aria-hidden="true" class="absolute left-0 top-2 size-4 rounded-full border-2 border-black bg-white split:left-[172px]"></span>
+            <span class="font-display text-[clamp(24px,2.2vw,30px)] uppercase leading-none split:text-right">{c.when}</span>
             <div class="flex flex-col gap-4 split:pl-4">
               <h2 class="m-0 font-display text-[clamp(28px,3.4vw,44px)] font-normal uppercase leading-[1]">{c.title}</h2>
               <p class="m-0 text-lg leading-[1.6] text-pretty">{c.text}</p>
