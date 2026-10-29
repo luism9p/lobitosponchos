@@ -16,11 +16,8 @@ const { t, list } = useTranslations(lang);
 
 interface PersonText {
   label: string;
-  technique: string;
   name: string;
   bio: string;
-  footLeft: string;
-  footRight: string;
 }
 const texts = list<PersonText>('team.people');
 const people = equipo.map((p, i) => ({ ...p, ...texts[i] }));
@@ -45,6 +42,10 @@ const closingValues = list('team.values');
         <div>
           <h1 class="m-0 mb-5 inline-block border-b-[3px] border-black pb-4 font-display text-[clamp(42px,6.4vw,88px)] font-normal uppercase leading-[.98]"><Lines text={t('team.title')} /></h1>
           <p class="m-0 max-w-[560px] text-[17px] leading-[1.6] text-pretty">{t('team.lead')}</p>
+          <div class="mt-6 flex max-w-[560px] flex-col items-start gap-3 border-t-[1.5px] border-black pt-5 xs:flex-row xs:items-center xs:justify-between">
+            <p class="m-0 text-[15px] leading-[1.55] text-pretty">{t('team.volunteerTeaser')}</p>
+            <a href="#voluntariado" class="shrink-0 border-2 border-black px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-black hover:bg-black hover:text-white hover:no-underline">{t('team.volunteerLink')}</a>
+          </div>
         </div>
         <div class="flex flex-col items-start gap-3.5 split:items-end">
           <div class="flex size-[150px] -rotate-6 flex-col items-center justify-center gap-1.5 rounded-full border-[1.5px] border-black bg-cream p-2.5 text-center">
@@ -57,60 +58,30 @@ const closingValues = list('team.values');
       </div>
     </section>
 
-    <section aria-hidden="true" class="mt-14 border-y-2 border-black">
-      <div class="grid h-16 grid-cols-2">
-        <div class="bg-[repeating-linear-gradient(-45deg,#000_0_10px,#2b2b2b_10px_20px)]"></div>
-        <div class="bg-white"></div>
-      </div>
-    </section>
+    <div aria-hidden="true" class="mt-14 border-b-2 border-black"></div>
 
-    {people.map((p) => {
-      // Odd people have the text on the left and the photo on the right, even people the opposite.
-      const photoLeft = p.numero % 2 === 0;
-      return (
-        <section class="border-b-2 border-black">
-          <div class="relative grid grid-cols-1 items-stretch split:grid-cols-2">
-            <div class:list={['relative order-first aspect-[4/5] overflow-hidden bg-black', photoLeft ? 'split:order-none split:border-r-2 split:border-black' : 'split:order-last']}>
+    <!-- The five of us, as a compact grid -->
+    <section class="border-b-2 border-black px-5 py-16 split:py-20">
+      <ul class="mx-auto m-0 grid max-w-[1180px] list-none grid-cols-1 gap-x-8 gap-y-12 p-0 xs:grid-cols-2 split:grid-cols-3">
+        {people.map((p) => (
+          <li class="flex flex-col gap-3">
+            <div class="relative mb-2 aspect-[4/3] overflow-hidden border-2 border-black bg-black">
               {p.foto ? (
-                <Img src={p.foto} alt={p.name} sizes="(min-width: 860px) 50vw, 100vw" widths={[480, 768, 960, 1280]} class="absolute inset-0 size-full object-cover grayscale" />
+                <Img src={p.foto} alt={p.name} sizes="(min-width: 860px) 380px, (min-width: 620px) 50vw, 100vw" widths={[480, 760]} class="absolute inset-0 size-full object-cover" />
               ) : (
                 <>
-                  <div class="absolute inset-0 bg-[repeating-linear-gradient(45deg,#1a1a1a_0_14px,#000_14px_28px)] grayscale"></div>
+                  <div class="absolute inset-0 bg-[repeating-linear-gradient(45deg,#1a1a1a_0_14px,#000_14px_28px)]"></div>
                   <div class="absolute inset-0 flex items-center justify-center p-5 text-center text-[11px] uppercase tracking-[0.16em] text-white opacity-75">{t('team.photoPlaceholder')}<br />{p.fotoSlot}</div>
                 </>
               )}
-              <span class="absolute bottom-3 left-3 border-[1.5px] border-black bg-white px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-black">{p.fotoSlot} · {t('team.photoCaption')}</span>
-              {!photoLeft && (
-                <div class="absolute inset-x-0 top-0 z-[2] flex items-start justify-between p-3">
-                  <span class="border-[1.5px] border-black bg-white px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-black">{p.technique}</span>
-                  <span class="flex size-[34px] shrink-0 items-center justify-center rounded-full border-[1.5px] border-white bg-black text-xs font-bold text-white">#{p.numero}</span>
-                </div>
-              )}
             </div>
-
-            <div class:list={['flex flex-col gap-[18px] bg-cream px-8 pb-10 pt-14', !photoLeft && 'split:border-r-2 split:border-black']}>
-              {photoLeft && (
-                <div class="flex items-start justify-between gap-3">
-                  <span class="text-[11px] font-semibold uppercase tracking-[0.14em]">{p.technique}</span>
-                  <span class="flex size-[34px] shrink-0 items-center justify-center rounded-full border-[1.5px] border-black text-xs font-bold">#{p.numero}</span>
-                </div>
-              )}
-              <div class="relative">
-                <span aria-hidden="true" class="pointer-events-none absolute -top-3.5 right-0 font-display text-[clamp(60px,9vw,110px)] leading-none text-transparent opacity-[.16] [-webkit-text-stroke:1.5px_#000]">{String(p.numero).padStart(2, '0')}</span>
-                <h2 class="relative m-0 max-w-[80%] font-display text-[clamp(28px,3.6vw,44px)] font-normal uppercase leading-[1.02]">{p.name}</h2>
-              </div>
-              <div class="border-t-[1.5px] border-dashed border-black"></div>
-              <p class="m-0 text-[15px] leading-[1.6] text-pretty">{p.bio}</p>
-            </div>
-            <span class="absolute left-4 top-4 z-[3] border-[1.5px] border-black bg-white px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em]">{p.label}</span>
-          </div>
-          <div class="flex items-center justify-between border-t-[1.5px] border-black px-5 py-3 text-[10px] uppercase tracking-[0.16em] opacity-70">
-            <span>{p.footLeft}</span>
-            <span>{p.footRight}</span>
-          </div>
-        </section>
-      );
-    })}
+            <span class="text-[11px] font-semibold uppercase tracking-[0.2em] opacity-70">{p.label}</span>
+            <h2 class="m-0 font-display text-[clamp(24px,2.4vw,30px)] font-normal uppercase leading-[1.02]">{p.name}</h2>
+            <p class="m-0 text-[15px] leading-[1.6] text-pretty">{p.bio}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
 
     <section id="voluntariado" class="scroll-mt-[76px] border-b-2 border-black bg-white px-5 pb-20 pt-[88px]">
       <div class="mx-auto max-w-[1180px]">
@@ -119,9 +90,9 @@ const closingValues = list('team.values');
           <h2 class="m-0 inline-block self-start border-b-[3px] border-black pb-4 font-display text-[clamp(38px,5.6vw,76px)] font-normal uppercase leading-[.98]"><Lines text={t('team.volunteer.title')} /></h2>
           <p class="m-0 text-lg leading-[1.6] text-pretty">{t('team.volunteer.lead')}</p>
         </div>
-        <dl class="m-0 mt-10 grid grid-cols-1 border-[1.5px] border-black xs:grid-cols-2 split:grid-cols-4">
+        <dl class="m-0 mt-10 grid grid-cols-1 border-[1.5px] border-black xs:grid-cols-3">
           {volunteerFacts.map((f, i) => (
-            <div class:list={['border-black px-5 py-[18px]', i > 0 && 'border-t-[1.5px] xs:border-t-0', i % 2 === 1 && 'xs:border-l-[1.5px]', i >= 2 && 'xs:border-t-[1.5px] split:border-t-0', i === 2 && 'split:border-l-[1.5px]']}>
+            <div class:list={['border-black px-5 py-[18px]', i > 0 && 'border-t-[1.5px] xs:border-l-[1.5px] xs:border-t-0']}>
               <dt class="mb-1.5 text-[10px] uppercase tracking-[0.16em] opacity-60">{f.label}</dt>
               <dd class="m-0 text-[15px] font-semibold leading-snug">{f.value}</dd>
             </div>

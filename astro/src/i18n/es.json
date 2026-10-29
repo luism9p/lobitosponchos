@@ -92,7 +92,7 @@
     "viewFeed": "Ver feed ↗",
     "videoLabel": "Video destacado del Instagram de Lobitos Ponchos",
     "postLabel": "Post destacado · Reel",
-    "audience": "Amigos del mar & surfistas",
+    "audience": "Amigos del océano & surfistas",
     "text": "Relatos del día a día, fotos de mareas altas, nuevos diseños y avisos de lotes limitados.",
     "connect": "Conecta con la playa →",
     "follow": "★ Síguenos en {handle}"
@@ -155,7 +155,7 @@
       "photoAlt": "Niños del pueblo y visitantes con ponchos sobre un bote de pesca varado en la playa de Lobitos",
       "summary": "",
       "lead": "Muchos turistas que llegan a Lobitos se mueven principalmente entre su hotel, la playa y los lugares turísticos, sin llegar a conocer realmente a las personas que dieron origen a este pueblo.",
-      "p1": "Con Lobitos Ponchos queremos crear experiencias que acerquen a los visitantes a la vida del pueblo, a sus familias, a su historia y a una comunidad que durante generaciones ha estado conectada con la pesca y el mar.",
+      "p1": "Con Lobitos Ponchos queremos crear experiencias que acerquen a los visitantes a la vida del pueblo, a sus familias, a su historia y a una comunidad que durante generaciones ha estado conectada con la pesca y el océano.",
       "highlight": "A través del proyecto ya hemos visto nacer amistades entre personas de culturas y realidades completamente diferentes."
     },
     "c4": {
@@ -179,79 +179,75 @@
     "seoDescription": "Las manos detrás de cada pieza: conoce a las abuelas y a los jóvenes de Lobitos que hacen cada poncho a mano.",
     "chip": "■ El equipo",
     "title": "Las manos\ndetrás\nde cada pieza",
-    "lead": "Somos un grupo de personas que creen en la artesanía, en el trabajo manual y en las historias que viven dentro de cada pieza.",
+    "lead": "Dos abuelas, sus nietos y algunos amigos que creen en el trabajo hecho a mano.",
     "stampTop": "Hecho a mano",
     "stampBottom": "Lobitos · Piura",
     "register": "Registro de taller · 2025",
+    "volunteerTeaser": "Voluntarios de todo el mundo nos ayudan durante algunas semanas.",
+    "volunteerLink": "Voluntariado ↓",
     "photoPlaceholder": "FOTO PLACEHOLDER",
-    "photoCaption": "Archivo taller",
     "closingChip": "Ediciones limitadas hechas en casa",
     "closingTitle": "Ponchos que abrazan tradición. Tejidos que perduran.",
     "collection": "Ver colección →",
-    "values": ["◆ Piura · Perú", "◆ Comunidad costera", "◆ Surf artesanal"],
+    "values": [
+      "◆ Piura · Perú",
+      "◆ Comunidad costera",
+      "◆ Surf artesanal"
+    ],
     "people": [
       {
-        "label": "01 — Fundadora",
-        "technique": "Matriarca & costurera",
+        "label": "Fundadora",
         "name": "Esmérita \"Mery\" Eche Periche",
-        "bio": "Con 70 años y una vida entera en Lobitos, Esmérita aprendió costura a máquina de su madre y se dedicó a ella desde muy joven. Hoy retoma esa pasión aportando al taller la experiencia de toda una vida cosiendo, dando forma a cada pieza con manos que no han dejado de tejer tradición.",
-        "footLeft": "Costura tradicional",
-        "footRight": "Piura · Perú"
+        "bio": "Con 70 años y toda una vida en Lobitos, Esmérita aprendió a coser con su madre y aporta a cada pieza la experiencia de toda una vida."
       },
       {
-        "label": "02 — Maestra artesana",
-        "technique": "Técnica de remalle manual",
+        "label": "Maestra artesana",
         "name": "Irma Bancayan Eche",
-        "bio": "Abuela de Kevyn, nacida, criada y residente en Lobitos. Con experiencia en manualidades y costura desde los 10 años, Irma se encarga del remallado y unión de piezas — el paso que le da forma final al poncho antes de la supervisión de calidad.",
-        "footLeft": "Residencia: Lobitos",
-        "footRight": "Unión · Precisión"
+        "bio": "Abuela de Kevyn, cose desde los 10 años. Se encarga del remallado y la unión de piezas, el paso que da forma final a cada poncho."
       },
       {
-        "label": "03 — Producción",
-        "technique": "Enlace generacional",
+        "label": "Producción",
         "name": "Kevyn Abad",
-        "bio": "Nacido y criado en Lobitos, estudiante de Administración de Hostelería y Restaurante. Kevyn recibe los pedidos, toma medidas, define combinaciones y se encarga de recoger, cortar y distribuir la tela a las abuelas. Supervisa la calidad y realiza la entrega final — el motor que conecta el taller con cada cliente. Su meta: apoyar a sus abuelas y financiar sus estudios.",
-        "footLeft": "Coordinación de taller",
-        "footRight": "Logística · Corte"
+        "bio": "Kevyn recibe los pedidos, toma medidas, elige los colores y corta la tela para sus abuelas, y revisa cada poncho antes de entregarlo. Estudia Administración de Hostelería."
       },
       {
-        "label": "04 — Cofundadora · Marketing & estrategia",
-        "technique": "La que cuenta la historia · Suiza-Perú",
+        "label": "Cofundadora · Marketing & estrategia",
         "name": "Kerstin Ulrich \"Tiíta\"",
-        "bio": "Nacida y criada en Suiza, de madre peruana. Llegó a Lobitos en 2018 como voluntaria de Waves for Development, donde enseñaba inglés a los jóvenes del pueblo, entre ellos Kevyn e Ivan. Al ver que al terminar el colegio faltaban oportunidades, cofundó Lobitos Ponchos con ellos. Estudió medicina, habla cuatro idiomas y hoy vive en Lobitos, donde lleva la marca, las fotos, las redes y las alianzas. Y cuando puede, toca en una banda. Está orgullosa de trabajar en un equipo que es, ante todo, familia.",
-        "footLeft": "Comunicación global",
-        "footRight": "Pacífico sur"
+        "bio": "Suizo-peruana, Kerstin llegó a Lobitos en 2018 como voluntaria y cofundó Lobitos Ponchos con Kevyn e Ivan. Lleva la marca, las fotos, las redes y las alianzas."
       },
       {
-        "label": "05 — Administración y comunidad",
-        "technique": "Gestión y sostenibilidad",
+        "label": "Administración y comunidad",
         "name": "Ivan Vite",
-        "bio": "Nacido y criado en Lobitos, actualmente estudia Ingeniería Ambiental fuera de su hogar. Ivan sostiene el área administrativa del proyecto, asegurando que detrás de cada pieza artesanal haya también orden, cuidado y comunidad.",
-        "footLeft": "Ingeniería ambiental · Comunidad",
-        "footRight": "Gestión rural"
+        "bio": "Ivan estudia Ingeniería Ambiental y lleva la parte administrativa, para que detrás de cada pieza haya orden y cuidado."
       }
     ],
     "volunteer": {
       "chip": "■ Voluntariado",
       "title": "Voluntariado\ncon nosotros",
-      "lead": "Lobitos Ponchos también crece gracias a una comunidad de voluntarios vibrante: entre 30 y 40 personas, de 20 a 30 años, que han llegado desde Europa, Estados Unidos, Canadá y Latinoamérica.",
+      "lead": "Voluntarios de todo el mundo nos ayudan con las redes, las ferias y nuevas ideas, y se suman a la vibrante comunidad de voluntarios y surfistas de Lobitos.",
       "facts": [
-        { "label": "Estadía mínima", "value": "2 semanas" },
-        { "label": "Alojamiento", "value": "Habitación privada en un hostal familiar frente al mar" },
-        { "label": "Idiomas", "value": "Español, alemán, inglés y francés" },
-        { "label": "Comunidad", "value": "30–40 voluntarios · 20 a 30 años" }
+        {
+          "label": "Estadía mínima",
+          "value": "2 semanas"
+        },
+        {
+          "label": "Alojamiento",
+          "value": "Habitación privada en una residencia frente al océano"
+        },
+        {
+          "label": "Idiomas",
+          "value": "Español, alemán, inglés y francés"
+        }
       ],
       "helpTitle": "En qué puedes ayudar",
       "help": [
-        "Redes sociales y contenido (Instagram y TikTok)",
+        "Redes sociales y contenido",
         "Ferias y mercados locales",
-        "Renovar y decorar el taller",
-        "Cortar tela cuando hace falta",
-        "Buscar materiales más sostenibles",
-        "El modelo de negocio, y tus propias ideas"
+        "Renovar el taller",
+        "Tus propias ideas"
       ],
       "lifeTitle": "La vida en Lobitos",
-      "life": "Surf (Kevyn da clases), pesca, jiu-jitsu, yoga, pintura, cerámica, paseos a caballo, dos skateparks y clases de cocina peruana. Vives cerca del equipo y del mar.",
+      "life": "Surf, pesca, jiu-jitsu, yoga, cerámica, paseos a caballo, skateparks y clases de cocina peruana, cerca del equipo y del océano.",
       "apply": "Postula en Workaway ↗",
       "ask": "Pregúntanos por WhatsApp"
     }
@@ -326,142 +322,65 @@
   },
   "b2b": {
     "seoTitle": "B2B · Para negocios",
-    "seoDescription": "Ponchos y accesorios personalizados para tiendas, cafés, hoteles, escuelas de surf y regalos corporativos, hechos a mano por mujeres de Lobitos, Piura.",
+    "seoDescription": "Ponchos y accesorios personalizados y exclusivos para tiendas, cafés, hoteles y marcas, hechos a mano por mujeres de Lobitos, Piura.",
     "chip": "■ B2B · Para negocios",
     "title": "Alianzas\ncon propósito",
-    "lead": "En Lobitos Ponchos desarrollamos alianzas B2B con empresas, tiendas y marcas que buscan diferenciar su oferta con productos auténticos, de alto valor percibido y con una historia que conecta.",
-    "intro": "Nuestros textiles artesanales, elaborados por mujeres de la comunidad de Lobitos, destacan por su calidad y su diseño, y también por el impacto positivo que generan en cada etapa de su producción. Integrarlos en tu portafolio es una oportunidad para elevar tu propuesta comercial mientras contribuyes a un modelo de negocio más justo y sostenible.",
-    "stampTop": "Hecho a\nmedida",
-    "stampBottom": "Lobitos · Piura",
-    "forLabel": "Para quién",
-    "forItems": [
-      "Tiendas y boutiques",
-      "Cafés y restaurantes",
-      "Hoteles y hostales",
-      "Escuelas de surf",
-      "Regalos corporativos",
-      "Eventos y equipos"
-    ],
-    "whyTitle": "Ventajas de trabajar con nosotros",
+    "lead": "Ponchos y accesorios hechos a mano para tiendas, cafés, hoteles y marcas que buscan algo auténtico, con una historia que importa.",
+    "whyTitle": "Por qué trabajar con nosotros",
     "why": [
-      {
-        "title": "Diferenciación en el mercado",
-        "text": "Productos únicos que destacan frente a la competencia y atraen a quienes valoran lo auténtico y lo hecho a mano."
-      },
-      {
-        "title": "Mayor valor percibido y margen",
-        "text": "Nuestros productos te ayudan a llegar a clientes conscientes y a fidelizarlos."
-      },
-      {
-        "title": "Personalización y exclusividad",
-        "text": "Desarrollamos líneas adaptadas a tu marca: colecciones especiales, regalos corporativos o experiencias personalizadas."
-      },
-      {
-        "title": "Conexión con el consumidor actual",
-        "text": "Cada vez más clientes buscan marcas con propósito. Con nosotros sumas una historia real de impacto social."
-      },
-      {
-        "title": "Producción flexible y colaborativa",
-        "text": "Nos adaptamos a tu volumen y a tu diseño, sin perder la esencia artesanal ni la calidad de cada pieza."
-      },
-      {
-        "title": "Responsabilidad social incorporada",
-        "text": "Sin grandes inversiones adicionales, tu empresa apoya el empoderamiento económico de mujeres y el desarrollo de una comunidad costera."
-      }
+      { "title": "Auténtico", "text": "Hecho a mano en Lobitos por abuelas del pueblo. Cada pieza tiene una historia real." },
+      { "title": "Impacto social", "text": "Cada pedido crea trabajo pagado para mujeres de un pequeño pueblo costero." },
+      { "title": "A medida y exclusivo", "text": "Tus colores y tu logo, en pequeñas tiradas hechas solo para tu marca." }
     ],
     "makeTitle": "Qué podemos hacer para ti",
     "make": [
-      "Ponchos de surf de microfibra con tus colores",
+      "Ponchos de surf con tus colores",
       "Tu logo en un parche bordado",
-      "Accesorios con los retazos: estuches, cartucheras, canguros y fundas para quillas",
+      "Accesorios con los retazos de tela",
       "Producción a pedido, en el volumen que necesites"
     ],
-    "proof": "Ya hicimos 35 ponchos personalizados para la Embajada de Australia en el Perú.",
-    "caseChip": "Caso · La Onza Café",
+    "caseChip": "Hecho para La Onza Café",
     "caseTitle": "La Onza, Lobitos",
     "casePhotoAlt": "Una persona con un poncho azul y capucha rosada con el parche de La Onza Café, frente al letrero del café en Lobitos",
-    "caseHistory": "La Onza abrió sus puertas en 2024 en la calle principal de Nuevo Lobitos. Empezó como un café pequeño y acogedor, con café peruano de especialidad, tortas caseras, waffles y bowls, y con el tiempo sumó retiros de surf y yoga. Hoy es uno de los puntos de encuentro favoritos de surfistas y viajeros en el pueblo.",
-    "caseWork": "Juntos creamos ponchos con sus colores y el logo de La Onza en un parche: un producto propio, hecho a mano a pocas cuadras del café.",
+    "caseWork": "Un café pequeño con mucho corazón, favorito de los surfistas en Lobitos. Sus ponchos: sus colores, su logo, hechos por nuestras abuelas.",
     "closingChip": "Construyamos juntos",
-    "closingTitle": "Construyamos juntos una alianza que marque la diferencia.",
-    "closingText": "Si buscas productos con identidad, impacto y potencial comercial para tu negocio, estamos listos para co-crear contigo. Más allá de un producto, ofrecemos una historia que vende, conecta y genera valor a largo plazo.",
+    "closingTitle": "Creemos algo que marque la diferencia.",
+    "closingText": "Cuéntanos qué tienes en mente y lo hacemos contigo.",
     "closingBtn": "Escríbenos por WhatsApp",
     "closingEmail": "o por correo: {email}"
   },
   "story": {
     "seoTitle": "Nuestra historia",
-    "seoDescription": "Cómo nació Lobitos Ponchos: una voluntaria, dos jóvenes del pueblo y sus abuelas costureras. Y la historia de Lobitos, de caleta de pescadores a pueblo petrolero y hoy, un pueblo de surf.",
+    "seoDescription": "Cómo nació Lobitos Ponchos: una voluntaria, dos jóvenes del pueblo y sus abuelas costureras, desde el primer poncho en 2022 hasta hoy.",
     "chip": "■ Nuestra historia",
     "title": "Nuestra\nhistoria",
-    "lead": "Lobitos Ponchos es un emprendimiento familiar. Nació de una amistad, de unas máquinas de coser y de las ganas de crear oportunidades sin tener que irse del pueblo.",
+    "lead": "Un emprendimiento familiar que nació de una amistad, unas máquinas de coser y las ganas de crear oportunidades sin irse del pueblo.",
     "stampTop": "Desde\n2022",
     "stampBottom": "Lobitos · Piura",
-    "counter": "Capítulo {n}",
     "chapters": [
       {
+        "when": "2018",
         "title": "Una voluntaria y dos alumnos",
         "photoAlt": "Jóvenes de Lobitos con ponchos de colores",
-        "p1": "En 2018, Tiíta (Kerstin) llegó a Lobitos como voluntaria de la ONG Waves for Development. Allí enseñaba inglés a los adolescentes del pueblo, entre ellos Kevyn e Ivan.",
-        "p2": "Con los años, Tiíta vio que al terminar el colegio faltaban oportunidades para los jóvenes. Aquella relación de profesora y alumnos se convirtió en una amistad, y luego en una alianza basada en la confianza y en las ganas de aprender juntos."
+        "text": "Lobitos es un pequeño pueblo de pescadores con una vibrante comunidad de voluntarios y surfistas. En 2018, Tiíta llegó como voluntaria y enseñó inglés a dos jóvenes del pueblo, Kevyn e Ivan."
       },
       {
-        "title": "2022: el primer poncho",
+        "when": "2022",
+        "title": "El primer poncho",
         "photoAlt": "Una de nuestras abuelas con un visitante, frente a su máquina de coser",
-        "p1": "En 2022, Kevyn e Ivan, con 22 años, empezaron a hacer ponchos de surf para financiar sus estudios. Tiíta se sumó con el marketing, las fotos y las redes.",
-        "p2": "La tela de microfibra se compra en Lima y se corta en Lobitos. Luego la cosen sus abuelas, Mery e Irma, desde sus casas: así pueden trabajar a su ritmo y pasar más tiempo con sus nietos. Cada cliente puede elegir sus colores."
+        "text": "Kevyn e Ivan empezaron a hacer ponchos de surf para pagar sus estudios, y sus abuelas Mery e Irma los cosen en casa. Tiíta se sumó con las fotos y el marketing."
       },
       {
-        "title": "Crecer sin perder la esencia",
+        "when": "Desde entonces",
+        "title": "Crecer juntos",
         "photoAlt": "Stand de Lobitos Ponchos en una feria en la playa",
-        "p1": "Con los retazos de tela empezamos a hacer accesorios: estuches para lentes, cartucheras, canguros y fundas para quillas. Menos desperdicio y nuevas ideas.",
-        "p2": "Llegaron las ferias, los primeros pedidos para negocios y un encargo especial: 35 ponchos para la Embajada de Australia en el Perú. Y llegaron voluntarios de todo el mundo, que nos ayudan con la web, las redes y las ferias."
+        "text": "Con los retazos de tela hicimos accesorios, fuimos a ferias y recibimos los primeros pedidos de negocios, con la ayuda de voluntarios de todo el mundo."
       },
       {
+        "when": "Lo que viene",
         "title": "Lo que soñamos",
         "photoAlt": "Niños del pueblo y visitantes con ponchos sobre un bote de pesca en la playa de Lobitos",
-        "p1": "Queremos crecer sin perder lo que somos: libertad, comunidad, vida simple y conexión con el mar. Nos gustaría usar materiales cada vez más sostenibles y sumar más gente del pueblo al taller.",
-        "p2": "Algún día queremos abrir un espacio propio en Lobitos: tienda, taller y punto de encuentro, donde puedas ver cómo se hace tu poncho y conocer a quienes lo cosen."
-      }
-    ],
-    "townChip": "Lobitos",
-    "townTitle": "Un pueblo\ncon historia",
-    "townLead": "Antes de los ponchos, antes del surf, Lobitos ya tenía mucho que contar.",
-    "townPhotoAlt": "Un surfista en una ola de Lobitos, con las plataformas petroleras en el horizonte",
-    "timeline": [
-      {
-        "when": "Los inicios",
-        "title": "Familias pescadoras",
-        "text": "Lobitos nació como una caleta de familias pescadoras. Su nombre viene de los lobos marinos que llegaban a la orilla."
-      },
-      {
-        "when": "Inicios del 1900",
-        "title": "El petróleo",
-        "text": "Bajo la arena se encontró mucho petróleo. Los derechos para explotarlo terminaron en manos inglesas, vendidos por muy poco."
-      },
-      {
-        "when": "Desde 1901",
-        "title": "Llegan los ingleses",
-        "text": "Con la empresa Lobitos Oilfields llegaron casas de madera de estilo victoriano, el muelle, el Club Inglés, una cancha de críquet y el casino, donde funcionó el primer cine del pueblo, que dicen fue uno de los primeros de Sudamérica."
-      },
-      {
-        "when": "1941",
-        "title": "La guerra con Ecuador",
-        "text": "Por el conflicto con Ecuador llegaron a Lobitos las primeras unidades militares."
-      },
-      {
-        "when": "1968",
-        "title": "Los militares",
-        "text": "Tras el golpe militar, el gobierno nacionalizó el petróleo: el Ejército tomó Talara y Lobitos, y los ingleses tuvieron que irse. Durante décadas, Lobitos fue una zona militar."
-      },
-      {
-        "when": "2009",
-        "title": "Patrimonio",
-        "text": "La iglesia, la Comandancia y 21 casas antiguas fueron declaradas Patrimonio Cultural de la Nación."
-      },
-      {
-        "when": "Hoy",
-        "title": "Un pueblo vibrante",
-        "text": "Lobitos es un pueblo pequeño, de unas mil personas: tranquilo, seguro y lleno de vida, con algunas de las mejores olas izquierdas del Perú y una comunidad de pescadores, surfistas y familias."
+        "text": "Más gente del pueblo en el taller, materiales más sostenibles y, algún día, un espacio propio en Lobitos donde conocer a quienes cosen tu poncho."
       }
     ],
     "closingChip": "Sigue leyendo",

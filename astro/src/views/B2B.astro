@@ -14,7 +14,6 @@ interface Props {
 const { lang } = Astro.props;
 const { t, list } = useTranslations(lang);
 
-const forItems = list('b2b.forItems');
 const why = list<{ title: string; text: string }>('b2b.why');
 const make = list('b2b.make');
 ---
@@ -29,44 +28,35 @@ const make = list('b2b.make');
 >
   <main>
     <section class="mx-auto max-w-[1180px] px-5 pt-[150px]">
-      <Chip class="mb-[22px]">{t('b2b.chip')}</Chip>
-      <div class="grid grid-cols-1 items-start gap-6 split:grid-cols-[1.4fr_1fr]">
+      <div class="grid grid-cols-1 items-start gap-10 split:grid-cols-[1.25fr_1fr] split:gap-14">
         <div>
+          <div class="mb-[22px]"><Chip>{t('b2b.chip')}</Chip></div>
           <h1 class="m-0 mb-[22px] inline-block border-b-[3px] border-black pb-4 font-display text-[clamp(42px,6.4vw,88px)] font-normal uppercase leading-[.98]"><Lines text={t('b2b.title')} /></h1>
           <p class="m-0 max-w-[600px] text-[19px] leading-[1.55] text-pretty">{t('b2b.lead')}</p>
         </div>
-        <div class="flex flex-col items-start gap-3.5 split:items-end">
-          <div class="flex size-[150px] -rotate-6 flex-col items-center justify-center gap-1.5 rounded-full border-[1.5px] border-black bg-cream p-2.5 text-center">
-            <span class="font-display text-sm uppercase leading-[1.1]"><Lines text={t('b2b.stampTop')} /></span>
-            <span class="h-[1.5px] w-[34px] bg-black"></span>
-            <span class="text-[9px] uppercase tracking-[0.14em]">{t('b2b.stampBottom')}</span>
+        <!-- Example of our work: La Onza Café -->
+        <figure id="la-onza" class="m-0 flex w-full max-w-[460px] flex-col border-2 border-black bg-cream split:max-w-none">
+          <div class="relative aspect-square overflow-hidden border-b-2 border-black bg-black">
+            <Img src={laOnza} alt={t('b2b.casePhotoAlt')} sizes="(min-width: 860px) 460px, 100vw" widths={[480, 768, 960]} position="50% 60%" class="absolute inset-0 size-full object-cover" />
+            <Chip class="absolute left-3 top-3">{t('b2b.caseChip')}</Chip>
           </div>
-        </div>
-      </div>
-      <p class="mb-0 mt-10 max-w-[680px] text-base leading-[1.65] text-pretty">{t('b2b.intro')}</p>
-      <div class="mt-8 flex flex-col gap-3 border-t-[1.5px] border-dashed border-black pt-5">
-        <span class="text-[11px] font-semibold uppercase tracking-[0.3em]">{t('b2b.forLabel')}</span>
-        <ul class="m-0 flex list-none flex-wrap gap-2 p-0">
-          {forItems.map((item) => <li class="border-[1.5px] border-black px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.1em]">{item}</li>)}
-        </ul>
+          <figcaption class="flex flex-col gap-2.5 px-5 pb-6 pt-5">
+            <h2 class="m-0 font-display text-[clamp(26px,2.6vw,34px)] font-normal uppercase leading-none">{t('b2b.caseTitle')}</h2>
+            <p class="m-0 text-[15px] leading-[1.55] text-pretty">{t('b2b.caseWork')}</p>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
-    <section aria-hidden="true" class="mt-14 border-y-2 border-black">
-      <div class="grid h-16 grid-cols-2">
-        <div class="bg-[repeating-linear-gradient(-45deg,#000_0_10px,#2b2b2b_10px_20px)]"></div>
-        <div class="bg-white"></div>
-      </div>
-    </section>
+    <div aria-hidden="true" class="mt-14 border-b-2 border-black"></div>
 
     <!-- Why work with us -->
     <section class="border-b-2 border-black bg-cream px-5 pb-20 pt-16">
       <div class="mx-auto max-w-[1180px]">
         <h2 class="mb-9 mt-0 font-display text-[clamp(30px,4.4vw,56px)] font-normal uppercase leading-[1]">{t('b2b.whyTitle')}</h2>
-        <ul class="m-0 grid list-none grid-cols-1 gap-4 p-0 xs:grid-cols-2 split:grid-cols-3 split:gap-5">
-          {why.map((item, i) => (
-            <li class="flex flex-col gap-2.5 border-2 border-black bg-white p-6">
-              <span class="text-[10px] font-semibold uppercase tracking-[0.2em] opacity-60">{String(i + 1).padStart(2, '0')}</span>
+        <ul class="m-0 grid list-none grid-cols-1 gap-8 p-0 md:grid-cols-3 md:gap-10">
+          {why.map((item) => (
+            <li class="flex flex-col gap-2.5 border-t-2 border-black pt-5">
               <h3 class="m-0 font-display text-[clamp(22px,2.2vw,28px)] font-normal uppercase leading-[1.02]">{item.title}</h3>
               <p class="m-0 text-[15px] leading-[1.55] text-pretty">{item.text}</p>
             </li>
@@ -83,23 +73,6 @@ const make = list('b2b.make');
           <ul class="m-0 flex list-none flex-col p-0">
             {make.map((item) => <li class="border-b-[1.5px] border-dashed border-black py-3 text-[17px]">→ {item}</li>)}
           </ul>
-          <p class="m-0 text-lg font-semibold leading-[1.9] text-pretty"><span class="box-decoration-clone bg-black px-2 py-[3px] text-white">{t('b2b.proof')}</span></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- La Onza case study -->
-    <section id="la-onza" class="border-b-2 border-black">
-      <div class="grid grid-cols-1 items-stretch split:grid-cols-2">
-        <div class="relative aspect-[3/4] overflow-hidden border-b-2 border-black bg-black split:aspect-auto split:min-h-[640px] split:border-b-0 split:border-r-2">
-          <Img src={laOnza} alt={t('b2b.casePhotoAlt')} sizes="(min-width: 860px) 50vw, 100vw" widths={[480, 768, 960, 1200]} class="absolute inset-0 size-full object-cover" />
-        </div>
-        <div class="flex flex-col justify-center gap-[18px] bg-cream px-5 pb-14 pt-12 split:px-12">
-          <Chip class="self-start">{t('b2b.caseChip')}</Chip>
-          <h2 class="m-0 font-display text-[clamp(32px,4vw,54px)] font-normal uppercase leading-[1]">{t('b2b.caseTitle')}</h2>
-          <div class="border-t-[1.5px] border-dashed border-black"></div>
-          <p class="m-0 text-base leading-[1.65] text-pretty">{t('b2b.caseHistory')}</p>
-          <p class="m-0 text-lg font-medium leading-[1.6] text-pretty">{t('b2b.caseWork')}</p>
         </div>
       </div>
     </section>

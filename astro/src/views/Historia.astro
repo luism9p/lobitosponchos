@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import CausaBlock from '../components/CausaBlock.astro';
 import Chip from '../components/Chip.astro';
 import Img from '../components/Img.astro';
 import Lines from '../components/Lines.astro';
@@ -9,7 +8,6 @@ import jovenes from '../assets/causa/jovenes.jpeg';
 import abuela from '../assets/causa/abuela.jpeg';
 import feria from '../assets/causa/feria.jpeg';
 import playa from '../assets/causa/playa.jpeg';
-import olas from '../assets/hero/carr3.webp';
 
 interface Props {
   lang: Lang;
@@ -18,22 +16,20 @@ const { lang } = Astro.props;
 const { t, list } = useTranslations(lang);
 
 interface Chapter {
+  when: string;
   title: string;
   photoAlt: string;
-  p1: string;
-  p2: string;
+  text: string;
 }
 // Photos for each chapter of `story.chapters`, in the same order.
 const chapterPhotos = [
-  { photo: jovenes, ratio: 'aspect-[4/5]', position: '50% 40%' },
-  { photo: abuela, ratio: 'aspect-[3/4]', position: '50% 15%' },
-  { photo: feria, ratio: 'aspect-[4/5]', position: '50% 55%' },
-  { photo: playa, ratio: 'aspect-[3/4]', position: '50% 85%' },
+  { photo: jovenes, position: '50% 40%' },
+  { photo: abuela, position: '50% 15%' },
+  { photo: feria, position: '50% 55%' },
+  { photo: playa, position: '50% 85%' },
 ] as const;
 const chapters = list<Chapter>('story.chapters').map((c, i) => ({ ...c, ...chapterPhotos[i], n: String(i + 1).padStart(2, '0') }));
-const timeline = list<{ when: string; title: string; text: string }>('story.timeline');
 
-const body = 'm-0 text-base leading-[1.65] text-pretty';
 ---
 
 <BaseLayout
@@ -62,54 +58,26 @@ const body = 'm-0 text-base leading-[1.65] text-pretty';
       </div>
     </section>
 
-    <section aria-hidden="true" class="mt-14 border-y-2 border-black">
-      <div class="grid h-16 grid-cols-2">
-        <div class="bg-[repeating-linear-gradient(-45deg,#000_0_10px,#2b2b2b_10px_20px)]"></div>
-        <div class="bg-white"></div>
-      </div>
-    </section>
+    <div aria-hidden="true" class="mt-14 border-b-2 border-black"></div>
 
-    {chapters.map((c, i) => (
-      <CausaBlock
-        id={`capitulo-${c.n}`}
-        number={c.n}
-        counter={t('story.counter', { n: c.n })}
-        photo={c.photo}
-        alt={c.photoAlt}
-        ratio={c.ratio}
-        position={c.position}
-        photoSide={i % 2 === 0 ? 'left' : 'right'}
-      >
-        <Fragment slot="title">{c.title}</Fragment>
-        <p class="m-0 text-lg font-medium leading-[1.6] text-pretty">{c.p1}</p>
-        <p class={body}>{c.p2}</p>
-      </CausaBlock>
-    ))}
-
-    <!-- Lobitos history -->
-    <section id="lobitos" class="scroll-mt-[76px] border-b-2 border-black">
-      <div class="grid grid-cols-1 items-stretch split:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)]">
-        <div class="relative border-b-2 border-black bg-black split:border-b-0 split:border-r-2">
-          <div class="relative aspect-[3/4] overflow-hidden split:sticky split:top-[76px] split:aspect-auto split:h-[calc(100svh-76px)]">
-            <Img src={olas} alt={t('story.townPhotoAlt')} sizes="(min-width: 860px) 45vw, 100vw" widths={[640, 960, 1280, 2000]} position="22% 50%" class="absolute inset-0 size-full object-cover" />
-            <span class="absolute left-3.5 top-3.5 z-[2] border-[1.5px] border-black bg-white px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-black">{t('story.townChip')}</span>
-          </div>
-        </div>
-        <div class="flex flex-col gap-6 bg-cream px-5 pb-16 pt-12 split:px-12 split:pt-[72px]">
-          <h2 class="m-0 font-display text-[clamp(34px,4.6vw,64px)] font-normal uppercase leading-[.98]"><Lines text={t('story.townTitle')} /></h2>
-          <p class="m-0 max-w-[520px] text-lg leading-[1.6] text-pretty">{t('story.townLead')}</p>
-          <ol class="m-0 flex list-none flex-col border-l-2 border-black p-0">
-            {timeline.map((item) => (
-              <li class="relative flex flex-col gap-1.5 pb-7 pl-6 last:pb-0">
-                <span aria-hidden="true" class="absolute -left-[7px] top-1 size-3 rounded-full border-2 border-black bg-white"></span>
-                <span class="text-[11px] font-semibold uppercase tracking-[0.2em] opacity-70">{item.when}</span>
-                <h3 class="m-0 font-display text-[clamp(22px,2.2vw,30px)] font-normal uppercase leading-none">{item.title}</h3>
-                <p class={body}>{item.text}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </div>
+    <!-- The story as a timeline: date on the left, a line with a dot, then text and photo -->
+    <section class="px-5 py-16 split:py-24">
+      <ol class="relative mx-auto m-0 max-w-[1180px] list-none p-0">
+        <span aria-hidden="true" class="absolute bottom-2 left-[7px] top-2 w-[2px] bg-black split:left-[139px]"></span>
+        {chapters.map((c) => (
+          <li id={`capitulo-${c.n}`} class="relative grid scroll-mt-[96px] grid-cols-1 gap-5 pb-16 pl-10 last:pb-0 split:grid-cols-[120px_minmax(0,1fr)_minmax(0,380px)] split:gap-x-10 split:pl-0">
+            <span aria-hidden="true" class="absolute left-0 top-2 size-4 rounded-full border-2 border-black bg-white split:left-[132px]"></span>
+            <span class="font-display text-[clamp(26px,2.6vw,36px)] uppercase leading-none split:text-right">{c.when}</span>
+            <div class="flex flex-col gap-4 split:pl-4">
+              <h2 class="m-0 font-display text-[clamp(28px,3.4vw,44px)] font-normal uppercase leading-[1]">{c.title}</h2>
+              <p class="m-0 text-lg leading-[1.6] text-pretty">{c.text}</p>
+            </div>
+            <div class="relative aspect-[4/5] overflow-hidden border-2 border-black bg-black">
+              <Img src={c.photo} alt={c.photoAlt} sizes="(min-width: 860px) 380px, 100vw" widths={[480, 760, 960]} position={c.position} class="absolute inset-0 size-full object-cover" />
+            </div>
+          </li>
+        ))}
+      </ol>
     </section>
 
     <section class="bg-black px-5 pb-24 pt-[100px] text-center text-white">

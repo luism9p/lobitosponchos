@@ -94,8 +94,9 @@ export function initAnimations(): void {
       const target = document.querySelector<HTMLElement>(hash);
       if (target) {
         e.preventDefault();
-        lenisInstance?.scrollTo(target, {
-          offset: -76,
+        // Scroll to an exact position: given an element, Lenis also subtracts its scroll margins,
+        // which pushed the section ~150px too low. 76px leaves room for the fixed header.
+        lenisInstance?.scrollTo(target.getBoundingClientRect().top + window.scrollY - 76, {
           duration: 1.1,
           easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         });
