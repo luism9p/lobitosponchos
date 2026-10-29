@@ -1,7 +1,7 @@
 ---
 nombre: "Dolce Vita"
 categoria: ponchos
-linea: clasico
+linea: unico
 orden: 6
 resumen: "Poncho de surf de microfibra, hecho a mano en Lobitos, Piura."
 tallas: ["Talla única"]

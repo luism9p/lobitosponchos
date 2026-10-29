@@ -1,7 +1,7 @@
 ---
 nombre: "Chicama Yunza"
 categoria: ponchos
-linea: clasico
+linea: unico
 orden: 4
 resumen: "Poncho de surf de microfibra, hecho a mano en Lobitos, Piura."
 tallas: ["Talla única"]

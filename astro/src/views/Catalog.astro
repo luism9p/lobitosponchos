@@ -6,7 +6,6 @@ import Lines from '../components/Lines.astro';
 import ProductCard from '../components/ProductCard.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 import { categorias } from '../data/categorias';
-import { whatsappUrl } from '../data/site';
 import { url, useTranslations, type Lang } from '../i18n';
 
 interface Props {
@@ -50,9 +49,6 @@ const tab =
         </h1>
         <div class="flex max-w-[440px] flex-col gap-3">
           <p class="m-0 text-[17px] leading-[1.6] text-pretty">{t('catalog.lead')}</p>
-          <p class="m-0 border-l-[3px] border-black pl-3 text-[15px] leading-[1.5] text-pretty">
-            {t('catalog.sizeNote')} <a href={whatsappUrl(t('wa.custom'))} target="_blank" rel="noopener" class="font-semibold text-black underline underline-offset-4">{t('catalog.sizeLink')}</a>
-          </p>
         </div>
       </div>
 
