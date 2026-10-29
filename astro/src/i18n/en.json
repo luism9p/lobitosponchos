@@ -5,13 +5,13 @@
     "home": "Home",
     "shop": "Shop",
     "about": "About us",
-    "cause": "Our Purpose",
+    "cause": "Our purpose",
     "b2b": "B2B",
     "whatsapp": "WhatsApp",
     "menu": "Menu",
-    "contact": "Contact",
+    "contact": "Contact us",
     "instagram": "Instagram",
-    "team": "Our people",
+    "team": "Our team",
     "history": "Our story",
     "shopCategories": "Shop — categories",
     "ordersByWhatsApp": "Orders and questions on WhatsApp",
@@ -48,27 +48,18 @@
   "home": {
     "seoTitle": "Lobitos Ponchos",
     "seoDescription": "Surf ponchos handmade in Lobitos, Piura, Peru, by our grandmothers and young people from the village. Order yours on WhatsApp.",
-    "barLines": "Our collections, handcrafted in Lobitos",
-    "barHandmade": "100% handmade",
+    "barLines": "Find your poncho, handmade locally in Lobitos",
     "categoriesLabel": "Categories",
-    "barPeople": "Our story, our purpose, our people",
-    "barWorkshop": "Lobitos workshop · Piura, Peru",
-    "lifeEyebrow": "04 — Life in Lobitos",
-    "lifeTitle": "From the waves to the village",
-    "gallery": [
-      { "caption": "01 · Sunset session · La Punta", "alt": "Sunset surf session at La Punta" },
-      { "caption": "02 · Desert wind", "alt": "Lobitos ponchos with the Piura desert in the background" },
-      { "caption": "03 · Historic pier · High tide", "alt": "The historic Lobitos pier at high tide" }
-    ],
-    "marquee": "Lobitos Ponchos · Surf & Craft · Made in Lobitos · ",
+    "barPeople": "Our story, our purpose, our team",
+    "lifeTitle": "Life in Lobitos",
     "aboutChip": "About us",
-    "aboutTitle": "Made at home,\nby the sea",
-    "aboutLead": "Lobitos Ponchos started in 2022 among friends and family: two young locals, Kevyn and Ivan, their seamstress grandmothers, and Tiíta, a volunteer who arrived in 2018 and never really left. Every poncho is cut and sewn by hand right here at home, creating work in the village and honoring our grandmothers.",
+    "aboutTitle": "Made at home,\nby the ocean",
+    "aboutLead": "Started in 2022 by friends and family in Lobitos. Our grandmothers sew every poncho by hand at home, creating work in the village.",
     "aboutPhotoAlt": "The Lobitos Ponchos team in front of a pink mural, showing off ponchos and pouches",
     "aboutCards": [
       {
         "title": "Our story",
-        "text": "From a village of fishermen and oil to a poncho workshop: how it all began.",
+        "text": "From a fishing village to a poncho workshop: how it all began.",
         "link": "Read our story →"
       },
       {
@@ -77,19 +68,21 @@
         "link": "See our purpose →"
       },
       {
-        "title": "Our people",
+        "title": "Our team",
         "text": "Mery, Irma, Kevyn, Tiíta and Ivan: the hands behind every piece.",
-        "link": "Meet our people →"
+        "link": "Meet our team →"
       }
     ],
     "b2bBarLeft": "For businesses",
-    "b2bBarRight": "Made to order · Your logo, your colors",
-    "b2bTitle": "We work\nwith businesses",
-    "b2bText": "We work with local shops, cafés, hotels and surf schools in Lobitos and across Peru. We make customized ponchos and accessories in your colors and with your logo: to sell in your shop, for your team, or as a gift.",
+    "b2bTitle": "Custom ponchos\nfor your business",
+    "b2bText": "We make ponchos for you, and for your business too. Custom ponchos and accessories in your colors and with your logo: for your shop, your team or as a gift.",
     "b2bPhotoAlt": "Someone wearing a blue poncho with a pink hood and the La Onza Café patch, in front of the café sign in Lobitos",
-    "b2bCaption": "Custom ponchos · La Onza Café",
+    "b2bCaption": "La Onza Café · Lobitos",
     "b2bLink": "See our B2B offer →",
-    "lifeText": "Tides, sunsets, markets and everyday life in the workshop. This is Lobitos: follow along to see it up close."
+    "lifeText": "Sunsets, waves and everyday life in the workshop. Follow along for new designs, behind-the-scenes with our grandmothers and the latest from Lobitos.",
+    "lifeFollow": "Follow us on Instagram",
+    "lifeFollowersLabel": "followers",
+    "lifeFeedLabel": "From our Instagram"
   },
   "instagram": {
     "label": "Live from Lobitos",
@@ -119,7 +112,7 @@
     "b2b": "For businesses (B2B)",
     "about": "About us",
     "story": "Our story",
-    "team": "Our people",
+    "team": "Our team",
     "volunteer": "Volunteer with us"
   },
   "cause": {
@@ -469,5 +462,19 @@
     "cause": "Our purpose →",
     "team": "Meet our people →",
     "collection": "View collection →"
+  },
+  "contact": {
+    "seoTitle": "Contact us",
+    "seoDescription": "Get in touch with Lobitos Ponchos on WhatsApp, Instagram or email. Surf ponchos handmade in Lobitos, Piura, Peru.",
+    "chip": "■ Contact",
+    "title": "Let's talk",
+    "lead": "Want a poncho, have a question about sizes or colors, or want to work with us? Write to us, we'd love to hear from you.",
+    "whatsappText": "The quickest way to order your poncho or ask about sizes and colors.",
+    "whatsappBtn": "Chat with us on WhatsApp",
+    "instagramText": "New designs and everyday life in Lobitos. You can also send us a direct message.",
+    "emailLabel": "Email",
+    "emailText": "For longer questions, business orders or collaborations.",
+    "whereLabel": "Where we are",
+    "whereText": "Our grandmothers sew every poncho at home in Lobitos, a small surf and fishing town on the north coast of Peru."
   }
 }

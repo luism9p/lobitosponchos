@@ -69,7 +69,7 @@ export function initAnimations(): void {
       const headerEl = document.querySelector<HTMLElement>('[data-header]');
       if (headerEl && (headerEl.dataset.menu === 'mega' || headerEl.dataset.menu === 'about')) {
         headerEl.dataset.menu = '';
-        headerEl.removeAttribute('data-dark');
+        if (!headerEl.hasAttribute('data-scrolled')) headerEl.removeAttribute('data-dark');
         headerEl.querySelectorAll('[data-panel]').forEach((p) => p.removeAttribute('data-open'));
         headerEl.querySelectorAll('[data-trigger]').forEach((t) => t.setAttribute('aria-expanded', 'false'));
       }
@@ -125,7 +125,7 @@ export function initAnimations(): void {
     title.classList.add('reveal-ready');
     gsap.fromTo(
       title,
-      { y: 40, opacity: 0 },
+      { y: 16, opacity: 0 },
       {
         y: 0,
         opacity: 1,
@@ -149,7 +149,7 @@ export function initAnimations(): void {
     categoryLinks.forEach((el) => el.classList.add('reveal-ready'));
     gsap.fromTo(
       categoryLinks,
-      { y: 30, opacity: 0 },
+      { y: 16, opacity: 0 },
       {
         y: 0,
         opacity: 1,
@@ -171,7 +171,7 @@ export function initAnimations(): void {
     galleryFigures.forEach((el) => el.classList.add('reveal-ready'));
     gsap.fromTo(
       galleryFigures,
-      { y: 30, opacity: 0 },
+      { y: 16, opacity: 0 },
       {
         y: 0,
         opacity: 1,
@@ -194,7 +194,7 @@ export function initAnimations(): void {
     const parentList = productCards[0].parentElement;
     gsap.fromTo(
       productCards,
-      { y: 30, opacity: 0 },
+      { y: 16, opacity: 0 },
       {
         y: 0,
         opacity: 1,
@@ -217,7 +217,7 @@ export function initAnimations(): void {
     gridCols.forEach((col) => col.classList.add('reveal-ready'));
     gsap.fromTo(
       gridCols,
-      { y: 30, opacity: 0 },
+      { y: 16, opacity: 0 },
       {
         y: 0,
         opacity: 1,
@@ -264,7 +264,7 @@ export function initAnimations(): void {
     cols.forEach((c) => c.classList.add('reveal-ready'));
     gsap.fromTo(
       cols,
-      { y: 30, opacity: 0 },
+      { y: 16, opacity: 0 },
       {
         y: 0,
         opacity: 1,
@@ -286,7 +286,7 @@ export function initAnimations(): void {
     instagramCard.classList.add('reveal-ready');
     gsap.fromTo(
       instagramCard,
-      { y: 30, opacity: 0 },
+      { y: 16, opacity: 0 },
       {
         y: 0,
         opacity: 1,
@@ -307,7 +307,7 @@ export function initAnimations(): void {
     tejidoCols.forEach((el) => el.classList.add('reveal-ready'));
     gsap.fromTo(
       tejidoCols,
-      { y: 30, opacity: 0 },
+      { y: 16, opacity: 0 },
       {
         y: 0,
         opacity: 1,
@@ -339,9 +339,8 @@ export function initAnimations(): void {
     const container = img.closest<HTMLElement>('picture, figure, .relative') || img;
     gsap.fromTo(
       img,
-      { scale: 0.96, opacity: 0 },
+      { opacity: 0 },
       {
-        scale: 1,
         opacity: 1,
         duration: 1.1,
         ease: 'power2.out',

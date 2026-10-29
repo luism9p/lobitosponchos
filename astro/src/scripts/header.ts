@@ -17,11 +17,12 @@ export function initHeader(): void {
   const megaTag = header.querySelector<HTMLElement>('[data-megatag]');
 
   let menu: Menu = '';
+  let scrolled = false;
 
   function set(next: Menu): void {
     menu = next;
     header!.dataset.menu = next;
-    header!.toggleAttribute('data-dark', next !== '');
+    header!.toggleAttribute('data-dark', next !== '' || scrolled);
     panels.forEach((panel, name) => panel.toggleAttribute('data-open', name === next));
     triggers.forEach((t) => t.setAttribute('aria-expanded', String(t.dataset.trigger === next)));
     burger?.setAttribute('aria-expanded', String(next === 'mobile'));
@@ -63,4 +64,16 @@ export function initHeader(): void {
     if (menu !== '' && !header.contains(e.target as Node)) set('');
   });
   desktop.addEventListener('change', () => set(''));
+
+  // Once the page scrolls past the top, the transparent home header turns into a white bar
+  // so it stays readable over light sections.
+  const onScroll = (): void => {
+    const next = window.scrollY > 40;
+    if (next === scrolled) return;
+    scrolled = next;
+    header.toggleAttribute('data-scrolled', scrolled);
+    header.toggleAttribute('data-dark', menu !== '' || scrolled);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 }

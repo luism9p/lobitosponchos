@@ -2,7 +2,7 @@
 // Thin full-width divider with a label on each side.
 interface Props {
   left: string;
-  right: string;
+  right?: string;
   number?: string;
   tone?: 'light' | 'dark';
 }
@@ -18,5 +18,5 @@ const tones = {
     {number && <span class="font-display text-[22px] leading-none">{number}</span>}
     <span class="text-[11px] font-semibold uppercase tracking-[0.28em]">{left}</span>
   </div>
-  <span class="text-[10px] uppercase tracking-[0.28em] opacity-75">{right}</span>
+  {right && <span class="text-[10px] uppercase tracking-[0.28em] opacity-75">{right}</span>}
 </section>

@@ -28,7 +28,7 @@ const heading = 'text-[11px] uppercase tracking-[0.3em] opacity-60';
         href={whatsappUrl()}
         target="_blank"
         rel="noopener"
-        class="inline-flex w-full xs:w-auto min-h-[44px] origin-left rotate-[2.5deg] items-center gap-3 border-[3px] border-white bg-white px-[26px] pb-4 pt-[18px] font-display text-[clamp(22px,4vw,34px)] uppercase leading-none text-black outline-2 -outline-offset-[7px] outline-black transition-transform duration-[250ms] hover:-rotate-[1.5deg] hover:scale-[1.03] hover:no-underline xs:w-auto"
+        class="inline-flex w-full xs:w-auto min-h-[44px] origin-left rotate-[2.5deg] items-center gap-3 border-[3px] border-white bg-white px-[26px] pb-4 pt-[18px] font-display text-[clamp(22px,4vw,34px)] uppercase leading-none text-black outline-2 -outline-offset-[7px] outline-black hover:no-underline xs:w-auto"
       >
         <WhatsAppIcon size={18} />
         <span>{t('footer.orderBtn')}</span>
@@ -48,6 +48,7 @@ const heading = 'text-[11px] uppercase tracking-[0.3em] opacity-60';
         <div class="flex rotate-[1.2deg] flex-col gap-3">
           <div class={heading}>{t('footer.about')}</div>
           <a href={url(lang, 'historia')} class={link}>{t('footer.story')}</a>
+          <a href={url(lang, 'causa')} class={link}>{t('nav.cause')}</a>
           <a href={url(lang, 'equipo')} class={link}>{t('footer.team')}</a>
           <a href={url(lang, 'equipo', undefined, 'voluntariado')} class={link}>{t('footer.volunteer')}</a>
         </div>

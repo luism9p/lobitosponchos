@@ -11,7 +11,7 @@
     "menu": "Menú",
     "contact": "Contacto",
     "instagram": "Instagram",
-    "team": "Equipo",
+    "team": "Nuestro equipo",
     "history": "Nuestra historia",
     "shopCategories": "Tienda — categorías",
     "ordersByWhatsApp": "Pedidos y consultas por WhatsApp",
@@ -48,27 +48,18 @@
   "home": {
     "seoTitle": "Lobitos Ponchos",
     "seoDescription": "Ponchos de surf hechos a mano en Lobitos, Piura, Perú, por nuestras abuelas y jóvenes del pueblo. Pide el tuyo por WhatsApp.",
-    "barLines": "Líneas de producción artesanal",
-    "barHandmade": "HECHO A MANO · 100%",
+    "barLines": "Encuentra tu poncho, hecho a mano en Lobitos",
     "categoriesLabel": "Categorías",
-    "barPeople": "Nuestra historia, nuestra causa, nuestra gente",
-    "barWorkshop": "Taller Lobitos · Piura, Perú",
-    "lifeEyebrow": "04 — Vida en Lobitos",
-    "lifeTitle": "Del agua al viento",
-    "gallery": [
-      { "caption": "01 · Sesión del atardecer · La Punta", "alt": "Sesión de surf al atardecer en La Punta" },
-      { "caption": "02 · El viento del desierto", "alt": "Ponchos de Lobitos con el desierto de Piura al fondo" },
-      { "caption": "03 · Muelle histórico · Marea alta", "alt": "Muelle histórico de Lobitos con la marea alta" }
-    ],
-    "marquee": "Lobitos Ponchos · Surf & Craft · Hecho en Lobitos · ",
+    "barPeople": "Nuestra historia, nuestra causa, nuestro equipo",
+    "lifeTitle": "Vida en Lobitos",
     "aboutChip": "Nosotros",
-    "aboutTitle": "Hecho en casa,\nfrente al mar",
-    "aboutLead": "Lobitos Ponchos nació en 2022 entre amigos y familia: dos jóvenes del pueblo, Kevyn e Ivan, sus abuelas costureras y Tiíta, una voluntaria que llegó en 2018 y se quedó. Cada poncho se corta y se cose a mano aquí, en casa, para crear trabajo en el pueblo y valorar a nuestras abuelas.",
+    "aboutTitle": "Hecho en casa,\nfrente al océano",
+    "aboutLead": "Nació en 2022 entre amigos y familia en Lobitos. Nuestras abuelas cosen cada poncho a mano en casa, creando trabajo en el pueblo.",
     "aboutPhotoAlt": "El equipo de Lobitos Ponchos frente a un mural rosa, mostrando ponchos y estuches",
     "aboutCards": [
       {
         "title": "Nuestra historia",
-        "text": "Del pueblo de pescadores y petróleo al taller de ponchos: cómo empezó todo.",
+        "text": "Del pueblo de pescadores al taller de ponchos: cómo empezó todo.",
         "link": "Leer la historia →"
       },
       {
@@ -83,13 +74,15 @@
       }
     ],
     "b2bBarLeft": "Para negocios",
-    "b2bBarRight": "Hecho a medida · Tu logo, tus colores",
-    "b2bTitle": "Trabajamos\ncon negocios",
-    "b2bText": "Trabajamos con tiendas, cafés, hoteles y escuelas de surf de Lobitos y de todo el Perú. Hacemos ponchos y accesorios personalizados con tus colores y tu logo: para vender en tu tienda, para tu equipo o como regalo.",
+    "b2bTitle": "Ponchos a medida\npara tu negocio",
+    "b2bText": "Hacemos ponchos para ti, y también para tu negocio. Ponchos y accesorios personalizados con tus colores y tu logo: para tu tienda, tu equipo o como regalo.",
     "b2bPhotoAlt": "Una persona con un poncho azul y capucha rosada con el parche de La Onza Café, frente al letrero del café en Lobitos",
-    "b2bCaption": "Ponchos personalizados · La Onza Café",
+    "b2bCaption": "La Onza Café · Lobitos",
     "b2bLink": "Ver propuesta B2B →",
-    "lifeText": "Mareas, atardeceres, ferias y el día a día del taller. Así se vive Lobitos: síguenos para verlo de cerca."
+    "lifeText": "Atardeceres, olas y el día a día del taller. Síguenos para ver nuevos diseños, el trabajo de nuestras abuelas y lo último de Lobitos.",
+    "lifeFollow": "Síguenos en Instagram",
+    "lifeFollowersLabel": "seguidores",
+    "lifeFeedLabel": "Desde nuestro Instagram"
   },
   "instagram": {
     "label": "Comunidad en tiempo real",
@@ -476,5 +469,19 @@
     "cause": "Nuestra causa →",
     "team": "Conoce al equipo →",
     "collection": "Ver colección →"
+  },
+  "contact": {
+    "seoTitle": "Contacto",
+    "seoDescription": "Escríbenos a Lobitos Ponchos por WhatsApp, Instagram o correo. Ponchos de surf hechos a mano en Lobitos, Piura, Perú.",
+    "chip": "■ Contacto",
+    "title": "Hablemos",
+    "lead": "¿Quieres un poncho, tienes una pregunta sobre tallas o colores, o quieres trabajar con nosotros? Escríbenos, nos encantará saber de ti.",
+    "whatsappText": "La forma más rápida de pedir tu poncho o preguntar por tallas y colores.",
+    "whatsappBtn": "Escríbenos por WhatsApp",
+    "instagramText": "Nuevos diseños y el día a día en Lobitos. También puedes escribirnos por mensaje directo.",
+    "emailLabel": "Correo",
+    "emailText": "Para preguntas más largas, pedidos de negocios o colaboraciones.",
+    "whereLabel": "Dónde estamos",
+    "whereText": "Nuestras abuelas cosen cada poncho en casa, en Lobitos, un pequeño pueblo de surf y pesca en la costa norte del Perú."
   }
 }

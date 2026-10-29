@@ -25,6 +25,7 @@ export const routes = {
   disena: { es: 'disena', en: 'design-your-own' },
   historia: { es: 'historia', en: 'our-story' },
   b2b: { es: 'b2b', en: 'wholesale' },
+  contacto: { es: 'contacto', en: 'contact' },
 } as const;
 export type RouteKey = keyof typeof routes;
 

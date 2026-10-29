@@ -4,16 +4,12 @@ import Hero from '../components/Hero.astro';
 import Img from '../components/Img.astro';
 import Lines from '../components/Lines.astro';
 import SectionBar from '../components/SectionBar.astro';
-import Chip from '../components/Chip.astro';
-import InstagramFeature from '../components/InstagramFeature.astro';
+import InstagramReel from '../components/InstagramReel.astro';
 import { categorias, catalogoUrl } from '../data/categorias';
 import { instagramUrl, site } from '../data/site';
 import { url, useTranslations, type Lang } from '../i18n';
 import equipoFoto from '../assets/historias/nuestra-causa.webp';
 import laOnza from '../assets/historias/la-onza.webp';
-import sesion from '../assets/historias/sesion-atardecer.jpg';
-import viento from '../assets/historias/viento-desierto.jpg';
-import muelle from '../assets/historias/muelle.webp';
 
 interface Props {
   lang: Lang;
@@ -21,9 +17,6 @@ interface Props {
 const { lang } = Astro.props;
 const { t, list } = useTranslations(lang);
 
-const captions = list<{ caption: string; alt: string }>('home.gallery');
-const galeria = [sesion, viento, muelle].map((src, i) => ({ src, ...captions[i] }));
-const marquee = t('home.marquee').repeat(3);
 const aboutLinks = (['historia', 'causa', 'equipo'] as const).map((route) => url(lang, route));
 const aboutCards = list<{ title: string; text: string; link: string }>('home.aboutCards').map((card, i) => ({ ...card, href: aboutLinks[i] }));
 ---
@@ -37,9 +30,9 @@ const aboutCards = list<{ title: string; text: string; link: string }>('home.abo
   current="inicio"
 >
   <main>
-    <Hero lang={lang} autoplay={4} />
+    <Hero lang={lang} autoplay={7} />
 
-    <SectionBar number="01" left={t('home.barLines')} right={t('home.barHandmade')} />
+    <SectionBar left={t('home.barLines')} />
 
     <!-- Categories -->
     <section id="categorias" aria-label={t('home.categoriesLabel')} class="grid grid-cols-2 gap-0.5 border-b-2 border-black bg-black split:grid-cols-4">
@@ -47,7 +40,7 @@ const aboutCards = list<{ title: string; text: string; link: string }>('home.abo
         const lines = list(`categories.${cat.id}.lines`);
         return (
           <a href={catalogoUrl(lang, cat.id)} class="group @container relative block aspect-square overflow-hidden bg-black text-white hover:no-underline">
-            <div class="absolute inset-0 transition-transform duration-700 group-hover:scale-[1.06]">
+            <div class="absolute inset-0">
               <Img src={cat.imagen} alt="" sizes="(min-width: 860px) 25vw, 50vw" widths={[320, 480, 640, 960]} class="size-full object-cover" />
             </div>
             <div class="absolute inset-0 bg-black/[.32]"></div>
@@ -63,78 +56,61 @@ const aboutCards = list<{ title: string; text: string; link: string }>('home.abo
       })}
     </section>
 
-    <SectionBar number="02" left={t('home.barPeople')} right={t('home.barWorkshop')} />
+    <SectionBar left={t('home.barPeople')} />
 
     <!-- About us: story, purpose and people in one place -->
     <section id="nosotros" class="relative overflow-hidden border-b-2 border-black">
       <div class="relative border-b-2 border-black">
-        <Img src={equipoFoto} alt={t('home.aboutPhotoAlt')} sizes="100vw" widths={[640, 960, 1280, 1600, 1920, 2560]} class="block h-auto w-full" />
-        <span class="absolute bottom-3 left-3 inline-block origin-bottom-left -rotate-3 border-2 border-black bg-white px-2.5 pb-0.5 pt-1.5 font-display text-[clamp(24px,5vw,72px)] uppercase leading-[.9] split:bottom-8 split:left-[34px]">{t('home.aboutChip')}</span>
+        <Img src={equipoFoto} alt={t('home.aboutPhotoAlt')} sizes="100vw" widths={[640, 960, 1280, 1600, 1920, 2560]} position="50% 48%" class="block h-auto w-full split:h-[clamp(240px,22vw,440px)] split:object-cover" />
+        <span class="absolute bottom-3 left-3 inline-block border-2 border-black bg-white px-2.5 pb-0.5 pt-1.5 font-display text-[clamp(24px,4vw,48px)] uppercase leading-[.9] split:bottom-6 split:left-[34px]">{t('home.aboutChip')}</span>
       </div>
-      <div class="mx-auto grid w-full max-w-[1180px] grid-cols-1 gap-8 px-5 pb-14 pt-12 split:grid-cols-[1fr_1.1fr] split:gap-14 split:py-[72px]">
-        <h2 class="m-0 font-display text-[clamp(36px,5.4vw,80px)] font-normal uppercase leading-[.95] tracking-[-0.02em]"><Lines text={t('home.aboutTitle')} /></h2>
+      <div class="mx-auto grid w-full max-w-[1180px] grid-cols-1 gap-8 px-5 pb-14 pt-12 split:grid-cols-[1fr_1.1fr] split:gap-14 split:pb-8 split:pt-9">
+        <h2 class="m-0 font-display text-[clamp(36px,5vw,64px)] font-normal uppercase leading-[.95] tracking-[-0.02em]"><Lines text={t('home.aboutTitle')} /></h2>
         <p class="m-0 self-end text-lg leading-[1.6] text-pretty">{t('home.aboutLead')}</p>
       </div>
-      <div class="mx-auto grid w-full max-w-[1180px] grid-cols-1 gap-4 px-5 pb-16 md:grid-cols-3 md:gap-5">
-        {aboutCards.map((card, i) => (
-          <a href={card.href} class="group flex flex-col gap-3 border-2 border-black bg-cream p-6 text-black shadow-[5px_5px_0_#000] transition-transform duration-200 hover:-translate-y-1 hover:no-underline">
-            <span class="text-[10px] font-semibold uppercase tracking-[0.2em] opacity-60">{String(i + 1).padStart(2, '0')}</span>
-            <h3 class="m-0 font-display text-[clamp(26px,2.6vw,36px)] font-normal uppercase leading-none">{card.title}</h3>
+      <div class="mx-auto grid w-full max-w-[1180px] grid-cols-1 gap-8 px-5 pb-16 md:grid-cols-3 md:gap-10 split:pb-10">
+        {aboutCards.map((card) => (
+          <a href={card.href} class="group flex flex-col gap-2.5 border-t-2 border-black pt-5 text-black hover:no-underline">
+            <h3 class="m-0 font-display text-[clamp(24px,2.4vw,32px)] font-normal uppercase leading-none">{card.title}</h3>
             <p class="m-0 text-[15px] leading-[1.55] text-pretty">{card.text}</p>
-            <span class="mt-auto self-start border-b-2 border-black pb-[3px] pt-2 text-xs font-semibold uppercase tracking-[0.14em] group-hover:border-transparent">{card.link}</span>
+            <span class="mt-auto self-start pt-1 text-xs font-semibold uppercase tracking-[0.14em] underline-offset-[6px] decoration-[1.5px] group-hover:underline">{card.link}</span>
           </a>
         ))}
       </div>
     </section>
 
+    <!-- Life in Lobitos: the Instagram clip beside the text, alternating with the B2B layout below -->
+    <section id="vida" class="border-b-2 border-black bg-cream">
+      <div class="mx-auto grid w-full max-w-[1180px] grid-cols-1 items-center gap-10 px-5 py-14 md:grid-cols-[minmax(0,380px)_1fr] md:gap-16 split:py-[88px]">
+        <div class="flex flex-col items-start gap-6 md:order-2">
+          <h2 class="m-0 font-display text-[clamp(38px,5.4vw,80px)] font-normal uppercase leading-[.95] tracking-[-0.02em]">{t('home.lifeTitle')}</h2>
+          <p class="m-0 max-w-[480px] text-lg leading-[1.6] text-pretty">{t('home.lifeText')}</p>
+          <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 border-t-[1.5px] border-black pt-4">
+            <span class="font-display text-[34px] leading-none">12.4K</span>
+            <span class="whitespace-nowrap text-[11px] uppercase tracking-[0.2em] opacity-70">{t('home.lifeFollowersLabel')} · {site.instagramHandle}</span>
+          </div>
+          <a href={instagramUrl} target="_blank" rel="noopener" class="bg-black px-[26px] py-3.5 text-xs uppercase tracking-[0.18em] text-white hover:bg-[#222] hover:text-white hover:no-underline">{t('home.lifeFollow')} ↗</a>
+        </div>
+        <div class="flex justify-center md:order-1 md:justify-start">
+          <InstagramReel lang={lang} />
+        </div>
+      </div>
+    </section>
+
     <!-- B2B -->
     <section id="b2b" class="relative overflow-hidden border-b-2 border-black bg-white">
-      <SectionBar number="03" tone="dark" left={t('home.b2bBarLeft')} right={t('home.b2bBarRight')} />
-      <div class="grid grid-cols-1 items-stretch split:grid-cols-[55fr_45fr]">
+      <SectionBar tone="dark" left={t('home.b2bBarLeft')} />
+      <div class="grid grid-cols-1 items-stretch md:grid-cols-[55fr_45fr]">
         <div class="relative z-[2] flex flex-col justify-center gap-[26px] px-5 py-12 md:px-10 md:py-16">
-          <h2 class="m-0 self-start origin-bottom-left rotate-[2deg] border-2 border-black bg-white px-3 pb-1.5 pt-2.5 font-display text-[clamp(36px,6vw,84px)] font-normal uppercase leading-[.9]"><Lines text={t('home.b2bTitle')} /></h2>
+          <h2 class="m-0 self-start font-display text-[clamp(36px,6vw,84px)] font-normal uppercase leading-[.9]"><Lines text={t('home.b2bTitle')} /></h2>
           <p class="m-0 max-w-[520px] text-lg leading-[1.6] text-pretty">{t('home.b2bText')}</p>
           <a href={url(lang, 'b2b')} class="self-start bg-black px-[26px] py-3.5 text-xs uppercase tracking-[0.18em] text-white hover:bg-[#222] hover:text-white hover:no-underline">{t('home.b2bLink')}</a>
         </div>
-        <div class="relative min-h-[420px] overflow-hidden border-black split:min-h-[560px] split:border-l-2">
-          <Img src={laOnza} alt={t('home.b2bPhotoAlt')} sizes="(min-width: 860px) 45vw, 100vw" widths={[480, 768, 960, 1200]} class="absolute inset-0 size-full object-cover object-center" />
+        <div class="relative min-h-[420px] overflow-hidden border-t-2 border-black md:border-t-0 md:border-l-2 split:min-h-[560px]">
+          <Img src={laOnza} alt={t('home.b2bPhotoAlt')} sizes="(min-width: 768px) 45vw, 100vw" widths={[480, 768, 960, 1200]} class="absolute inset-0 size-full object-cover object-center" />
           <span class="absolute bottom-4 left-4 border-[1.5px] border-black bg-white px-4 py-3 text-xs font-bold uppercase tracking-[0.06em]">{t('home.b2bCaption')}</span>
         </div>
       </div>
     </section>
-
-    <!-- Marquee -->
-    <section class="overflow-hidden border-b-2 border-white bg-black py-[26px] text-white" aria-hidden="true">
-      <div class="flex w-max animate-marquee">
-        <span class="flex items-center whitespace-nowrap pr-10 font-display text-[clamp(36px,6vw,68px)] uppercase leading-none">{marquee}</span>
-        <span class="flex items-center whitespace-nowrap pr-10 font-display text-[clamp(36px,6vw,68px)] uppercase leading-none">{marquee}</span>
-      </div>
-    </section>
-
-    <!-- Life in Lobitos + follow us -->
-    <section id="vida" class="bg-cream px-5 pt-9">
-      <div class="mx-auto flex max-w-[1180px] flex-wrap items-end justify-between gap-5 pb-7">
-        <div class="flex max-w-[640px] flex-col gap-3">
-          <div class="text-[11px] uppercase tracking-[0.3em] opacity-70">{t('home.lifeEyebrow')}</div>
-          <h2 class="m-0 font-display text-[clamp(38px,6.5vw,76px)] font-normal uppercase leading-[.9]">{t('home.lifeTitle')}</h2>
-          <p class="m-0 text-base leading-[1.6] text-pretty">{t('home.lifeText')}</p>
-        </div>
-        <a href={instagramUrl} target="_blank" rel="noopener" class="hover:no-underline">
-          <Chip class="border-2 px-[18px] py-2.5 text-[11px] tracking-[0.2em] hover:bg-black hover:text-white">Instagram {site.instagramHandle} ↗</Chip>
-        </a>
-      </div>
-    </section>
-    <section class="bg-black">
-      <div class="grid grid-cols-1 md:grid-cols-3">
-        {galeria.map((foto) => (
-          <figure class="relative m-0 aspect-[3/4] overflow-hidden">
-            <Img src={foto.src} alt={foto.alt} sizes="(min-width: 768px) 33vw, 100vw" widths={[480, 640, 960, 1280]} class="absolute inset-0 size-full object-cover object-center" />
-            <figcaption class="absolute bottom-3.5 left-3.5 border-[1.5px] border-black bg-white px-3 py-[7px] text-[11px] font-semibold uppercase tracking-[0.1em]">{foto.caption}</figcaption>
-          </figure>
-        ))}
-      </div>
-    </section>
-
-    <InstagramFeature lang={lang} heading={false} />
   </main>
 </BaseLayout>

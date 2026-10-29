@@ -16,7 +16,7 @@ interface Props {
   title: string;
   description: string;
   variant?: 'overlay' | 'solid';
-  current?: 'inicio' | 'catalogo' | 'causa' | 'equipo' | 'historia' | 'b2b';
+  current?: 'inicio' | 'catalogo' | 'causa' | 'equipo' | 'historia' | 'b2b' | 'contacto';
 }
 const { lang, route, slug, title, description, variant = 'solid', current } = Astro.props;
 const fullTitle = title === site.name ? title : `${title} · ${site.name}`;

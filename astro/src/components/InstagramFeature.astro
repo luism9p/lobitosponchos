@@ -6,7 +6,7 @@ import { useTranslations, type Lang } from '../i18n';
 
 interface Props {
   lang: Lang;
-  /** Hide the big "Follow us" heading when the section already has its own (home page). */
+  /** Hide the big "Follow us" heading and the extra follow link when the section already has its own (home page). */
   heading?: boolean;
 }
 const { lang, heading = true } = Astro.props;
@@ -31,7 +31,7 @@ const posterImage = await getImage({ src: poster, width: 540, format: 'webp', qu
     target="_blank"
     rel="noopener"
     aria-label={t('instagram.ariaLabel')}
-    class="group/ig block w-full max-w-[920px] border-2 border-black bg-cream text-black shadow-[6px_6px_0_#000] hover:no-underline xs:shadow-[10px_10px_0_#000]"
+    class="group/ig block w-full max-w-[920px] border-2 border-black bg-cream text-black hover:no-underline"
   >
     <div class="flex flex-wrap items-center justify-between gap-3.5 px-6 py-5">
       <div class="flex items-center gap-3.5">
@@ -56,7 +56,7 @@ const posterImage = await getImage({ src: poster, width: 540, format: 'webp', qu
           width="540"
           height="675"
           aria-label={t('instagram.videoLabel')}
-          class="absolute inset-0 size-full object-contain grayscale contrast-110 transition-[filter] duration-300 group-hover/ig:grayscale-0"
+          class="absolute inset-0 size-full object-contain"
         >
           <source data-src="/media/reel.webm" type="video/webm" />
           <source data-src="/media/reel.mp4" type="video/mp4" />
@@ -74,14 +74,16 @@ const posterImage = await getImage({ src: poster, width: 540, format: 'webp', qu
     </div>
   </a>
 
-  <div class="relative mt-3.5 h-1 w-full max-w-[920px] bg-black">
-    <a
-      href={instagramUrl}
-      target="_blank"
-      rel="noopener"
-      class="absolute -top-4 right-0 -rotate-2 border-[1.5px] border-black bg-white px-3.5 py-[7px] text-[10px] font-semibold uppercase tracking-[0.14em] text-black hover:no-underline"
-    >{t('instagram.follow', { handle: site.instagramHandle })}</a>
-  </div>
+  {heading && (
+    <div class="relative mt-3.5 h-1 w-full max-w-[920px] bg-black">
+      <a
+        href={instagramUrl}
+        target="_blank"
+        rel="noopener"
+        class="absolute -top-4 right-0 -rotate-2 border-[1.5px] border-black bg-white px-3.5 py-[7px] text-[10px] font-semibold uppercase tracking-[0.14em] text-black hover:no-underline"
+      >{t('instagram.follow', { handle: site.instagramHandle })}</a>
+    </div>
+  )}
 </section>
 
 <script>
