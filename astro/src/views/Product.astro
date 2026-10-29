@@ -7,7 +7,7 @@ import Img from '../components/Img.astro';
 import ProductCard from '../components/ProductCard.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 import { localizeProduct } from '../data/products';
-import { site } from '../data/site';
+import { site, whatsappUrl } from '../data/site';
 import { url, useTranslations, type Lang } from '../i18n';
 
 interface Props {
@@ -89,6 +89,11 @@ const chipOption = 'border-[1.5px] border-black px-3 py-1.5 text-xs font-semibol
           <div class="flex flex-col gap-2">
             <span class="text-[11px] font-semibold uppercase tracking-[0.3em]">{t('product.sizes')}</span>
             <ul class="m-0 flex list-none flex-wrap gap-2 p-0">{tallas.map((s) => <li class={chipOption}>{s}</li>)}</ul>
+            {categoria === 'ponchos' && (
+              <p class="m-0 text-sm">
+                {t('product.sizeNote')} <a href={whatsappUrl(t('wa.size', { name: nombre }))} target="_blank" rel="noopener" class="font-semibold text-black underline underline-offset-4">{t('product.sizeLink')}</a>
+              </p>
+            )}
           </div>
         )}
         {colores.length > 0 && (

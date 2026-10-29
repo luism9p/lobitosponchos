@@ -25,7 +25,7 @@ const parts = [
   { id: 'hood', label: t('design.hood'), start: 0 },
   { id: 'pocket', label: t('design.pocket'), start: 4 },
 ];
-const sizes = ['S', 'M', 'L'];
+const sizes = list('design.sizes');
 const extras = list('design.extras');
 
 const step = 'text-[11px] font-semibold uppercase tracking-[0.24em]';
@@ -82,7 +82,7 @@ const pill =
           <legend class:list={[step, 'mb-3.5']}>04 · {t('design.size')}</legend>
           <div class="flex flex-wrap gap-2.5">
             {sizes.map((s, j) => (
-              <label class={pill}><input type="radio" name="size" value={s} checked={j === 1} class="sr-only" />{s}</label>
+              <label class={pill}><input type="radio" name="size" value={s} checked={j === 0} class="sr-only" />{s}</label>
             ))}
           </div>
         </fieldset>

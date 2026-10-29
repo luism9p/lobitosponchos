@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Chip from '../components/Chip.astro';
+import Img from '../components/Img.astro';
+import Lines from '../components/Lines.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { site } from '../data/site';
+import { useTranslations, type Lang } from '../i18n';
+import laOnza from '../assets/historias/la-onza.webp';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const { t, list } = useTranslations(lang);
+
+const forItems = list('b2b.forItems');
+const why = list<{ title: string; text: string }>('b2b.why');
+const make = list('b2b.make');
+---
+
+<BaseLayout
+  lang={lang}
+  route="b2b"
+  title={t('b2b.seoTitle')}
+  description={t('b2b.seoDescription')}
+  variant="solid"
+  current="b2b"
+>
+  <main>
+    <section class="mx-auto max-w-[1180px] px-5 pt-[150px]">
+      <Chip class="mb-[22px]">{t('b2b.chip')}</Chip>
+      <div class="grid grid-cols-1 items-start gap-6 split:grid-cols-[1.4fr_1fr]">
+        <div>
+          <h1 class="m-0 mb-[22px] inline-block border-b-[3px] border-black pb-4 font-display text-[clamp(42px,6.4vw,88px)] font-normal uppercase leading-[.98]"><Lines text={t('b2b.title')} /></h1>
+          <p class="m-0 max-w-[600px] text-[19px] leading-[1.55] text-pretty">{t('b2b.lead')}</p>
+        </div>
+        <div class="flex flex-col items-start gap-3.5 split:items-end">
+          <div class="flex size-[150px] -rotate-6 flex-col items-center justify-center gap-1.5 rounded-full border-[1.5px] border-black bg-cream p-2.5 text-center">
+            <span class="font-display text-sm uppercase leading-[1.1]"><Lines text={t('b2b.stampTop')} /></span>
+            <span class="h-[1.5px] w-[34px] bg-black"></span>
+            <span class="text-[9px] uppercase tracking-[0.14em]">{t('b2b.stampBottom')}</span>
+          </div>
+        </div>
+      </div>
+      <p class="mb-0 mt-10 max-w-[680px] text-base leading-[1.65] text-pretty">{t('b2b.intro')}</p>
+      <div class="mt-8 flex flex-col gap-3 border-t-[1.5px] border-dashed border-black pt-5">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.3em]">{t('b2b.forLabel')}</span>
+        <ul class="m-0 flex list-none flex-wrap gap-2 p-0">
+          {forItems.map((item) => <li class="border-[1.5px] border-black px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.1em]">{item}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section aria-hidden="true" class="mt-14 border-y-2 border-black">
+      <div class="grid h-16 grid-cols-2">
+        <div class="bg-[repeating-linear-gradient(-45deg,#000_0_10px,#2b2b2b_10px_20px)]"></div>
+        <div class="bg-white"></div>
+      </div>
+    </section>
+
+    <!-- Why work with us -->
+    <section class="border-b-2 border-black bg-cream px-5 pb-20 pt-16">
+      <div class="mx-auto max-w-[1180px]">
+        <h2 class="mb-9 mt-0 font-display text-[clamp(30px,4.4vw,56px)] font-normal uppercase leading-[1]">{t('b2b.whyTitle')}</h2>
+        <ul class="m-0 grid list-none grid-cols-1 gap-4 p-0 xs:grid-cols-2 split:grid-cols-3 split:gap-5">
+          {why.map((item, i) => (
+            <li class="flex flex-col gap-2.5 border-2 border-black bg-white p-6">
+              <span class="text-[10px] font-semibold uppercase tracking-[0.2em] opacity-60">{String(i + 1).padStart(2, '0')}</span>
+              <h3 class="m-0 font-display text-[clamp(22px,2.2vw,28px)] font-normal uppercase leading-[1.02]">{item.title}</h3>
+              <p class="m-0 text-[15px] leading-[1.55] text-pretty">{item.text}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- What we make -->
+    <section class="border-b-2 border-black px-5 py-16">
+      <div class="mx-auto grid max-w-[1180px] grid-cols-1 gap-8 split:grid-cols-[1fr_1.2fr] split:gap-14">
+        <h2 class="m-0 font-display text-[clamp(30px,4.4vw,56px)] font-normal uppercase leading-[1]">{t('b2b.makeTitle')}</h2>
+        <div class="flex flex-col gap-6">
+          <ul class="m-0 flex list-none flex-col p-0">
+            {make.map((item) => <li class="border-b-[1.5px] border-dashed border-black py-3 text-[17px]">→ {item}</li>)}
+          </ul>
+          <p class="m-0 text-lg font-semibold leading-[1.9] text-pretty"><span class="box-decoration-clone bg-black px-2 py-[3px] text-white">{t('b2b.proof')}</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- La Onza case study -->
+    <section id="la-onza" class="border-b-2 border-black">
+      <div class="grid grid-cols-1 items-stretch split:grid-cols-2">
+        <div class="relative aspect-[3/4] overflow-hidden border-b-2 border-black bg-black split:aspect-auto split:min-h-[640px] split:border-b-0 split:border-r-2">
+          <Img src={laOnza} alt={t('b2b.casePhotoAlt')} sizes="(min-width: 860px) 50vw, 100vw" widths={[480, 768, 960, 1200]} class="absolute inset-0 size-full object-cover" />
+        </div>
+        <div class="flex flex-col justify-center gap-[18px] bg-cream px-5 pb-14 pt-12 split:px-12">
+          <Chip class="self-start">{t('b2b.caseChip')}</Chip>
+          <h2 class="m-0 font-display text-[clamp(32px,4vw,54px)] font-normal uppercase leading-[1]">{t('b2b.caseTitle')}</h2>
+          <div class="border-t-[1.5px] border-dashed border-black"></div>
+          <p class="m-0 text-base leading-[1.65] text-pretty">{t('b2b.caseHistory')}</p>
+          <p class="m-0 text-lg font-medium leading-[1.6] text-pretty">{t('b2b.caseWork')}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-black px-5 pb-24 pt-[100px] text-center text-white">
+      <Chip tone="dark" class="mb-7 -rotate-[1.5deg] px-4 py-[7px]">{t('b2b.closingChip')}</Chip>
+      <h2 class="mx-auto mb-6 max-w-[1000px] font-display text-[clamp(30px,5.2vw,64px)] font-normal uppercase leading-[1.06] text-balance">{t('b2b.closingTitle')}</h2>
+      <p class="mx-auto mb-10 max-w-[640px] text-[19px] leading-[1.55] text-pretty">{t('b2b.closingText')}</p>
+      <div class="flex flex-col items-center gap-5">
+        <WhatsAppButton variant="outline-white" message={t('wa.b2b')}>{t('b2b.closingBtn')}</WhatsAppButton>
+        <a href={`mailto:${site.email}`} class="text-sm text-white underline underline-offset-4">{t('b2b.closingEmail', { email: site.email })}</a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

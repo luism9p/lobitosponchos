@@ -5,13 +5,15 @@ export const site = {
   // Tita's WhatsApp (Switzerland).
   whatsapp: '41789140609',
   whatsappLabel: '+41 78 914 06 09',
-  instagram: 'lobitosponchos',
-  instagramHandle: '@lobitosponchos',
-  email: 'hola@lobitosponchos.pe',
-  address: '[Dirección placeholder]',
+  instagram: 'lobitos_ponchos',
+  instagramHandle: '@lobitos_ponchos',
+  email: 'admi.lobitosponchos@gmail.com',
 } as const;
 
 export const instagramUrl = `https://instagram.com/${site.instagram}`;
+
+/** Our host profile on Workaway, where volunteers apply. */
+export const workawayUrl = 'https://www.workaway.info/en/host/762728382674';
 
 /** wa.me link; pass `message` to open the chat with the text already written. */
 export function whatsappUrl(message?: string): string {

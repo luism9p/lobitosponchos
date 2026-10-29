@@ -1,9 +1,10 @@
 ---
 nombre: "Blueberry Chilcano"
 categoria: ponchos
+linea: clasico
 orden: 1
-resumen: "Poncho de surf hecho a mano en Lobitos, Piura."
-tallas: ["S", "M", "L"]
+resumen: "Poncho de surf de microfibra, hecho a mano en Lobitos, Piura."
+tallas: ["Talla única"]
 colores: []
 borrador: true
 fotos:
@@ -17,7 +18,8 @@ fotos:
     alt: "Blueberry Chilcano, foto 4"
 en:
   nombre: "Blueberry Chilcano"
-  resumen: "Handmade surf poncho from Lobitos, Piura."
+  resumen: "Microfiber surf poncho, handmade in Lobitos, Piura."
+  tallas: ["One size"]
   descripcion: "[Description pending] Handmade poncho from Lobitos, Piura."
 ---
 [Descripción pendiente] Poncho hecho a mano en Lobitos, Piura.

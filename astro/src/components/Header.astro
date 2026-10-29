@@ -10,7 +10,7 @@ interface Props {
   lang: Lang;
   /** `overlay` floats transparent over the home hero; `solid` is the white bar of inner pages. */
   variant?: 'overlay' | 'solid';
-  current?: 'inicio' | 'catalogo' | 'causa' | 'equipo';
+  current?: 'inicio' | 'catalogo' | 'causa' | 'equipo' | 'historia' | 'b2b';
   /** URL of this same page in each language (for the ES | EN switcher). */
   alternates?: Record<Lang, string>;
 }
@@ -20,7 +20,6 @@ const solid = variant === 'solid';
 const showSwitcher = englishLive && !!alternates;
 
 const home = url(lang, 'home');
-const b2bUrl = whatsappUrl(t('wa.b2b'));
 const catName = (id: string) => t(`categories.${id}.name`);
 
 const navLink =
@@ -85,7 +84,7 @@ const langLink = 'px-1 hover:underline aria-[current=true]:font-bold aria-[curre
         <span class="inline-block text-[10px] transition-transform duration-[250ms] group-data-[menu=about]/header:rotate-180">▼</span>
       </button>
       <a href={url(lang, 'causa')} class={navLink} data-current={current === 'causa' ? '' : undefined} data-close-menus>{t('nav.cause')}</a>
-      <a href={b2bUrl} target="_blank" rel="noopener" class={navLink} data-close-menus>{t('nav.b2b')}</a>
+      <a href={url(lang, 'b2b')} class={navLink} data-current={current === 'b2b' ? '' : undefined} data-close-menus>{t('nav.b2b')}</a>
     </nav>
 
     <div class="flex shrink-0 items-center gap-2.5">
@@ -178,7 +177,7 @@ const langLink = 'px-1 hover:underline aria-[current=true]:font-bold aria-[curre
         <span class="flex items-baseline gap-3.5"><span class="font-sans text-[11px] tracking-[0.3em] opacity-60">01</span><span>{t('nav.team')}</span></span>
         <span class="font-sans text-lg">→</span>
       </a>
-      <a href={url(lang, 'home', undefined, 'tejido')} class={aboutRow}>
+      <a href={url(lang, 'historia')} class={aboutRow}>
         <span class="flex items-baseline gap-3.5"><span class="font-sans text-[11px] tracking-[0.3em] opacity-60">02</span><span>{t('nav.history')}</span></span>
         <span class="font-sans text-lg">→</span>
       </a>
@@ -212,11 +211,11 @@ const langLink = 'px-1 hover:underline aria-[current=true]:font-bold aria-[curre
       </summary>
       <div class="flex flex-col pl-3.5">
         <a href={url(lang, 'equipo')} class={mobileRow}><span>{t('nav.team')}</span><span class="font-sans text-lg">→</span></a>
-        <a href={url(lang, 'home', undefined, 'tejido')} class={mobileRow}><span>{t('nav.history')}</span><span class="font-sans text-lg">→</span></a>
+        <a href={url(lang, 'historia')} class={mobileRow}><span>{t('nav.history')}</span><span class="font-sans text-lg">→</span></a>
       </div>
     </details>
     <a href={url(lang, 'causa')} class={mobileTop}>{t('nav.cause')}</a>
-    <a href={b2bUrl} target="_blank" rel="noopener" class={mobileTop}>{t('nav.b2b')}</a>
+    <a href={url(lang, 'b2b')} class={mobileTop}>{t('nav.b2b')}</a>
     <div class="mt-9 flex flex-col gap-1 text-[13px] uppercase tracking-[0.14em]">
       <a href={url(lang, 'home', undefined, 'contacto')} class="block py-3 text-black">{t('nav.contact')}</a>
       <a href={instagramUrl} target="_blank" rel="noopener" class="block py-3 text-black">{t('nav.instagram')}</a>

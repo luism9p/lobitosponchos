@@ -16,13 +16,15 @@ const dictionaries: Record<Lang, unknown> = { es, en };
  */
 export const englishLive = import.meta.env.DEV || import.meta.env.PUBLIC_EN_LIVE === 'true';
 
-/** URL segment of every page, per language. Add new pages here (e.g. b2b). */
+/** URL segment of every page, per language. Add new pages here. */
 export const routes = {
   home: { es: '', en: '' },
   causa: { es: 'la-causa', en: 'our-cause' },
   equipo: { es: 'equipo', en: 'team' },
   catalogo: { es: 'catalogo', en: 'catalog' },
   disena: { es: 'disena', en: 'design-your-own' },
+  historia: { es: 'historia', en: 'our-story' },
+  b2b: { es: 'b2b', en: 'wholesale' },
 } as const;
 export type RouteKey = keyof typeof routes;
 

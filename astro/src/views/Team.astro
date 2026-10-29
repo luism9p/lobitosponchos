@@ -3,7 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Chip from '../components/Chip.astro';
 import Img from '../components/Img.astro';
 import Lines from '../components/Lines.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
 import { equipo } from '../data/equipo';
+import { workawayUrl } from '../data/site';
 import { url, useTranslations, type Lang } from '../i18n';
 
 interface Props {
@@ -17,21 +19,14 @@ interface PersonText {
   technique: string;
   name: string;
   bio: string;
-  stat1: string;
-  stat2: string;
   footLeft: string;
   footRight: string;
 }
 const texts = list<PersonText>('team.people');
 const people = equipo.map((p, i) => ({ ...p, ...texts[i] }));
 
-const statBorders = [
-  'border-r-[1.5px] border-b-[1.5px] xs:border-b-0',
-  'border-b-[1.5px] xs:border-b-0 xs:border-r-[1.5px]',
-  'border-r-[1.5px]',
-  '',
-];
-const stats = list<{ label: string; value: string }>('team.stats').map((s, i) => ({ ...s, border: statBorders[i] }));
+const volunteerFacts = list<{ label: string; value: string }>('team.volunteer.facts');
+const volunteerHelp = list('team.volunteer.help');
 const closingValues = list('team.values');
 ---
 
@@ -60,14 +55,6 @@ const closingValues = list('team.values');
           <span class="whitespace-nowrap bg-black px-3.5 py-[9px] text-[10px] font-semibold uppercase tracking-[0.16em] text-white">{t('team.register')}</span>
         </div>
       </div>
-      <dl class="m-0 mt-9 grid grid-cols-2 border-t-[1.5px] border-dashed border-black xs:grid-cols-4">
-        {stats.map((s) => (
-          <div class:list={['border-black px-4 py-[18px] text-center', s.border]}>
-            <dt class="mb-1.5 text-[10px] uppercase tracking-[0.16em] opacity-60">{s.label}</dt>
-            <dd class="m-0 font-display text-xl uppercase">{s.value}</dd>
-          </div>
-        ))}
-      </dl>
     </section>
 
     <section aria-hidden="true" class="mt-14 border-y-2 border-black">
@@ -114,17 +101,6 @@ const closingValues = list('team.values');
               </div>
               <div class="border-t-[1.5px] border-dashed border-black"></div>
               <p class="m-0 text-[15px] leading-[1.6] text-pretty">{p.bio}</p>
-              <div class="border-[1.5px] border-black">
-                <div class="bg-black px-3.5 py-2 text-[10px] uppercase tracking-[0.1em] text-white">{t('team.results')}</div>
-                <div class="flex">
-                  {[[p.stats[0], p.stat1], [p.stats[1], p.stat2]].map(([valor, texto], i) => (
-                    <div class:list={['flex-1 px-[18px] py-4', i === 0 && 'border-r-[1.5px] border-black']}>
-                      <div class="font-display text-[32px] leading-none">{valor}</div>
-                      <div class="mt-1 text-[10px] uppercase tracking-[0.1em] opacity-65">{texto}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
             <span class="absolute left-4 top-4 z-[3] border-[1.5px] border-black bg-white px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em]">{p.label}</span>
           </div>
@@ -135,6 +111,40 @@ const closingValues = list('team.values');
         </section>
       );
     })}
+
+    <section id="voluntariado" class="scroll-mt-[76px] border-b-2 border-black bg-white px-5 pb-20 pt-[88px]">
+      <div class="mx-auto max-w-[1180px]">
+        <Chip class="mb-[22px]">{t('team.volunteer.chip')}</Chip>
+        <div class="grid grid-cols-1 items-end gap-6 split:grid-cols-[1fr_1.1fr] split:gap-14">
+          <h2 class="m-0 inline-block self-start border-b-[3px] border-black pb-4 font-display text-[clamp(38px,5.6vw,76px)] font-normal uppercase leading-[.98]"><Lines text={t('team.volunteer.title')} /></h2>
+          <p class="m-0 text-lg leading-[1.6] text-pretty">{t('team.volunteer.lead')}</p>
+        </div>
+        <dl class="m-0 mt-10 grid grid-cols-1 border-[1.5px] border-black xs:grid-cols-2 split:grid-cols-4">
+          {volunteerFacts.map((f, i) => (
+            <div class:list={['border-black px-5 py-[18px]', i > 0 && 'border-t-[1.5px] xs:border-t-0', i % 2 === 1 && 'xs:border-l-[1.5px]', i >= 2 && 'xs:border-t-[1.5px] split:border-t-0', i === 2 && 'split:border-l-[1.5px]']}>
+              <dt class="mb-1.5 text-[10px] uppercase tracking-[0.16em] opacity-60">{f.label}</dt>
+              <dd class="m-0 text-[15px] font-semibold leading-snug">{f.value}</dd>
+            </div>
+          ))}
+        </dl>
+        <div class="mt-10 grid grid-cols-1 gap-8 split:grid-cols-2 split:gap-14">
+          <div class="flex flex-col gap-3">
+            <h3 class="m-0 text-[11px] font-semibold uppercase tracking-[0.3em]">{t('team.volunteer.helpTitle')}</h3>
+            <ul class="m-0 flex list-none flex-col p-0">
+              {volunteerHelp.map((item) => <li class="border-b-[1.5px] border-dashed border-black py-2.5 text-[15px]">→ {item}</li>)}
+            </ul>
+          </div>
+          <div class="flex flex-col items-start gap-4 border-[1.5px] border-black bg-cream p-6">
+            <h3 class="m-0 text-[11px] font-semibold uppercase tracking-[0.3em]">{t('team.volunteer.lifeTitle')}</h3>
+            <p class="m-0 text-base leading-[1.65] text-pretty">{t('team.volunteer.life')}</p>
+            <div class="mt-2 flex flex-wrap items-center gap-4">
+              <a href={workawayUrl} target="_blank" rel="noopener" class="inline-block border-2 border-black bg-black px-6 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-white hover:bg-white hover:text-black hover:no-underline">{t('team.volunteer.apply')}</a>
+              <WhatsAppButton variant="outline-white" message={t('wa.volunteer')}>{t('team.volunteer.ask')}</WhatsAppButton>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="bg-black px-5 pb-[70px] pt-[90px] text-center text-white">
       <Chip tone="dark" class="mb-7 -rotate-[1.5deg] px-4 py-[7px]">{t('team.closingChip')}</Chip>

@@ -11,6 +11,8 @@ const productos = defineCollection({
     z.object({
       nombre: z.string(),
       categoria: z.enum(['ponchos', 'kids', 'fundas', 'accessories']),
+      /** Poncho line shown as its own section in the shop: plain colours, Light, or one-of-a-kind patterns. */
+      linea: z.enum(['clasico', 'light', 'unico']).optional(),
       /** Price in soles. Leave out to show "Consultar precio". */
       precio: z.number().positive().optional(),
       /** Short badge shown on the card, e.g. "Nuevo", "A pedido". */

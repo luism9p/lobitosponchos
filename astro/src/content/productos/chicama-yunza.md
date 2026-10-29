@@ -1,9 +1,10 @@
 ---
 nombre: "Chicama Yunza"
 categoria: ponchos
+linea: clasico
 orden: 4
-resumen: "Poncho de surf hecho a mano en Lobitos, Piura."
-tallas: ["S", "M", "L"]
+resumen: "Poncho de surf de microfibra, hecho a mano en Lobitos, Piura."
+tallas: ["Talla única"]
 colores: []
 borrador: true
 fotos:
@@ -17,7 +18,8 @@ fotos:
     alt: "Chicama Yunza, foto 4"
 en:
   nombre: "Chicama Yunza"
-  resumen: "Handmade surf poncho from Lobitos, Piura."
+  resumen: "Microfiber surf poncho, handmade in Lobitos, Piura."
+  tallas: ["One size"]
   descripcion: "[Description pending] Handmade poncho from Lobitos, Piura."
 ---
 [Descripción pendiente] Poncho hecho a mano en Lobitos, Piura.

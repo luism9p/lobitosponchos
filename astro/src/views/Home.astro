@@ -7,9 +7,10 @@ import SectionBar from '../components/SectionBar.astro';
 import Chip from '../components/Chip.astro';
 import InstagramFeature from '../components/InstagramFeature.astro';
 import { categorias, catalogoUrl } from '../data/categorias';
+import { instagramUrl, site } from '../data/site';
 import { url, useTranslations, type Lang } from '../i18n';
-import causaFoto from '../assets/historias/nuestra-causa.webp';
-import telar from '../assets/historias/telar.png';
+import equipoFoto from '../assets/historias/nuestra-causa.webp';
+import laOnza from '../assets/historias/la-onza.webp';
 import sesion from '../assets/historias/sesion-atardecer.jpg';
 import viento from '../assets/historias/viento-desierto.jpg';
 import muelle from '../assets/historias/muelle.webp';
@@ -23,7 +24,8 @@ const { t, list } = useTranslations(lang);
 const captions = list<{ caption: string; alt: string }>('home.gallery');
 const galeria = [sesion, viento, muelle].map((src, i) => ({ src, ...captions[i] }));
 const marquee = t('home.marquee').repeat(3);
-const team = url(lang, 'equipo');
+const aboutLinks = (['historia', 'causa', 'equipo'] as const).map((route) => url(lang, route));
+const aboutCards = list<{ title: string; text: string; link: string }>('home.aboutCards').map((card, i) => ({ ...card, href: aboutLinks[i] }));
 ---
 
 <BaseLayout
@@ -61,79 +63,65 @@ const team = url(lang, 'equipo');
       })}
     </section>
 
-    <SectionBar left={t('home.barPeople')} right={t('home.barWorkshop')} />
+    <SectionBar number="02" left={t('home.barPeople')} right={t('home.barWorkshop')} />
 
-    <!-- Our cause -->
-    <section id="causa" class="relative overflow-hidden border-b-2 border-black">
-      <div class="relative z-[1] border-y-2 border-black">
-        <div class="relative h-[46vh] min-h-[300px] w-full split:h-[66vh]">
-          <Img src={causaFoto} alt={t('home.causePhotoAlt')} sizes="100vw" widths={[480, 768, 1280, 1920]} class="size-full object-cover object-center" />
-          <h2 class="absolute left-3 top-3.5 inline-block max-w-[78%] origin-top-left -rotate-3 border-2 border-black bg-white px-2 pb-0.5 pt-1.5 font-display text-[clamp(40px,8vw,120px)] font-normal uppercase leading-[.86] split:left-[34px] split:top-16 split:max-w-none split:px-2.5 split:pr-3.5">
-            <span class="block">{t('home.causeTitle1')}</span>
-            <span class="ml-[.9em] block w-max border-b-[6px] border-black pb-[.06em] text-[.62em]">{t('home.causeTitle2')}</span>
-          </h2>
-        </div>
-        <svg viewBox="0 0 220 120" width="120" height="66" aria-hidden="true" class="pointer-events-none absolute -bottom-5 right-[5%] hidden overflow-visible xs:block split:-bottom-[46px] split:right-[3%] split:h-[98px] split:w-[180px]">
-          <path d="M8 100 C 40 20, 120 10, 150 60 S 200 110, 212 30" fill="none" stroke="#000" stroke-width="2.5" stroke-dasharray="8 8" stroke-linecap="round"></path>
-        </svg>
+    <!-- About us: story, purpose and people in one place -->
+    <section id="nosotros" class="relative overflow-hidden border-b-2 border-black">
+      <div class="relative border-b-2 border-black">
+        <Img src={equipoFoto} alt={t('home.aboutPhotoAlt')} sizes="100vw" widths={[640, 960, 1280, 1600, 1920, 2560]} class="block h-auto w-full" />
+        <span class="absolute bottom-3 left-3 inline-block origin-bottom-left -rotate-3 border-2 border-black bg-white px-2.5 pb-0.5 pt-1.5 font-display text-[clamp(24px,5vw,72px)] uppercase leading-[.9] split:bottom-8 split:left-[34px]">{t('home.aboutChip')}</span>
       </div>
-      <div class="relative z-[2] mx-auto flex w-full max-w-[1180px] flex-col items-start gap-6 px-5 pb-12 pt-16 split:flex-row split:items-center split:gap-12 split:py-[72px]">
-        <div aria-hidden="true" class="pointer-events-none hidden shrink-0 -rotate-6 select-none font-display text-[clamp(160px,22vw,320px)] leading-[.8] tracking-[-0.02em] text-transparent [-webkit-text-stroke:2px_#000] split:-ml-[1%] split:mr-[4%] split:block">02</div>
-        <div class="flex max-w-[620px] flex-col items-start gap-5">
-          <h3 class="font-display text-[clamp(32px,5vw,80px)] font-normal uppercase leading-[.95] tracking-[-0.02em] text-balance">{t('home.causeHeadline')}</h3>
-          <a href={team} class="inline-flex min-h-[44px] items-center border-2 border-black bg-white px-[18px] py-2.5 text-[11px] font-semibold uppercase tracking-[0.2em] hover:bg-black hover:text-white hover:no-underline">{t('home.meetTeam')}</a>
-        </div>
+      <div class="mx-auto grid w-full max-w-[1180px] grid-cols-1 gap-8 px-5 pb-14 pt-12 split:grid-cols-[1fr_1.1fr] split:gap-14 split:py-[72px]">
+        <h2 class="m-0 font-display text-[clamp(36px,5.4vw,80px)] font-normal uppercase leading-[.95] tracking-[-0.02em]"><Lines text={t('home.aboutTitle')} /></h2>
+        <p class="m-0 self-end text-lg leading-[1.6] text-pretty">{t('home.aboutLead')}</p>
+      </div>
+      <div class="mx-auto grid w-full max-w-[1180px] grid-cols-1 gap-4 px-5 pb-16 md:grid-cols-3 md:gap-5">
+        {aboutCards.map((card, i) => (
+          <a href={card.href} class="group flex flex-col gap-3 border-2 border-black bg-cream p-6 text-black shadow-[5px_5px_0_#000] transition-transform duration-200 hover:-translate-y-1 hover:no-underline">
+            <span class="text-[10px] font-semibold uppercase tracking-[0.2em] opacity-60">{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="m-0 font-display text-[clamp(26px,2.6vw,36px)] font-normal uppercase leading-none">{card.title}</h3>
+            <p class="m-0 text-[15px] leading-[1.55] text-pretty">{card.text}</p>
+            <span class="mt-auto self-start border-b-2 border-black pb-[3px] pt-2 text-xs font-semibold uppercase tracking-[0.14em] group-hover:border-transparent">{card.link}</span>
+          </a>
+        ))}
       </div>
     </section>
 
-    <!-- Material philosophy -->
-    <section id="tejido" class="relative overflow-hidden border-b-2 border-black bg-white">
-      <div class="flex w-full flex-wrap items-center justify-between gap-4 border-b-2 border-black bg-black px-[22px] py-3.5 text-white">
-        <div class="flex items-baseline gap-2.5">
-          <span class="font-display text-[22px] leading-none">03</span>
-          <span class="text-[11px] font-semibold uppercase tracking-[0.28em]">{t('home.materialBarLeft')}</span>
-        </div>
-        <span class="text-[10px] uppercase tracking-[0.28em] opacity-75">{t('home.materialBarRight')}</span>
-      </div>
+    <!-- B2B -->
+    <section id="b2b" class="relative overflow-hidden border-b-2 border-black bg-white">
+      <SectionBar number="03" tone="dark" left={t('home.b2bBarLeft')} right={t('home.b2bBarRight')} />
       <div class="grid grid-cols-1 items-stretch split:grid-cols-[55fr_45fr]">
-        <div class="relative z-[2] flex flex-col justify-center gap-[26px] px-5 py-10 md:px-10 md:py-14">
-          <div class="flex flex-wrap items-center gap-4">
-            <h2 class="relative m-0 flex origin-bottom-left rotate-[2.5deg] flex-col items-start border-2 border-black bg-white pb-1.5 pl-3 pr-4 pt-2.5 font-display font-normal uppercase leading-[.86]">
-              <span class="block text-[clamp(18px,3vw,40px)] tracking-[0.04em]">{t('home.stickerTop')}</span>
-              <span class="mt-0.5 block text-[clamp(40px,7vw,96px)]">{t('home.stickerBottom')}</span>
-            </h2>
-            <div aria-hidden="true" class="flex size-[84px] shrink-0 items-center justify-center rounded-full border-[1.5px] border-black p-2 text-center text-[10px] uppercase leading-[1.4] tracking-[0.14em]"><span><Lines text={t('home.originBadge')} /></span></div>
-          </div>
-          <h3 class="m-0 max-w-[777px] font-display text-[clamp(32px,4.4vw,56px)] font-normal uppercase leading-[.98]"><Lines text={t('home.mountainOcean')} /></h3>
-          <div class="flex max-w-[480px] flex-col gap-2.5">
-            <span class="text-[11px] font-semibold uppercase tracking-[0.3em]">{t('home.originLabel')}</span>
-            <div class="border-[1.5px] border-black bg-paper px-6 py-[22px]">
-              <p class="m-0 text-base italic leading-[1.6] text-pretty">{t('home.originQuote')}</p>
-            </div>
-          </div>
-          <a href={team} class="self-start bg-black px-[26px] py-3.5 text-xs uppercase tracking-[0.18em] text-white hover:bg-[#222] hover:text-white hover:no-underline">{t('home.ourStory')}</a>
+        <div class="relative z-[2] flex flex-col justify-center gap-[26px] px-5 py-12 md:px-10 md:py-16">
+          <h2 class="m-0 self-start origin-bottom-left rotate-[2deg] border-2 border-black bg-white px-3 pb-1.5 pt-2.5 font-display text-[clamp(36px,6vw,84px)] font-normal uppercase leading-[.9]"><Lines text={t('home.b2bTitle')} /></h2>
+          <p class="m-0 max-w-[520px] text-lg leading-[1.6] text-pretty">{t('home.b2bText')}</p>
+          <a href={url(lang, 'b2b')} class="self-start bg-black px-[26px] py-3.5 text-xs uppercase tracking-[0.18em] text-white hover:bg-[#222] hover:text-white hover:no-underline">{t('home.b2bLink')}</a>
         </div>
-        <div class="relative min-h-[360px] overflow-hidden border-black split:min-h-[520px] split:border-l-2">
-          <Img src={telar} alt={t('home.loomAlt')} sizes="(min-width: 860px) 45vw, 100vw" widths={[480, 768, 960, 1280]} class="absolute inset-0 size-full object-cover object-center" />
-          <svg viewBox="0 0 200 110" width="150" height="82" aria-hidden="true" class="pointer-events-none absolute right-4 top-4 overflow-visible">
-            <path d="M6 90 C 40 12, 110 4, 140 50 S 190 100, 196 20" fill="none" stroke="#fff" stroke-width="2.5" stroke-dasharray="7 7" stroke-linecap="round"></path>
-          </svg>
-          <div class="absolute bottom-4 left-4 flex flex-col gap-0.5 border-[1.5px] border-black bg-white px-4 py-3">
-            <span class="text-xs font-bold uppercase tracking-[0.06em]">{t('home.loomTitle')}</span>
-            <span class="text-[10px] uppercase tracking-[0.08em] opacity-70">{t('home.loomSubtitle')}</span>
-          </div>
+        <div class="relative min-h-[420px] overflow-hidden border-black split:min-h-[560px] split:border-l-2">
+          <Img src={laOnza} alt={t('home.b2bPhotoAlt')} sizes="(min-width: 860px) 45vw, 100vw" widths={[480, 768, 960, 1200]} class="absolute inset-0 size-full object-cover object-center" />
+          <span class="absolute bottom-4 left-4 border-[1.5px] border-black bg-white px-4 py-3 text-xs font-bold uppercase tracking-[0.06em]">{t('home.b2bCaption')}</span>
         </div>
       </div>
     </section>
 
-    <!-- In real life -->
-    <section class="bg-cream px-5 pt-9">
+    <!-- Marquee -->
+    <section class="overflow-hidden border-b-2 border-white bg-black py-[26px] text-white" aria-hidden="true">
+      <div class="flex w-max animate-marquee">
+        <span class="flex items-center whitespace-nowrap pr-10 font-display text-[clamp(36px,6vw,68px)] uppercase leading-none">{marquee}</span>
+        <span class="flex items-center whitespace-nowrap pr-10 font-display text-[clamp(36px,6vw,68px)] uppercase leading-none">{marquee}</span>
+      </div>
+    </section>
+
+    <!-- Life in Lobitos + follow us -->
+    <section id="vida" class="bg-cream px-5 pt-9">
       <div class="mx-auto flex max-w-[1180px] flex-wrap items-end justify-between gap-5 pb-7">
-        <div>
-          <div class="mb-2 text-[11px] uppercase tracking-[0.3em] opacity-70">{t('home.lifeEyebrow')}</div>
+        <div class="flex max-w-[640px] flex-col gap-3">
+          <div class="text-[11px] uppercase tracking-[0.3em] opacity-70">{t('home.lifeEyebrow')}</div>
           <h2 class="m-0 font-display text-[clamp(38px,6.5vw,76px)] font-normal uppercase leading-[.9]">{t('home.lifeTitle')}</h2>
+          <p class="m-0 text-base leading-[1.6] text-pretty">{t('home.lifeText')}</p>
         </div>
-        <Chip class="border-2 px-[18px] py-2.5 text-[11px] tracking-[0.2em]">{t('home.lifeChip')}</Chip>
+        <a href={instagramUrl} target="_blank" rel="noopener" class="hover:no-underline">
+          <Chip class="border-2 px-[18px] py-2.5 text-[11px] tracking-[0.2em] hover:bg-black hover:text-white">Instagram {site.instagramHandle} ↗</Chip>
+        </a>
       </div>
     </section>
     <section class="bg-black">
@@ -147,14 +135,6 @@ const team = url(lang, 'equipo');
       </div>
     </section>
 
-    <!-- Marquee -->
-    <section class="overflow-hidden border-y-2 border-white bg-black py-[26px] text-white" aria-hidden="true">
-      <div class="flex w-max animate-marquee">
-        <span class="flex items-center whitespace-nowrap pr-10 font-display text-[clamp(36px,6vw,68px)] uppercase leading-none">{marquee}</span>
-        <span class="flex items-center whitespace-nowrap pr-10 font-display text-[clamp(36px,6vw,68px)] uppercase leading-none">{marquee}</span>
-      </div>
-    </section>
-
-    <InstagramFeature lang={lang} />
+    <InstagramFeature lang={lang} heading={false} />
   </main>
 </BaseLayout>

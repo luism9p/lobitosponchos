@@ -23,7 +23,9 @@
     "b2b": "Hi! I'd like some information about wholesale (B2B) orders.",
     "custom": "Hi! I'd love to order a custom-made poncho.",
     "collab": "Hi! I'd like to collaborate with Lobitos Ponchos: I have an idea or a material that could be useful to you.",
-    "product": "Hi! I'm interested in the {name} from {site}. Could you tell me more about sizes, colors and delivery times?"
+    "product": "Hi! I'm interested in the {name} from {site}. Could you tell me more about sizes, colors and delivery times?",
+    "volunteer": "Hi! I'd love to volunteer with Lobitos Ponchos. Could you tell me more?",
+    "size": "Hi! I like the {name}, but I need it in a different size (bigger or smaller)."
   },
   "categories": {
     "ponchos": { "name": "Lobitos Ponchos", "lines": ["Lobitos", "Ponchos"] },
@@ -49,34 +51,45 @@
     "barLines": "Our collections, handcrafted in Lobitos",
     "barHandmade": "100% handmade",
     "categoriesLabel": "Categories",
-    "barPeople": "Our people, our home",
+    "barPeople": "Our story, our purpose, our people",
     "barWorkshop": "Lobitos workshop · Piura, Peru",
-    "causeTitle1": "Our",
-    "causeTitle2": "Purpose",
-    "causePhotoAlt": "The Lobitos Ponchos team in front of a pink mural, showing off ponchos and towels",
-    "causeHeadline": "Stitch by stitch, supporting homes by the sea",
-    "meetTeam": "Meet our people →",
-    "materialBarLeft": "Our craft",
-    "materialBarRight": "Andean wool · Pacific breeze",
-    "stickerTop": "With heart &",
-    "stickerBottom": "Purpose",
-    "originBadge": "Origin\nAndes",
-    "mountainOcean": "Where the mountains\nmeet the ocean",
-    "originLabel": "Where we come from",
-    "originQuote": "\"In Lobitos, we make ponchos that carry the spirit of the Andes. Each piece is made by hands that have inherited generations of tradition. More than something to dry off in after a long surf, every poncho is a connection to the land, to our culture, and to a warmth that only comes from things made by hand.\"",
-    "ourStory": "Discover our story →",
-    "loomAlt": "Treadle loom in the Lobitos workshop",
-    "loomTitle": "Treadle loom",
-    "loomSubtitle": "100% biodegradable fibers",
-    "lifeEyebrow": "04 — Out in the wild",
+    "lifeEyebrow": "04 — Life in Lobitos",
     "lifeTitle": "From the waves to the village",
-    "lifeChip": "Lobitos Archive · Piura",
     "gallery": [
       { "caption": "01 · Sunset session · La Punta", "alt": "Sunset surf session at La Punta" },
       { "caption": "02 · Desert wind", "alt": "Lobitos ponchos with the Piura desert in the background" },
       { "caption": "03 · Historic pier · High tide", "alt": "The historic Lobitos pier at high tide" }
     ],
-    "marquee": "Lobitos Ponchos · Surf & Craft · Made in Lobitos · "
+    "marquee": "Lobitos Ponchos · Surf & Craft · Made in Lobitos · ",
+    "aboutChip": "About us",
+    "aboutTitle": "Made at home,\nby the sea",
+    "aboutLead": "Lobitos Ponchos started in 2022 among friends and family: two young locals, Kevyn and Ivan, their seamstress grandmothers, and Tiíta, a volunteer who arrived in 2018 and never really left. Every microfiber poncho is cut and sewn by hand right here at home, creating work in the village and honoring our grandmothers.",
+    "aboutPhotoAlt": "The Lobitos Ponchos team in front of a pink mural, showing off ponchos and pouches",
+    "aboutCards": [
+      {
+        "title": "Our story",
+        "text": "From a village of fishermen and oil to a poncho workshop: how it all began.",
+        "link": "Read our story →"
+      },
+      {
+        "title": "Our purpose",
+        "text": "Local work, honoring our grandmothers, and tourism that connects you with the village.",
+        "link": "See our purpose →"
+      },
+      {
+        "title": "Our people",
+        "text": "Mery, Irma, Kevyn, Tiíta and Ivan: the hands behind every piece.",
+        "link": "Meet our people →"
+      }
+    ],
+    "b2bBarLeft": "For businesses",
+    "b2bBarRight": "Made to order · Your logo, your colors",
+    "b2bTitle": "We work\nwith businesses",
+    "b2bText": "We work with local shops, cafés, hotels and surf schools in Lobitos and across Peru. We make customized ponchos and accessories in your colors and with your logo: to sell in your shop, for your team, or as a gift.",
+    "b2bPhotoAlt": "Someone wearing a blue poncho with a pink hood and the La Onza Café patch, in front of the café sign in Lobitos",
+    "b2bCaption": "Custom ponchos · La Onza Café",
+    "b2bLink": "See our B2B offer →",
+    "lifeText": "Tides, sunsets, markets and everyday life in the workshop. This is Lobitos: follow along to see it up close."
   },
   "instagram": {
     "label": "Live from Lobitos",
@@ -89,7 +102,7 @@
     "audience": "Ocean lovers & surfers",
     "text": "Life in Lobitos, behind-the-scenes with our grandmothers, new designs, and early access to limited drops.",
     "connect": "Bring the beach to your feed →",
-    "follow": "★ Find us at @lobitos.ponchos"
+    "follow": "★ Find us at {handle}"
   },
   "footer": {
     "talk": "Let's talk",
@@ -102,7 +115,12 @@
     "where": "Where",
     "place": "Lobitos,\nTalara — Piura",
     "country": "Peru",
-    "madeIn": "Made in Lobitos"
+    "madeIn": "Made in Lobitos",
+    "b2b": "For businesses (B2B)",
+    "about": "About us",
+    "story": "Our story",
+    "team": "Our people",
+    "volunteer": "Volunteer with us"
   },
   "cause": {
     "seoTitle": "Our purpose",
@@ -115,12 +133,7 @@
     "values": "Our values",
     "intro": "We’ve asked ourselves a lot about what we stand for and who we want to be. These are the four things that matter most to us:",
     "indexLabel": "What matters most to us",
-    "indexItems": [
-      "Close to home, kind to the earth",
-      "Our grandmothers",
-      "Sustainable tourism",
-      "Inspiring Others"
-    ],
+    "indexItems": ["Close to home, kind to the earth", "Our grandmothers", "Sustainable tourism", "Inspiring Others"],
     "counter": "Value {n} / 04",
     "c1": {
       "title": "Close to home,\nkind to the earth",
@@ -177,27 +190,18 @@
     "stampTop": "Handmade",
     "stampBottom": "Lobitos · Piura",
     "register": "Workshop record · 2025",
-    "stats": [
-      { "label": "Origin", "value": "Lobitos Sur" },
-      { "label": "Method", "value": "100% by hand" },
-      { "label": "Fabrics", "value": "Pure cotton" },
-      { "label": "Made by", "value": "Family" }
-    ],
     "photoPlaceholder": "PHOTO PLACEHOLDER",
     "photoCaption": "Workshop archive",
-    "results": "Results (estimated figures · placeholder)",
     "closingChip": "Small batches, made at home",
     "closingTitle": "Sewn with tradition. Made to last.",
     "collection": "View collection →",
-    "values": ["◆ Piura · Peru", "◆ Responsible cotton", "◆ Coastal community", "◆ Handmade for surfer"],
+    "values": ["◆ Piura · Peru", "◆ Soft microfiber", "◆ Coastal community", "◆ Handmade for surfers"],
     "people": [
       {
         "label": "01 — Founder",
         "technique": "Matriarch & Head seamstress",
         "name": "Esmérita \"Mery\" Eche Periche",
         "bio": "Esmérita is 70 and has lived in Lobitos all her life. She learned to sew from her mother as a young girl, and sewing has been part of her ever since. Today she brings a lifetime of experience to the workshop, shaping every piece with hands that have never stopped carrying tradition forward.",
-        "stat1": "Years of sewing tradition",
-        "stat2": "One-of-a-kind pieces made",
         "footLeft": "Traditional sewing",
         "footRight": "Piura · Peru"
       },
@@ -206,8 +210,6 @@
         "technique": "The finishing touch",
         "name": "Irma Bancayan Eche",
         "bio": "Kevyn’s grandmother, born and raised in Lobitos. Irma has been sewing and making things by hand since she was 10. She finishes the edges and joins every piece together, giving each poncho its final shape before it’s checked and sent out.",
-        "stat1": "Natural fibers and dyes",
-        "stat2": "Traditional patterns revived",
         "footLeft": "Home: Lobitos",
         "footRight": "Joining · Precision"
       },
@@ -216,18 +218,14 @@
         "technique": "The link between generations",
         "name": "Kevyn Abad",
         "bio": "Born and raised in Lobitos, Kevyn studies Hospitality and Restaurant Management. He takes every order, measures customers, picks the color combinations, and cuts the fabric for his grandmothers. Then he checks each poncho and hands it over himself. His goal: to support his grandmothers and pay for his studies.",
-        "stat1": "Partner communities",
-        "stat2": "Customer satisfaction",
         "footLeft": "Workshop coordination",
         "footRight": "Logistics · Cutting"
       },
       {
-        "label": "04 — Marketing & strategy",
-        "technique": "The storyteller",
+        "label": "04 — Co-founder · Marketing & strategy",
+        "technique": "The storyteller · Swiss-Peruvian",
         "name": "Kerstin Ulrich \"Tiíta\"",
-        "bio": "Born in Switzerland to a Peruvian mother, Kerstin first came to Lobitos in 2018 to volunteer with Waves Lobitos, and never really left. Through her photos, she shares the story of Lobitos with the world while keeping it true to its roots. Above all, she’s proud to be part of a team that feels like family.",
-        "stat1": "Audience reached",
-        "stat2": "Growth in 2 years",
+        "bio": "Born and raised in Switzerland to a Peruvian mother, Kerstin first came to Lobitos in 2018 to volunteer with Waves for Development, teaching English to the village teens, Kevyn and Ivan among them. Seeing how few opportunities there were once school ended, she co-founded Lobitos Ponchos with them. She studied medicine, speaks four languages and now lives in Lobitos, where she looks after the brand, the photos, social media and partnerships. When she can, she plays in a band. Above all, she’s proud to be part of a team that feels like family.",
         "footLeft": "Global communication",
         "footRight": "South Pacific"
       },
@@ -236,26 +234,63 @@
         "technique": "The steady anchor",
         "name": "Ivan Vite",
         "bio": "Born and raised in Lobitos, Ivan is studying Environmental Engineering away from home. He keeps the admin side running smoothly, making sure every handmade piece is backed by order, care and community.",
-        "stat1": "Stories published",
-        "stat2": "Customer rating",
         "footLeft": "Environmental engineering · Community",
         "footRight": "Rural management"
       }
-    ]
+    ],
+    "volunteer": {
+      "chip": "■ Volunteer",
+      "title": "Volunteer\nwith us",
+      "lead": "Lobitos Ponchos also grows thanks to a vibrant volunteer community: 30 to 40 people, aged 20 to 30, who have come from Europe, the USA, Canada and Latin America.",
+      "facts": [
+        { "label": "Minimum stay", "value": "2 weeks" },
+        { "label": "Accommodation", "value": "Private room in a family-run hostel on the beach" },
+        { "label": "Languages", "value": "Spanish, German, English and French" },
+        { "label": "Community", "value": "30–40 volunteers · aged 20 to 30" }
+      ],
+      "helpTitle": "How you can help",
+      "help": [
+        "Social media and content (Instagram and TikTok)",
+        "Local markets and fairs",
+        "Renovating and decorating the workshop",
+        "Cutting fabric when needed",
+        "Researching more sustainable materials",
+        "The business model, and your own ideas"
+      ],
+      "lifeTitle": "Life in Lobitos",
+      "life": "Surfing (Kevyn gives lessons), fishing, jiu-jitsu, yoga, painting, pottery, horse riding, two skateparks and Peruvian cooking classes. You live close to the team and the sea.",
+      "apply": "Apply on Workaway ↗",
+      "ask": "Ask us on WhatsApp"
+    }
   },
   "catalog": {
     "seoTitle": "Catalog",
     "seoDescription": "Surf ponchos, kids' ponchos, board bags and accessories, handmade in Lobitos, Piura. Pick your favorite and order it on WhatsApp.",
     "chip": "■ Catalog",
     "title": "Made for\nyou",
-    "lead": "Our grandmothers sew every poncho by hand, just for you. Send us the one you love on WhatsApp and we’ll work out the size and colors together.",
+    "lead": "Our grandmothers sew every poncho by hand, just for you, in soft, quick-drying microfiber. Send us the one you love on WhatsApp and we’ll work out the colors together.",
     "filterLabel": "Filter by category",
     "all": "All",
     "products": "products",
     "empty": "This corner of the shop is still empty. Tell us what you’re after and we’ll make it to order.",
     "ctaTitle": "Not quite what you’re after? Tell us your idea, and we’ll sew it.",
     "ctaBtn": "Chat with us on WhatsApp",
-    "ctaDesign": "Design your own"
+    "ctaDesign": "Design your own",
+    "sizeNote": "Our ponchos are one size. Need it bigger or smaller? Message us and we’ll make it to fit.",
+    "sizeLink": "Message us →",
+    "lines": {
+      "clasico": {
+        "title": "Classics",
+        "text": "Solid colors and simple combinations. Choose your own colors for the body, hood and pocket, and we’ll sew it for you.",
+        "link": "Design your own →"
+      },
+      "light": { "title": "Light", "text": "Our lightest poncho, for hot days and for taking everywhere.", "link": "" },
+      "unico": {
+        "title": "One of a kind",
+        "text": "Ponchos with special patterns and shapes, custom-made for customers who wanted something unique. Love one, or have your own idea? Message us and we’ll customize it with you.",
+        "link": "Customize yours"
+      }
+    }
   },
   "product": {
     "breadcrumb": "Breadcrumb",
@@ -268,7 +303,9 @@
     "orderNote": "We’ll sew this one just for you. Send us a message and we’ll let you know when it can be ready.",
     "orderBtn": "Chat with us on WhatsApp",
     "related": "You might also love",
-    "defaultSeo": "{category}, handmade in Lobitos, Piura."
+    "defaultSeo": "{category}, handmade in Lobitos, Piura.",
+    "sizeNote": "Need it bigger or smaller?",
+    "sizeLink": "Message us"
   },
   "design": {
     "seoTitle": "Design your poncho",
@@ -282,11 +319,7 @@
     "pocket": "Pocket color",
     "size": "Size",
     "extra": "Finishing touch",
-    "extras": [
-      "Keep it simple",
-      "Embroidered patch",
-      "Your logo (for businesses)"
-    ],
+    "extras": ["Keep it simple", "Embroidered patch", "Your logo (for businesses)"],
     "soldOut": "out of stock",
     "soldOutNote": "Out of stock for now: {names}. Back soon!",
     "notes": "Anything else?",
@@ -295,16 +328,146 @@
     "send": "Send my design on WhatsApp",
     "sendNote": "No commitment: we'll get back to you with the price and delivery time.",
     "message": "Hi! I designed my poncho on your website:\n• Body: {body}\n• Hood: {hood}\n• Pocket: {pocket}\n• Size: {size}\n• Finishing touch: {extra}\n• Notes: {notes}",
-    "colors": [
-      "Sand",
-      "Ocean",
-      "Turquoise",
-      "Coral",
-      "Sunshine",
-      "Palm green",
-      "Lilac",
-      "White",
-      "Black"
-    ]
+    "colors": ["Sand", "Ocean", "Turquoise", "Coral", "Sunshine", "Palm green", "Lilac", "White", "Black"],
+    "sizes": ["One size", "Bigger", "Smaller"]
+  },
+  "b2b": {
+    "seoTitle": "B2B · For businesses",
+    "seoDescription": "Custom ponchos and accessories for shops, cafés, hotels, surf schools and corporate gifts, handmade by women in Lobitos, Piura.",
+    "chip": "■ B2B · For businesses",
+    "title": "Partnerships\nwith purpose",
+    "lead": "At Lobitos Ponchos we build B2B partnerships with companies, shops and brands that want to stand out with authentic products: things people value, with a story that connects.",
+    "intro": "Our handmade textiles are sewn by women from the Lobitos community. They stand out for their quality and design, and for the good they do at every step of the way. Adding them to your range is a chance to lift your offer while supporting a fairer, more sustainable way of doing business.",
+    "stampTop": "Made to\norder",
+    "stampBottom": "Lobitos · Piura",
+    "forLabel": "Who it’s for",
+    "forItems": ["Shops & boutiques", "Cafés & restaurants", "Hotels & hostels", "Surf schools", "Corporate gifts", "Events & teams"],
+    "whyTitle": "Why work with us",
+    "why": [
+      {
+        "title": "Stand out",
+        "text": "One-of-a-kind products that set you apart and attract customers who love authentic, handmade things."
+      },
+      {
+        "title": "Higher value and margins",
+        "text": "Our products help you reach conscious customers and keep them coming back."
+      },
+      {
+        "title": "Custom and exclusive",
+        "text": "We create lines made for your brand: special collections, corporate gifts or personalized experiences."
+      },
+      {
+        "title": "Connect with today’s customers",
+        "text": "More and more people look for brands with a purpose. With us, you share a real story of social impact."
+      },
+      {
+        "title": "Flexible, collaborative production",
+        "text": "We adapt to your volume and your design, always keeping the handmade quality of every piece."
+      },
+      {
+        "title": "Social impact built in",
+        "text": "Without big extra investment, your business supports women’s economic independence and a coastal community."
+      }
+    ],
+    "makeTitle": "What we can make for you",
+    "make": [
+      "Microfiber surf ponchos in your colors",
+      "Your logo on an embroidered patch",
+      "Accessories from our fabric offcuts: glasses cases, pencil cases, bum bags and fin covers",
+      "Made to order, in the quantity you need"
+    ],
+    "proof": "We’ve already made 35 custom ponchos for the Australian Embassy in Peru.",
+    "caseChip": "Case study · La Onza Café",
+    "caseTitle": "La Onza, Lobitos",
+    "casePhotoAlt": "Someone wearing a blue poncho with a pink hood and the La Onza Café patch, in front of the café sign in Lobitos",
+    "caseHistory": "La Onza opened in 2024 on the main street of Nuevo Lobitos. It started as a small, cozy café serving Peruvian specialty coffee, homemade cakes, waffles and bowls, and has since added surf and yoga retreats. Today it’s one of the favorite meeting spots for surfers and travelers in town.",
+    "caseWork": "Together we created ponchos in their colors with the La Onza logo on a patch: their own product, handmade just a few blocks from the café.",
+    "closingChip": "Let’s build it together",
+    "closingTitle": "Let’s build a partnership that makes a difference.",
+    "closingText": "If you’re looking for products with identity, impact and real commercial potential, we’re ready to create them with you. More than a product, we offer a story that sells, connects and creates value for the long run.",
+    "closingBtn": "Message us on WhatsApp",
+    "closingEmail": "or by email: {email}"
+  },
+  "story": {
+    "seoTitle": "Our story",
+    "seoDescription": "How Lobitos Ponchos began: a volunteer, two young locals and their seamstress grandmothers. Plus the story of Lobitos, from fishing cove to oil town to today’s surf village.",
+    "chip": "■ Our story",
+    "title": "Our\nstory",
+    "lead": "Lobitos Ponchos is a family business. It grew out of a friendship, a few sewing machines and the wish to create opportunities without having to leave home.",
+    "stampTop": "Since\n2022",
+    "stampBottom": "Lobitos · Piura",
+    "counter": "Chapter {n}",
+    "chapters": [
+      {
+        "title": "A volunteer and two students",
+        "photoAlt": "Young people from Lobitos in colorful ponchos",
+        "p1": "In 2018, Tiíta (Kerstin) came to Lobitos to volunteer with the NGO Waves for Development. She taught English to the village teenagers, Kevyn and Ivan among them.",
+        "p2": "Over the years, Tiíta saw how few opportunities young people had once they finished school. Teacher and students became friends, and later partners, built on trust and the wish to learn together."
+      },
+      {
+        "title": "2022: the first poncho",
+        "photoAlt": "One of our grandmothers with a visitor, in front of her sewing machine",
+        "p1": "In 2022, Kevyn and Ivan, then 22, started making surf ponchos to pay for their studies. Tiíta joined in with marketing, photos and social media.",
+        "p2": "The microfiber fabric is bought in Lima and cut in Lobitos. Then their grandmothers, Mery and Irma, sew it at home, so they can work at their own pace and spend more time with their grandsons. Every customer can choose their own colors."
+      },
+      {
+        "title": "Growing without losing ourselves",
+        "photoAlt": "The Lobitos Ponchos stand at a market on the beach",
+        "p1": "We started turning fabric offcuts into accessories: glasses cases, pencil cases, bum bags and fin covers. Less waste, and new ideas.",
+        "p2": "Then came markets, our first business orders and a very special one: 35 ponchos for the Australian Embassy in Peru. And volunteers from all over the world came too, helping us with the website, social media and markets."
+      },
+      {
+        "title": "What we dream of",
+        "photoAlt": "Local kids and visitors in ponchos on a fishing boat on the beach in Lobitos",
+        "p1": "We want to grow without losing who we are: freedom, community, a simple life and a connection with the sea. We’d love to use ever more sustainable materials and bring more people from the village into the workshop.",
+        "p2": "One day we want our own space in Lobitos: a shop, a workshop and a meeting place, where you can see how your poncho is made and meet the people who sew it."
+      }
+    ],
+    "townChip": "Lobitos",
+    "townTitle": "A town\nwith a past",
+    "townLead": "Before the ponchos, before the surf, Lobitos already had plenty of stories to tell.",
+    "townPhotoAlt": "A surfer on a Lobitos wave, with the oil platforms on the horizon",
+    "timeline": [
+      {
+        "when": "The beginning",
+        "title": "Fishing families",
+        "text": "Lobitos began as a small cove of fishing families. Its name comes from the sea lions (lobos marinos) that came up onto the shore."
+      },
+      {
+        "when": "Early 1900s",
+        "title": "Oil",
+        "text": "A lot of oil was found under the sand. The rights to it ended up in English hands, sold for very little."
+      },
+      {
+        "when": "From 1901",
+        "title": "The English arrive",
+        "text": "With the Lobitos Oilfields company came Victorian-style wooden houses, the pier, the English Club, a cricket field and the casino, home to the town’s first cinema, said to be one of the first in South America."
+      },
+      {
+        "when": "1941",
+        "title": "War with Ecuador",
+        "text": "The conflict with Ecuador brought the first army units to Lobitos."
+      },
+      {
+        "when": "1968",
+        "title": "The military",
+        "text": "After the military coup, the government nationalized Peru’s oil: the army took over Talara and Lobitos, and the English had to leave. For decades, Lobitos was a military zone."
+      },
+      {
+        "when": "2009",
+        "title": "Heritage",
+        "text": "The church, the old army headquarters and 21 historic houses were declared Cultural Heritage of the Nation."
+      },
+      {
+        "when": "Today",
+        "title": "A vibrant village",
+        "text": "Lobitos is a small town of about a thousand people: calm, safe and full of life, with some of the best left-hand waves in Peru and a community of fishermen, surfers and families."
+      }
+    ],
+    "closingChip": "Keep reading",
+    "closingTitle": "We’re still writing this story, together.",
+    "cause": "Our purpose →",
+    "team": "Meet our people →",
+    "collection": "View collection →"
   }
 }
