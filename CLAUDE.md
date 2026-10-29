@@ -54,7 +54,7 @@ To add a page: add a key to `routes`, add a text section to both `es.json` and `
 
 **Translations.** `src/i18n/es.json` holds every string. `en.json` has exactly the same shape. `useTranslations(lang)` returns `t(key, vars)` for strings (with `{name}` placeholders) and `list(key)` for arrays. Empty or missing English values fall back to Spanish (deep merge, arrays merged index by index), so list lengths and order must match across the two files. `\n` in strings marks line breaks and is rendered by the `Lines` component.
 
-**English gating.** `englishLive` is true in dev, or when `PUBLIC_EN_LIVE=true` in production. When it's false, `/en/` pages get `noindex`, and the hreflang links and the language switcher are hidden.
+**English gating.** `englishLive` is on by default (and always in dev). Setting `PUBLIC_EN_LIVE=false` in Vercel hides English in production. When it's off, `/en/` pages get `noindex`, and the hreflang links and the language switcher are hidden.
 
 **Products** are a content collection (`src/content.config.ts`, one Markdown file per product in `src/content/productos/`). The frontmatter is Spanish, with an optional `en:` block (nombre, etiqueta, resumen, descripcion, tallas, colores). Always read product fields through `localizeProduct()` in `src/data/products.ts`, which handles the Spanish fallback. Photos are `image()` references into `src/assets/productos/`, and the first photo is the cover. `borrador: true` marks a placeholder product. Detail pages come from `getStaticPaths` in `pages/catalogo/[slug].astro` and `pages/en/catalog/[slug].astro`.
 
