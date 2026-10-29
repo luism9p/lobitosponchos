@@ -11,10 +11,10 @@ const dictionaries: Record<Lang, unknown> = { es, en };
 
 /**
  * Show the ES | EN switcher and let search engines index /en/.
- * Off until the English text is reviewed. Turn it on with PUBLIC_EN_LIVE=true
+ * On by default. Hide English again with PUBLIC_EN_LIVE=false in Vercel
  * (always visible in `npm run dev`).
  */
-export const englishLive = import.meta.env.DEV || import.meta.env.PUBLIC_EN_LIVE === 'true';
+export const englishLive = import.meta.env.DEV || import.meta.env.PUBLIC_EN_LIVE !== 'false';
 
 /** URL segment of every page, per language. Add new pages here (e.g. b2b). */
 export const routes = {
