@@ -22,6 +22,7 @@ export const routes = {
   causa: { es: 'la-causa', en: 'our-cause' },
   equipo: { es: 'equipo', en: 'team' },
   catalogo: { es: 'catalogo', en: 'catalog' },
+  disena: { es: 'disena', en: 'design-your-own' },
 } as const;
 export type RouteKey = keyof typeof routes;
 

@@ -15,6 +15,7 @@
     "history": "Historia",
     "shopCategories": "Tienda — categorías",
     "ordersByWhatsApp": "Pedidos y consultas por WhatsApp",
+    "design": "Diseña tu poncho",
     "viewCollection": "Ver colección →",
     "language": "Idioma"
   },
@@ -95,6 +96,7 @@
     "orderBtn": "Pedir por WhatsApp",
     "shop": "Tienda",
     "ponchos": "Ponchos",
+    "design": "Diseña tu poncho",
     "custom": "Hecho a pedido",
     "contact": "Contacto",
     "where": "Dónde",
@@ -252,7 +254,8 @@
     "products": "productos",
     "empty": "Por ahora no hay productos en esta categoría. Escríbenos y lo hacemos a pedido.",
     "ctaTitle": "¿No ves lo que buscas? Lo hacemos a tu medida.",
-    "ctaBtn": "Pedir por WhatsApp"
+    "ctaBtn": "Pedir por WhatsApp",
+    "ctaDesign": "Diseña el tuyo"
   },
   "product": {
     "breadcrumb": "Ruta",
@@ -266,5 +269,42 @@
     "orderBtn": "Pedir por WhatsApp",
     "related": "También te puede gustar",
     "defaultSeo": "{category}, hecho a mano en Lobitos, Piura."
+  },
+  "design": {
+    "seoTitle": "Diseña tu poncho",
+    "seoDescription": "Elige los colores, la talla y un detalle, y te cosemos tu poncho a mano en Lobitos, Piura.",
+    "chip": "■ Diseña tu poncho",
+    "title": "Diseña tu\npropio poncho",
+    "lead": "Elige los colores, la talla y un detalle. Nosotros te lo cosemos a mano en Lobitos.",
+    "previewLabel": "Vista previa de tu poncho",
+    "body": "Color del cuerpo",
+    "hood": "Color de la capucha",
+    "pocket": "Color del bolsillo",
+    "size": "Talla",
+    "extra": "Detalle",
+    "extras": [
+      "Sin detalle",
+      "Parche bordado",
+      "Tu logo (empresas)"
+    ],
+    "soldOut": "agotado",
+    "soldOutNote": "Por ahora se nos acabó: {names}. ¡Vuelve pronto!",
+    "notes": "¿Algo más?",
+    "notesPlaceholder": "Un nombre bordado, una idea, para quién es…",
+    "noNotes": "—",
+    "send": "Enviar mi diseño por WhatsApp",
+    "sendNote": "Sin compromiso: te respondemos con el precio y el tiempo de entrega.",
+    "message": "¡Hola! Diseñé mi poncho en la web:\n• Cuerpo: {body}\n• Capucha: {hood}\n• Bolsillo: {pocket}\n• Talla: {size}\n• Detalle: {extra}\n• Notas: {notes}",
+    "colors": [
+      "Arena",
+      "Océano",
+      "Turquesa",
+      "Coral",
+      "Sol",
+      "Verde palma",
+      "Lila",
+      "Blanco",
+      "Negro"
+    ]
   }
 }

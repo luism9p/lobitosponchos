@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Chip from '../components/Chip.astro';
+import Lines from '../components/Lines.astro';
+import WhatsAppIcon from '../components/WhatsAppIcon.astro';
+import { site } from '../data/site';
+import { useTranslations, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const { t, list } = useTranslations(lang);
+
+// Placeholder palette until the team sends the fabrics they actually stock (names live in design.colors).
+// Set `soldOut: true` to cross a colour out while that fabric is out of stock.
+const palette = [
+  { hex: '#d9c4a0' }, { hex: '#1f4e79' }, { hex: '#2bb3b1' }, { hex: '#f26b5b' }, { hex: '#f6c445' },
+  { hex: '#3d7a4a' }, { hex: '#b49fdc', soldOut: true }, { hex: '#f4f1ea' }, { hex: '#1a1a1a' },
+];
+const colors = list('design.colors').map((name, i) => ({ name, ...palette[i] }));
+const soldOutNames = colors.filter((c) => c.soldOut).map((c) => c.name).join(', ');
+const parts = [
+  { id: 'body', label: t('design.body'), start: 1 },
+  { id: 'hood', label: t('design.hood'), start: 0 },
+  { id: 'pocket', label: t('design.pocket'), start: 4 },
+];
+const sizes = ['S', 'M', 'L'];
+const extras = list('design.extras');
+
+const step = 'text-[11px] font-semibold uppercase tracking-[0.24em]';
+const swatch =
+  'relative size-10 cursor-pointer overflow-hidden rounded-full border-2 border-black outline-2 outline-offset-2 outline-transparent transition-transform hover:scale-110 has-[:checked]:outline-black has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-40 has-[:disabled]:hover:scale-100';
+const pill =
+  'cursor-pointer border-2 border-black px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] has-[:checked]:bg-black has-[:checked]:text-white';
+---
+
+<BaseLayout lang={lang} route="disena" title={t('design.seoTitle')} description={t('design.seoDescription')} variant="solid">
+  <main class="mx-auto max-w-[1180px] px-5 pb-24 pt-[150px]">
+    <Chip class="mb-[22px]">{t('design.chip')}</Chip>
+    <h1 class="m-0 mb-5 font-display text-[clamp(42px,6.4vw,88px)] font-normal uppercase leading-[.95]"><Lines text={t('design.title')} /></h1>
+    <p class="m-0 mb-12 max-w-[580px] text-[19px] leading-[1.55] text-pretty">{t('design.lead')}</p>
+
+    <form
+      data-designer
+      data-phone={site.whatsapp}
+      data-template={t('design.message')}
+      data-none={t('design.noNotes')}
+      class="grid grid-cols-1 items-start gap-10 split:grid-cols-[1fr_1fr] split:gap-14"
+    >
+      <!-- Preview -->
+      <figure class="m-0 border-2 border-black bg-cream p-6 split:sticky split:top-[100px]">
+        <svg viewBox="0 0 300 330" class="mx-auto block w-full max-w-[380px]" role="img" aria-label={t('design.previewLabel')}>
+          <path data-part="body" d="M104 104 Q150 96 196 104 L266 136 Q284 144 284 162 L284 300 Q150 314 16 300 L16 162 Q16 144 34 136 Z" stroke="#000" stroke-width="3" stroke-linejoin="round" />
+          <path data-part="hood" d="M86 122 C72 22 228 22 214 122 Q150 138 86 122 Z" stroke="#000" stroke-width="3" stroke-linejoin="round" />
+          <ellipse cx="150" cy="86" rx="40" ry="33" fill="#000" opacity=".22" />
+          <path data-part="pocket" d="M100 214 L200 214 L214 270 Q150 278 86 270 Z" stroke="#000" stroke-width="3" stroke-linejoin="round" />
+          <path d="M150 214 L150 274" stroke="#000" stroke-width="2" stroke-dasharray="5 5" />
+        </svg>
+        <figcaption data-summary class="mt-4 text-center text-[11px] font-semibold uppercase tracking-[0.14em]"></figcaption>
+      </figure>
+
+      <!-- Choices -->
+      <div class="flex flex-col gap-9">
+        {parts.map((part, i) => (
+          <fieldset class="m-0 flex flex-col gap-3.5 border-0 p-0">
+            <legend class:list={[step, 'mb-3.5']}>0{i + 1} · {part.label}</legend>
+            <div class="flex flex-wrap gap-3">
+              {colors.map((c, j) => (
+                <label class={swatch} style={`background:${c.hex}`} title={c.soldOut ? `${c.name} · ${t('design.soldOut')}` : c.name}>
+                  <input type="radio" name={part.id} value={c.name} data-hex={c.hex} checked={j === part.start} disabled={c.soldOut} class="sr-only" />
+                  <span class="sr-only">{c.name}{c.soldOut && ` (${t('design.soldOut')})`}</span>
+                  {c.soldOut && <span aria-hidden="true" class="absolute left-1/2 top-1/2 h-[2px] w-[140%] -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-black"></span>}
+                </label>
+              ))}
+            </div>
+            {i === 0 && soldOutNames && <p class="m-0 text-xs opacity-70">{t('design.soldOutNote', { names: soldOutNames })}</p>}
+          </fieldset>
+        ))}
+
+        <fieldset class="m-0 flex flex-col border-0 p-0">
+          <legend class:list={[step, 'mb-3.5']}>04 · {t('design.size')}</legend>
+          <div class="flex flex-wrap gap-2.5">
+            {sizes.map((s, j) => (
+              <label class={pill}><input type="radio" name="size" value={s} checked={j === 1} class="sr-only" />{s}</label>
+            ))}
+          </div>
+        </fieldset>
+
+        <fieldset class="m-0 flex flex-col border-0 p-0">
+          <legend class:list={[step, 'mb-3.5']}>05 · {t('design.extra')}</legend>
+          <div class="flex flex-wrap gap-2.5">
+            {extras.map((e, j) => (
+              <label class={pill}><input type="radio" name="extra" value={e} checked={j === 0} class="sr-only" />{e}</label>
+            ))}
+          </div>
+        </fieldset>
+
+        <label class="flex flex-col gap-3.5">
+          <span class={step}>06 · {t('design.notes')}</span>
+          <textarea name="notes" rows="3" placeholder={t('design.notesPlaceholder')} class="border-2 border-black bg-white p-3 text-base"></textarea>
+        </label>
+
+        <div class="flex flex-col items-start gap-3">
+          <button type="submit" class="inline-flex -rotate-2 cursor-pointer items-center gap-2.5 border-2 border-black bg-black px-6 pb-3 pt-3.5 text-sm font-semibold uppercase tracking-[0.12em] text-white transition-transform hover:rotate-[1.5deg] hover:scale-[1.04]">
+            <WhatsAppIcon size={16} />
+            <span>{t('design.send')}</span>
+          </button>
+          <p class="m-0 text-sm opacity-70">{t('design.sendNote')}</p>
+        </div>
+      </div>
+    </form>
+  </main>
+</BaseLayout>
+
+<script>
+  // Recolours the preview as the swatches change and sends the finished design to WhatsApp.
+  const form = document.querySelector<HTMLFormElement>('[data-designer]');
+  if (form) {
+    const summary = form.querySelector<HTMLElement>('[data-summary]')!;
+    const picked = (name: string) => form.querySelector<HTMLInputElement>(`input[name="${name}"]:checked`)!;
+
+    const render = () => {
+      for (const part of ['body', 'hood', 'pocket']) {
+        form.querySelector(`[data-part="${part}"]`)!.setAttribute('fill', picked(part).dataset.hex!);
+      }
+      summary.textContent = ['body', 'hood', 'pocket', 'size'].map((n) => picked(n).value).join(' · ');
+    };
+
+    form.addEventListener('change', render);
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const notes = (form.elements.namedItem('notes') as HTMLTextAreaElement).value.trim();
+      const vars: Record<string, string> = {
+        body: picked('body').value,
+        hood: picked('hood').value,
+        pocket: picked('pocket').value,
+        size: picked('size').value,
+        extra: picked('extra').value,
+        notes: notes || form.dataset.none!,
+      };
+      const text = form.dataset.template!.replace(/\{(\w+)\}/g, (_, k) => vars[k] ?? '');
+      window.open(`https://wa.me/${form.dataset.phone}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+    });
+    render();
+  }
+</script>

@@ -6,7 +6,7 @@ import Lines from '../components/Lines.astro';
 import ProductCard from '../components/ProductCard.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 import { categorias } from '../data/categorias';
-import { useTranslations, type Lang } from '../i18n';
+import { url, useTranslations, type Lang } from '../i18n';
 
 interface Props {
   lang: Lang;
@@ -57,7 +57,10 @@ const tab =
 
     <section class="border-y-2 border-black bg-black px-5 py-[70px] text-center text-white">
       <h2 class="mx-auto mb-7 max-w-[820px] font-display text-[clamp(28px,5vw,58px)] font-normal uppercase leading-[1.08]">{t('catalog.ctaTitle')}</h2>
-      <WhatsAppButton variant="outline-white" message={t('wa.custom')}>{t('catalog.ctaBtn')}</WhatsAppButton>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href={url(lang, 'disena')} class="inline-flex rotate-2 items-center border-2 border-white bg-black px-4 pb-[9px] pt-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-white transition-transform duration-200 hover:-rotate-[1.5deg] hover:scale-[1.04] hover:no-underline">{t('catalog.ctaDesign')} →</a>
+        <WhatsAppButton variant="outline-white" message={t('wa.custom')}>{t('catalog.ctaBtn')}</WhatsAppButton>
+      </div>
     </section>
   </main>
 </BaseLayout>

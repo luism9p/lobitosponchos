@@ -5,7 +5,7 @@ import WhatsAppIcon from './WhatsAppIcon.astro';
 import Lines from './Lines.astro';
 import { catalogoUrl } from '../data/categorias';
 import { instagramUrl, site, whatsappUrl } from '../data/site';
-import { useTranslations, type Lang } from '../i18n';
+import { url, useTranslations, type Lang } from '../i18n';
 
 interface Props {
   lang: Lang;
@@ -41,6 +41,7 @@ const heading = 'text-[11px] uppercase tracking-[0.3em] opacity-60';
         <div class="flex -rotate-[1.5deg] flex-col gap-3">
           <div class={heading}>{t('footer.shop')}</div>
           <a href={catalogoUrl(lang)} class={link}>{t('footer.ponchos')}</a>
+          <a href={url(lang, 'disena')} class={link}>{t('footer.design')}</a>
           <a href={whatsappUrl(t('wa.custom'))} target="_blank" rel="noopener" class={link}>{t('footer.custom')}</a>
         </div>
         <div class="flex rotate-[1.2deg] flex-col gap-0.5">

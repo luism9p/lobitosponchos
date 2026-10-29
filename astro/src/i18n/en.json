@@ -15,6 +15,7 @@
     "history": "Our story",
     "shopCategories": "Shop — categories",
     "ordersByWhatsApp": "Orders and questions on WhatsApp",
+    "design": "Design your own",
     "viewCollection": "View collection →",
     "language": "Language"
   },
@@ -95,6 +96,7 @@
     "orderBtn": "Chat with us on WhatsApp",
     "shop": "Shop",
     "ponchos": "Ponchos & accessories",
+    "design": "Design your own poncho",
     "custom": "Contact us to order",
     "contact": "Contact",
     "where": "Where",
@@ -252,7 +254,8 @@
     "products": "products",
     "empty": "This corner of the shop is still empty. Tell us what you’re after and we’ll make it to order.",
     "ctaTitle": "Not quite what you’re after? Tell us your idea, and we’ll sew it.",
-    "ctaBtn": "Chat with us on WhatsApp"
+    "ctaBtn": "Chat with us on WhatsApp",
+    "ctaDesign": "Design your own"
   },
   "product": {
     "breadcrumb": "Breadcrumb",
@@ -266,5 +269,42 @@
     "orderBtn": "Chat with us on WhatsApp",
     "related": "You might also love",
     "defaultSeo": "{category}, handmade in Lobitos, Piura."
+  },
+  "design": {
+    "seoTitle": "Design your poncho",
+    "seoDescription": "Pick the colors, the size and a finishing touch, and we'll sew your poncho by hand in Lobitos, Piura.",
+    "chip": "■ Design your own",
+    "title": "Design your\nown poncho",
+    "lead": "Pick your colors, your size and a little extra. We'll sew it by hand for you in Lobitos.",
+    "previewLabel": "Preview of your poncho",
+    "body": "Body color",
+    "hood": "Hood color",
+    "pocket": "Pocket color",
+    "size": "Size",
+    "extra": "Finishing touch",
+    "extras": [
+      "Keep it simple",
+      "Embroidered patch",
+      "Your logo (for businesses)"
+    ],
+    "soldOut": "out of stock",
+    "soldOutNote": "Out of stock for now: {names}. Back soon!",
+    "notes": "Anything else?",
+    "notesPlaceholder": "A name to embroider, an idea, who it's for…",
+    "noNotes": "—",
+    "send": "Send my design on WhatsApp",
+    "sendNote": "No commitment: we'll get back to you with the price and delivery time.",
+    "message": "Hi! I designed my poncho on your website:\n• Body: {body}\n• Hood: {hood}\n• Pocket: {pocket}\n• Size: {size}\n• Finishing touch: {extra}\n• Notes: {notes}",
+    "colors": [
+      "Sand",
+      "Ocean",
+      "Turquoise",
+      "Coral",
+      "Sunshine",
+      "Palm green",
+      "Lilac",
+      "White",
+      "Black"
+    ]
   }
 }
