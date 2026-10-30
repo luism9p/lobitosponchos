@@ -2,6 +2,8 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
+  // Official address. Used for full URLs in hreflang, canonical and link-preview tags.
+  site: 'https://lobitosponchos.com',
   vite: {
     plugins: [tailwindcss()],
   },
