@@ -45,7 +45,7 @@ const aboutCards = list<{ title: string; text: string; link: string }>('home.abo
             </div>
             <div class="absolute inset-0 bg-black/[.32]"></div>
             <div class="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2.5 px-4 pb-[18px] pt-4">
-              <span class="font-display text-[clamp(20px,12.5cqw,64px)] uppercase leading-[.9] [overflow-wrap:anywhere]">
+              <span class="font-display text-[clamp(16px,min(12.5cqw,calc((100cqw_-_60px)/5.8)),64px)] uppercase leading-[.9]">
                 {lines[0]}{lines[1] && <><br />{lines[1]}</>}
               </span>
               <span class="shrink-0 text-lg leading-none" aria-hidden="true">→</span>

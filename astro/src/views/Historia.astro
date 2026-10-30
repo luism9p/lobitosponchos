@@ -41,7 +41,7 @@ const chapters = list<Chapter>('story.chapters').map((c, i) => ({ ...c, ...chapt
   current="historia"
 >
   <main>
-    <section class="mx-auto max-w-[1180px] px-5 pt-[150px]">
+    <section class="mx-auto max-w-[1180px] px-5 pt-[104px] split:pt-[150px]">
       <div class="mb-[22px]"><Chip>{t('story.chip')}</Chip></div>
       <h1 class="m-0 mb-[22px] inline-block border-b-[3px] border-black pb-4 font-display text-[clamp(42px,6.4vw,88px)] font-normal uppercase leading-[.98]"><Lines text={t('story.title')} /></h1>
       <p class="m-0 max-w-[580px] text-[19px] leading-[1.55] text-pretty">{t('story.lead')}</p>

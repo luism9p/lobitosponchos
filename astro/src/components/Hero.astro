@@ -64,15 +64,6 @@ const slides = [carr1, carr2, carr3].map((src, i) => ({ src, alt: alts[i] }));
     </div>
   </div>
 
-  <div class="absolute bottom-4 right-4 flex items-stretch border border-black bg-black">
-    <button type="button" data-prev aria-label={t('hero.prev')} class="flex size-[44px] cursor-pointer items-center justify-center border-r border-white/25 bg-black text-[15px] leading-none text-white hover:bg-[#222]">←</button>
-    <div class="flex items-center gap-[5px] bg-white px-3" aria-hidden="true">
-      {slides.map((_, i) => (
-        <span data-square data-active={i === 0 ? '' : undefined} class="size-[7px] bg-[#d4d4d4] data-[active]:bg-black"></span>
-      ))}
-    </div>
-    <button type="button" data-next aria-label={t('hero.next')} class="flex size-[44px] cursor-pointer items-center justify-center border-l border-white/25 bg-black text-[15px] leading-none text-white hover:bg-[#222]">→</button>
-  </div>
 </section>
 
 <script>

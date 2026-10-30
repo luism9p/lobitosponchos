@@ -26,7 +26,7 @@ const value = 'self-start border-b-2 border-black pb-0.5 text-[clamp(18px,2vw,22
   current="contacto"
 >
   <main class="pb-24">
-    <section class="mx-auto max-w-[1180px] px-5 pt-[150px]">
+    <section class="mx-auto max-w-[1180px] px-5 pt-[104px] split:pt-[150px]">
       <div class="mb-[22px]"><Chip>{t('contact.chip')}</Chip></div>
       <h1 class="m-0 mb-[22px] inline-block border-b-[3px] border-black pb-4 font-display text-[clamp(42px,6.4vw,88px)] font-normal uppercase leading-[.98]"><Lines text={t('contact.title')} /></h1>
       <p class="m-0 max-w-[600px] text-[19px] leading-[1.55] text-pretty">{t('contact.lead')}</p>
@@ -51,7 +51,7 @@ const value = 'self-start border-b-2 border-black pb-0.5 text-[clamp(18px,2vw,22
 
       <div class={card}>
         <span class={label}>{t('contact.emailLabel')}</span>
-        <a href={`mailto:${site.email}`} class={value}>{site.email}</a>
+        <a href={`mailto:${site.email}`} class={value}>{site.email.split('@')[0]}<wbr />@{site.email.split('@')[1]}</a>
         <p class="m-0 text-[15px] leading-[1.55] text-pretty">{t('contact.emailText')}</p>
       </div>
 

@@ -1,10 +1,9 @@
-// Cross-fade carousel. Slides, dots and counter squares are plain elements that carry a
+// Cross-fade carousel. Slides and dots are plain elements that carry a
 // `data-active` attribute; the styles live in the markup (see Hero.astro).
 
 export function initCarousel(root: HTMLElement): void {
   const slides = [...root.querySelectorAll<HTMLElement>('[data-slide]')];
   const dots = [...root.querySelectorAll<HTMLElement>('[data-dot]')];
-  const squares = [...root.querySelectorAll<HTMLElement>('[data-square]')];
   const seconds = Number(root.dataset.autoplay) || 4;
 
   let index = 0;
@@ -18,7 +17,6 @@ export function initCarousel(root: HTMLElement): void {
       el.setAttribute('aria-hidden', String(i !== index));
     });
     dots.forEach((el, i) => el.toggleAttribute('data-active', i === index));
-    squares.forEach((el, i) => el.toggleAttribute('data-active', i === index));
     restart();
   }
 
@@ -29,8 +27,6 @@ export function initCarousel(root: HTMLElement): void {
     }, seconds * 1000);
   }
 
-  root.querySelector('[data-prev]')?.addEventListener('click', () => show(index - 1));
-  root.querySelector('[data-next]')?.addEventListener('click', () => show(index + 1));
   dots.forEach((dot, i) => dot.addEventListener('click', () => show(i)));
 
   root.addEventListener('mouseenter', () => (paused = true));
