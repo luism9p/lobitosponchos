@@ -4,9 +4,9 @@ import Chip from '../components/Chip.astro';
 import Img from '../components/Img.astro';
 import Lines from '../components/Lines.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
-import { equipo } from '../data/equipo';
+import { equipo, grupos } from '../data/equipo';
 import { workawayUrl } from '../data/site';
-import { url, useTranslations, type Lang } from '../i18n';
+import { useTranslations, type Lang } from '../i18n';
 
 interface Props {
   lang: Lang;
@@ -21,10 +21,13 @@ interface PersonText {
 }
 const texts = list<PersonText>('team.people');
 const people = equipo.map((p, i) => ({ ...p, ...texts[i] }));
+const groups = grupos.map((g) => ({
+  ...g,
+  people: g.miembros.map((n) => people.find((p) => p.numero === n)!),
+}));
 
 const volunteerFacts = list<{ label: string; value: string }>('team.volunteer.facts');
 const volunteerHelp = list('team.volunteer.help');
-const closingValues = list('team.values');
 ---
 
 <BaseLayout
@@ -36,36 +39,37 @@ const closingValues = list('team.values');
   current="equipo"
 >
   <main>
-    <section class="mx-auto max-w-[1180px] px-5 pt-[150px]">
-      <div class="mb-[22px]"><Chip>{t('team.chip')}</Chip></div>
-      <h1 class="m-0 mb-5 inline-block border-b-[3px] border-black pb-4 font-display text-[clamp(42px,6.4vw,88px)] font-normal uppercase leading-[.98]"><Lines text={t('team.title')} /></h1>
-      <p class="m-0 max-w-[560px] text-[17px] leading-[1.6] text-pretty">{t('team.lead')}</p>
-      <div class="mt-6 flex max-w-[560px] flex-col items-start gap-3 border-t-[1.5px] border-black pt-5 xs:flex-row xs:items-center xs:justify-between">
-        <p class="m-0 text-[15px] leading-[1.55] text-pretty">{t('team.volunteerTeaser')}</p>
-        <a href="#voluntariado" class="shrink-0 border-2 border-black px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-black hover:bg-black hover:text-white hover:no-underline">{t('team.volunteerLink')}</a>
+    <section class="mx-auto grid max-w-[1180px] grid-cols-1 items-end gap-5 px-5 pt-[104px] split:grid-cols-[auto_1fr] split:gap-14 split:pt-[124px]">
+      <div>
+        <div class="mb-4"><Chip>{t('team.chip')}</Chip></div>
+        <h1 class="m-0 inline-block border-b-[3px] border-black pb-3 font-display text-[clamp(36px,4.6vw,60px)] font-normal uppercase leading-[.98]"><Lines text={t('team.title')} /></h1>
       </div>
+      <p class="m-0 max-w-[460px] text-[17px] leading-[1.6] text-pretty">{t('team.lead')}</p>
     </section>
 
-    <div aria-hidden="true" class="mt-14 border-b-2 border-black"></div>
+    <div aria-hidden="true" class="mt-10 border-b-2 border-black"></div>
 
-    <!-- The five of us, as a compact grid -->
-    <section class="border-b-2 border-black px-5 py-16 split:py-20">
+    <!-- The five of us, grouped the way they were photographed -->
+    <section class="border-b-2 border-black px-5 py-12 split:py-14">
       <ul class="mx-auto m-0 grid max-w-[1180px] list-none grid-cols-1 gap-x-8 gap-y-12 p-0 xs:grid-cols-2 split:grid-cols-3">
-        {people.map((p) => (
-          <li class="flex flex-col gap-3">
-            <div class="relative mb-2 aspect-[4/3] overflow-hidden border-2 border-black bg-black">
-              {p.foto ? (
-                <Img src={p.foto} alt={p.name} sizes="(min-width: 860px) 380px, (min-width: 620px) 50vw, 100vw" widths={[480, 760]} class="absolute inset-0 size-full object-cover" />
-              ) : (
-                <>
-                  <div class="absolute inset-0 bg-[repeating-linear-gradient(45deg,#1a1a1a_0_14px,#000_14px_28px)]"></div>
-                  <div class="absolute inset-0 flex items-center justify-center p-5 text-center text-[11px] uppercase tracking-[0.16em] text-white opacity-75">{t('team.photoPlaceholder')}<br />{p.fotoSlot}</div>
-                </>
-              )}
+        {groups.map((g) => (
+          <li class="flex flex-col gap-5">
+            <div class="relative aspect-[4/3] overflow-hidden border-2 border-black bg-black">
+              <Img src={g.foto} alt={g.people.map((p) => p.name).join(' & ')} sizes="(min-width: 860px) 380px, (min-width: 620px) 50vw, 100vw" widths={[480, 760]} position={g.posicion} class="absolute inset-0 size-full object-cover" />
+              <div class="absolute inset-x-2.5 bottom-2.5 flex justify-between gap-2">
+                {g.people.map((p) => (
+                  <span class="bg-black px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white">{p.apodo}</span>
+                ))}
+              </div>
             </div>
-            <span class="text-[11px] font-semibold uppercase tracking-[0.2em] opacity-70">{p.technique}</span>
-            <h2 class="m-0 font-display text-[clamp(24px,2.4vw,30px)] font-normal uppercase leading-[1.02]">{p.name}</h2>
-            <p class="m-0 text-[15px] leading-[1.6] text-pretty">{p.bio}</p>
+            {g.people.map((p) => (
+              <div class="flex flex-col gap-1.5">
+                <span class="text-[10px] font-semibold uppercase tracking-[0.2em] opacity-70">{p.technique}</span>
+                <h2 class="m-0 font-display text-[26px] font-normal uppercase leading-[1.05]">{p.apodo}</h2>
+                <span class="text-[13px] opacity-70">{p.name}</span>
+                <p class="m-0 text-[15px] leading-[1.55] text-pretty">{p.bio}</p>
+              </div>
+            ))}
           </li>
         ))}
       </ul>
@@ -105,13 +109,5 @@ const closingValues = list('team.values');
       </div>
     </section>
 
-    <section class="bg-black px-5 pb-[70px] pt-[90px] text-center text-white">
-      <Chip tone="dark" class="mb-7 -rotate-[1.5deg] px-4 py-[7px]">{t('team.closingChip')}</Chip>
-      <h2 class="mx-auto mb-[30px] max-w-[920px] font-display text-[clamp(28px,5vw,58px)] font-normal uppercase leading-[1.08]">{t('team.closingTitle')}</h2>
-      <a href={url(lang, 'catalogo')} class="inline-block border-2 border-white bg-white px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-black hover:no-underline">{t('team.collection')}</a>
-      <div class="mx-auto mt-14 flex max-w-[1180px] flex-wrap justify-between gap-3.5 border-t-[1.5px] border-dashed border-white pt-6 text-[10px] uppercase tracking-[0.16em] opacity-70">
-        {closingValues.map((v) => <span>{v}</span>)}
-      </div>
-    </section>
   </main>
 </BaseLayout>
