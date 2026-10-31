@@ -15,13 +15,14 @@ const { lang, autoplay = 4 } = Astro.props;
 const { t, list } = useTranslations(lang);
 const alts = list('hero.slides');
 
-// The photos are wide panoramas. Phones only show a slice, so each one is framed (object-position)
-// on its main subject; on desktop the framing keeps the drawn-in words in view.
+// The photos are wide panoramas. Phones only show a slice (about half the width; the height follows the screen width so
+// every phone sees the same slice), so each one is framed on its main subject and, for photos 1 and 3, the words
+// drawn into them; on desktop the framing keeps the drawn-in words in view.
 // `alt` is the index of the photo's description in `hero.slides`.
 const slides = [
-  { src: carr1, alt: 0, framing: 'object-[55%_50%] nav:object-[35%_50%]' }, // boy holding the puppy
+  { src: carr1, alt: 0, framing: 'object-[33%_50%] nav:object-[35%_50%]' }, // words + boy holding the puppy
   { src: carr3, alt: 2, framing: 'object-[38%_50%] nav:object-[65%_50%]' }, // the surfer
-  { src: carr2, alt: 1, framing: 'object-[100%_50%] nav:object-center' }, // a grandmother with the church behind
+  { src: carr2, alt: 1, framing: 'object-[100%_50%] nav:object-center' }, // words, church and a grandmother
 ].map((s) => ({ ...s, alt: alts[s.alt] }));
 ---
 
@@ -33,7 +34,7 @@ const slides = [
   aria-label="Lobitos Ponchos"
   class="relative flex w-full touch-pan-y flex-col overflow-hidden bg-white pt-[77px] nav:block nav:h-[650px] nav:bg-black nav:pt-0"
 >
-  <div class="relative h-[300px] w-full nav:absolute nav:inset-0 nav:h-auto">
+  <div class="relative h-[min(75vw,320px)] w-full nav:absolute nav:inset-0 nav:h-auto">
   {slides.map((slide, i) => (
     <div
       data-slide
