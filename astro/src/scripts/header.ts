@@ -55,6 +55,11 @@ export function initHeader(): void {
     item.addEventListener('mouseenter', () => setCategory(Number(item.dataset.megaitem)));
     item.addEventListener('focus', () => setCategory(Number(item.dataset.megaitem)));
   });
+  // Sub-items (e.g. the poncho lines) keep their parent category highlighted and its photo showing.
+  header.querySelectorAll<HTMLElement>('[data-megasub]').forEach((item) => {
+    item.addEventListener('mouseenter', () => setCategory(Number(item.dataset.megasub)));
+    item.addEventListener('focus', () => setCategory(Number(item.dataset.megasub)));
+  });
 
   header.addEventListener('mouseleave', () => {
     if (desktop.matches && (menu === 'mega' || menu === 'about')) set('');
