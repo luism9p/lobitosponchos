@@ -6,11 +6,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Every animation here is a one-off reveal. Once one finishes, return its elements to normal:
 // the extra layer from `.reveal-ready` can trim letters and keep photos from being drawn.
+// Clean up directly on the element: calling gsap here (e.g. gsap.set) would start a new tween
+// that runs this same callback again, looping forever and freezing smooth scrolling.
 gsap.defaults({
   onComplete(this: gsap.core.Tween) {
-    const targets = this.targets() as HTMLElement[];
-    targets.forEach((el) => el.classList?.remove('reveal-ready'));
-    gsap.set(targets, { clearProps: 'transform' });
+    (this.targets() as HTMLElement[]).forEach((el) => {
+      el.classList?.remove('reveal-ready');
+      el.style?.removeProperty('transform');
+    });
   },
 });
 
