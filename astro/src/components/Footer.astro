@@ -1,37 +1,40 @@
 ---
-import logo from '../assets/brand/logo.png';
-import Img from './Img.astro';
+import WhatsAppIcon from './WhatsAppIcon.astro';
+import Lines from './Lines.astro';
 import { catalogoUrl } from '../data/categorias';
 import { instagramUrl, site, whatsappUrl } from '../data/site';
 import { url, useTranslations, type Lang } from '../i18n';
 
 interface Props {
   lang: Lang;
+  /** The big "Let's talk" and WhatsApp button. Off on the Contact page, which already has all of it. */
+  showTalk?: boolean;
 }
-const { lang } = Astro.props;
+const { lang, showTalk = true } = Astro.props;
 const { t } = useTranslations(lang);
 
-// A slim footer: the brand, then the links in the same three groups as the top menu.
+// A playful "Let's talk" with the WhatsApp button, then the links in four columns.
 const groups = [
   {
-    title: t('nav.shop'),
+    title: t('footer.shop'),
     links: [
-      { href: catalogoUrl(lang), label: t('footer.collection') },
-      { href: url(lang, 'disena'), label: t('nav.design') },
-      { href: url(lang, 'b2b'), label: t('nav.b2b') },
+      { href: catalogoUrl(lang), label: t('footer.ponchos') },
+      { href: url(lang, 'disena'), label: t('footer.design') },
+      { href: whatsappUrl(t('wa.custom')), label: t('footer.custom'), external: true },
+      { href: url(lang, 'b2b'), label: t('footer.b2b') },
     ],
   },
   {
-    title: t('nav.about'),
+    title: t('footer.about'),
     links: [
-      { href: url(lang, 'historia'), label: t('nav.history') },
+      { href: url(lang, 'historia'), label: t('footer.story') },
       { href: url(lang, 'causa'), label: t('nav.cause') },
-      { href: url(lang, 'equipo'), label: t('nav.team') },
+      { href: url(lang, 'equipo'), label: t('footer.team') },
       { href: url(lang, 'equipo', undefined, 'voluntariado'), label: t('footer.volunteer') },
     ],
   },
   {
-    title: t('footer.contactTitle'),
+    title: t('footer.contact'),
     links: [
       { href: whatsappUrl(), label: `WhatsApp ${site.whatsappLabel}`, external: true },
       { href: instagramUrl, label: `Instagram ${site.instagramHandle}`, external: true },
@@ -40,33 +43,46 @@ const groups = [
     ],
   },
 ];
-const link = 'text-white hover:underline underline-offset-4';
+const link = 'break-words text-white/85 hover:text-white hover:underline underline-offset-4';
+const heading = 'mb-1 text-[11px] uppercase tracking-[0.2em] opacity-60';
+// A slight, different tilt per column keeps the hand-made feel.
+const tilts = ['-rotate-[1.2deg]', 'rotate-[1deg]', '-rotate-[0.8deg]', 'rotate-[1.2deg]'];
 ---
 
-<footer class="border-t-2 border-black bg-black px-5 pb-8 pt-10 text-white">
-  <div class="mx-auto flex max-w-[1180px] flex-col gap-9 split:flex-row split:items-start split:justify-between split:gap-12">
-    <a href={url(lang, 'home')} class="flex shrink-0 items-center gap-3.5 text-white hover:no-underline">
-      <Img src={logo} alt="" sizes="52px" widths={[52, 104, 156]} class="block size-[52px] rounded-full border-[1.5px] border-white" />
-      <span class="flex flex-col gap-1">
-        <span class="font-display text-2xl uppercase leading-none">{site.name}</span>
-        <span class="text-[11px] uppercase tracking-[0.18em] opacity-70">{t('footer.madeIn')}</span>
-      </span>
-    </a>
+<footer id="contacto" class="border-t-2 border-black bg-black px-5 pb-14 pt-14 text-white split:pb-16 split:pt-16">
+  <div class="mx-auto max-w-[1180px]">
+    {showTalk && (
+      <div class="relative flex flex-col gap-8 border-b border-white/25 pb-12 split:flex-row split:items-end split:justify-between">
+        <h2 class="m-0 origin-bottom-left -rotate-2 font-display text-[clamp(52px,9vw,110px)] font-normal uppercase leading-[.85]">{t('footer.talk')}</h2>
+        <svg viewBox="0 0 220 120" width="150" height="82" aria-hidden="true" class="pointer-events-none absolute left-[48%] top-[-10px] hidden overflow-visible split:block">
+          <path d="M6 96 C 50 30, 100 120, 140 40 S 190 20, 214 70" fill="none" stroke="#fff" stroke-width="2.5" stroke-dasharray="8 8" stroke-linecap="round"></path>
+        </svg>
+        <a
+          href={whatsappUrl()}
+          target="_blank"
+          rel="noopener"
+          class="inline-flex min-h-[44px] origin-left rotate-[2deg] items-center gap-3 self-start border-[3px] border-white bg-white px-6 pb-3.5 pt-4 font-display text-[clamp(20px,2.4vw,28px)] uppercase leading-none text-black outline-2 -outline-offset-[7px] outline-black hover:no-underline split:mb-2 split:self-auto"
+        >
+          <WhatsAppIcon size={18} />
+          <span>{t('footer.orderBtn')}</span>
+        </a>
+      </div>
+    )}
 
-    <nav aria-label={t('nav.main')} class="grid grid-cols-2 gap-x-8 gap-y-8 text-sm xs:grid-cols-3 split:gap-x-14">
-      {groups.map((g) => (
-        <div class="flex flex-col gap-2.5 last:col-span-2 xs:last:col-span-1">
-          <span class="mb-0.5 text-[11px] uppercase tracking-[0.2em] opacity-60">{g.title}</span>
+    <nav aria-label={t('nav.main')} class:list={['grid grid-cols-2 gap-x-8 gap-y-9 text-sm md:grid-cols-4', showTalk && 'pt-10']}>
+      {groups.map((g, i) => (
+        <div class:list={['flex flex-col gap-2.5 [&:nth-child(3)]:col-span-2 md:[&:nth-child(3)]:col-span-1', tilts[i]]}>
+          <span class={heading}>{g.title}</span>
           {g.links.map((l) => (
             <a href={l.href} target={l.external ? '_blank' : undefined} rel={l.external ? 'noopener' : undefined} class={link}>{l.label}</a>
           ))}
         </div>
       ))}
+      <div class:list={['flex flex-col gap-2.5', tilts[3]]}>
+        <span class={heading}>{t('footer.where')}</span>
+        <span class="font-display text-[22px] uppercase leading-[.95]"><Lines text={t('footer.place')} /></span>
+        <span class="text-white/85">{t('footer.country')}</span>
+      </div>
     </nav>
-  </div>
-
-  <div class="mx-auto mt-8 flex max-w-[1180px] flex-wrap justify-between gap-2 border-t border-white/25 pt-5 text-[11px] uppercase tracking-[0.16em] opacity-60">
-    <span>© {new Date().getFullYear()} {site.name}</span>
-    <span>{t('footer.place').replace('\n', ' ')} · {t('footer.country')}</span>
   </div>
 </footer>

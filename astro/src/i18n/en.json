@@ -69,7 +69,7 @@
       },
       {
         "title": "Our team",
-        "text": "Mery, Irma, Kevyn, Tiíta and Ivan: the hands behind every piece.",
+        "text": "Mery, Irma, Kevyn, Tiíta and Iván: the hands behind every piece.",
         "link": "Meet our team →"
       }
     ],
@@ -98,51 +98,78 @@
     "follow": "★ Find us at {handle}"
   },
   "footer": {
-    "collection": "Ponchos & accessories",
-    "contactTitle": "Contact",
-    "contactPage": "All the ways to reach us →",
-    "volunteer": "Volunteer with us",
+    "talk": "Let's talk",
+    "orderBtn": "Chat with us on WhatsApp",
+    "shop": "Shop",
+    "ponchos": "Ponchos & accessories",
+    "design": "Design your own poncho",
+    "custom": "Contact us to order",
+    "contact": "Contact",
+    "where": "Where",
     "place": "Lobitos,\nTalara — Piura",
     "country": "Peru",
-    "madeIn": "Made in Lobitos"
+    "madeIn": "Made in Lobitos",
+    "b2b": "For businesses (B2B)",
+    "about": "About us",
+    "story": "Our story",
+    "team": "Our team",
+    "volunteer": "Volunteer with us",
+    "contactPage": "All the ways to reach us →"
   },
   "cause": {
     "seoTitle": "Our purpose",
     "seoDescription": "How can we make the world a little better? Local production, our grandmothers, sustainable tourism and inspiring others: the four things we care about most at Lobitos Ponchos.",
     "chip": "■ Our purpose",
     "title": "How can we\nmake the world\na little better?",
-    "lead": "We can’t change the whole world at once. But if each of us improves a little of what’s around us, together we can make a big difference.",
-    "valuesTitle": "Our values",
-    "valuesIntro": "Over many conversations, at the sewing machine and around the kitchen table, we asked ourselves what we really stand for. Here’s what we found.",
-    "values": [
-      {
-        "title": "Close to home,\nkind to the earth",
-        "text": "We make every poncho here in Lobitos, one at a time, to last for years. Fabric scraps become pouches, and we keep looking for more sustainable materials.",
-        "photoAlt": "The Lobitos Ponchos stand on the beach with a sign that reads «Diseña tu propio Surf Poncho!» (Design your own surf poncho!)"
-      },
-      {
-        "title": "Our grandmothers",
-        "text": "Our grandmothers sew from home, earning their own income and sharing a lifetime of skill, while spending more time with their grandsons.",
-        "photoAlt": "One of our grandmothers with a visitor, showing Lobitos Ponchos pouches in front of her sewing machine"
-      },
-      {
-        "title": "Sustainable tourism",
-        "text": "We want visitors to know Lobitos beyond the beach and to meet the families who call it home. Real friendships have grown from it.",
-        "photoAlt": "Local kids and visitors in ponchos on a fishing boat pulled up on the beach in Lobitos"
-      },
-      {
-        "title": "Inspiring others",
-        "text": "We started with a few sewing machines, two grandmothers and a lot of heart. If we can do it, so can you.",
-        "photoAlt": "Collage of young people from Lobitos"
-      }
-    ],
-    "collabLink": "Have an idea or a material we could try? Tell us →",
-    "grandmothersLink": "Meet the grandmothers →",
+    "lead": "We know we can’t change the whole world at once. But we believe that if each of us changes a little of what’s around us, together, over time, we can make a big difference.",
+    "values": "Our values",
+    "intro": "We’ve asked ourselves a lot about what we stand for and who we want to be. These are the four things that matter most to us:",
+    "indexLabel": "What matters most to us",
+    "indexItems": ["Close to home, kind to the earth", "Our grandmothers", "Sustainable tourism", "Inspiring Others"],
+    "c1": {
+      "title": "Close to home,\nkind to the earth",
+      "photoAlt": "The Lobitos Ponchos stand on the beach with a sign that reads «Diseña tu propio Surf Poncho!» (Design your own surf poncho!)",
+      "summary": "We make every poncho right here in Lobitos, one at a time, made to last and with as little waste as possible.",
+      "lead": "So many people in Peru feel they have to leave for Lima to get ahead. We'd rather create opportunities right here at home.",
+      "p1": "Forget fast fashion: we'd rather make one piece you'll love for years than a pile you'll soon forget. Even our fabric scraps get a second life as pouches and other little treasures.",
+      "p2": "Even our fabric scraps get a second life as pouches and other little treasures.",
+      "p3": "We're still learning. Step by step, we want to use more sustainable materials and tread more lightly on the earth.",
+      "collabTitle": "Let's build it together",
+      "collabLead": "Have an idea? Know a material we could try?",
+      "collabText": "We're always happy to learn, and even happier to work together.",
+      "collabBtn": "Share your idea"
+    },
+    "c2": {
+      "title": "Our grandmothers",
+      "photoAlt": "One of our grandmothers with a visitor, showing Lobitos Ponchos pouches in front of her sewing machine",
+      "summary": "Our grandmothers are the heart of Lobitos Ponchos. Every poncho they sew brings them an income of their own, and the pride of sharing a lifetime of skill.",
+      "lead": "Our elders have so much to give: their knowledge, their experience, and stories still waiting to be shared.",
+      "p1": "With Lobitos Ponchos, our grandmothers earn their own money from home, doing work they're proud of. That means more independence, real recognition for their craft, and more time with their grandsons, Kevyn and Iván.",
+      "p2": "And visitors now come all the way to their door to see how their poncho is made, sparking friendships that would never have happened otherwise.",
+      "link": "Meet the grandmothers →"
+    },
+    "c3": {
+      "title": "Sustainable tourism",
+      "photoAlt": "Local kids and visitors in ponchos on a fishing boat pulled up on the beach in Lobitos",
+      "summary": "We want visitors to know Lobitos beyond the beach, and to meet the families who call it home.",
+      "lead": "Too often, visitors move between their hotel, the beach and the usual sights without ever meeting the people who built this town.",
+      "p1": "Our ponchos open the door to village life: its families, its history, and a community that has lived from the ocean for generations.",
+      "highlight": "We've already watched friendships grow between people from completely different worlds."
+    },
+    "c4": {
+      "title": "Inspiring Others",
+      "quote": "Our biggest dream? That you'll see you can do it too.",
+      "summary": "We started with a few sewing machines, two grandmothers and a lot of heart. If we can do it, so can you.",
+      "p1": "Our team is young and old, from Lobitos and from far away, and we've learned that the most different people can build something beautiful together.",
+      "p2": "We hope our story inspires you to create, team up and back the local projects around you.",
+      "photoAlt": "Collage of young people from Lobitos"
+    },
     "closing": {
+      "chip": "Our purpose",
       "title": "Maybe the world changes one small place at a time.",
       "text": "For us, it started right here in Lobitos. Where will it start for you?",
       "collection": "View collection →",
-      "team": "Meet our team →"
+      "team": "Meet our people →"
     }
   },
   "team": {
@@ -151,33 +178,35 @@
     "chip": "■ Our team",
     "title": "The hands\nbehind\nevery piece",
     "lead": "Two grandmothers, their grandsons and a few friends, all believing in handmade work.",
+    "readMore": "Read more",
+    "readLess": "Show less",
     "people": [
-      {
-        "technique": "Matriarch & Head seamstress",
-        "name": "Esmérita \"Mery\" Eche Periche",
-        "bio": "Esmérita is 70 and has lived in Lobitos all her life. She learned to sew from her mother and brings a lifetime of experience to every piece."
-      },
-      {
-        "technique": "The finishing touch",
-        "name": "Irma Bancayan Eche",
-        "bio": "Kevyn’s grandmother, sewing since she was 10. She finishes the edges and joins every piece, giving each poncho its final shape."
-      },
-      {
-        "technique": "The link between generations",
-        "name": "Kevyn Abad",
-        "bio": "Kevyn takes every order, measures customers, picks the colors and cuts the fabric for his grandmothers, then checks each poncho himself. He studies Hospitality Management."
-      },
-      {
-        "technique": "The storyteller",
-        "name": "Kerstin Ulrich \"Tiíta\"",
-        "bio": "Swiss-Peruvian, Kerstin came to Lobitos in 2018 as a volunteer and co-founded Lobitos Ponchos with Kevyn and Ivan. She looks after the brand, photos, social media and partnerships."
-      },
-      {
-        "technique": "The steady anchor",
-        "name": "Ivan Vite",
-        "bio": "Ivan studies Environmental Engineering and keeps the admin side running, so every handmade piece is backed by order and care."
-      }
-    ],
+        {
+          "technique": "Matriarch & Head seamstress",
+          "name": "Esmérita \"Mery\" Eche Periche",
+          "bio": "At 73 years old, Abuela Mery is the oldest member of the Lobitos Ponchos team. She is responsible for sewing our ponchos.\n\nWhenever you visit her, her home is full of life. There are always children running around, cumbia music playing, and fresh fish cooking in the kitchen. She has 14 grandchildren, one of whom is Iván, and four great-grandchildren. Sadly, only four of her six children are still alive.\n\nHer late husband was a highly respected fisherman in Lobitos, who passed away a few years ago.\n\nAbuela Mery learned how to sew from her mother. \"Back in the day, we didn't buy our clothes in shops. We made everything ourselves,\" she says proudly.\n\nBesides sewing for Lobitos Ponchos, she often makes costumes for children's school performances or helps people repair their clothes.\n\nShe especially enjoys working alongside her grandson Iván on the Lobitos Ponchos project."
+        },
+        {
+          "technique": "The finishing touch",
+          "name": "Irma Bancayan Eche",
+          "bio": "Abuela Irma (66) is Kevyn's grandmother and is also responsible for sewing our ponchos.\n\nHer workspace is on her cozy veranda, where a refreshing sea breeze is always blowing. Her table is usually covered with all kinds of materials, as sewing ponchos is just one of her many creative talents. She also makes mirrors decorated with seashells, crocheted bikinis, keychains, and all sorts of other handmade treasures.\n\nShe learned these skills from her mother, who sadly passed away when Irma was still young. At just 15 years old, she began selling handmade decorations for children's birthday parties to help support her father, who was a fisherman.\n\nToday, she has five daughters, one son, and 13 grandchildren, with Kevyn being the oldest.\n\nAbuela Irma also works as a housekeeper at a hotel, but she is always happy to receive new sewing orders from Lobitos Ponchos."
+        },
+        {
+          "technique": "The link between generations",
+          "name": "Kevyn Abad",
+          "bio": "Kevyn is probably the best surfer on the Lobitos Ponchos team! He is responsible for part of the poncho production process as well as customer service.\n\nHis easygoing, refreshing personality and constantly improving English have helped him make friends from all over the world.\n\nWhen it comes to speaking about the project in front of a large audience, Kevyn never hesitates. He has a natural ability to connect with people and get them excited about what we do.\n\nHe is Abuela Irma's grandson and, like many people from Lobitos, comes from a fishing family.\n\nSadly, his father, who was a fisherman, passed away during the COVID-19 pandemic. Since then, Kevyn has taken on a lot of responsibility within his small family, making sure that his younger brother Fabio is well taken care of.\n\nTo support his family, Kevyn also works as a surf instructor in Lima alongside his involvement with Lobitos Ponchos."
+        },
+        {
+          "technique": "The storyteller",
+          "name": "Kerstin Ulrich \"Tiíta\"",
+          "bio": "If something needs doing, chances are Tiíta is already on it. She takes our photos, looks after our Instagram and handles the marketing, so that ponchos sewn in Lobitos can reach people all over the world.\n\nTiíta is Swiss-Peruvian and first came to Lobitos in 2018 as a volunteer with Waves Lobitos. There she met two local teens, Kevyn and Iván, and taught them English.\n\nWhen the two of them started making surf ponchos, she helped turn the idea into a real project, and she has been at its heart ever since. Today she spends much of her time planning what comes next, so that Lobitos Ponchos can keep creating work in town for years to come.\n\nShe also started our volunteer program and built a lovely home in Lobitos where she hosts our volunteers. It has become the meeting place for everyone.\n\nWhen she isn't working, you'll usually find her in the water or making music with her band here in Lobitos. She also cares deeply about the environment, in Lobitos and beyond."
+        },
+        {
+          "technique": "The steady anchor",
+          "name": "Iván Vite",
+          "bio": "Iván is the brain behind Lobitos Ponchos. He always has an overview of the finances, accounting, and material orders, making sure everything runs smoothly behind the scenes.\n\nHe studied Environmental Engineering and is someone who genuinely cares about making a positive difference.\n\nWhen an oil spill hit Lobitos in 2024, Iván was probably one of the people who knew the most about every little detail of what was happening.\n\nIf we had to describe him in two words, they would be reliable and competent. His knowledge and dedication have also led various NGOs to reach out to him for collaborations.\n\nIván is Abuela Mery's grandson, and family means everything to him. He always puts his loved ones first.\n\nBut despite his serious and responsible side, Iván always has a funny comment up his sleeve, bringing plenty of laughter to the team."
+        }
+      ],
     "volunteer": {
       "chip": "■ Volunteer",
       "title": "Volunteer\nwith us",
@@ -315,13 +344,13 @@
         "when": "2018",
         "title": "A volunteer and two students",
         "photoAlt": "Young people from Lobitos in colorful ponchos",
-        "text": "Lobitos is a small fishing town with a vibrant community of volunteers and surfers. In 2018, Tiíta came here to volunteer and taught English to two local teens, Kevyn and Ivan."
+        "text": "Lobitos is a small fishing town with a vibrant community of volunteers and surfers. In 2018, Tiíta came here to volunteer and taught English to two local teens, Kevyn and Iván."
       },
       {
         "when": "2022",
         "title": "The first poncho",
         "photoAlt": "One of our grandmothers with a visitor, in front of her sewing machine",
-        "text": "Kevyn and Ivan started making surf ponchos to pay for their studies, and their grandmothers Mery and Irma sew them at home. Tiíta joined with photos and marketing."
+        "text": "Kevyn and Iván started making surf ponchos to pay for their studies, and their grandmothers Mery and Irma sew them at home. Tiíta joined with photos and marketing."
       },
       {
         "when": "Since then",

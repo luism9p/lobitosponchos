@@ -58,7 +58,7 @@ const share = await getImage({ src: shareImage, width: 1200, height: 630, fit: '
   <body class="overflow-x-clip">
     <Header lang={lang} variant={variant} current={current} alternates={alternates} />
     <slot />
-    <Footer lang={lang} />
+    <Footer lang={lang} showTalk={current !== 'contacto'} />
 
     <script>
       import { initAnimations } from '../scripts/animations';

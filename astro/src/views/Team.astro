@@ -49,27 +49,43 @@ const volunteerHelp = list('team.volunteer.help');
 
     <div aria-hidden="true" class="mt-10 border-b-2 border-black"></div>
 
-    <!-- The five of us, grouped the way they were photographed -->
-    <section class="border-b-2 border-black px-5 py-12 split:py-14">
-      <ul class="mx-auto m-0 grid max-w-[1180px] list-none grid-cols-1 gap-x-8 gap-y-12 p-0 xs:grid-cols-2 split:grid-cols-3">
+    <!-- One row per photo: the photo on the left, the people in it side by side on the right -->
+    <section class="border-b-2 border-black px-5">
+      <ul class="mx-auto m-0 flex max-w-[1180px] list-none flex-col p-0">
         {groups.map((g) => (
-          <li class="flex flex-col gap-5">
-            <div class="relative aspect-[4/3] overflow-hidden border-2 border-black bg-black">
-              <Img src={g.foto} alt={g.people.map((p) => p.name).join(' & ')} sizes="(min-width: 860px) 380px, (min-width: 620px) 50vw, 100vw" widths={[480, 760]} position={g.posicion} class="absolute inset-0 size-full object-cover" />
+          <li class="grid grid-cols-1 items-start gap-6 border-b-[1.5px] border-dashed border-black py-12 last:border-b-0 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-10 split:py-14">
+            <div class="relative aspect-[4/3] overflow-hidden border-2 border-black bg-black md:sticky md:top-[100px]">
+              <Img src={g.foto} alt={g.people.map((p) => p.name).join(' & ')} sizes="(min-width: 768px) 480px, 100vw" widths={[480, 760, 960]} position={g.posicion} class="absolute inset-0 size-full object-cover" />
               <div class="absolute inset-x-2.5 bottom-2.5 flex justify-between gap-2">
                 {g.people.map((p) => (
                   <span class="bg-black px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white">{p.apodo}</span>
                 ))}
               </div>
             </div>
-            {g.people.map((p) => (
-              <div class="flex flex-col gap-1.5">
-                <span class="text-[10px] font-semibold uppercase tracking-[0.2em] opacity-70">{p.technique}</span>
-                <h2 class="m-0 font-display text-[26px] font-normal uppercase leading-[1.05]">{p.apodo}</h2>
-                <span class="text-[13px] opacity-70">{p.name}</span>
-                <p class="m-0 text-[15px] leading-[1.55] text-pretty">{p.bio}</p>
-              </div>
-            ))}
+            <div class="grid grid-cols-1 gap-10 xs:grid-cols-2 xs:gap-8 [&>*:only-child]:max-w-[560px] xs:[&>*:only-child]:col-span-2">
+              {g.people.map((p) => {
+                // Bios can have several paragraphs, separated by a blank line. The first one
+                // always shows; the rest open with "Read more".
+                const [first, ...rest] = p.bio.split(/\n\s*\n/);
+                return (
+                  <div class="flex flex-col gap-1.5">
+                    <span class="text-[10px] font-semibold uppercase tracking-[0.2em] opacity-70">{p.technique}</span>
+                    <h2 class="m-0 font-display text-[26px] font-normal uppercase leading-[1.05]">{p.apodo}</h2>
+                    <span class="mb-1 text-[13px] opacity-70">{p.name}</span>
+                    <p class="m-0 text-[15px] leading-[1.55] text-pretty">{first}</p>
+                    {rest.length > 0 && (
+                      <details class="group">
+                        <summary class="mt-1 inline-block cursor-pointer list-none border-b-2 border-black pb-[3px] text-xs font-semibold uppercase tracking-[0.14em] group-open:hidden [&::-webkit-details-marker]:hidden">{t('team.readMore')} ↓</summary>
+                        <div class="flex flex-col items-start gap-1.5">
+                          {rest.map((para) => <p class="m-0 text-[15px] leading-[1.55] text-pretty">{para}</p>)}
+                          <button type="button" onclick="this.closest('details').open = false" class="mt-1 cursor-pointer border-0 border-b-2 border-black bg-transparent p-0 pb-[3px] text-xs font-semibold uppercase tracking-[0.14em] text-black">{t('team.readLess')} ↑</button>
+                        </div>
+                      </details>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
           </li>
         ))}
       </ul>

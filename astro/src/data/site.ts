@@ -2,9 +2,9 @@
 export const site = {
   name: 'Lobitos Ponchos',
   tagline: 'Hecho a mano en Lobitos, Piura, Perú',
-  // Tita's WhatsApp (Switzerland).
-  whatsapp: '41789140609',
-  whatsappLabel: '+41 78 914 06 09',
+  // Lobitos Ponchos WhatsApp (Peru).
+  whatsapp: '51907087196',
+  whatsappLabel: '+51 907 087 196',
   instagram: 'lobitos_ponchos',
   instagramHandle: '@lobitos_ponchos',
   email: 'admi.lobitosponchos@gmail.com',

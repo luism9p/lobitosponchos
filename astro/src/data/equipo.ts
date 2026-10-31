@@ -18,7 +18,7 @@ export const equipo: Persona[] = [
   { numero: 2, apodo: 'Irma' },
   { numero: 3, apodo: 'Kevyn' },
   { numero: 4, apodo: 'Tiíta' },
-  { numero: 5, apodo: 'Ivan' },
+  { numero: 5, apodo: 'Iván' },
 ];
 
 export interface Grupo {
