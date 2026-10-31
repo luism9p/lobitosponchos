@@ -18,8 +18,9 @@ const { t, list } = useTranslations(lang);
 
 const aboutLinks = (['historia', 'causa', 'equipo'] as const).map((route) => url(lang, route));
 const aboutCards = list<{ title: string; text: string; link: string }>('home.aboutCards').map((card, i) => ({ ...card, href: aboutLinks[i] }));
-// White line between the slideshow and the shop tiles.
-const divider = 'h-2.5 bg-white';
+// White line between the slideshow and the shop tiles (desktop only: on phones the slideshow
+// already ends on white).
+const divider = 'hidden h-2.5 bg-white nav:block';
 // Same space above and below the content of every home section.
 const sectionPad = 'py-10 split:py-14';
 ---

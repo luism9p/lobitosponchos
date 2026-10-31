@@ -15,15 +15,14 @@ const { lang, autoplay = 4 } = Astro.props;
 const { t, list } = useTranslations(lang);
 const alts = list('hero.slides');
 
-// The photos are wide panoramas with words drawn into them. Narrow screens only show a slice,
-// so each one is framed (object-position) to keep its words in view. On phones the photo also
-// sits below the header and above the title, so nothing covers those words.
-const framing = [
-  'object-[24%_50%] nav:object-[35%_50%]',
-  'object-[73%_50%] nav:object-center',
-  'object-[90%_50%] nav:object-[65%_50%]',
-];
-const slides = [carr1, carr2, carr3].map((src, i) => ({ src, alt: alts[i], framing: framing[i] }));
+// The photos are wide panoramas. Phones only show a slice, so each one is framed (object-position)
+// on its main subject; on desktop the framing keeps the drawn-in words in view.
+// `alt` is the index of the photo's description in `hero.slides`.
+const slides = [
+  { src: carr1, alt: 0, framing: 'object-[55%_50%] nav:object-[35%_50%]' }, // boy holding the puppy
+  { src: carr3, alt: 2, framing: 'object-[38%_50%] nav:object-[65%_50%]' }, // the surfer
+  { src: carr2, alt: 1, framing: 'object-[100%_50%] nav:object-center' }, // a grandmother with the church behind
+].map((s) => ({ ...s, alt: alts[s.alt] }));
 ---
 
 <section
@@ -56,7 +55,7 @@ const slides = [carr1, carr2, carr3].map((src, i) => ({ src, alt: alts[i], frami
   </div>
   <div class="pointer-events-none absolute inset-0 hidden bg-[linear-gradient(180deg,rgba(0,0,0,.6)_0%,rgba(0,0,0,0)_32%,rgba(0,0,0,0)_55%,rgba(0,0,0,.55)_100%)] nav:block"></div>
 
-  <div class="relative flex flex-col items-center gap-2 px-[18px] pb-3 pt-5 nav:absolute nav:inset-x-0 nav:bottom-[18px] nav:gap-3.5 nav:p-0 nav:px-[18px]">
+  <div class="relative flex flex-col items-center gap-1 px-[18px] pt-3 nav:absolute nav:inset-x-0 nav:bottom-[18px] nav:gap-3.5 nav:p-0 nav:px-[18px]">
     <div class="text-center text-black nav:text-white">
       <h1 class="font-display text-[clamp(28px,6vw,56px)] font-normal leading-[.95] tracking-[0.02em]">LOBITOS PONCHOS</h1>
       <p class="mt-1.5 text-[10px] uppercase tracking-[0.34em] opacity-90">{t('hero.tagline')}</p>
@@ -68,7 +67,7 @@ const slides = [carr1, carr2, carr3].map((src, i) => ({ src, alt: alts[i], frami
           data-dot
           data-active={i === 0 ? '' : undefined}
           aria-label={t('hero.goTo', { n: i + 1 })}
-          class="box-content h-[3px] w-[34px] cursor-pointer border-0 bg-black bg-clip-content px-1 py-3 opacity-35 nav:bg-white data-[active]:opacity-100"
+          class="box-content h-[3px] w-[34px] cursor-pointer border-0 bg-black bg-clip-content px-1 py-2.5 opacity-35 nav:bg-white nav:py-3 data-[active]:opacity-100"
         ></button>
       ))}
     </div>
