@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import LogoBadge from '../components/LogoBadge.astro';
 import Chip from '../components/Chip.astro';
 import Lines from '../components/Lines.astro';
 import ProductCard from '../components/ProductCard.astro';
@@ -39,6 +40,7 @@ const tab =
   description={t('catalog.seoDescription')}
   variant="solid"
   current="catalogo"
+  footerLogo={false}
 >
   <main>
     <section class="mx-auto max-w-[1180px] px-5 pt-[104px] split:pt-[150px]">
@@ -86,6 +88,7 @@ const tab =
     </div>
 
     <section class="border-y-2 border-black bg-black px-5 py-[70px] text-center text-white">
+      <LogoBadge size={170} class="mx-auto mb-8 w-[120px] split:w-[170px]" />
       <h2 class="mx-auto mb-7 max-w-[820px] font-display text-[clamp(28px,5vw,58px)] font-normal uppercase leading-[1.08]">{t('catalog.ctaTitle')}</h2>
       <div class="flex flex-wrap items-center justify-center gap-4">
         <a href={url(lang, 'disena')} class="inline-flex rotate-2 items-center border-2 border-white bg-black px-4 pb-[9px] pt-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-white transition-transform duration-200 hover:-rotate-[1.5deg] hover:scale-[1.04] hover:no-underline">{t('catalog.ctaDesign')} →</a>

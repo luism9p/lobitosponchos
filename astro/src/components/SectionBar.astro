@@ -1,5 +1,6 @@
 ---
 // Thin full-width divider with a label on each side.
+// On phones it is always a light bar with a single thin line, so the home page headings stay simple.
 interface Props {
   left: string;
   right?: string;
@@ -8,12 +9,12 @@ interface Props {
 }
 const { left, right, number, tone = 'light' } = Astro.props;
 const tones = {
-  light: 'bg-white text-black border-black',
-  dark: 'bg-black text-white border-black',
+  light: 'bg-white text-black border-black md:border-t-2',
+  dark: 'bg-white text-black border-black md:bg-black md:text-white',
 };
 ---
 
-<section class:list={['flex w-full flex-wrap items-center justify-between gap-4 border-b-2 px-[22px] py-3.5', tone === 'light' && 'border-t-2', tones[tone]]}>
+<section class:list={['flex w-full flex-wrap items-center justify-between gap-4 border-b px-5 pb-3.5 pt-6 md:border-b-2 md:px-[22px] md:py-3.5', tones[tone]]}>
   <div class="flex items-baseline gap-2.5">
     {number && <span class="font-display text-[22px] leading-none">{number}</span>}
     <span class="text-[11px] font-semibold uppercase tracking-[0.28em]">{left}</span>

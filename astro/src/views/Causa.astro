@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import LogoBadge from '../components/LogoBadge.astro';
 import CausaBlock from '../components/CausaBlock.astro';
 import Chip from '../components/Chip.astro';
 import Img from '../components/Img.astro';
@@ -36,6 +37,7 @@ const body = 'm-0 text-base leading-[1.65] text-pretty';
   description={t('cause.seoDescription')}
   variant="solid"
   current="causa"
+  footerLogo={false}
 >
   <main>
     <section class="mx-auto max-w-[1180px] px-5 pt-[104px] split:pt-[150px]">
@@ -54,7 +56,7 @@ const body = 'm-0 text-base leading-[1.65] text-pretty';
         {indice.map((item) => (
           <a href={`#${item.id}`} class:list={['flex flex-col gap-3 border-black px-4 pb-[22px] pt-[18px] text-black transition-colors duration-150 hover:bg-black hover:text-white hover:no-underline', item.border]}>
             <span aria-hidden="true" class="self-end text-[10px] font-semibold">↓</span>
-            <span class="font-display text-xl uppercase leading-[1.05]">{item.title}</span>
+            <span class="font-display text-[clamp(15px,4.6vw,20px)] uppercase leading-[1.05]">{item.title}</span>
           </a>
         ))}
       </nav>
@@ -116,7 +118,8 @@ const body = 'm-0 text-base leading-[1.65] text-pretty';
       </div>
     </section>
 
-    <section class="bg-black px-5 pb-24 pt-[100px] text-center text-white">
+    <section class="bg-black px-5 pb-16 pt-16 text-center text-white split:pb-20 split:pt-20">
+      <LogoBadge size={170} class="mx-auto mb-8 w-[120px] split:w-[170px]" />
       <Chip tone="dark" class="mb-7 -rotate-[1.5deg] px-4 py-[7px]">{t('cause.closing.chip')}</Chip>
       <h2 class="mx-auto mb-6 max-w-[1000px] font-display text-[clamp(30px,5.2vw,64px)] font-normal uppercase leading-[1.06] text-balance">{t('cause.closing.title')}</h2>
       <p class="mx-auto mb-10 max-w-[600px] text-[19px] leading-[1.55] text-pretty">{t('cause.closing.text')}</p>

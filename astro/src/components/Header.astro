@@ -32,6 +32,10 @@ const mobileRow =
   'flex items-baseline justify-between border-b-[1.5px] border-black py-3.5 font-display text-2xl uppercase leading-none text-black hover:no-underline';
 const mobileTop =
   'block border-b-[1.5px] border-black py-3.5 font-display text-[28px] uppercase leading-none text-black hover:no-underline';
+// On phones the language switch is one button showing the other language.
+const otherLang: Lang = lang === 'es' ? 'en' : 'es';
+// Phone buttons in the bar (language, WhatsApp, menu): identical outlined squares.
+const phoneBtn = 'flex size-10 shrink-0 items-center justify-center border-[1.5px] border-current hover:no-underline nav:hidden';
 const langLink = 'px-1 hover:underline aria-[current=true]:font-bold aria-[current=true]:underline underline-offset-[6px]';
 ---
 
@@ -45,21 +49,23 @@ const langLink = 'px-1 hover:underline aria-[current=true]:font-bold aria-[curre
 >
   <div
     class:list={[
-      'relative z-[2] flex items-center justify-between gap-4 px-[18px] py-3.5',
+      'relative z-[2] flex items-center justify-between gap-4 px-[18px] py-3 nav:py-3.5',
       solid
-        ? 'border-b-2 border-black bg-white'
-        : 'border-b-2 border-transparent transition-colors duration-300 group-data-[scrolled]/header:border-black group-data-[scrolled]/header:bg-white',
+        ? 'border-b border-black bg-white nav:border-b-2'
+        : 'border-b border-transparent transition-colors duration-300 group-data-[scrolled]/header:border-black group-data-[scrolled]/header:bg-white nav:border-b-2',
+      // On phones, a soft dark fade keeps the header readable over the home photo.
+      !solid && 'bg-linear-to-b from-black/55 to-transparent bg-no-repeat group-data-[scrolled]/header:bg-none group-data-[dark]/header:bg-none nav:bg-none',
     ]}
   >
     <a href={home} aria-label={t('nav.homeAria')} class="flex shrink-0 items-center">
       <Img
         src={logo}
         alt="Lobitos Ponchos"
-        sizes="46px"
-        widths={[46, 92, 138]}
+        sizes="(min-width: 1000px) 46px, 52px"
+        widths={[52, 104, 156]}
         eager
         class:list={[
-          'block size-[46px] rounded-full border-[1.5px] group-data-[dark]/header:border-black',
+          'block size-[52px] rounded-full border-[1.5px] nav:size-[46px] group-data-[dark]/header:border-black',
           solid ? 'border-black' : 'border-white',
         ]}
       />
@@ -91,32 +97,44 @@ const langLink = 'px-1 hover:underline aria-[current=true]:font-bold aria-[curre
 
     <div class="flex shrink-0 items-center gap-2.5">
       {showSwitcher && (
-        <div class="flex items-center text-xs uppercase tracking-[0.14em]" role="group" aria-label={t('nav.language')}>
+        <div class="hidden items-center text-xs uppercase tracking-[0.14em] nav:flex" role="group" aria-label={t('nav.language')}>
           <a href={alternates?.es} hreflang="es" lang="es" aria-current={lang === 'es' ? 'true' : undefined} class={langLink}>ES</a>
           <span aria-hidden="true">|</span>
           <a href={alternates?.en} hreflang="en" lang="en" aria-current={lang === 'en' ? 'true' : undefined} class={langLink}>EN</a>
         </div>
       )}
+      {showSwitcher && (
+        <a href={alternates?.[otherLang]} hreflang={otherLang} lang={otherLang} aria-label={otherLang === 'en' ? 'English' : 'Español'} class={phoneBtn + ' text-xs font-semibold uppercase tracking-[0.08em]'}>{otherLang}</a>
+      )}
+      <a
+        href={whatsappUrl()}
+        target="_blank"
+        rel="noopener"
+        aria-label={t('nav.whatsapp')}
+        class={phoneBtn}
+      >
+        <WhatsAppIcon />
+      </a>
       <a
         href={whatsappUrl()}
         target="_blank"
         rel="noopener"
         class:list={[
-          'flex -rotate-2 items-center gap-2 border-2 border-black py-2 pl-3 pr-3.5 text-xs font-semibold uppercase tracking-[0.12em] hover:no-underline',
+          'hidden nav:flex -rotate-2 items-center gap-2 border-2 border-black py-2 pl-3 pr-3.5 text-xs font-semibold uppercase tracking-[0.12em] hover:no-underline',
           solid
             ? 'bg-black text-white'
             : 'bg-white text-black outline-[1.5px] -outline-offset-[5px] outline-white group-data-[dark]/header:outline-black',
         ]}
       >
         <WhatsAppIcon />
-        <span class="hidden xs:inline">{t('nav.whatsapp')}</span>
+        <span>{t('nav.whatsapp')}</span>
       </a>
       <button
         type="button"
         data-burger
         aria-label={t('nav.menu')}
         aria-expanded="false"
-        class="flex size-[46px] cursor-pointer flex-col justify-center gap-[5px] border-[1.5px] border-current px-[11px] nav:hidden"
+        class="flex size-10 shrink-0 cursor-pointer flex-col justify-center gap-[5px] border-[1.5px] border-current px-[9px] nav:hidden"
       >
         <span class="block h-0.5 bg-current transition-transform duration-[250ms] group-data-[menu=mobile]/header:translate-y-[7px] group-data-[menu=mobile]/header:rotate-45"></span>
         <span class="block h-0.5 bg-current transition-transform duration-[250ms] group-data-[menu=mobile]/header:scale-x-0"></span>

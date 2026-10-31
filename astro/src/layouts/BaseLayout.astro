@@ -21,8 +21,10 @@ interface Props {
   current?: 'inicio' | 'catalogo' | 'causa' | 'equipo' | 'historia' | 'b2b' | 'contacto';
   /** Photo shown when the page is shared on WhatsApp, Instagram, etc. Defaults to the home hero. */
   shareImage?: ImageMetadata;
+  /** Set to false on pages whose last black section already shows the logo, so the footer leaves it out. */
+  footerLogo?: boolean;
 }
-const { lang, route, slug, title, description, variant = 'solid', current, shareImage = shareDefault } = Astro.props;
+const { lang, route, slug, title, description, variant = 'solid', current, shareImage = shareDefault, footerLogo = true } = Astro.props;
 const fullTitle = title === site.name ? title : `${title} · ${site.name}`;
 const icon = await getImage({ src: logo, width: 96, height: 96, format: 'png' });
 const alternates = Object.fromEntries(languages.map((l) => [l, url(l, route, slug)])) as Record<Lang, string>;
@@ -58,7 +60,7 @@ const share = await getImage({ src: shareImage, width: 1200, height: 630, fit: '
   <body class="overflow-x-clip">
     <Header lang={lang} variant={variant} current={current} alternates={alternates} />
     <slot />
-    <Footer lang={lang} showTalk={current !== 'contacto'} />
+    <Footer lang={lang} full={route === 'home'} logo={footerLogo} />
 
     <script>
       import { initAnimations } from '../scripts/animations';

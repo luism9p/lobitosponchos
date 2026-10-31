@@ -132,6 +132,10 @@ export function initAnimations(): void {
         opacity: 1,
         duration: 1,
         ease: 'power3.out',
+        // Once in place, drop the animation layer: some browsers trim letters that poke
+        // past the edge of a layer, which cut off the end of hand-drawn headings.
+        clearProps: 'transform',
+        onComplete: () => title.classList.remove('reveal-ready'),
         scrollTrigger: {
           trigger: title,
           start: 'top 88%',

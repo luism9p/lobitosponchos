@@ -15,7 +15,15 @@ const { lang, autoplay = 4 } = Astro.props;
 const { t, list } = useTranslations(lang);
 const alts = list('hero.slides');
 
-const slides = [carr1, carr2, carr3].map((src, i) => ({ src, alt: alts[i] }));
+// The photos are wide panoramas with words drawn into them. Narrow screens only show a slice,
+// so each one is framed (object-position) to keep its words in view. On phones the photo also
+// sits below the header and above the title, so nothing covers those words.
+const framing = [
+  'object-[24%_50%] split:object-[35%_50%]',
+  'object-[73%_50%] split:object-center',
+  'object-[90%_50%] split:object-[65%_50%]',
+];
+const slides = [carr1, carr2, carr3].map((src, i) => ({ src, alt: alts[i], framing: framing[i] }));
 ---
 
 <section
@@ -24,8 +32,9 @@ const slides = [carr1, carr2, carr3].map((src, i) => ({ src, alt: alts[i] }));
   data-autoplay={autoplay}
   aria-roledescription={t('hero.carousel')}
   aria-label="Lobitos Ponchos"
-  class="relative h-[400px] w-full touch-pan-y overflow-hidden bg-black split:h-[650px]"
+  class="relative flex w-full touch-pan-y flex-col overflow-hidden bg-black pt-[77px] split:block split:h-[650px] split:pt-0"
 >
+  <div class="relative h-[300px] w-full split:absolute split:inset-0 split:h-auto">
   {slides.map((slide, i) => (
     <div
       data-slide
@@ -40,13 +49,14 @@ const slides = [carr1, carr2, carr3].map((src, i) => ({ src, alt: alts[i] }));
         widths={[480, 768, 1280, 1920, 2560, 3200]}
         eager={i === 0}
         quality={80}
-        class="size-full object-cover object-center"
+        class:list={['size-full object-cover', slide.framing]}
       />
     </div>
   ))}
-  <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,.6)_0%,rgba(0,0,0,0)_32%,rgba(0,0,0,0)_55%,rgba(0,0,0,.55)_100%)]"></div>
+  </div>
+  <div class="pointer-events-none absolute inset-0 hidden bg-[linear-gradient(180deg,rgba(0,0,0,.6)_0%,rgba(0,0,0,0)_32%,rgba(0,0,0,0)_55%,rgba(0,0,0,.55)_100%)] split:block"></div>
 
-  <div class="absolute inset-x-0 bottom-[18px] flex flex-col items-center gap-3.5 px-[18px]">
+  <div class="relative flex flex-col items-center gap-2 px-[18px] pb-2 pt-5 split:absolute split:inset-x-0 split:bottom-[18px] split:gap-3.5 split:p-0 split:px-[18px]">
     <div class="text-center text-white">
       <h1 class="font-display text-[clamp(28px,6vw,56px)] font-normal leading-[.95] tracking-[0.02em]">LOBITOS PONCHOS</h1>
       <p class="mt-1.5 text-[10px] uppercase tracking-[0.34em] opacity-90">{t('hero.tagline')}</p>

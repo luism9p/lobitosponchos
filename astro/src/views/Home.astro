@@ -56,16 +56,14 @@ const aboutCards = list<{ title: string; text: string; link: string }>('home.abo
       })}
     </section>
 
-    <SectionBar left={t('home.barPeople')} />
-
     <!-- About us: story, purpose and people in one place -->
-    <section id="nosotros" class="relative overflow-hidden border-b-2 border-black">
-      <div class="relative border-b-2 border-black">
+    <section id="nosotros" class="relative overflow-hidden bg-white">
+      <div class="relative mx-5 mt-10 border-2 border-black md:mx-0 md:mt-0 md:border-0 md:border-b-2">
         <Img src={equipoFoto} alt={t('home.aboutPhotoAlt')} sizes="100vw" widths={[640, 960, 1280, 1600, 1920, 2560]} position="50% 48%" class="block h-auto w-full split:h-[clamp(240px,22vw,440px)] split:object-cover" />
-        <span class="absolute bottom-3 left-3 inline-block border-2 border-black bg-white px-2.5 pb-0.5 pt-1.5 font-display text-[clamp(24px,4vw,48px)] uppercase leading-[.9] split:bottom-6 split:left-[34px]">{t('home.aboutChip')}</span>
+        <span class="absolute bottom-3 left-3 hidden border-2 md:inline-block border-black bg-white px-2.5 pb-0.5 pt-1.5 font-display text-[clamp(24px,4vw,48px)] uppercase leading-[.9] split:bottom-6 split:left-[34px]">{t('home.aboutChip')}</span>
       </div>
       <div class="mx-auto grid w-full max-w-[1180px] grid-cols-1 gap-8 px-5 pb-14 pt-12 split:grid-cols-[1fr_1.1fr] split:gap-14 split:pb-8 split:pt-9">
-        <h2 class="m-0 font-display text-[clamp(36px,5vw,64px)] font-normal uppercase leading-[.95] tracking-[-0.02em]"><Lines text={t('home.aboutTitle')} /></h2>
+        <h2 class="m-0 font-display text-[clamp(36px,5vw,64px)] font-normal uppercase leading-[.95]"><Lines text={t('home.aboutTitle')} /></h2>
         <p class="m-0 self-end text-lg leading-[1.6] text-pretty">{t('home.aboutLead')}</p>
       </div>
       <div class="mx-auto grid w-full max-w-[1180px] grid-cols-1 gap-8 px-5 pb-16 md:grid-cols-3 md:gap-10 split:pb-10">
@@ -79,11 +77,11 @@ const aboutCards = list<{ title: string; text: string; link: string }>('home.abo
       </div>
     </section>
 
-    <!-- Life in Lobitos: the Instagram clip beside the text, alternating with the B2B layout below -->
-    <section id="vida" class="border-b-2 border-black bg-cream">
+    <!-- Life in Lobitos: the Instagram clip beside the text. Sections alternate white / sand / white. -->
+    <section id="vida" class="bg-sand">
       <div class="mx-auto grid w-full max-w-[1180px] grid-cols-1 items-center gap-10 px-5 py-14 md:grid-cols-[minmax(0,380px)_1fr] md:gap-16 split:py-[88px]">
         <div class="flex flex-col items-start gap-6 md:order-2">
-          <h2 class="m-0 font-display text-[clamp(38px,5.4vw,80px)] font-normal uppercase leading-[.95] tracking-[-0.02em]">{t('home.lifeTitle')}</h2>
+          <h2 class="m-0 font-display text-[clamp(38px,5.4vw,80px)] font-normal uppercase leading-[.95]">{t('home.lifeTitle')}</h2>
           <p class="m-0 max-w-[480px] text-lg leading-[1.6] text-pretty">{t('home.lifeText')}</p>
           <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 border-t-[1.5px] border-black pt-4">
             <span class="font-display text-[34px] leading-none">12.4K</span>
@@ -98,8 +96,7 @@ const aboutCards = list<{ title: string; text: string; link: string }>('home.abo
     </section>
 
     <!-- B2B -->
-    <section id="b2b" class="relative overflow-hidden border-b-2 border-black bg-white">
-      <SectionBar tone="dark" left={t('home.b2bBarLeft')} />
+    <section id="b2b" class="relative overflow-hidden bg-white">
       <div class="grid grid-cols-1 items-stretch md:grid-cols-[55fr_45fr]">
         <div class="relative z-[2] flex flex-col justify-center gap-[26px] px-5 py-12 md:px-10 md:py-16">
           <h2 class="m-0 self-start font-display text-[clamp(36px,6vw,84px)] font-normal uppercase leading-[.9]"><Lines text={t('home.b2bTitle')} /></h2>

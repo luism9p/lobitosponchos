@@ -1,21 +1,20 @@
 ---
-import logo from '../assets/brand/logo.png';
-import Img from './Img.astro';
+import LogoBadge from './LogoBadge.astro';
 import WhatsAppIcon from './WhatsAppIcon.astro';
-import Lines from './Lines.astro';
 import { catalogoUrl } from '../data/categorias';
 import { instagramUrl, site, whatsappUrl } from '../data/site';
 import { url, useTranslations, type Lang } from '../i18n';
 
 interface Props {
   lang: Lang;
-  /** The big "Let's talk" and WhatsApp button. Off on the Contact page, which already has all of it. */
-  showTalk?: boolean;
+  /** Home page: "Let's talk", the WhatsApp button and the big logo above the links. Other pages get a compact footer. */
+  full?: boolean;
+  /** Small logo at the start of the compact footer. Off on pages whose last black section already shows the logo. */
+  logo?: boolean;
 }
-const { lang, showTalk = true } = Astro.props;
+const { lang, full = false, logo = true } = Astro.props;
 const { t } = useTranslations(lang);
 
-// A playful "Let's talk" with the WhatsApp button, then the links in four columns.
 const groups = [
   {
     title: t('footer.shop'),
@@ -45,52 +44,42 @@ const groups = [
     ],
   },
 ];
-const link = 'break-words text-white/85 hover:text-white hover:underline underline-offset-4';
-const heading = 'mb-1 text-[11px] uppercase tracking-[0.2em] opacity-60';
-// A slight, different tilt per column keeps the hand-made feel.
-const tilts = ['-rotate-[1.2deg]', 'rotate-[1deg]', '-rotate-[0.8deg]', 'rotate-[1.2deg]'];
-const bigLogo = 'pointer-events-none -rotate-[8deg] rounded-full border-2 border-white';
+const link = 'text-white/80 hover:text-white hover:underline underline-offset-4';
 ---
 
-<footer id="contacto" class="relative overflow-hidden border-t-2 border-black bg-black px-5 pb-14 pt-14 text-white split:pb-16 split:pt-16">
-  <!-- The big logo, running off the right edge (on phones it sits below the links instead) -->
-  <Img src={logo} alt="" sizes="(min-width: 860px) 440px, 60vw" widths={[300, 440, 660, 880]} class:list={[bigLogo, 'absolute top-1/2 hidden -translate-y-1/2 split:block', showTalk ? 'right-[-7%] w-[min(34vw,440px)]' : 'right-[3%] w-[min(17vw,210px)]']} />
-
-  <div class="relative mx-auto max-w-[1180px] split:pr-[min(26vw,340px)]">
-    {showTalk && (
-      <div class="relative flex flex-col gap-8 border-b border-white/25 pb-12">
-        <h2 class="m-0 origin-bottom-left -rotate-2 font-display text-[clamp(52px,9vw,110px)] font-normal uppercase leading-[.85]">{t('footer.talk')}</h2>
-        <svg viewBox="0 0 220 120" width="150" height="82" aria-hidden="true" class="pointer-events-none absolute left-[44%] top-[48%] hidden overflow-visible split:block">
-          <path d="M6 96 C 50 30, 100 120, 140 40 S 190 20, 214 70" fill="none" stroke="#fff" stroke-width="2.5" stroke-dasharray="8 8" stroke-linecap="round"></path>
-        </svg>
-        <a
-          href={whatsappUrl()}
-          target="_blank"
-          rel="noopener"
-          class="inline-flex min-h-[44px] origin-left rotate-[2deg] items-center gap-3 self-start border-[3px] border-white bg-white px-6 pb-3.5 pt-4 font-display text-[clamp(20px,2.4vw,28px)] uppercase leading-none text-black outline-2 -outline-offset-[7px] outline-black hover:no-underline split:mb-2 split:justify-self-start"
-        >
-          <WhatsAppIcon size={18} />
-          <span>{t('footer.orderBtn')}</span>
-        </a>
-      </div>
+<footer id="contacto" class:list={['bg-black px-5 text-white', full ? 'border-t-2 border-black pb-12 pt-14 split:pb-14 split:pt-16' : 'border-t border-white/20 py-10']}>
+  <div class:list={['mx-auto flex max-w-[1180px] flex-col', full ? 'gap-12 split:flex-row split:items-center split:justify-between split:gap-16' : 'gap-8 split:flex-row split:items-start split:gap-14']}>
+    {full && (
+      <LogoBadge size={340} class="order-last w-[min(62vw,260px)] self-center split:w-[clamp(240px,26vw,340px)] split:self-auto" />
     )}
+    {!full && logo && <LogoBadge size={88} class="w-[72px] shrink-0 split:w-[88px]" />}
 
-    <nav aria-label={t('nav.main')} class:list={['grid grid-cols-2 gap-x-8 gap-y-9 text-sm md:grid-cols-4 split:grid-cols-[repeat(4,auto)] split:justify-between split:gap-x-6 split:whitespace-nowrap', showTalk && 'pt-10']}>
-      {groups.map((g, i) => (
-        <div class:list={['flex flex-col gap-2.5 [&:nth-child(3)]:col-span-2 md:[&:nth-child(3)]:col-span-1', tilts[i]]}>
-          <span class={heading}>{g.title}</span>
-          {g.links.map((l) => (
-            <a href={l.href} target={l.external ? '_blank' : undefined} rel={l.external ? 'noopener' : undefined} class={link}>{l.label}</a>
-          ))}
+    <div class:list={['flex min-w-0 flex-1 flex-col', full && 'gap-12']}>
+      {full && (
+        <div class="flex flex-col items-start gap-7 border-b border-white/20 pb-12">
+          <h2 class="m-0 font-display text-[clamp(52px,8vw,100px)] font-normal uppercase leading-[.85]">{t('footer.talk')}</h2>
+          <a
+            href={whatsappUrl()}
+            target="_blank"
+            rel="noopener"
+            class="inline-flex min-h-[44px] items-center gap-2.5 border-2 border-white bg-white px-6 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-black hover:bg-black hover:text-white hover:no-underline"
+          >
+            <WhatsAppIcon size={16} />
+            <span>{t('footer.orderBtn')}</span>
+          </a>
         </div>
-      ))}
-      <div class:list={['flex flex-col gap-2.5', tilts[3]]}>
-        <span class={heading}>{t('footer.where')}</span>
-        <span class="font-display text-[22px] uppercase leading-[.95]"><Lines text={t('footer.place')} /></span>
-        <span class="text-white/85">{t('footer.country')}</span>
-      </div>
-    </nav>
+      )}
 
-    <Img src={logo} alt="" sizes="60vw" widths={[300, 440, 660]} class:list={[bigLogo, '-mb-[10vw] -mr-[14vw] -mt-[110px] ml-auto block w-[60vw] max-w-[340px] md:mt-8 split:hidden']} />
+      <nav aria-label={t('nav.main')} class="grid grid-cols-2 gap-x-8 gap-y-8 text-sm md:grid-cols-3">
+        {groups.map((g) => (
+          <div class="flex flex-col gap-2 [&:nth-child(3)]:col-span-2 md:[&:nth-child(3)]:col-span-1">
+            <span class="mb-1 text-[11px] uppercase tracking-[0.2em] text-white/55">{g.title}</span>
+            {g.links.map((l) => (
+              <a href={l.href} target={l.external ? '_blank' : undefined} rel={l.external ? 'noopener' : undefined} class={link}>{l.label}</a>
+            ))}
+          </div>
+        ))}
+      </nav>
+    </div>
   </div>
 </footer>

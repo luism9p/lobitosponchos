@@ -1,0 +1,21 @@
+---
+import logo from '../assets/brand/logo.png';
+import Img from './Img.astro';
+
+// The round Lobitos Ponchos logo, slightly tilted, for black sections and the footer.
+interface Props {
+  /** Width classes, e.g. "w-[140px] split:w-[180px]". */
+  class?: string;
+  /** Largest width it is shown at, in pixels, so the right image size is loaded. */
+  size?: number;
+}
+const { class: className, size = 200 } = Astro.props;
+---
+
+<Img
+  src={logo}
+  alt=""
+  sizes={`${size}px`}
+  widths={[size, size * 2]}
+  class:list={['pointer-events-none block aspect-square -rotate-[8deg] rounded-full border-2 border-white', className]}
+/>

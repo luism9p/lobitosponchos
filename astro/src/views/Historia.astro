@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import LogoBadge from '../components/LogoBadge.astro';
 import Chip from '../components/Chip.astro';
 import Img from '../components/Img.astro';
 import Lines from '../components/Lines.astro';
@@ -39,6 +40,7 @@ const chapters = list<Chapter>('story.chapters').map((c, i) => ({ ...c, ...chapt
   description={t('story.seoDescription')}
   variant="solid"
   current="historia"
+  footerLogo={false}
 >
   <main>
     <section class="mx-auto max-w-[1180px] px-5 pt-[104px] split:pt-[150px]">
@@ -69,7 +71,8 @@ const chapters = list<Chapter>('story.chapters').map((c, i) => ({ ...c, ...chapt
       </ol>
     </section>
 
-    <section class="bg-black px-5 pb-24 pt-[100px] text-center text-white">
+    <section class="bg-black px-5 pb-16 pt-16 text-center text-white split:pb-20 split:pt-20">
+      <LogoBadge size={170} class="mx-auto mb-8 w-[120px] split:w-[170px]" />
       <Chip tone="dark" class="mb-7 -rotate-[1.5deg] px-4 py-[7px]">{t('story.closingChip')}</Chip>
       <h2 class="mx-auto mb-10 max-w-[1000px] font-display text-[clamp(30px,5.2vw,64px)] font-normal uppercase leading-[1.06] text-balance">{t('story.closingTitle')}</h2>
       <div class="flex flex-wrap justify-center gap-3.5">
