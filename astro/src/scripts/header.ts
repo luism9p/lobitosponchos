@@ -29,8 +29,9 @@ export function initHeader(): void {
     document.documentElement.style.overflow = next === 'mobile' ? 'hidden' : '';
   }
 
-  function setCategory(index: number): void {
-    megaItems.forEach((el) => el.toggleAttribute('data-active', Number(el.dataset.megaitem) === index));
+  /** Show a category photo; `highlight` false leaves every row unhighlighted (a sub-item is hovered). */
+  function setCategory(index: number, highlight = true): void {
+    megaItems.forEach((el) => el.toggleAttribute('data-active', highlight && Number(el.dataset.megaitem) === index));
     megaImgs.forEach((el) => el.toggleAttribute('data-active', Number(el.dataset.megaimg) === index));
     const name = megaItems[index]?.dataset.name;
     if (megaTag && name) megaTag.textContent = name;
@@ -55,10 +56,10 @@ export function initHeader(): void {
     item.addEventListener('mouseenter', () => setCategory(Number(item.dataset.megaitem)));
     item.addEventListener('focus', () => setCategory(Number(item.dataset.megaitem)));
   });
-  // Sub-items (e.g. the poncho lines) keep their parent category highlighted and its photo showing.
+  // Sub-items (e.g. the poncho lines) highlight themselves and keep their parent category's photo.
   header.querySelectorAll<HTMLElement>('[data-megasub]').forEach((item) => {
-    item.addEventListener('mouseenter', () => setCategory(Number(item.dataset.megasub)));
-    item.addEventListener('focus', () => setCategory(Number(item.dataset.megasub)));
+    item.addEventListener('mouseenter', () => setCategory(Number(item.dataset.megasub), false));
+    item.addEventListener('focus', () => setCategory(Number(item.dataset.megasub), false));
   });
 
   header.addEventListener('mouseleave', () => {

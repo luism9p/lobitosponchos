@@ -175,9 +175,9 @@ const langLink = 'px-1 hover:underline aria-[current=true]:font-bold aria-[curre
             <ul class="m-0 list-none border-b-[1.5px] border-black p-0 py-1.5">
               {ponchoLines.map((l) => (
                 <li>
-                  <a href={l.href} data-megasub={i} class="group/sub flex items-center justify-between py-2 pl-[38px] text-[13px] font-semibold uppercase tracking-[0.16em] text-black/65 transition-colors hover:text-black hover:no-underline focus-visible:text-black">
+                  <a href={l.href} data-megasub={i} class="group/sub flex items-center justify-between py-2.5 pl-[38px] pr-3.5 text-[13px] font-semibold uppercase tracking-[0.16em] text-black/65 transition-colors hover:bg-black hover:text-white hover:no-underline focus-visible:bg-black focus-visible:text-white">
                     <span class="flex items-center gap-3"><span aria-hidden="true" class="h-[1.5px] w-4 bg-current"></span>{l.label}</span>
-                    <span aria-hidden="true" class="font-sans text-base opacity-0 transition-opacity group-hover/sub:opacity-100">→</span>
+                    <span aria-hidden="true" class="font-sans text-base opacity-0 transition-opacity group-hover/sub:opacity-100 group-focus-visible/sub:opacity-100">→</span>
                   </a>
                 </li>
               ))}
