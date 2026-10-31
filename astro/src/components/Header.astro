@@ -20,6 +20,14 @@ const solid = variant === 'solid';
 const showSwitcher = englishLive && !!alternates;
 
 const home = url(lang, 'home');
+// The three poncho lines (sections of the catalogue page), listed under Ponchos in the shop menus.
+const ponchoLines = (['clasico', 'light', 'unico'] as const).map((id) => ({
+  href: url(lang, 'catalogo', undefined, id),
+  label: t(`catalog.lines.${id}.title`),
+}));
+const volunteerHref = url(lang, 'equipo', undefined, 'voluntariado');
+const subRow =
+  'flex items-baseline justify-between border-b-[1.5px] border-black py-3 pl-4 text-sm font-semibold uppercase tracking-[0.14em] text-black hover:no-underline';
 const catName = (id: string) => t(`categories.${id}.name`);
 
 const navLink =
@@ -44,7 +52,8 @@ const langLink = 'px-1 hover:underline aria-[current=true]:font-bold aria-[curre
   data-menu=""
   class:list={[
     'group/header fixed inset-x-0 top-0 z-50 data-[dark]:text-black',
-    solid ? 'text-black' : 'text-white',
+    // On phones the home header is a plain white bar too, so the photo below has no dark band.
+    solid ? 'text-black' : 'text-black nav:text-white',
   ]}
 >
   <div
@@ -52,9 +61,7 @@ const langLink = 'px-1 hover:underline aria-[current=true]:font-bold aria-[curre
       'relative z-[2] flex items-center justify-between gap-4 px-[18px] py-3 nav:py-3.5',
       solid
         ? 'border-b border-black bg-white nav:border-b-2'
-        : 'border-b border-transparent transition-colors duration-300 group-data-[scrolled]/header:border-black group-data-[scrolled]/header:bg-white nav:border-b-2',
-      // On phones, a soft dark fade keeps the header readable over the home photo.
-      !solid && 'bg-linear-to-b from-black/55 to-transparent bg-no-repeat group-data-[scrolled]/header:bg-none group-data-[dark]/header:bg-none nav:bg-none',
+        : 'border-b border-black bg-white transition-colors duration-300 nav:border-b-2 nav:border-transparent nav:bg-transparent nav:group-data-[scrolled]/header:border-black nav:group-data-[scrolled]/header:bg-white',
     ]}
   >
     <a href={home} aria-label={t('nav.homeAria')} class="flex shrink-0 items-center">
@@ -66,7 +73,7 @@ const langLink = 'px-1 hover:underline aria-[current=true]:font-bold aria-[curre
         eager
         class:list={[
           'block size-[52px] rounded-full border-[1.5px] nav:size-[46px] group-data-[dark]/header:border-black',
-          solid ? 'border-black' : 'border-white',
+          solid ? 'border-black' : 'border-black nav:border-white',
         ]}
       />
     </a>
@@ -150,6 +157,7 @@ const langLink = 'px-1 hover:underline aria-[current=true]:font-bold aria-[curre
       <div class="flex flex-col">
         <div class="mb-2.5 text-[11px] uppercase tracking-[0.34em] opacity-60">{t('nav.shopCategories')}</div>
         {categorias.map((cat, i) => (
+          <Fragment>
           <a
             href={catalogoUrl(lang, cat.id)}
             class={megaRow}
@@ -163,6 +171,12 @@ const langLink = 'px-1 hover:underline aria-[current=true]:font-bold aria-[curre
             </span>
             <span class="font-sans text-xl opacity-0 transition-opacity duration-200 group-data-[active]/item:opacity-100">→</span>
           </a>
+          {cat.id === 'ponchos' && (
+            <div class="flex flex-wrap gap-x-6 gap-y-1 border-b-[1.5px] border-black py-3 pl-[34px] text-xs font-semibold uppercase tracking-[0.14em]">
+              {ponchoLines.map((l) => <a href={l.href} class="text-black underline-offset-4 hover:underline">{l.label}</a>)}
+            </div>
+          )}
+          </Fragment>
         ))}
         <a href={url(lang, 'disena')} class={aboutRow}>
           <span class="flex items-baseline gap-3.5"><span class="font-sans text-[11px] tracking-[0.3em] opacity-60">{String(categorias.length + 1).padStart(2, '0')}</span><span>{t('nav.design')}</span></span>
@@ -203,6 +217,10 @@ const langLink = 'px-1 hover:underline aria-[current=true]:font-bold aria-[curre
         <span>{t('nav.team')}</span>
         <span class="font-sans text-lg">→</span>
       </a>
+      <a href={volunteerHref} class={aboutRow}>
+        <span>{t('footer.volunteer')}</span>
+        <span class="font-sans text-lg">→</span>
+      </a>
     </div>
   </div>
 
@@ -220,7 +238,10 @@ const langLink = 'px-1 hover:underline aria-[current=true]:font-bold aria-[curre
       </summary>
       <div class="flex flex-col pl-3.5">
         {categorias.map((cat) => (
-          <a href={catalogoUrl(lang, cat.id)} class={mobileRow}><span>{catName(cat.id)}</span><span class="font-sans text-lg">→</span></a>
+          <Fragment>
+            <a href={catalogoUrl(lang, cat.id)} class={mobileRow}><span>{catName(cat.id)}</span><span class="font-sans text-lg">→</span></a>
+            {cat.id === 'ponchos' && ponchoLines.map((l) => <a href={l.href} class={subRow}><span>{l.label}</span><span class="font-sans">→</span></a>)}
+          </Fragment>
         ))}
         <a href={url(lang, 'disena')} class={mobileRow}><span>{t('nav.design')}</span><span class="font-sans text-lg">→</span></a>
       </div>
@@ -235,6 +256,7 @@ const langLink = 'px-1 hover:underline aria-[current=true]:font-bold aria-[curre
         <a href={url(lang, 'historia')} class={mobileRow}><span>{t('nav.history')}</span><span class="font-sans text-lg">→</span></a>
         <a href={url(lang, 'causa')} class={mobileRow}><span>{t('nav.cause')}</span><span class="font-sans text-lg">→</span></a>
         <a href={url(lang, 'equipo')} class={mobileRow}><span>{t('nav.team')}</span><span class="font-sans text-lg">→</span></a>
+        <a href={volunteerHref} class={mobileRow}><span>{t('footer.volunteer')}</span><span class="font-sans text-lg">→</span></a>
       </div>
     </details>
     <a href={url(lang, 'b2b')} class={mobileTop}>{t('nav.b2b')}</a>
