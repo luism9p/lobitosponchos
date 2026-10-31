@@ -26,7 +26,8 @@
 @layer base {
   html {
     scroll-behavior: auto;
-    scroll-padding-top: 76px;
+    /* No page-wide scroll-padding: each #section sets its own scroll-margin (scroll-mt-*), and the
+       browser would add the two together, landing sections too low when arriving from another page. */
   }
   body {
     @apply bg-white font-sans text-black;

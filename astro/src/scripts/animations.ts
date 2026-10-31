@@ -24,6 +24,16 @@ declare global {
 }
 
 let lenisInstance: Lenis | null = null;
+
+/**
+ * Where to scroll so a #section sits just under the fixed header. Uses the section's own
+ * scroll-margin-top (the gap the browser also uses), or 76px. Passing the element itself to Lenis
+ * would subtract its scroll margins again and land ~150px too low.
+ */
+function anchorTop(target: HTMLElement): number {
+  const gap = parseFloat(getComputedStyle(target).scrollMarginTop) || 76;
+  return target.getBoundingClientRect().top + window.scrollY - gap;
+}
 let isTickerBound = false;
 
 /**
@@ -107,15 +117,24 @@ export function initAnimations(): void {
       const target = document.querySelector<HTMLElement>(hash);
       if (target) {
         e.preventDefault();
-        // Scroll to an exact position: given an element, Lenis also subtracts its scroll margins,
-        // which pushed the section ~150px too low. 76px leaves room for the fixed header.
-        lenisInstance?.scrollTo(target.getBoundingClientRect().top + window.scrollY - 76, {
+        lenisInstance?.scrollTo(anchorTop(target), {
           duration: 1.1,
           easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         });
       }
     }
   });
+
+  // Arriving from another page with a #section: the browser jumps before photos and fonts have
+  // settled, so it lands too high. Line the section up again once the page has fully loaded.
+  if (location.hash.length > 1) {
+    const target = document.querySelector<HTMLElement>(decodeURIComponent(location.hash));
+    if (target) {
+      const align = () => lenisInstance?.scrollTo(anchorTop(target), { immediate: true, force: true });
+      if (document.readyState === 'complete') requestAnimationFrame(align);
+      else window.addEventListener('load', () => requestAnimationFrame(align), { once: true });
+    }
+  }
 
   // ---------------------------------------------------------------------------
   // 2. Scroll Reveal: Titles & Main Headings (h1, h2, display texts)
