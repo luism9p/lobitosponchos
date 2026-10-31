@@ -3,7 +3,7 @@ nombre: "Ying & Yang"
 categoria: ponchos
 linea: clasico
 orden: 16
-resumen: "Poncho de surf de microfibra, hecho a mano en Lobitos, Piura."
+resumen: "Poncho de surf hecho a mano en Lobitos, Piura."
 tallas: ["Talla única"]
 colores: []
 borrador: true
@@ -18,7 +18,7 @@ fotos:
     alt: "Ying & Yang, foto 4"
 en:
   nombre: "Ying & Yang"
-  resumen: "Microfiber surf poncho, handmade in Lobitos, Piura."
+  resumen: "Surf poncho, handmade in Lobitos, Piura."
   tallas: ["One size"]
   descripcion: "[Description pending] Handmade poncho from Lobitos, Piura."
 ---

@@ -55,7 +55,7 @@ const tab =
       </div>
 
       <div class="mt-6 flex flex-col gap-3 border-y-[1.5px] border-dashed border-black py-4 xs:flex-row xs:flex-wrap xs:items-center xs:justify-between xs:gap-4 split:mt-9">
-        <div class="-mx-5 flex gap-2 overflow-x-auto px-5 [scrollbar-width:none] xs:mx-0 xs:flex-wrap xs:overflow-visible xs:px-0" role="group" aria-label={t('catalog.filterLabel')} data-filters>
+        <div class="flex flex-wrap gap-2" role="group" aria-label={t('catalog.filterLabel')} data-filters>
           {filtros.map((f) => (
             <button type="button" data-filter={f.id} aria-pressed={f.id === 'todos' ? 'true' : 'false'} class={tab}>{f.nombre}</button>
           ))}
@@ -91,7 +91,7 @@ const tab =
       <LogoBadge size={170} class="mx-auto mb-8 w-[120px] split:w-[170px]" />
       <h2 class="mx-auto mb-7 max-w-[820px] font-display text-[clamp(28px,5vw,58px)] font-normal uppercase leading-[1.08]">{t('catalog.ctaTitle')}</h2>
       <div class="flex flex-wrap items-center justify-center gap-4">
-        <a href={url(lang, 'disena')} class="inline-flex rotate-2 items-center border-2 border-white bg-black px-4 pb-[9px] pt-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-white transition-transform duration-200 hover:-rotate-[1.5deg] hover:scale-[1.04] hover:no-underline">{t('catalog.ctaDesign')} →</a>
+        <a href={url(lang, 'disena')} class="inline-flex min-h-[44px] items-center justify-center border-2 border-white bg-black px-[26px] py-3.5 text-xs font-semibold uppercase tracking-[0.16em] text-white hover:bg-white hover:text-black hover:no-underline">{t('catalog.ctaDesign')} →</a>
         <WhatsAppButton variant="outline-white" message={t('wa.custom')}>{t('catalog.ctaBtn')}</WhatsAppButton>
       </div>
     </section>

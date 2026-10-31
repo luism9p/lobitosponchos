@@ -31,7 +31,7 @@
     "ponchos": { "name": "Lobitos Ponchos", "lines": ["Lobitos", "Ponchos"] },
     "kids": { "name": "Lobitos Ponchos Kids", "lines": ["Lobitos", "Ponchos Kids"] },
     "fundas": { "name": "Fundas", "lines": ["Fundas", ""] },
-    "accessories": { "name": "Accessories", "lines": ["Accessories", ""] }
+    "accessories": { "name": "Accesorios", "lines": ["Accesorios", ""] }
   },
   "hero": {
     "carousel": "carrusel",
@@ -238,7 +238,7 @@
     "seoDescription": "Ponchos de surf, ponchos kids, fundas y accesorios hechos a mano en Lobitos, Piura. Elige tu modelo y pídelo por WhatsApp.",
     "chip": "■ Catálogo",
     "title": "Elige tu\nponcho",
-    "lead": "Cada pieza se hace a mano y a pedido, en microfibra suave que seca rápido. Escríbenos por WhatsApp con el modelo que te gustó y coordinamos los colores.",
+    "lead": "Cada pieza se hace a mano y a pedido. Escríbenos por WhatsApp con el modelo que te gustó y coordinamos los colores.",
     "filterLabel": "Filtrar por categoría",
     "all": "Todos",
     "products": "productos",

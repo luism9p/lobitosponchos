@@ -2,7 +2,9 @@
 import WhatsAppIcon from './WhatsAppIcon.astro';
 import { whatsappUrl } from '../data/site';
 
-// "Sticker" style button that opens a WhatsApp chat, optionally with the message pre-written.
+// Button that opens a WhatsApp chat, optionally with the message pre-written.
+// Same straight style as the site's other buttons: `solid` is black, `outline-white` is white
+// with a black border (for black or coloured backgrounds).
 interface Props {
   message?: string;
   variant?: 'solid' | 'outline-white';
@@ -10,8 +12,8 @@ interface Props {
 }
 const { message, variant = 'solid', class: className } = Astro.props;
 const variants = {
-  solid: 'bg-black text-white border-black',
-  'outline-white': 'bg-white text-black border-black outline-[1.5px] outline-white -outline-offset-[5px]',
+  solid: 'border-black bg-black text-white hover:bg-[#222]',
+  'outline-white': 'border-black bg-white text-black hover:bg-black hover:text-white',
 };
 ---
 
@@ -20,7 +22,7 @@ const variants = {
   target="_blank"
   rel="noopener"
   class:list={[
-    'inline-flex -rotate-2 items-center gap-2 border-2 px-4 pb-[9px] pt-2.5 text-xs font-semibold uppercase tracking-[0.12em] hover:no-underline',
+    'inline-flex min-h-[44px] items-center justify-center gap-2.5 border-2 px-[26px] py-3.5 text-xs font-semibold uppercase tracking-[0.16em] hover:no-underline',
     variants[variant],
     className,
   ]}
