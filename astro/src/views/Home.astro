@@ -3,10 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Img from '../components/Img.astro';
 import Lines from '../components/Lines.astro';
-import SectionBar from '../components/SectionBar.astro';
 import InstagramReel from '../components/InstagramReel.astro';
 import { categorias, catalogoUrl } from '../data/categorias';
-import { instagramUrl, site } from '../data/site';
+import { instagramUrl } from '../data/site';
 import { url, useTranslations, type Lang } from '../i18n';
 import equipoFoto from '../assets/historias/nuestra-causa.webp';
 import laOnza from '../assets/historias/la-onza.webp';
@@ -19,6 +18,10 @@ const { t, list } = useTranslations(lang);
 
 const aboutLinks = (['historia', 'causa', 'equipo'] as const).map((route) => url(lang, route));
 const aboutCards = list<{ title: string; text: string; link: string }>('home.aboutCards').map((card, i) => ({ ...card, href: aboutLinks[i] }));
+// White line between the slideshow and the shop tiles.
+const divider = 'h-2.5 bg-white';
+// Same space above and below the content of every home section.
+const sectionPad = 'py-10 split:py-14';
 ---
 
 <BaseLayout
@@ -32,7 +35,8 @@ const aboutCards = list<{ title: string; text: string; link: string }>('home.abo
   <main>
     <Hero lang={lang} autoplay={7} />
 
-    <SectionBar left={t('home.barLines')} />
+    <!-- White line between the photo and the category tiles -->
+    <div aria-hidden="true" class={divider}></div>
 
     <!-- Categories -->
     <section id="categorias" aria-label={t('home.categoriesLabel')} class="grid grid-cols-2 gap-0.5 border-b-2 border-black bg-black split:grid-cols-4">
@@ -56,17 +60,13 @@ const aboutCards = list<{ title: string; text: string; link: string }>('home.abo
       })}
     </section>
 
-    <!-- About us: story, purpose and people in one place -->
+    <!-- About us: all the text (intro and links to story, purpose and team) first, then the team photo -->
     <section id="nosotros" class="relative overflow-hidden bg-white">
-      <div class="relative mx-5 mt-10 border-2 border-black md:mx-0 md:mt-0 md:border-0 md:border-b-2">
-        <Img src={equipoFoto} alt={t('home.aboutPhotoAlt')} sizes="100vw" widths={[640, 960, 1280, 1600, 1920, 2560]} position="50% 48%" class="block h-auto w-full split:h-[clamp(240px,22vw,440px)] split:object-cover" />
-        <span class="absolute bottom-3 left-3 hidden border-2 md:inline-block border-black bg-white px-2.5 pb-0.5 pt-1.5 font-display text-[clamp(24px,4vw,48px)] uppercase leading-[.9] split:bottom-6 split:left-[34px]">{t('home.aboutChip')}</span>
-      </div>
-      <div class="mx-auto grid w-full max-w-[1180px] grid-cols-1 gap-8 px-5 pb-14 pt-12 split:grid-cols-[1fr_1.1fr] split:gap-14 split:pb-8 split:pt-9">
+      <div class="mx-auto grid w-full max-w-[1180px] grid-cols-1 gap-5 px-5 pb-8 pt-10 split:grid-cols-[1fr_1.1fr] split:gap-14 split:pt-14">
         <h2 class="m-0 font-display text-[clamp(36px,5vw,64px)] font-normal uppercase leading-[.95]"><Lines text={t('home.aboutTitle')} /></h2>
         <p class="m-0 self-end text-lg leading-[1.6] text-pretty">{t('home.aboutLead')}</p>
       </div>
-      <div class="mx-auto grid w-full max-w-[1180px] grid-cols-1 gap-8 px-5 pb-16 md:grid-cols-3 md:gap-10 split:pb-10">
+      <div class="mx-auto grid w-full max-w-[1180px] grid-cols-1 gap-6 px-5 pb-10 md:grid-cols-3 md:gap-10 split:pb-14">
         {aboutCards.map((card) => (
           <a href={card.href} class="group flex flex-col gap-2.5 border-t-2 border-black pt-5 text-black hover:no-underline">
             <h3 class="m-0 font-display text-[clamp(24px,2.4vw,32px)] font-normal uppercase leading-none">{card.title}</h3>
@@ -75,18 +75,17 @@ const aboutCards = list<{ title: string; text: string; link: string }>('home.abo
           </a>
         ))}
       </div>
+      <div class="border-t-2 border-black">
+        <Img src={equipoFoto} alt={t('home.aboutPhotoAlt')} sizes="100vw" widths={[640, 960, 1280, 1600, 1920, 2560]} position="50% 48%" class="block h-auto w-full" />
+      </div>
     </section>
 
-    <!-- Life in Lobitos: the Instagram clip beside the text. Sections alternate white / sand / white. -->
-    <section id="vida" class="bg-sand">
-      <div class="mx-auto grid w-full max-w-[1180px] grid-cols-1 items-center gap-10 px-5 py-14 md:grid-cols-[minmax(0,380px)_1fr] md:gap-16 split:py-[88px]">
+    <!-- Life in Lobitos: the Instagram clip beside the text. Sections alternate white / white (after the team photo) / sand. -->
+    <section id="vida" class="bg-white">
+      <div class:list={['mx-auto grid w-full max-w-[1180px] grid-cols-1 items-center gap-8 px-5 md:grid-cols-[minmax(0,380px)_1fr] md:gap-16', sectionPad]}>
         <div class="flex flex-col items-start gap-6 md:order-2">
           <h2 class="m-0 font-display text-[clamp(38px,5.4vw,80px)] font-normal uppercase leading-[.95]">{t('home.lifeTitle')}</h2>
           <p class="m-0 max-w-[480px] text-lg leading-[1.6] text-pretty">{t('home.lifeText')}</p>
-          <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 border-t-[1.5px] border-black pt-4">
-            <span class="font-display text-[34px] leading-none">12.4K</span>
-            <span class="whitespace-nowrap text-[11px] uppercase tracking-[0.2em] opacity-70">{t('home.lifeFollowersLabel')} · {site.instagramHandle}</span>
-          </div>
           <a href={instagramUrl} target="_blank" rel="noopener" class="bg-black px-[26px] py-3.5 text-xs uppercase tracking-[0.18em] text-white hover:bg-[#222] hover:text-white hover:no-underline">{t('home.lifeFollow')} ↗</a>
         </div>
         <div class="flex justify-center md:order-1 md:justify-start">
@@ -96,9 +95,9 @@ const aboutCards = list<{ title: string; text: string; link: string }>('home.abo
     </section>
 
     <!-- B2B -->
-    <section id="b2b" class="relative overflow-hidden bg-white">
+    <section id="b2b" class="relative overflow-hidden bg-sand">
       <div class="grid grid-cols-1 items-stretch md:grid-cols-[55fr_45fr]">
-        <div class="relative z-[2] flex flex-col justify-center gap-[26px] px-5 py-12 md:px-10 md:py-16">
+        <div class:list={['relative z-[2] flex flex-col justify-center gap-6 px-5 md:px-10', sectionPad]}>
           <h2 class="m-0 self-start font-display text-[clamp(36px,6vw,84px)] font-normal uppercase leading-[.9]"><Lines text={t('home.b2bTitle')} /></h2>
           <p class="m-0 max-w-[520px] text-lg leading-[1.6] text-pretty">{t('home.b2bText')}</p>
           <a href={url(lang, 'b2b')} class="self-start bg-black px-[26px] py-3.5 text-xs uppercase tracking-[0.18em] text-white hover:bg-[#222] hover:text-white hover:no-underline">{t('home.b2bLink')}</a>

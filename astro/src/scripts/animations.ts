@@ -4,6 +4,16 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Every animation here is a one-off reveal. Once one finishes, return its elements to normal:
+// the extra layer from `.reveal-ready` can trim letters and keep photos from being drawn.
+gsap.defaults({
+  onComplete(this: gsap.core.Tween) {
+    const targets = this.targets() as HTMLElement[];
+    targets.forEach((el) => el.classList?.remove('reveal-ready'));
+    gsap.set(targets, { clearProps: 'transform' });
+  },
+});
+
 declare global {
   interface Window {
     lenis?: Lenis;
