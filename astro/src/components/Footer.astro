@@ -1,4 +1,6 @@
 ---
+import logo from '../assets/brand/logo.png';
+import Img from './Img.astro';
 import WhatsAppIcon from './WhatsAppIcon.astro';
 import Lines from './Lines.astro';
 import { catalogoUrl } from '../data/categorias';
@@ -47,21 +49,25 @@ const link = 'break-words text-white/85 hover:text-white hover:underline underli
 const heading = 'mb-1 text-[11px] uppercase tracking-[0.2em] opacity-60';
 // A slight, different tilt per column keeps the hand-made feel.
 const tilts = ['-rotate-[1.2deg]', 'rotate-[1deg]', '-rotate-[0.8deg]', 'rotate-[1.2deg]'];
+const bigLogo = 'pointer-events-none -rotate-[8deg] rounded-full border-2 border-white';
 ---
 
-<footer id="contacto" class="border-t-2 border-black bg-black px-5 pb-14 pt-14 text-white split:pb-16 split:pt-16">
-  <div class="mx-auto max-w-[1180px]">
+<footer id="contacto" class="relative overflow-hidden border-t-2 border-black bg-black px-5 pb-14 pt-14 text-white split:pb-16 split:pt-16">
+  <!-- The big logo, running off the right edge (on phones it sits below the links instead) -->
+  <Img src={logo} alt="" sizes="(min-width: 860px) 440px, 60vw" widths={[300, 440, 660, 880]} class:list={[bigLogo, 'absolute top-1/2 hidden -translate-y-1/2 split:block', showTalk ? 'right-[-7%] w-[min(34vw,440px)]' : 'right-[3%] w-[min(17vw,210px)]']} />
+
+  <div class="relative mx-auto max-w-[1180px] split:pr-[min(26vw,340px)]">
     {showTalk && (
-      <div class="relative flex flex-col gap-8 border-b border-white/25 pb-12 split:flex-row split:items-end split:justify-between">
+      <div class="relative flex flex-col gap-8 border-b border-white/25 pb-12">
         <h2 class="m-0 origin-bottom-left -rotate-2 font-display text-[clamp(52px,9vw,110px)] font-normal uppercase leading-[.85]">{t('footer.talk')}</h2>
-        <svg viewBox="0 0 220 120" width="150" height="82" aria-hidden="true" class="pointer-events-none absolute left-[48%] top-[-10px] hidden overflow-visible split:block">
+        <svg viewBox="0 0 220 120" width="150" height="82" aria-hidden="true" class="pointer-events-none absolute left-[44%] top-[48%] hidden overflow-visible split:block">
           <path d="M6 96 C 50 30, 100 120, 140 40 S 190 20, 214 70" fill="none" stroke="#fff" stroke-width="2.5" stroke-dasharray="8 8" stroke-linecap="round"></path>
         </svg>
         <a
           href={whatsappUrl()}
           target="_blank"
           rel="noopener"
-          class="inline-flex min-h-[44px] origin-left rotate-[2deg] items-center gap-3 self-start border-[3px] border-white bg-white px-6 pb-3.5 pt-4 font-display text-[clamp(20px,2.4vw,28px)] uppercase leading-none text-black outline-2 -outline-offset-[7px] outline-black hover:no-underline split:mb-2 split:self-auto"
+          class="inline-flex min-h-[44px] origin-left rotate-[2deg] items-center gap-3 self-start border-[3px] border-white bg-white px-6 pb-3.5 pt-4 font-display text-[clamp(20px,2.4vw,28px)] uppercase leading-none text-black outline-2 -outline-offset-[7px] outline-black hover:no-underline split:mb-2 split:justify-self-start"
         >
           <WhatsAppIcon size={18} />
           <span>{t('footer.orderBtn')}</span>
@@ -69,7 +75,7 @@ const tilts = ['-rotate-[1.2deg]', 'rotate-[1deg]', '-rotate-[0.8deg]', 'rotate-
       </div>
     )}
 
-    <nav aria-label={t('nav.main')} class:list={['grid grid-cols-2 gap-x-8 gap-y-9 text-sm md:grid-cols-4', showTalk && 'pt-10']}>
+    <nav aria-label={t('nav.main')} class:list={['grid grid-cols-2 gap-x-8 gap-y-9 text-sm md:grid-cols-4 split:grid-cols-[repeat(4,auto)] split:justify-between split:gap-x-6 split:whitespace-nowrap', showTalk && 'pt-10']}>
       {groups.map((g, i) => (
         <div class:list={['flex flex-col gap-2.5 [&:nth-child(3)]:col-span-2 md:[&:nth-child(3)]:col-span-1', tilts[i]]}>
           <span class={heading}>{g.title}</span>
@@ -84,5 +90,7 @@ const tilts = ['-rotate-[1.2deg]', 'rotate-[1deg]', '-rotate-[0.8deg]', 'rotate-
         <span class="text-white/85">{t('footer.country')}</span>
       </div>
     </nav>
+
+    <Img src={logo} alt="" sizes="60vw" widths={[300, 440, 660]} class:list={[bigLogo, '-mb-[10vw] -mr-[14vw] -mt-[110px] ml-auto block w-[60vw] max-w-[340px] md:mt-8 split:hidden']} />
   </div>
 </footer>
