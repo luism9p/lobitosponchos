@@ -62,6 +62,14 @@ export function initHeader(): void {
     item.addEventListener('focus', () => setCategory(Number(item.dataset.megasub), false));
   });
 
+  // Rows that are not a category (e.g. Design your own) clear the category highlight, so only the
+  // row under the mouse is black.
+  header.querySelectorAll<HTMLElement>('[data-megaclear]').forEach((item) => {
+    const clear = () => megaItems.forEach((el) => el.removeAttribute('data-active'));
+    item.addEventListener('mouseenter', clear);
+    item.addEventListener('focus', clear);
+  });
+
   header.addEventListener('mouseleave', () => {
     if (desktop.matches && (menu === 'mega' || menu === 'about')) set('');
   });

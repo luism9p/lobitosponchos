@@ -185,11 +185,10 @@ const langLink = 'px-1 hover:underline aria-[current=true]:font-bold aria-[curre
           )}
           </Fragment>
         ))}
-        <a href={url(lang, 'disena')} class={aboutRow}>
+        <a href={url(lang, 'disena')} class={aboutRow} data-megaclear>
           <span class="flex items-baseline gap-3.5"><span class="font-sans text-[11px] tracking-[0.3em] opacity-60">{String(categorias.length + 1).padStart(2, '0')}</span><span>{t('nav.design')}</span></span>
           <span class="font-sans text-xl">→</span>
         </a>
-        <div class="mt-[26px] text-xs uppercase tracking-[0.14em] opacity-60">{t('nav.ordersByWhatsApp')}</div>
       </div>
       <div class="flex flex-col items-start gap-4">
         <div class="relative aspect-[5/4] w-full overflow-hidden border-2 border-black bg-black">
