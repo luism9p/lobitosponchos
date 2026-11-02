@@ -1,5 +1,5 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Chip from '../components/Chip.astro';
@@ -19,8 +19,7 @@ const { t } = useTranslations(lang);
 
 const todos = await getCollection('productos');
 const { categoria, precio, fotos } = producto.data;
-const { nombre, etiqueta, resumen, descripcion, tallas, colores } = localizeProduct(producto, lang);
-const { Content } = await render(producto);
+const { nombre, etiqueta, resumen, tallas, colores } = localizeProduct(producto, lang);
 
 const categoriaNombre = t(`categories.${categoria}.name`);
 const precioTexto = precio ? `S/ ${precio.toLocaleString('es-PE')}` : t('product.priceOnRequest');
@@ -81,10 +80,6 @@ const chipOption = 'border-[1.5px] border-black px-3 py-1.5 text-xs font-semibol
         <h1 class="m-0 font-display text-[clamp(38px,5vw,64px)] font-normal uppercase leading-[.98]">{nombre}</h1>
         <p class="m-0 text-[22px] font-semibold">{precioTexto}</p>
         <div class="border-t-[1.5px] border-dashed border-black"></div>
-        <p class="m-0 text-lg font-medium leading-[1.55] text-pretty">{resumen}</p>
-        <div class="text-base leading-[1.65] text-pretty">
-          {descripcion ? <p class="m-0">{descripcion}</p> : <Content />}
-        </div>
 
         {tallas.length > 0 && (
           <div class="flex flex-col gap-2">

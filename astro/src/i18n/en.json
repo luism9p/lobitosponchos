@@ -304,6 +304,7 @@
     "chip": "■ B2B · For businesses",
     "title": "Partnerships\nwith purpose",
     "lead": "Handmade ponchos and accessories for shops, cafés, hotels and brands that want something authentic, with a story that matters.",
+    "heroBtn": "Let’s make something together",
     "whyTitle": "Why work with us",
     "why": [
       { "title": "Authentic", "text": "Handmade in Lobitos by local grandmothers. Every piece has a real story." },
@@ -321,6 +322,10 @@
     "caseTitle": "La Onza, Lobitos",
     "casePhotoAlt": "Someone wearing a blue poncho with a pink hood and the La Onza Café patch, in front of the café sign in Lobitos",
     "caseWork": "A little café with big heart, a favorite with surfers in Lobitos. Their ponchos: their colors, their logo, made by our grandmothers.",
+    "henryChip": "Made for Surf with Henry",
+    "henryTitle": "Surf with Henry, Lobitos",
+    "henryPhotoAlt": "Someone seen from behind on the beach in Lobitos, wearing a green and beige poncho with a yellow hood and the Surf with Henry patch on the back",
+    "henryWork": "Henry is a surf instructor in Lobitos. We make the ponchos for his surf coaching, Surf with Henry, finished with its own embroidered patch.",
     "closingChip": "Let’s build it together",
     "closingTitle": "Let’s create something that makes a difference.",
     "closingText": "Tell us what you have in mind and we’ll make it with you.",
@@ -337,7 +342,7 @@
       {
         "when": "2018",
         "title": "A volunteer and two students",
-        "photoAlt": "Young people from Lobitos in colorful ponchos",
+        "photoAlt": "Three people smiling with surfboards in front of a wave mural in Lobitos",
         "text": "Lobitos is a small fishing town with a vibrant community of volunteers and surfers. In 2018, Tiíta came here to volunteer and taught English to two local teens, Kevyn and Iván."
       },
       {

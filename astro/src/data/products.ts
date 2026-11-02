@@ -9,7 +9,6 @@ export function localizeProduct(producto: CollectionEntry<'productos'>, lang: La
     nombre: en?.nombre || d.nombre,
     etiqueta: en?.etiqueta || d.etiqueta,
     resumen: en?.resumen || d.resumen,
-    descripcion: en?.descripcion || undefined,
     tallas: en?.tallas?.length ? en.tallas : d.tallas,
     colores: en?.colores?.length ? en.colores : d.colores,
   };

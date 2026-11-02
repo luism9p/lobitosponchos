@@ -13,7 +13,7 @@ interface Props {
 const { lang, producto, eager = false } = Astro.props;
 const { t } = useTranslations(lang);
 const { precio, fotos, categoria } = producto.data;
-const { nombre, etiqueta, resumen } = localizeProduct(producto, lang);
+const { nombre, etiqueta } = localizeProduct(producto, lang);
 const cover = fotos[0];
 const precioTexto = precio ? `S/ ${precio.toLocaleString('es-PE')}` : t('product.priceOnRequest');
 ---
@@ -38,7 +38,6 @@ const precioTexto = precio ? `S/ ${precio.toLocaleString('es-PE')}` : t('product
         <h3 class="m-0 font-display text-[clamp(20px,2.4vw,28px)] font-normal uppercase leading-none group-hover:underline">{nombre}</h3>
         <span class="shrink-0 text-[13px] font-semibold uppercase tracking-[0.06em] xs:text-right">{precioTexto}</span>
       </div>
-      <p class="m-0 hidden text-sm leading-snug opacity-70 xs:block">{resumen}</p>
     </div>
   </a>
 </li>

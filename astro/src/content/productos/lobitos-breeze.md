@@ -2,6 +2,7 @@
 nombre: "Lobitos Breeze"
 categoria: ponchos
 linea: clasico
+precio: 150
 orden: 11
 resumen: "Poncho de surf hecho a mano en Lobitos, Piura."
 tallas: ["Talla única"]
@@ -20,6 +21,4 @@ en:
   nombre: "Lobitos Breeze"
   resumen: "Surf poncho, handmade in Lobitos, Piura."
   tallas: ["One size"]
-  descripcion: "[Description pending] Handmade poncho from Lobitos, Piura."
 ---
-[Descripción pendiente] Poncho hecho a mano en Lobitos, Piura.

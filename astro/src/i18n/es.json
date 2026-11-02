@@ -304,6 +304,7 @@
     "chip": "■ B2B · Para negocios",
     "title": "Alianzas\ncon propósito",
     "lead": "Ponchos y accesorios hechos a mano para tiendas, cafés, hoteles y marcas que buscan algo auténtico, con una historia que importa.",
+    "heroBtn": "Hagamos algo juntos",
     "whyTitle": "Por qué trabajar con nosotros",
     "why": [
       { "title": "Auténtico", "text": "Hecho a mano en Lobitos por abuelas del pueblo. Cada pieza tiene una historia real." },
@@ -321,6 +322,10 @@
     "caseTitle": "La Onza, Lobitos",
     "casePhotoAlt": "Una persona con un poncho azul y capucha rosada con el parche de La Onza Café, frente al letrero del café en Lobitos",
     "caseWork": "Un café pequeño con mucho corazón, favorito de los surfistas en Lobitos. Sus ponchos: sus colores, su logo, hechos por nuestras abuelas.",
+    "henryChip": "Hecho para Surfeando con Henry",
+    "henryTitle": "Surfeando con Henry, Lobitos",
+    "henryPhotoAlt": "Una persona de espaldas en la playa de Lobitos con un poncho verde y beige de capucha amarilla, con el parche de Surfeando con Henry en la espalda",
+    "henryWork": "Henry es instructor de surf en Lobitos. Hacemos los ponchos para sus clases, Surfeando con Henry, con su propio parche bordado.",
     "closingChip": "Construyamos juntos",
     "closingTitle": "Creemos algo que marque la diferencia.",
     "closingText": "Cuéntanos qué tienes en mente y lo hacemos contigo.",
@@ -337,7 +342,7 @@
       {
         "when": "2018",
         "title": "Una voluntaria y dos alumnos",
-        "photoAlt": "Jóvenes de Lobitos con ponchos de colores",
+        "photoAlt": "Tres personas sonriendo con tablas de surf frente a un mural de una ola en Lobitos",
         "text": "Lobitos es un pequeño pueblo de pescadores con una vibrante comunidad de voluntarios y surfistas. En 2018, Tiíta llegó como voluntaria y enseñó inglés a dos jóvenes del pueblo, Kevyn e Iván."
       },
       {
