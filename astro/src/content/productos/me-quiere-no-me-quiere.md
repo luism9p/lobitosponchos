@@ -2,7 +2,7 @@
 nombre: "Me quiere, no me quiere"
 categoria: ponchos
 linea: unico
-precio: 170
+precio: 200
 orden: 12
 resumen: "Poncho de surf hecho a mano en Lobitos, Piura."
 tallas: ["Talla única"]

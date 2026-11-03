@@ -2,7 +2,7 @@
 nombre: "Cola de Sirena"
 categoria: ponchos
 linea: unico
-precio: 170
+precio: 230
 orden: 5
 resumen: "Poncho de surf hecho a mano en Lobitos, Piura."
 tallas: ["Talla única"]

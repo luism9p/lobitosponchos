@@ -2,7 +2,7 @@
 nombre: "Fish Poncho"
 categoria: ponchos
 linea: unico
-precio: 170
+precio: 180
 orden: 7
 resumen: "Poncho de surf hecho a mano en Lobitos, Piura."
 tallas: ["Talla única"]
